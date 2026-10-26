@@ -1,0 +1,78 @@
+---
+// Header / Navigation Bar Component
+---
+
+<header class="bg-[#090D16]/90 backdrop-blur-md sticky top-0 z-40 border-b border-[#1E293B]/60 transition-all duration-200">
+  <div class="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 h-16 w-full">
+    <!-- Brand Identifier -->
+    <a href="#hero" class="flex items-center gap-2.5 group transition-transform active:scale-[0.98]">
+      <span class="relative flex h-2.5 w-2.5">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
+      </span>
+      <span class="font-mono text-sm sm:text-base font-semibold tracking-tight text-[#F8FAFC] group-hover:text-[#38BDF8] transition-colors">
+        ~/mhcybroot
+      </span>
+      <span class="font-mono text-[10px] text-[#94A3B8] bg-[#1E293B]/70 px-1.5 py-0.5 rounded border border-[#334155]/60">
+        v2.4-prod
+      </span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex items-center space-x-6 text-sm text-[#94A3B8]">
+      <a href="#hero" class="hover:text-[#F8FAFC] transition-colors font-medium">Overview</a>
+      <a href="#systems" class="hover:text-[#F8FAFC] transition-colors font-medium">Systems</a>
+      <a href="#deployments" class="hover:text-[#F8FAFC] transition-colors font-medium">Deployments</a>
+      <a href="#arsenal" class="hover:text-[#F8FAFC] transition-colors font-medium">Arsenal</a>
+      <a href="#endorsements" class="hover:text-[#F8FAFC] transition-colors font-medium">Endorsements</a>
+      <a href="#experience" class="hover:text-[#F8FAFC] transition-colors font-medium">Career</a>
+    </nav>
+
+    <!-- Trailing CTAs -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <!-- Status Pill -->
+      <div class="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0F172A] border border-[#1E293B] text-[11px] font-mono text-[#10B981]">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
+        </span>
+        <span>Available for Roles</span>
+      </div>
+
+      <!-- Quick Dossier Modal Trigger -->
+      <button
+        id="nav-resume-btn"
+        type="button"
+        class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-[#1E293B]/70 border border-[#334155] text-xs sm:text-sm font-medium text-[#F8FAFC] hover:border-[#38BDF8] hover:text-[#38BDF8] transition-all cursor-pointer"
+      >
+        <span>Resume</span>
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </button>
+
+      <!-- Connect CTA -->
+      <a
+        href="#contact"
+        class="hidden sm:inline-flex items-center gap-1 px-3.5 py-1.5 rounded bg-[#06B6D4] text-[#090D16] text-xs sm:text-sm font-semibold hover:bg-[#38BDF8] transition-all shadow-[0_0_15px_rgba(6,182,212,0.3)] active:scale-95"
+      >
+        <span>Connect</span>
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+
+      <!-- Mobile Menu Hamburger Button -->
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        class="md:hidden p-2 rounded text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#1E293B] focus:outline-none"
+        aria-label="Toggle Navigation Menu"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

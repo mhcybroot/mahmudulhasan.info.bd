@@ -1,0 +1,83 @@
+---
+// Mobile Navigation Drawer Component
+---
+
+<div id="mobile-drawer-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+
+<aside
+  id="mobile-drawer"
+  class="fixed top-0 right-0 bottom-0 w-72 sm:w-80 bg-[#0A0F1D] border-l border-[#1E293B] z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col p-6 shadow-2xl"
+  aria-label="Mobile Navigation"
+>
+  <div class="flex items-center justify-between pb-6 border-b border-[#1E293B]">
+    <div class="flex items-center gap-2">
+      <span class="h-2 w-2 rounded-full bg-[#10B981] animate-ping"></span>
+      <span class="font-mono text-sm font-semibold text-[#F8FAFC]">~/mhcybroot</span>
+    </div>
+    <button id="mobile-drawer-close" class="p-2 text-[#94A3B8] hover:text-[#F8FAFC] rounded hover:bg-[#1E293B]" aria-label="Close menu">
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <nav class="flex flex-col space-y-4 py-6 font-medium text-base text-[#94A3B8]">
+    <a href="#hero" class="mobile-nav-link hover:text-[#38BDF8] py-1.5 transition-colors">Overview</a>
+    <a href="#systems" class="mobile-nav-link hover:text-[#38BDF8] py-1.5 transition-colors">Flagship Systems</a>
+    <a href="#deployments" class="mobile-nav-link hover:text-[#38BDF8] py-1.5 transition-colors">Live Deployments</a>
+    <a href="#arsenal" class="mobile-nav-link hover:text-[#38BDF8] py-1.5 transition-colors">Technical Arsenal</a>
+    <a href="#endorsements" class="mobile-nav-link hover:text-[#38BDF8] py-1.5 transition-colors">Endorsements</a>
+    <a href="#experience" class="mobile-nav-link hover:text-[#38BDF8] py-1.5 transition-colors">Career Timeline</a>
+    <a href="#contact" class="mobile-nav-link hover:text-[#38BDF8] py-1.5 transition-colors">Contact Transmission</a>
+  </nav>
+
+  <div class="mt-auto pt-6 border-t border-[#1E293B] flex flex-col gap-3">
+    <button
+      id="mobile-drawer-resume-btn"
+      type="button"
+      class="w-full py-2.5 px-4 rounded bg-[#1E293B] border border-[#334155] text-sm font-medium text-[#F8FAFC] hover:border-[#38BDF8] hover:text-[#38BDF8] flex items-center justify-center gap-2"
+    >
+      <span>Quick View Resume</span>
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      </svg>
+    </button>
+    <a
+      href="#contact"
+      class="w-full py-2.5 px-4 rounded bg-[#06B6D4] text-[#090D16] text-sm font-semibold hover:bg-[#38BDF8] text-center"
+    >
+      Connect Directly
+    </a>
+  </div>
+</aside>
+
+<script>
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const closeBtn = document.getElementById('mobile-drawer-close');
+  const overlay = document.getElementById('mobile-drawer-overlay');
+  const drawer = document.getElementById('mobile-drawer');
+  const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function openDrawer() {
+    drawer?.classList.remove('translate-x-full');
+    overlay?.classList.remove('opacity-0', 'pointer-events-none');
+    overlay?.classList.add('opacity-100');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    drawer?.classList.add('translate-x-full');
+    overlay?.classList.add('opacity-0', 'pointer-events-none');
+    overlay?.classList.remove('opacity-100');
+    document.body.style.overflow = '';
+  }
+
+  toggleBtn?.addEventListener('click', openDrawer);
+  closeBtn?.addEventListener('click', closeDrawer);
+  overlay?.addEventListener('click', closeDrawer);
+  navLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDrawer();
+  });
+</script>

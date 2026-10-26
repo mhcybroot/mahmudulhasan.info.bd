@@ -1,0 +1,56 @@
+{
+  "name": "Mahmudul Hasan — Systems & Concurrency Engineer",
+  "short_name": "mhcybroot",
+  "description": "High-Throughput Concurrent Backends, Edge Daemons & Bare-Metal Hardware Protocols Portfolio of Mahmudul Hasan (@mhcybroot).",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090e1c",
+  "theme_color": "#38bdf8",
+  "orientation": "portrait-primary",
+  "categories": [
+    "portfolio",
+    "technology",
+    "engineering"
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Flagship Systems",
+      "url": "/#systems",
+      "description": "PMS-V2 Smart Parking Engine & Low-Latency Daemons"
+    },
+    {
+      "name": "Technical Arsenal",
+      "url": "/#arsenal",
+      "description": "Rust, Java 21 Loom, RTSP, and Hardware Protocols"
+    },
+    {
+      "name": "Systems Dossier",
+      "url": "/#dossier",
+      "description": "Executive Engineering Resume & Architecture Dossier"
+    },
+    {
+      "name": "Direct Transmission",
+      "url": "/#contact",
+      "description": "Initiate direct engineering connection"
+    }
+  ]
+}

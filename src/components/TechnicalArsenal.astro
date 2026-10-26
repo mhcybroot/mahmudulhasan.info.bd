@@ -1,0 +1,152 @@
+---
+// Technical Arsenal Matrix Component
+---
+
+<section id="arsenal" class="space-y-8 scroll-mt-24 pt-8">
+  <!-- Section Heading -->
+  <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-[#1E293B] pb-4 gap-4">
+    <div>
+      <div class="flex items-center gap-2 text-[#38BDF8] font-mono text-xs tracking-wider uppercase mb-1">
+        <svg class="w-4 h-4 text-[#38BDF8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+        <span>Domains & Capabilities</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-bold text-[#F8FAFC]">Technical Arsenal</h2>
+    </div>
+    <p class="text-sm text-[#94A3B8] max-w-md">
+      Disciplined selection of low-level languages, asynchronous primitives, and storage drivers.
+    </p>
+  </div>
+
+  <!-- 4-Column Responsive Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+    <!-- Column 1: Systems & Async -->
+    <div class="p-5 rounded-2xl border border-[#1E293B] bg-[#0F172A]/70 backdrop-blur-md space-y-4 hover:border-[#38BDF8]/60 hover:-translate-y-1.5 transition-all duration-300">
+      <div class="flex items-center gap-2 text-[#38BDF8] font-bold text-lg">
+        <svg class="w-5 h-5 text-[#38BDF8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+        </svg>
+        <h3>Systems & Async</h3>
+      </div>
+      <ul class="space-y-3 font-mono text-xs text-[#CBD5E1]">
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#38BDF8] transition-colors">
+          <span>Rust 2024 (Tokio / Axum)</span>
+          <span class="text-[#10B981] font-bold bg-[#10B981]/10 px-1.5 py-0.5 rounded">Core</span>
+        </li>
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#38BDF8] transition-colors">
+          <span>Java 21 LTS (Spring Boot 3.4)</span>
+          <span class="text-[#38BDF8] bg-[#38BDF8]/10 px-1.5 py-0.5 rounded">Loom</span>
+        </li>
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#38BDF8] transition-colors">
+          <span>C / Low-Level Sockets</span>
+          <span class="text-[#94A3B8] bg-[#1E293B] px-1.5 py-0.5 rounded">POSIX</span>
+        </li>
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#38BDF8] transition-colors">
+          <span>Multi-threaded Daemons</span>
+          <span class="text-[#38BDF8] bg-[#1E293B] px-1.5 py-0.5 rounded">mpsc</span>
+        </li>
+        <li class="flex items-center justify-between hover:text-[#38BDF8] transition-colors">
+          <span>Zero-Copy Networking</span>
+          <span class="text-[#94A3B8] bg-[#1E293B] px-1.5 py-0.5 rounded">epoll</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Column 2: Databases & Storage -->
+    <div class="p-5 rounded-2xl border border-[#1E293B] bg-[#0F172A]/70 backdrop-blur-md space-y-4 hover:border-[#10B981]/60 hover:-translate-y-1.5 transition-all duration-300">
+      <div class="flex items-center gap-2 text-[#10B981] font-bold text-lg">
+        <svg class="w-5 h-5 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7M4 7c0-2 1.5-3 3.5-3h9c2 0 3.5 1 3.5 3M4 7h16m-16 5h16" />
+        </svg>
+        <h3>Databases & Storage</h3>
+      </div>
+      <ul class="space-y-3 font-mono text-xs text-[#CBD5E1]">
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#10B981] transition-colors">
+          <span>PostgreSQL 16 (SeaORM)</span>
+          <span class="text-[#10B981] font-bold bg-[#10B981]/10 px-1.5 py-0.5 rounded">ACID</span>
+        </li>
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#10B981] transition-colors">
+          <span>Spring Data JPA / Hibernate</span>
+          <span class="text-[#38BDF8] bg-[#38BDF8]/10 px-1.5 py-0.5 rounded">Criteria</span>
+        </li>
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#10B981] transition-colors">
+          <span>Redis Pub/Sub & Cache</span>
+          <span class="text-[#94A3B8] bg-[#1E293B] px-1.5 py-0.5 rounded">Cluster</span>
+        </li>
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#10B981] transition-colors">
+          <span>SQLite Embedded WAL</span>
+          <span class="text-[#94A3B8] bg-[#1E293B] px-1.5 py-0.5 rounded">Edge</span>
+        </li>
+        <li class="flex items-center justify-between hover:text-[#10B981] transition-colors">
+          <span>Async Connection Pools</span>
+          <span class="text-[#10B981] bg-[#1E293B] px-1.5 py-0.5 rounded">32/32</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Hardware & Protocols -->
+    <div class="p-5 rounded-2xl border border-[#1E293B] bg-[#0F172A]/70 backdrop-blur-md space-y-4 hover:border-[#38BDF8]/60 hover:-translate-y-1.5 transition-all duration-300">
+      <div class="flex items-center gap-2 text-[#38BDF8] font-bold text-lg">
+        <svg class="w-5 h-5 text-[#38BDF8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+        </svg>
+        <h3>Hardware Protocols</h3>
+      </div>
+      <ul class="space-y-3 font-mono text-xs text-[#CBD5E1]">
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#38BDF8] transition-colors">
+          <span>ZKTeco ADMS (HTTP Push)</span>
+          <span class="text-[#10B981] font-bold bg-[#10B981]/10 px-1.5 py-0.5 rounded">Direct</span>
+        </li>
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#38BDF8] transition-colors">
+          <span>RTSP / H.264 Video Stream</span>
+          <span class="text-[#38BDF8] bg-[#38BDF8]/10 px-1.5 py-0.5 rounded">Frigate AI</span>
+        </li>
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#38BDF8] transition-colors">
+          <span>RS485 / RS232 Serial Loop</span>
+          <span class="text-[#94A3B8] bg-[#1E293B] px-1.5 py-0.5 rounded">Baud</span>
+        </li>
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#38BDF8] transition-colors">
+          <span>GPIO Relay Barrier Auto</span>
+          <span class="text-[#10B981] bg-[#1E293B] px-1.5 py-0.5 rounded">Latch</span>
+        </li>
+        <li class="flex items-center justify-between hover:text-[#38BDF8] transition-colors">
+          <span>Barcode Multi-Terminal Sync</span>
+          <span class="text-[#94A3B8] bg-[#1E293B] px-1.5 py-0.5 rounded">POS</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Frontend & DevOps -->
+    <div class="p-5 rounded-2xl border border-[#1E293B] bg-[#0F172A]/70 backdrop-blur-md space-y-4 hover:border-[#10B981]/60 hover:-translate-y-1.5 transition-all duration-300">
+      <div class="flex items-center gap-2 text-[#10B981] font-bold text-lg">
+        <svg class="w-5 h-5 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+        <h3>Frontend & DevOps</h3>
+      </div>
+      <ul class="space-y-3 font-mono text-xs text-[#CBD5E1]">
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#10B981] transition-colors">
+          <span>React 19 / TypeScript</span>
+          <span class="text-[#38BDF8] font-bold bg-[#38BDF8]/10 px-1.5 py-0.5 rounded">Modern</span>
+        </li>
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#10B981] transition-colors">
+          <span>Three.js / React Three Fiber</span>
+          <span class="text-[#38BDF8] bg-[#38BDF8]/10 px-1.5 py-0.5 rounded">3D</span>
+        </li>
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#10B981] transition-colors">
+          <span>MikroTik RouterOS (VLANs)</span>
+          <span class="text-[#10B981] bg-[#10B981]/10 px-1.5 py-0.5 rounded">BPO PBX</span>
+        </li>
+        <li class="flex items-center justify-between pb-2 border-b border-[#1E293B]/50 hover:text-[#10B981] transition-colors">
+          <span>Ubuntu Linux VPS / Docker</span>
+          <span class="text-[#94A3B8] bg-[#1E293B] px-1.5 py-0.5 rounded">Nginx</span>
+        </li>
+        <li class="flex items-center justify-between hover:text-[#10B981] transition-colors">
+          <span>Flutter (BLoC Architecture)</span>
+          <span class="text-[#94A3B8] bg-[#1E293B] px-1.5 py-0.5 rounded">Mobile</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

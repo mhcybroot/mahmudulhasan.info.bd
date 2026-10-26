@@ -1,0 +1,271 @@
+---
+// Flagship Engineered Systems Component
+---
+
+<section id="systems" class="space-y-8 scroll-mt-24 pt-8">
+  <!-- Section Heading -->
+  <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-[#1E293B] pb-4 gap-4">
+    <div>
+      <div class="flex items-center gap-2 text-[#38BDF8] font-mono text-xs tracking-wider uppercase mb-1">
+        <svg class="w-4 h-4 text-[#38BDF8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <span>Core Architectures & Runtimes</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-bold text-[#F8FAFC]">Flagship Engineered Systems</h2>
+    </div>
+    <p class="text-sm text-[#94A3B8] max-w-md">
+      Industrial-grade hardware middleware, high-concurrency microservices, and distributed transaction engines.
+    </p>
+  </div>
+
+  <!-- Spotlight Hero Card: PMS-V2 (Smart Parking Engine) -->
+  <div class="rounded-2xl border border-[#1E293B] bg-[#0F172A]/70 backdrop-blur-md overflow-hidden transition-all duration-300 hover:border-[#38BDF8]/60 hover:shadow-[0_10px_35px_rgba(6,182,212,0.15)]">
+    <!-- Spotlight Top Bar -->
+    <div class="p-5 sm:p-6 border-b border-[#1E293B] flex flex-wrap items-center justify-between gap-4 bg-[#090D16]/60">
+      <div class="space-y-1">
+        <div class="flex items-center gap-3 flex-wrap">
+          <h3 class="text-xl sm:text-2xl font-bold text-[#F8FAFC]">PMS-V2 Smart Parking Engine</h3>
+          <span class="px-2.5 py-0.5 rounded-full text-[#10B981] bg-[#10B981]/10 border border-[#10B981]/30 font-mono text-xs flex items-center gap-1.5">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
+            </span>
+            Active v2.4-prod
+          </span>
+        </div>
+        <p class="text-xs sm:text-sm text-[#94A3B8]">Autonomous Edge-to-Cloud Vehicle Access Automation & Low-Latency Relay Control</p>
+      </div>
+
+      <!-- Low-Latency Badges -->
+      <div class="flex items-center gap-2">
+        <span class="px-2.5 py-1 rounded bg-[#090D16] border border-[#1E293B] font-mono text-xs text-[#38BDF8]">&lt;0.84ms OCR Trigger</span>
+        <span class="px-2.5 py-1 rounded bg-[#090D16] border border-[#1E293B] font-mono text-xs text-[#10B981]">8 In / 8 Out Zero-Drop</span>
+      </div>
+    </div>
+
+    <!-- Interactive Two-Tab Spec View -->
+    <div class="p-5 sm:p-6 space-y-6">
+      <!-- Tab Controls -->
+      <div class="flex border-b border-[#1E293B] gap-6 text-sm">
+        <button
+          type="button"
+          id="btn-tab-arch"
+          class="pb-2.5 text-[#38BDF8] border-b-2 border-[#38BDF8] font-medium flex items-center gap-2 transition-all cursor-pointer"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+          <span>Architecture Topology</span>
+        </button>
+        <button
+          type="button"
+          id="btn-tab-telemetry"
+          class="pb-2.5 text-[#94A3B8] hover:text-[#F8FAFC] border-b-2 border-transparent font-medium flex items-center gap-2 transition-all cursor-pointer"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span>Live Telemetry Stream</span>
+          <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+        </button>
+      </div>
+
+      <!-- Tab Content 1: Topology Microservices Node Map -->
+      <div id="content-tab-arch" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 transition-all">
+        <!-- Stage 01 -->
+        <div class="p-4 rounded-xl bg-[#090D16] border border-[#1E293B] space-y-2 hover:border-[#38BDF8]/50 hover:-translate-y-1 transition-all group">
+          <div class="flex items-center justify-between text-[#38BDF8] font-mono text-[10px] uppercase tracking-wider">
+            <span>STAGE 01: EDGE STREAM</span>
+            <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="font-mono text-sm text-[#F8FAFC] font-semibold">Frigate AI RTSP</div>
+          <p class="text-xs text-[#94A3B8] leading-relaxed">1080p@30fps hardware h.264 decoding with frame-difference vehicle detection triggers.</p>
+        </div>
+
+        <!-- Stage 02 -->
+        <div class="p-4 rounded-xl bg-[#090D16] border border-[#1E293B] space-y-2 hover:border-[#10B981]/50 hover:-translate-y-1 transition-all group">
+          <div class="flex items-center justify-between text-[#10B981] font-mono text-[10px] uppercase tracking-wider">
+            <span>STAGE 02: ASYNC CORE</span>
+            <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+            </svg>
+          </div>
+          <div class="font-mono text-sm text-[#F8FAFC] font-semibold">Tokio Axum Runtime</div>
+          <p class="text-xs text-[#94A3B8] leading-relaxed">Rust 2024 zero-cost concurrent reactor. State management across multi-lane barrier state machines.</p>
+        </div>
+
+        <!-- Stage 03 -->
+        <div class="p-4 rounded-xl bg-[#090D16] border border-[#1E293B] space-y-2 hover:border-[#38BDF8]/50 hover:-translate-y-1 transition-all group">
+          <div class="flex items-center justify-between text-[#38BDF8] font-mono text-[10px] uppercase tracking-wider">
+            <span>STAGE 03: HARDWARE RELAY</span>
+            <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+          </div>
+          <div class="font-mono text-sm text-[#F8FAFC] font-semibold">ZKTeco RS485 / GPIO</div>
+          <p class="text-xs text-[#94A3B8] leading-relaxed">Direct hardware command serial loopback with heartbeat watchdog and fail-safe physical latch.</p>
+        </div>
+
+        <!-- Stage 04 -->
+        <div class="p-4 rounded-xl bg-[#090D16] border border-[#1E293B] space-y-2 hover:border-[#F8FAFC]/50 hover:-translate-y-1 transition-all group">
+          <div class="flex items-center justify-between text-[#94A3B8] font-mono text-[10px] uppercase tracking-wider">
+            <span>STAGE 04: STORAGE POOL</span>
+            <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7M4 7c0-2 1.5-3 3.5-3h9c2 0 3.5 1 3.5 3M4 7h16m-16 5h16" />
+            </svg>
+          </div>
+          <div class="font-mono text-sm text-[#F8FAFC] font-semibold">SeaORM + Postgres 16</div>
+          <p class="text-xs text-[#94A3B8] leading-relaxed">32/32 async connection pool handling transactional ledger tariffs with microsecond indexing.</p>
+        </div>
+      </div>
+
+      <!-- Tab Content 2: Live Telemetry Stream Terminal -->
+      <div id="content-tab-telemetry" class="hidden rounded-xl bg-[#090D16] border border-[#1E293B] p-4 font-mono text-xs space-y-2 overflow-x-auto shadow-inner">
+        <div class="text-[#94A3B8] border-b border-[#1E293B] pb-2 mb-2 flex justify-between items-center text-[11px]">
+          <span class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[#10B981] animate-ping"></span>
+            <span>[CORE-SYSTEMS-LOG: daemon-pms.lane01.prod]</span>
+          </span>
+          <span class="text-[#10B981] flex items-center gap-1.5">
+            <span>BUFFER HEALTH: 100% OK</span>
+            <span class="text-[#64748B]">|</span>
+            <span class="text-[#38BDF8]">TOKIO EPOLL 16 WORKERS</span>
+          </span>
+        </div>
+        <div class="space-y-1.5 text-xs text-[#CBD5E1]">
+          <div><span class="text-[#64748B]">14:02:18.004</span> [RTSP-STREAM] Inbound vehicle detected in Lane 01 (Confidence: 0.984)</div>
+          <div class="text-[#38BDF8]"><span class="text-[#64748B]">14:02:18.012</span> [OCR-INFERENCE] Plate parsed: <span class="text-[#10B981] font-bold">DHK-METRO-GA-44-2190</span> (Latency: 0.048ms)</div>
+          <div><span class="text-[#64748B]">14:02:18.018</span> [SECURITY] Anti-passback verification: <span class="text-[#10B981]">PASSED</span> (No previous active exit mismatch)</div>
+          <div class="text-[#10B981]"><span class="text-[#64748B]">14:02:18.022</span> [TARIFF-ENGINE] Compute rate card (Tier-A Standard) -&gt; Tariff: 0.05s response</div>
+          <div class="text-[#38BDF8]"><span class="text-[#64748B]">14:02:18.029</span> [GPIO-RELAY] Dispatching barrier pulse HIGH to ZK-CTRL-01 (PIN 14: OPEN)</div>
+          <div class="text-[#10B981] font-medium"><span class="text-[#64748B]">14:02:18.079</span> [ACK] Barrier fully raised. Lane entry event committed to PostgreSQL tx-1049221.</div>
+        </div>
+        <div class="pt-2 text-[#38BDF8] text-[11px] flex items-center gap-1">
+          <span>&gt; listening on /dev/ttyUSB0 (9600-8-N-1)</span>
+          <span class="inline-block w-2 h-3.5 bg-[#38BDF8] animate-pulse"></span>
+        </div>
+      </div>
+
+      <!-- Tech Stack Badges & Metrics -->
+      <div class="flex flex-wrap items-center justify-between pt-4 border-t border-[#1E293B] gap-3">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="px-2.5 py-1 rounded bg-[#090D16] border border-[#1E293B] font-mono text-xs text-[#F8FAFC]">Rust 2024</span>
+          <span class="px-2.5 py-1 rounded bg-[#090D16] border border-[#1E293B] font-mono text-xs text-[#F8FAFC]">Axum 0.8</span>
+          <span class="px-2.5 py-1 rounded bg-[#090D16] border border-[#1E293B] font-mono text-xs text-[#F8FAFC]">Tokio Async</span>
+          <span class="px-2.5 py-1 rounded bg-[#090D16] border border-[#1E293B] font-mono text-xs text-[#F8FAFC]">SeaORM</span>
+          <span class="px-2.5 py-1 rounded bg-[#090D16] border border-[#1E293B] font-mono text-xs text-[#F8FAFC]">PostgreSQL 16</span>
+          <span class="px-2.5 py-1 rounded bg-[#090D16] border border-[#1E293B] font-mono text-xs text-[#F8FAFC]">Flutter POS</span>
+        </div>
+        <div class="flex items-center gap-4 font-mono text-xs text-[#94A3B8]">
+          <span class="flex items-center gap-1.5"><span class="text-[#38BDF8]">⚡</span> 12 Sub-daemons</span>
+          <span class="flex items-center gap-1.5 text-[#10B981]"><span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span> 0 Drops Under 10k RPS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Split Row Below: Card A (Enterprise HRMS) & Card B (Activity Monitor) -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Card A: Enterprise Skylink HRMS Suite -->
+    <div class="p-6 rounded-2xl border border-[#1E293B] bg-[#0F172A]/70 backdrop-blur-md space-y-4 hover:border-[#38BDF8]/50 hover:-translate-y-1 transition-all duration-300">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <svg class="w-5 h-5 text-[#38BDF8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 004 11m0 0a8 8 0 00.99 7.132" />
+          </svg>
+          <h3 class="text-lg font-bold text-[#F8FAFC]">Enterprise Skylink HRMS Suite</h3>
+        </div>
+        <span class="font-mono text-xs text-[#10B981] bg-[#10B981]/10 px-2 py-0.5 rounded border border-[#10B981]/30 flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+          ZKTeco ADMS
+        </span>
+      </div>
+
+      <p class="text-sm text-[#94A3B8] leading-relaxed">
+        High-throughput biometric protocol daemon handling raw HTTP push payloads from dozens of time attendance terminals concurrently.
+      </p>
+
+      <!-- Packet Trace Preview Box -->
+      <div class="p-3.5 rounded-xl bg-[#090D16] border border-[#1E293B] font-mono text-xs space-y-1.5">
+        <div class="text-[#94A3B8] text-[10px] flex items-center justify-between uppercase">
+          <span>RAW ADMS PROTOCOL INGESTION</span>
+          <span class="text-[#10B981]">VIRTUAL THREAD POOL</span>
+        </div>
+        <div class="text-[#38BDF8] truncate font-semibold">POST /iclock/cdata?SN=ZK-8820491&table=ATTLOG HTTP/1.1</div>
+        <div class="text-[#10B981] text-[11px]">Virtual Threads: Project Loom non-blocking punch synchronization</div>
+      </div>
+
+      <!-- Tech Badges -->
+      <div class="pt-2 flex flex-wrap gap-2 border-t border-[#1E293B]/70">
+        <span class="px-2 py-0.5 rounded bg-[#090D16] border border-[#1E293B] font-mono text-[11px] text-[#94A3B8]">Java 21 LTS</span>
+        <span class="px-2 py-0.5 rounded bg-[#090D16] border border-[#1E293B] font-mono text-[11px] text-[#94A3B8]">Spring Boot 3.4</span>
+        <span class="px-2 py-0.5 rounded bg-[#090D16] border border-[#1E293B] font-mono text-[11px] text-[#94A3B8]">Project Loom</span>
+        <span class="px-2 py-0.5 rounded bg-[#090D16] border border-[#1E293B] font-mono text-[11px] text-[#94A3B8]">WebSockets</span>
+        <span class="px-2 py-0.5 rounded bg-[#090D16] border border-[#1E293B] font-mono text-[11px] text-[#94A3B8]">PostgreSQL</span>
+      </div>
+    </div>
+
+    <!-- Card B: Workstation Activity Monitor -->
+    <div class="p-6 rounded-2xl border border-[#1E293B] bg-[#0F172A]/70 backdrop-blur-md space-y-4 hover:border-[#38BDF8]/50 hover:-translate-y-1 transition-all duration-300">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <svg class="w-5 h-5 text-[#38BDF8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <h3 class="text-lg font-bold text-[#F8FAFC]">Workstation Activity Monitor</h3>
+        </div>
+        <span class="font-mono text-xs text-[#38BDF8] bg-[#38BDF8]/10 px-2 py-0.5 rounded border border-[#38BDF8]/30 flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#38BDF8]"></span>
+          Chrome MV3
+        </span>
+      </div>
+
+      <p class="text-sm text-[#94A3B8] leading-relaxed">
+        Lightweight enterprise background service worker capturing focus drift and system telemetry with local hardware cryptography.
+      </p>
+
+      <!-- Metrics Box -->
+      <div class="p-3.5 rounded-xl bg-[#090D16] border border-[#1E293B] font-mono text-xs space-y-1.5">
+        <div class="text-[#94A3B8] text-[10px] flex items-center justify-between uppercase">
+          <span>SYSTEM RESIDENCY & CRYPTOGRAPHY</span>
+          <span class="text-[#10B981]">&lt;0.01% CPU</span>
+        </div>
+        <div class="text-[#F8FAFC] truncate font-semibold">AES-256 GCM offline IndexedDB buffer queue</div>
+        <div class="text-[#10B981] text-[11px]">&lt; 14MB Resident Memory | 0.01% Background CPU Impact</div>
+      </div>
+
+      <!-- Tech Badges -->
+      <div class="pt-2 flex flex-wrap gap-2 border-t border-[#1E293B]/70">
+        <span class="px-2 py-0.5 rounded bg-[#090D16] border border-[#1E293B] font-mono text-[11px] text-[#94A3B8]">Manifest V3</span>
+        <span class="px-2 py-0.5 rounded bg-[#090D16] border border-[#1E293B] font-mono text-[11px] text-[#94A3B8]">TypeScript</span>
+        <span class="px-2 py-0.5 rounded bg-[#090D16] border border-[#1E293B] font-mono text-[11px] text-[#94A3B8]">Spring Boot 3.4</span>
+        <span class="px-2 py-0.5 rounded bg-[#090D16] border border-[#1E293B] font-mono text-[11px] text-[#94A3B8]">WebSockets</span>
+        <span class="px-2 py-0.5 rounded bg-[#090D16] border border-[#1E293B] font-mono text-[11px] text-[#94A3B8]">IndexedDB</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const btnArch = document.getElementById('btn-tab-arch');
+  const btnTelemetry = document.getElementById('btn-tab-telemetry');
+  const contentArch = document.getElementById('content-tab-arch');
+  const contentTelemetry = document.getElementById('content-tab-telemetry');
+
+  btnArch?.addEventListener('click', () => {
+    btnArch.className = 'pb-2.5 text-[#38BDF8] border-b-2 border-[#38BDF8] font-medium flex items-center gap-2 transition-all cursor-pointer';
+    btnTelemetry!.className = 'pb-2.5 text-[#94A3B8] hover:text-[#F8FAFC] border-b-2 border-transparent font-medium flex items-center gap-2 transition-all cursor-pointer';
+    contentArch?.classList.remove('hidden');
+    contentTelemetry?.classList.add('hidden');
+  });
+
+  btnTelemetry?.addEventListener('click', () => {
+    btnTelemetry.className = 'pb-2.5 text-[#38BDF8] border-b-2 border-[#38BDF8] font-medium flex items-center gap-2 transition-all cursor-pointer';
+    btnArch!.className = 'pb-2.5 text-[#94A3B8] hover:text-[#F8FAFC] border-b-2 border-transparent font-medium flex items-center gap-2 transition-all cursor-pointer';
+    contentTelemetry?.classList.remove('hidden');
+    contentArch?.classList.add('hidden');
+  });
+</script>

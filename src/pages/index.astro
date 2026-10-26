@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import MobileDrawer from '../components/MobileDrawer.astro';
+import Hero from '../components/Hero.astro';
+import FlagshipSystems from '../components/FlagshipSystems.astro';
+import CommercialDeployments from '../components/CommercialDeployments.astro';
+import Endorsements from '../components/Endorsements.astro';
+import TechnicalArsenal from '../components/TechnicalArsenal.astro';
+import CareerTimeline from '../components/CareerTimeline.astro';
+import ContactFooter from '../components/ContactFooter.astro';
+import ResumeModal from '../components/ResumeModal.astro';
+---
+
+<Layout
+  title="Mahmudul Hasan (@mhcybroot) | Full-Stack Software & Systems Engineer"
+  description="High-Throughput Concurrent Backends (Rust & Java 21), Edge Daemons & Bare-Metal Hardware Protocols Portfolio of Mahmudul Hasan (@mhcybroot)."
+>
+  <!-- Fixed Navbar & Mobile Drawer -->
+  <Navbar />
+  <MobileDrawer />
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-24">
+    <Hero />
+    <FlagshipSystems />
+    <CommercialDeployments />
+    <Endorsements />
+    <TechnicalArsenal />
+    <CareerTimeline />
+    <ContactFooter />
+  </main>
+
+  <!-- Interactive Resume Dossier Modal -->
+  <ResumeModal />
+</Layout>

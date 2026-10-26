@@ -1,0 +1,235 @@
+---
+// Resume Dossier Modal Component
+---
+
+<div id="resume-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto hidden" role="dialog" aria-modal="true" aria-labelledby="dossier-title">
+  <!-- Backdrop Overlay -->
+  <div id="resume-modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity duration-200"></div>
+
+  <!-- Modal Dialog Container -->
+  <div class="relative w-full max-w-[920px] max-h-[90vh] flex flex-col rounded-3xl border border-[#1E293B] bg-[#0A0F1D]/95 shadow-2xl shadow-black/90 overflow-hidden backdrop-blur-2xl z-10">
+    <!-- Top System Bar -->
+    <div class="flex items-center justify-between px-5 py-3.5 border-b border-[#1E293B] bg-[#090D16] shrink-0 select-none">
+      <div class="flex items-center gap-3 overflow-hidden">
+        <div class="flex items-center gap-2">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
+          </span>
+          <span class="font-mono text-xs sm:text-sm font-semibold text-[#F8FAFC] truncate">
+            mhcybroot // systems_dossier.pdf <span class="text-[#64748B] font-normal">(v2.5-prod)</span>
+          </span>
+        </div>
+        <div class="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#1E293B] border border-[#334155] font-mono text-[10px] text-[#94A3B8]">
+          <span class="text-[#38BDF8]">●</span>
+          <span>sha256:8f2a...c019</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2 shrink-0">
+        <button
+          id="btn-print-dossier"
+          type="button"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0F172A] border border-[#1E293B] text-[#F8FAFC] hover:border-[#38BDF8] hover:text-[#38BDF8] transition-all text-xs font-mono cursor-pointer"
+        >
+          <svg class="w-3.5 h-3.5 text-[#38BDF8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          <span class="hidden sm:inline">Print / Save PDF</span>
+        </button>
+
+        <div class="h-4 w-px bg-[#1E293B] mx-1"></div>
+
+        <button
+          id="resume-modal-close"
+          type="button"
+          class="p-1.5 rounded-lg text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#1E293B] transition-all cursor-pointer"
+          aria-label="Close Dossier"
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Scrollable Dossier Content -->
+    <div class="flex-1 overflow-y-auto px-6 sm:px-8 py-6 space-y-8 text-[#CBD5E1]">
+      <!-- Header Profile Row -->
+      <div class="flex flex-col sm:flex-row items-start gap-6 pb-6 border-b border-[#1E293B]">
+        <div class="relative shrink-0">
+          <div class="w-24 h-24 rounded-2xl overflow-hidden border border-[#1E293B] p-0.5 bg-[#090D16]">
+            <img
+              src="/assets/images/avatar.jpg"
+              alt="Mahmudul Hasan"
+              class="w-full h-full object-cover rounded-xl"
+            />
+          </div>
+          <div class="absolute -bottom-1 -right-1 px-1.5 py-0.5 bg-[#090D16] border border-[#1E293B] rounded text-[#10B981] font-mono text-[9px] flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+            <span>VERIFIED</span>
+          </div>
+        </div>
+
+        <div class="space-y-1.5 flex-1">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h2 id="dossier-title" class="text-2xl sm:text-3xl font-bold text-[#F8FAFC] tracking-tight">
+              Mahmudul Hasan
+            </h2>
+            <span class="font-mono text-xs text-[#38BDF8] bg-[#38BDF8]/10 px-2 py-0.5 rounded border border-[#38BDF8]/30">
+              @mhcybroot
+            </span>
+          </div>
+
+          <div class="font-mono text-sm text-[#10B981] font-medium">
+            Full-Stack Software & Systems Solutions Engineer
+          </div>
+
+          <p class="text-xs sm:text-sm text-[#94A3B8] leading-relaxed pt-1">
+            Natun Bazar, Vatara, Dhaka, Bangladesh • <a href="mailto:info@mahmudulhasan.info.bd" class="text-[#38BDF8] hover:underline">info@mahmudulhasan.info.bd</a> • +880 1410-749454
+          </p>
+        </div>
+      </div>
+
+      <!-- Professional Summary -->
+      <div class="space-y-2">
+        <h3 class="font-mono text-xs uppercase tracking-wider text-[#38BDF8] font-bold">Professional Summary</h3>
+        <p class="text-sm text-[#CBD5E1] leading-relaxed">
+          High-impact Full-Stack Software & Systems Engineer with 2.5+ years of production experience architecting concurrent backends (Java 21 Spring Boot, Rust 2024 Axum), reactive cross-platform applications (React 19/TypeScript, Flutter BLoC), and hardware-level IoT integrations. Proven track record in building enterprise ERP/HRMS suites, smart parking architectures, and native protocol handlers (ZKTeco ADMS, Frigate AI NVR, RTSP CCTV).
+        </p>
+      </div>
+
+      <!-- Core Technical Competencies -->
+      <div class="space-y-3">
+        <h3 class="font-mono text-xs uppercase tracking-wider text-[#38BDF8] font-bold">Technical Matrix</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+          <div class="p-3 rounded-xl bg-[#090D16] border border-[#1E293B]">
+            <div class="text-[#10B981] font-semibold mb-1">Backend & Concurrency</div>
+            <div class="text-[#94A3B8]">Java 21 (Spring Boot 3.4/4.x), Rust 2024 (Axum 0.8, Tokio), REST APIs, WebSockets, Spring Security 6, JWT, Argon2</div>
+          </div>
+          <div class="p-3 rounded-xl bg-[#090D16] border border-[#1E293B]">
+            <div class="text-[#10B981] font-semibold mb-1">Database & Storage</div>
+            <div class="text-[#94A3B8]">PostgreSQL, SeaORM (Async Pools), Spring Data JPA / Hibernate, ACID Transactions, JPA Criteria Specifications</div>
+          </div>
+          <div class="p-3 rounded-xl bg-[#090D16] border border-[#1E293B]">
+            <div class="text-[#38BDF8] font-semibold mb-1">Hardware & IoT Protocols</div>
+            <div class="text-[#94A3B8]">ZKTeco ADMS (HTTP Push Protocol), Frigate AI NVR, CCTV Streaming (RTSP/HTTP), Barcode Multi-Terminal Sync</div>
+          </div>
+          <div class="p-3 rounded-xl bg-[#090D16] border border-[#1E293B]">
+            <div class="text-[#38BDF8] font-semibold mb-1">DevOps & Edge Networks</div>
+            <div class="text-[#94A3B8]">Linux Server (Ubuntu), Hostinger VPS, MikroTik RouterOS (Routing, Queues, VLANs), Nginx Reverse Proxy, Docker</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience Highlights -->
+      <div class="space-y-4">
+        <h3 class="font-mono text-xs uppercase tracking-wider text-[#38BDF8] font-bold">Production Deployments</h3>
+        
+        <div class="space-y-1.5 pb-3 border-b border-[#1E293B]/70">
+          <div class="flex items-center justify-between text-sm font-bold text-[#F8FAFC]">
+            <span>IT Executive / Software & Systems Engineer — Skylink Innovations Ltd</span>
+            <span class="font-mono text-xs text-[#38BDF8]">Oct 2025 – Present</span>
+          </div>
+          <ul class="list-disc list-inside text-xs text-[#94A3B8] space-y-1">
+            <li>Designed and deployed an all-in-one corporate portal (Java 21, Spring Boot 3.4, React, PostgreSQL) serving 50+ staff.</li>
+            <li>Developed native AdmsService handling real-time HTTP push communication from ZKTeco biometric terminals.</li>
+            <li>Built automated Photo EXIF metadata analyzer extracting GPS coordinates and WebSocket dashboard telemetry.</li>
+          </ul>
+        </div>
+
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between text-sm font-bold text-[#F8FAFC]">
+            <span>Software Executive / IoT & Systems Engineer — SPY Security Solutions</span>
+            <span class="font-mono text-xs text-[#10B981]">Mar 2024 – Oct 2025</span>
+          </div>
+          <ul class="list-disc list-inside text-xs text-[#94A3B8] space-y-1">
+            <li>Architected multi-terminal parking automation platform (PMS-V2) with Rust (Axum + Tokio) and Flutter BLoC frontend.</li>
+            <li>Integrated ZKTeco gate barrier controllers via ADMS and embedded live CCTV feeds over RTSP/HTTP.</li>
+            <li>Built dynamic second-by-second tariff computation and anti-passback rule mitigation using SeaORM connection pools.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Education & Endorsements -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-[#1E293B]">
+        <div>
+          <h4 class="font-mono text-xs text-[#38BDF8] font-bold mb-1">Education</h4>
+          <div class="text-xs text-[#CBD5E1]">
+            <div class="font-semibold text-[#F8FAFC]">AMIE (IEB) — B.Sc. in Engineering Equivalence</div>
+            <div class="text-[#94A3B8]">Enrolled 2026 (In Progress)</div>
+            <div class="font-semibold text-[#F8FAFC] mt-2">Dhaka Polytechnic Institute (DPI)</div>
+            <div class="text-[#10B981] font-mono">Diploma in CST • CGPA 3.75 / 4.00 (Distinction)</div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-mono text-xs text-[#10B981] font-bold mb-1">Key References</h4>
+          <div class="text-xs text-[#CBD5E1] space-y-2">
+            <div>
+              <div class="font-semibold text-[#F8FAFC]">Engr. Niger Sultana</div>
+              <div class="text-[#94A3B8]">HOD, CST, Dhaka Polytechnic Institute • +880 1812-112664</div>
+            </div>
+            <div>
+              <div class="font-semibold text-[#F8FAFC]">Nazrul Hasan Raju</div>
+              <div class="text-[#94A3B8]">Managing Director, Nexus Netro Ltd • +880 1713-403833</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Footer Actions -->
+    <div class="px-6 py-4 border-t border-[#1E293B] bg-[#090D16] flex flex-wrap items-center justify-between gap-3 shrink-0">
+      <div class="text-xs font-mono text-[#64748B]">
+        Official Digital Portfolio Dossier • <span class="text-[#38BDF8]">mahmudulhasan.info.bd</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a
+          href="mailto:info@mahmudulhasan.info.bd"
+          class="px-4 py-2 rounded-xl bg-[#06B6D4] text-[#090D16] text-xs font-bold hover:bg-[#38BDF8] transition-all"
+        >
+          Contact Mahmudul
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('resume-modal');
+  const backdrop = document.getElementById('resume-modal-backdrop');
+  const closeBtn = document.getElementById('resume-modal-close');
+  const printBtn = document.getElementById('btn-print-dossier');
+
+  const openTriggers = [
+    document.getElementById('nav-resume-btn'),
+    document.getElementById('hero-resume-btn'),
+    document.getElementById('mobile-drawer-resume-btn'),
+  ];
+
+  function openModal() {
+    modal?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal?.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  openTriggers.forEach(btn => btn?.addEventListener('click', openModal));
+  closeBtn?.addEventListener('click', closeModal);
+  backdrop?.addEventListener('click', closeModal);
+
+  printBtn?.addEventListener('click', () => {
+    window.print();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+</script>

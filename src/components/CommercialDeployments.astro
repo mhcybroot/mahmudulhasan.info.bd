@@ -1,0 +1,117 @@
+---
+// Live Commercial Deployments Component
+const deployments = [
+  {
+    title: "Skylink Innovations Portal",
+    url: "https://skylinkltd.ai",
+    domain: "skylinkltd.ai",
+    desc: "Corporate interactive platform highlighting deep hardware integrations, automated security solutions, and biometric infrastructure.",
+    tags: ["React 19", "Three.js", "Tailwind CSS", "GSAP Motion", "Edge CDN"]
+  },
+  {
+    title: "Finara Property Solutions LLC",
+    url: "https://finaraprosolutions.com",
+    domain: "finaraprosolutions.com",
+    desc: "Financial technology and enterprise suite with interactive financial dashboards, risk calculators, and real-time ledger auditing tools.",
+    tags: ["React 19", "Three.js 3D", "Tailwind CSS", "PostgreSQL", "Nginx"]
+  },
+  {
+    title: "HomeSync Smart Automation",
+    url: "https://homesyncllc.org",
+    domain: "homesyncllc.org",
+    desc: "Spatial IoT visualizer allowing prospective clients to configure smart home topologies in real-time using interactive 3D scene controls.",
+    tags: ["React Three Fiber", "GLTF Pipeline", "Tailwind CSS", "Zustand", "Cloud VPS"]
+  },
+  {
+    title: "DreamZone Builders Inc",
+    url: "https://dreamzonebuilders.com",
+    domain: "dreamzonebuilders.com",
+    desc: "Commercial real estate engineering and structural design catalog platform optimized for high-resolution blueprint navigation.",
+    tags: ["Base UI", "Tailwind CSS", "Framer Motion", "Cloudflare Pages", "Vite"]
+  }
+];
+---
+
+<section id="deployments" class="space-y-8 scroll-mt-24 pt-8">
+  <!-- Section Heading -->
+  <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-[#1E293B] pb-4 gap-4">
+    <div>
+      <div class="flex items-center gap-2 text-[#38BDF8] font-mono text-xs tracking-wider uppercase mb-1">
+        <svg class="w-4 h-4 text-[#38BDF8]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+        </svg>
+        <span>Production Instances</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-bold text-[#F8FAFC]">Live Commercial Deployments</h2>
+    </div>
+    <p class="text-sm text-[#94A3B8] max-w-md">
+      Client platforms deployed on isolated cloud compute clusters with SSL/TLS termination and zero-downtime CI/CD.
+    </p>
+  </div>
+
+  <!-- 2x2 Browser Mockup Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {deployments.map((d) => (
+      <div class="rounded-2xl border border-[#1E293B] bg-[#0F172A]/70 backdrop-blur-md overflow-hidden group hover:border-[#38BDF8]/60 hover:shadow-[0_10px_30px_rgba(6,182,212,0.15)] hover:-translate-y-1 transition-all duration-300">
+        <!-- Browser Window Header Bar -->
+        <div class="px-4 py-3 bg-[#090D16] border-b border-[#1E293B] flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#334155] group-hover:bg-[#EF4444] transition-colors"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#334155] group-hover:bg-[#F59E0B] transition-colors"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#334155] group-hover:bg-[#10B981] transition-colors"></span>
+          </div>
+
+          <!-- URL Bar -->
+          <div class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#0F172A] text-[#CBD5E1] font-mono text-xs border border-[#1E293B] group-hover:border-[#38BDF8]/40 transition-colors">
+            <svg class="w-3.5 h-3.5 text-[#10B981]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            <span>https://{d.domain}</span>
+          </div>
+
+          <!-- Outbound Link Button -->
+          <a
+            href={d.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-[#94A3B8] hover:text-[#38BDF8] transition-colors p-1"
+            aria-label={`Visit ${d.title}`}
+          >
+            <svg class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Body Content -->
+        <div class="p-6 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <h3 class="text-lg font-bold text-[#F8FAFC] group-hover:text-[#38BDF8] transition-colors">
+              {d.title}
+            </h3>
+            <span class="inline-flex items-center gap-1.5 font-mono text-xs text-[#10B981]">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
+              </span>
+              <span>Live in Production</span>
+            </span>
+          </div>
+
+          <p class="text-sm text-[#94A3B8] leading-relaxed">
+            {d.desc}
+          </p>
+
+          <!-- Badges -->
+          <div class="flex flex-wrap gap-2 pt-2 border-t border-[#1E293B]">
+            {d.tags.map((tag) => (
+              <span class="px-2.5 py-0.5 rounded bg-[#090D16] border border-[#1E293B] font-mono text-xs text-[#CBD5E1]">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

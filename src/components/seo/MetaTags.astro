@@ -1,0 +1,48 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = "Mahmudul Hasan (@mhcybroot) | Full-Stack Software & Systems Engineer",
+  description = "Official portfolio of Mahmudul Hasan (@mhcybroot). Architecting high-concurrency backends (Rust 2024 Axum, Java 21 Spring Boot), low-level IoT/hardware systems (ZKTeco ADMS, RTSP), and reactive modern web platforms.",
+  image = "https://mahmudulhasan.info.bd/og-image.png",
+  canonicalURL = "https://mahmudulhasan.info.bd",
+} = Astro.props;
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="author" content="Mahmudul Hasan (@mhcybroot)" />
+<meta name="keywords" content="Mahmudul Hasan, mhcybroot, Systems Engineer, Concurrency, Rust Axum, Java 21 Spring Boot, ZKTeco ADMS, RTSP CCTV, Full Stack Developer, Bangladesh Developer, Dhaka, Cloudflare Edge" />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:site_name" content="Mahmudul Hasan (@mhcybroot)" />
+
+<!-- Twitter / X -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={image} />
+<meta name="twitter:creator" content="@mhcybroot" />
+
+<!-- Mobile & PWA -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#090D16" />
+<link rel="manifest" href="/manifest.json" />
+
+<!-- Icons -->
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
