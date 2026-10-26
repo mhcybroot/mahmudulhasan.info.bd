@@ -1,0 +1,44 @@
+# Cloudflare Pages High-Efficiency Caching Directives for Mahmudul Hasan Portfolio
+
+# 1-Year Immutable Caching for Content-Hashed Bundles & Assets
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/icons/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Standard 1-Week Caching for Media & Favicons with Stale-While-Revalidate
+/*.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.jpg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.svg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/*.ico
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+# Daily Caching for Manifests & Discovery Metadata
+/manifest.json
+  Cache-Control: public, max-age=86400
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+/sitemap-index.xml
+  Cache-Control: public, max-age=86400
+
+/sitemap-0.xml
+  Cache-Control: public, max-age=86400
+
+# HTML Documents: Instant Revalidation with Security Headers
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin

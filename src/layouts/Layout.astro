@@ -1,6 +1,8 @@
 ---
 import MetaTags from '../components/seo/MetaTags.astro';
 import JsonLd from '../components/seo/JsonLd.astro';
+import '@fontsource-variable/inter';
+import '@fontsource/jetbrains-mono';
 import '../styles/themes.css';
 
 interface Props {
@@ -18,12 +20,6 @@ const envDefaultTheme = import.meta.env.PUBLIC_DEFAULT_THEME || 'obsidian';
     <meta charset="UTF-8" />
     <MetaTags title={title} description={description} />
     <JsonLd />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
 
     <!-- Zero-Flash Theme Initialization Script (Runs synchronously before render) -->
     <script is:inline define:vars={{ envDefaultTheme }}>
