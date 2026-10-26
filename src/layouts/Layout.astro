@@ -1,8 +1,6 @@
 ---
 import MetaTags from '../components/seo/MetaTags.astro';
 import JsonLd from '../components/seo/JsonLd.astro';
-import '@fontsource-variable/inter';
-import '@fontsource/jetbrains-mono';
 import '../styles/themes.css';
 
 interface Props {
@@ -18,6 +16,10 @@ const envDefaultTheme = import.meta.env.PUBLIC_DEFAULT_THEME || 'obsidian';
 <html lang="en" class="scroll-smooth dark" data-theme={envDefaultTheme}>
   <head>
     <meta charset="UTF-8" />
+    <!-- Preload Critical Fonts (Eliminates Font-Swap Reflow & Flattens Network Tree) -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
+
     <MetaTags title={title} description={description} />
     <JsonLd />
     <link rel="ai-catalog" type="application/json" href="/.well-known/ai-catalog.json" />
