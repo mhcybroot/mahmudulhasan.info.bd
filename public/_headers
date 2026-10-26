@@ -1,14 +1,36 @@
-# Cloudflare Pages High-Efficiency Caching Directives for Mahmudul Hasan Portfolio
+# Cloudflare Pages High-Efficiency Caching & Trust/Safety Directives for Mahmudul Hasan Portfolio
 
 # 1-Year Immutable Caching for Content-Hashed Bundles & Assets
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
 /icons/*
   Cache-Control: public, max-age=31536000, immutable
+
+# AI Agent Discoverability Files: Open CORS & 1-Day Cache
+/.well-known/ai-catalog.json
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json; charset=utf-8
+
+/ai-catalog.json
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+  Content-Type: application/json; charset=utf-8
+
+/llms.txt
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+  Content-Type: text/markdown; charset=utf-8
+
+/llms-full.txt
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+  Content-Type: text/markdown; charset=utf-8
 
 # Standard 1-Week Caching for Media & Favicons with Stale-While-Revalidate
 /*.png
@@ -26,19 +48,28 @@
 # Daily Caching for Manifests & Discovery Metadata
 /manifest.json
   Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
 
 /robots.txt
   Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
 
 /sitemap-index.xml
   Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
 
 /sitemap-0.xml
   Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
 
-# HTML Documents: Instant Revalidation with Security Headers
+# HTML Documents: Trust & Safety Security Policies + Instant Fresh Revalidation
 /*
   Cache-Control: public, max-age=0, must-revalidate
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';

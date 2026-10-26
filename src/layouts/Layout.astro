@@ -20,6 +20,7 @@ const envDefaultTheme = import.meta.env.PUBLIC_DEFAULT_THEME || 'obsidian';
     <meta charset="UTF-8" />
     <MetaTags title={title} description={description} />
     <JsonLd />
+    <link rel="ai-catalog" type="application/json" href="/.well-known/ai-catalog.json" />
 
     <!-- Zero-Flash Theme Initialization Script (Runs synchronously before render) -->
     <script is:inline define:vars={{ envDefaultTheme }}>
@@ -40,6 +41,14 @@ const envDefaultTheme = import.meta.env.PUBLIC_DEFAULT_THEME || 'obsidian';
     </script>
   </head>
   <body class="bg-theme-base text-theme-secondary font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-theme-accent/25 selection:text-theme-accent">
+    <!-- Accessible Skip to Content Link -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:rounded-xl focus:bg-theme-accent focus:text-theme-lowest focus:font-mono focus:text-xs focus:font-bold focus:shadow-2xl focus:outline-none"
+    >
+      Skip to main content
+    </a>
+
     <!-- Ambient Radial Mesh Glows -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       <div class="absolute -top-40 -left-40 w-96 h-96 bg-theme-accent/10 rounded-full blur-[128px]"></div>

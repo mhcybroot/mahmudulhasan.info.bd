@@ -1,0 +1,14 @@
+# Mahmudul Hasan (@mhcybroot)
+> High-Throughput & Edge Systems Architect specializing in concurrent backends (Rust 2024, Java 21), bare-metal IoT hardware protocols (ZKTeco ADMS, RTSP, Frigate AI), and reactive modern web architectures. Based in Dhaka, Bangladesh.
+
+## Core Navigation & Architectural Dossier
+- [Overview](https://mahmudulhasan.info.bd/#hero): Summary of systems engineering specializations, verified credentials, and real-time edge telemetry metrics.
+- [Flagship Systems](https://mahmudulhasan.info.bd/#systems): In-depth architectural specifications of PMS-V2 (Smart Parking Engine in Rust/Tokio), Enterprise Skylink HRMS Suite, and background workstation monitoring daemons.
+- [Live Commercial Deployments](https://mahmudulhasan.info.bd/#deployments): Production client instances running across global edge CDNs and cloud VPS clusters.
+- [Technical Arsenal](https://mahmudulhasan.info.bd/#arsenal): Matrix covering Tokio, Axum, Java 21 Project Loom, PostgreSQL 16, SeaORM, ZKTeco ADMS, RTSP streaming, and MikroTik RouterOS.
+- [Engineering Leadership Endorsements](https://mahmudulhasan.info.bd/#endorsements): Verified testimonials from academic CST department heads and industry executive directors.
+- [Career & Academic Chronicle](https://mahmudulhasan.info.bd/#experience): Chronological milestones from SPY Security Solutions to Skylink Innovations Ltd, plus Dhaka Polytechnic Institute (DPI) and IEB AMIE engineering credentials.
+- [Contact Endpoint](https://mahmudulhasan.info.bd/#contact): Verified communication channels, official email, and social networks.
+
+## Optional & Full Context
+- [Full System Dossier](https://mahmudulhasan.info.bd/llms-full.txt): Complete uncompressed textual specification, comprehensive resume dossier, and technical capabilities for language models.

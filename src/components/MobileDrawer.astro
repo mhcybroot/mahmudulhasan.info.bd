@@ -8,6 +8,8 @@
   id="mobile-drawer"
   class="fixed top-0 right-0 bottom-0 w-72 sm:w-80 bg-theme-base border-l border-theme-border z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col p-6 shadow-2xl"
   aria-label="Mobile Navigation"
+  aria-hidden="true"
+  inert
 >
   <div class="flex items-center justify-between pb-6 border-b border-theme-border">
     <div class="flex items-center gap-2">
@@ -73,16 +75,22 @@
 
   function openDrawer() {
     drawer?.classList.remove('translate-x-full');
+    drawer?.removeAttribute('aria-hidden');
+    drawer?.removeAttribute('inert');
     overlay?.classList.remove('opacity-0', 'pointer-events-none');
     overlay?.classList.add('opacity-100');
     document.body.style.overflow = 'hidden';
+    closeBtn?.focus();
   }
 
   function closeDrawer() {
     drawer?.classList.add('translate-x-full');
+    drawer?.setAttribute('aria-hidden', 'true');
+    drawer?.setAttribute('inert', '');
     overlay?.classList.add('opacity-0', 'pointer-events-none');
     overlay?.classList.remove('opacity-100');
     document.body.style.overflow = '';
+    toggleBtn?.focus();
   }
 
   toggleBtn?.addEventListener('click', openDrawer);

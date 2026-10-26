@@ -1,57 +1,85 @@
 ---
 // JSON-LD Structured Data Schema for Mahmudul Hasan (@mhcybroot)
-const personSchema = {
+const graphSchema = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://mahmudulhasan.info.bd/#person",
-  "name": "Mahmudul Hasan",
-  "alternateName": ["mhcybroot", "@mhcybroot", "eng.mahmudulhasan"],
-  "givenName": "Mahmudul",
-  "familyName": "Hasan",
-  "jobTitle": "Full-Stack Software & Systems Solutions Engineer",
-  "description": "High-impact Full-Stack Software & Systems Solutions Engineer specializing in concurrent backends (Rust Axum, Java 21 Spring Boot), low-level hardware & IoT integrations (ZKTeco ADMS, RTSP), and reactive modern web applications.",
-  "url": "https://mahmudulhasan.info.bd",
-  "email": "mailto:info@mahmudulhasan.info.bd",
-  "telephone": "+8801410749454",
-  "image": "https://mahmudulhasan.info.bd/assets/images/avatar.jpg",
-  "sameAs": [
-    "https://github.com/mhcybroot",
-    "https://linkedin.com/in/mhcybroot"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Dhaka",
-    "addressCountry": "Bangladesh"
-  },
-  "alumniOf": [
+  "@graph": [
     {
-      "@type": "EducationalOrganization",
-      "name": "Dhaka Polytechnic Institute",
-      "sameAs": "https://dpi.gov.bd"
+      "@type": "WebSite",
+      "@id": "https://mahmudulhasan.info.bd/#website",
+      "url": "https://mahmudulhasan.info.bd",
+      "name": "Mahmudul Hasan Portfolio",
+      "description": "High-Throughput Concurrent Backends (Rust & Java 21), Edge Daemons & Bare-Metal Hardware Protocols Portfolio.",
+      "publisher": {
+        "@id": "https://mahmudulhasan.info.bd/#person"
+      },
+      "inLanguage": "en"
     },
     {
-      "@type": "EducationalOrganization",
-      "name": "The Institution of Engineers, Bangladesh (IEB)",
-      "sameAs": "https://iebbd.org"
+      "@type": "ProfilePage",
+      "@id": "https://mahmudulhasan.info.bd/#profilepage",
+      "url": "https://mahmudulhasan.info.bd",
+      "name": "Mahmudul Hasan (@mhcybroot) | Full-Stack Software & Systems Engineer",
+      "isPartOf": {
+        "@id": "https://mahmudulhasan.info.bd/#website"
+      },
+      "mainEntity": {
+        "@id": "https://mahmudulhasan.info.bd/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mahmudulhasan.info.bd/#person",
+      "name": "Mahmudul Hasan",
+      "alternateName": ["mhcybroot", "@mhcybroot", "eng.mahmudulhasan"],
+      "givenName": "Mahmudul",
+      "familyName": "Hasan",
+      "jobTitle": "Full-Stack Software & Systems Solutions Engineer",
+      "description": "High-impact Full-Stack Software & Systems Solutions Engineer specializing in concurrent backends (Rust Axum, Java 21 Spring Boot), low-level hardware & IoT integrations (ZKTeco ADMS, RTSP), and reactive modern web applications.",
+      "url": "https://mahmudulhasan.info.bd",
+      "email": "mailto:info@mahmudulhasan.info.bd",
+      "telephone": "+8801410749454",
+      "image": "https://mahmudulhasan.info.bd/assets/images/avatar.jpg",
+      "mainEntityOfPage": "https://mahmudulhasan.info.bd",
+      "sameAs": [
+        "https://github.com/mhcybroot",
+        "https://linkedin.com/in/mhcybroot"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dhaka",
+        "addressCountry": "Bangladesh"
+      },
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Dhaka Polytechnic Institute",
+          "sameAs": "https://dpi.gov.bd"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "The Institution of Engineers, Bangladesh (IEB)",
+          "sameAs": "https://iebbd.org"
+        }
+      ],
+      "knowsAbout": [
+        "Rust (Axum, Tokio)",
+        "Java 21 (Spring Boot 3.4)",
+        "PostgreSQL",
+        "SeaORM",
+        "ZKTeco ADMS Push Protocol",
+        "RTSP CCTV Streaming",
+        "Frigate AI NVR",
+        "MikroTik RouterOS",
+        "Linux Cloud VPS Orchestration",
+        "Docker",
+        "React 19",
+        "Three.js",
+        "Tailwind CSS",
+        "Flutter BLoC"
+      ]
     }
-  ],
-  "knowsAbout": [
-    "Rust (Axum, Tokio)",
-    "Java 21 (Spring Boot 3.4)",
-    "PostgreSQL",
-    "SeaORM",
-    "ZKTeco ADMS Push Protocol",
-    "RTSP CCTV Streaming",
-    "Frigate AI NVR",
-    "MikroTik RouterOS",
-    "Linux Cloud VPS Orchestration",
-    "Docker",
-    "React 19",
-    "Three.js",
-    "Tailwind CSS",
-    "Flutter BLoC"
   ]
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(graphSchema)} />

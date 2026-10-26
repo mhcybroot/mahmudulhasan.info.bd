@@ -1,0 +1,40 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Mahmudul Hasan - Systems Engineer Portfolio",
+    "documentationUrl": "https://mahmudulhasan.info.bd"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:mahmudulhasan.info.bd:doc:portfolio",
+      "displayName": "Mahmudul Hasan Systems Dossier",
+      "type": "text/markdown",
+      "url": "https://mahmudulhasan.info.bd/llms.txt",
+      "description": "Structured engineering portfolio and systems architecture summary for Mahmudul Hasan (@mhcybroot).",
+      "representativeQueries": [
+        "who is Mahmudul Hasan",
+        "systems engineer rust java zkteco bangladesh",
+        "mhcybroot portfolio"
+      ]
+    },
+    {
+      "identifier": "urn:air:mahmudulhasan.info.bd:doc:full-context",
+      "displayName": "Full LLM Engineering Context",
+      "type": "text/markdown",
+      "url": "https://mahmudulhasan.info.bd/llms-full.txt",
+      "description": "Complete uncompressed textual specification, career chronicle, and technical architecture.",
+      "representativeQueries": [
+        "mahmudul hasan technical stack",
+        "PMS-V2 smart parking rust architecture",
+        "skylink hrms zkteco adms"
+      ]
+    },
+    {
+      "identifier": "urn:air:mahmudulhasan.info.bd:schema:person",
+      "displayName": "Structured JSON-LD Person Graph",
+      "type": "application/ld+json",
+      "url": "https://mahmudulhasan.info.bd/#person",
+      "description": "Schema.org Person, WebSite, and ProfilePage structured entity graph."
+    }
+  ]
+}

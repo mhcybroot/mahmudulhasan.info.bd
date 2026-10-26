@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://mahmudulhasan.info.bd/sitemap-index.xml
+Agentmap: https://mahmudulhasan.info.bd/.well-known/ai-catalog.json

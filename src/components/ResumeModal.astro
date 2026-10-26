@@ -2,7 +2,7 @@
 // Resume Dossier Modal Component
 ---
 
-<div id="resume-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto hidden" role="dialog" aria-modal="true" aria-labelledby="dossier-title">
+<div id="resume-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto hidden" role="dialog" aria-modal="true" aria-labelledby="dossier-title" aria-hidden="true" inert>
   <!-- Backdrop Overlay -->
   <div id="resume-modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity duration-200"></div>
 
@@ -88,9 +88,11 @@
             Full-Stack Software & Systems Solutions Engineer
           </div>
 
+          <!--email_off-->
           <p class="text-xs sm:text-sm text-theme-muted leading-relaxed pt-1">
             Natun Bazar, Vatara, Dhaka, Bangladesh • <a href="mailto:info@mahmudulhasan.info.bd" class="text-theme-accent hover:underline">info@mahmudulhasan.info.bd</a> • +880 1410-749454
           </p>
+          <!--/email_off-->
         </div>
       </div>
 
@@ -187,6 +189,7 @@
       <div class="text-xs font-mono text-theme-muted">
         Official Digital Portfolio Dossier • <span class="text-theme-accent">mahmudulhasan.info.bd</span>
       </div>
+      <!--email_off-->
       <div class="flex items-center gap-3">
         <a
           href="mailto:info@mahmudulhasan.info.bd"
@@ -195,6 +198,7 @@
           Contact Mahmudul
         </a>
       </div>
+      <!--/email_off-->
     </div>
   </div>
 </div>
@@ -211,14 +215,23 @@
     document.getElementById('mobile-drawer-resume-btn'),
   ];
 
+  let lastActiveElement: HTMLElement | null = null;
+
   function openModal() {
+    lastActiveElement = document.activeElement as HTMLElement;
     modal?.classList.remove('hidden');
+    modal?.removeAttribute('aria-hidden');
+    modal?.removeAttribute('inert');
     document.body.style.overflow = 'hidden';
+    closeBtn?.focus();
   }
 
   function closeModal() {
     modal?.classList.add('hidden');
+    modal?.setAttribute('aria-hidden', 'true');
+    modal?.setAttribute('inert', '');
     document.body.style.overflow = '';
+    lastActiveElement?.focus();
   }
 
   openTriggers.forEach(btn => btn?.addEventListener('click', openModal));

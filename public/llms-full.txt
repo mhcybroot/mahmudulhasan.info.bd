@@ -1,0 +1,87 @@
+# Mahmudul Hasan (@mhcybroot) — Full Systems Engineering Dossier
+
+## Professional Identity
+- Full Name: Mahmudul Hasan
+- Alias / Handle: @mhcybroot
+- Role: Full-Stack Software & Systems Solutions Engineer / High-Throughput & Edge Systems Architect
+- Location: Natun Bazar, Vatara, Dhaka, Bangladesh (UTC+6)
+- Email: info@mahmudulhasan.info.bd
+- Phone: +880 1410-749454
+- Canonical Website: https://mahmudulhasan.info.bd
+- GitHub: https://github.com/mhcybroot
+- LinkedIn: https://linkedin.com/in/mhcybroot
+
+---
+
+## Executive Summary
+High-impact Full-Stack Software & Systems Engineer with 2.5+ years of production experience architecting concurrent backends (Java 21 Spring Boot, Rust 2024 Axum), reactive cross-platform applications (React 19/TypeScript, Flutter BLoC), and hardware-level IoT integrations. Proven track record in building enterprise ERP/HRMS suites, smart parking architectures, and native protocol handlers (ZKTeco ADMS, Frigate AI NVR, RTSP CCTV).
+
+---
+
+## Core Technical Competencies & Technical Arsenal
+1. **Systems & Concurrency:**
+   - Rust 2024 (Tokio Async, Axum 0.8)
+   - Java 21 LTS (Spring Boot 3.4 / 4.x, Project Loom Virtual Threads)
+   - C / Low-Level Sockets, POSIX Threads, Epoll Zero-Copy Networking
+   - Multi-threaded Daemons, mpsc channels
+
+2. **Databases & Storage:**
+   - PostgreSQL 16 (SeaORM Async Connection Pools, 32/32 worker pools)
+   - Spring Data JPA, Hibernate, ACID Transactions, JPA Criteria Specifications
+   - Redis Pub/Sub, In-Memory Caching & Clustering
+   - SQLite Embedded WAL mode for edge persistence
+
+3. **Hardware & IoT Protocols:**
+   - ZKTeco ADMS (HTTP Push Protocol communication daemon)
+   - RTSP / H.264 Video Stream processing with Frigate AI NVR
+   - RS485 / RS232 Serial loopback control
+   - GPIO Relay Barrier Automation with watchdog fail-safe latch
+   - Barcode Multi-Terminal Real-Time Sync
+
+4. **Frontend & DevOps:**
+   - React 19, TypeScript, Tailwind CSS, Vite, Astro 5
+   - Three.js, React Three Fiber (3D visualizers)
+   - Flutter (BLoC architecture for cross-platform POS terminals)
+   - MikroTik RouterOS (VLANs, Queues, Firewall, BPO PBX networks)
+   - Ubuntu Linux Cloud VPS Orchestration, Docker, Nginx Reverse Proxy, Cloudflare Edge
+
+---
+
+## Production Engineered Systems
+1. **PMS-V2 Smart Parking Engine:**
+   - Autonomous edge-to-cloud vehicle access automation.
+   - Low-latency barrier relay control with <0.84ms OCR plate recognition trigger.
+   - 8 In / 8 Out zero-drop multi-lane state machine running on Tokio & Axum.
+   - Second-by-second tariff computation with SeaORM transactional ledger in PostgreSQL.
+
+2. **Enterprise Skylink HRMS Suite:**
+   - High-throughput biometric protocol daemon handling raw HTTP push payloads from dozens of ZKTeco attendance terminals.
+   - Java 21 Project Loom virtual thread pool handling non-blocking employee attendance punches.
+   - EXIF metadata analyzer extracting GPS coordinates and WebSocket dashboard telemetry.
+
+3. **Workstation Activity Monitor:**
+   - Lightweight enterprise background Chrome MV3 service worker capturing focus drift and system telemetry.
+   - Local hardware cryptography using AES-256 GCM offline IndexedDB buffer queue.
+   - < 14MB resident memory impact and < 0.01% background CPU usage.
+
+---
+
+## Live Commercial Deployments
+1. **Skylink Innovations Portal** (`skylinkltd.ai`): Corporate interactive platform highlighting deep hardware integrations, automated security solutions, and biometric infrastructure.
+2. **Finara Property Solutions LLC** (`finaraprosolutions.com`): Financial technology and enterprise suite with interactive financial dashboards, risk calculators, and real-time ledger auditing tools.
+3. **HomeSync Smart Automation** (`homesyncllc.org`): Spatial IoT visualizer allowing prospective clients to configure smart home topologies in real-time using interactive 3D scene controls.
+4. **DreamZone Builders Inc** (`dreamzonebuilders.com`): Commercial real estate engineering and structural design catalog platform optimized for high-resolution blueprint navigation.
+
+---
+
+## Academic & Career Chronicle
+- **Oct 2025 – Present:** IT Executive / Software & Systems Engineer at Skylink Innovations Ltd
+- **Mar 2024 – Oct 2025:** Software Executive / IoT & Systems Engineer at SPY Security Solutions
+- **2026 – Enrolled:** B.Sc. in Engineering Equivalence (Section A) at The Institution of Engineers, Bangladesh (IEB) — AMIE
+- **2021 – 2022:** Diploma in Computer Science & Technology at Dhaka Polytechnic Institute (DPI) — CGPA 3.75 / 4.00 (Distinction)
+
+---
+
+## Verified Endorsements
+- **Engr. Niger Sultana** (Head of Department, CST, Dhaka Polytechnic Institute): "Mahmudul possesses exceptional proficiency in low-level systems architectures, hardware protocol interfacing, and high-performance computing. His mastery over modern concurrency and rigorous engineering fundamentals sets him apart as an elite systems builder."
+- **Nazrul Hasan Raju** (Managing Director, Nexus Netro Ltd): "A rare breed of engineer who effortlessly navigates between hardware-level device communication daemons and enterprise web platforms. Mahmudul's execution on fault-tolerant deployments and real-time networking has been exemplary."
