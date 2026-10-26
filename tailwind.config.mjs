@@ -5,6 +5,22 @@ export default {
   theme: {
     extend: {
       colors: {
+        theme: {
+          base: 'var(--bg-base)',
+          surface: 'var(--bg-surface)',
+          card: 'var(--bg-card)',
+          lowest: 'var(--bg-lowest)',
+          border: 'var(--border-subtle)',
+          'border-strong': 'var(--border-strong)',
+          primary: 'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
+          muted: 'var(--text-muted)',
+          accent: 'var(--accent-primary)',
+          secondaryAccent: 'var(--accent-secondary)',
+          glow: 'var(--accent-glow)',
+          badge: 'var(--badge-bg)',
+          bar: 'var(--terminal-bar)',
+        },
         obsidian: {
           950: '#05080f',
           900: '#090d16',

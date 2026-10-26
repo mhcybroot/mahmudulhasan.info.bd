@@ -6,36 +6,48 @@
 
 <aside
   id="mobile-drawer"
-  class="fixed top-0 right-0 bottom-0 w-72 sm:w-80 bg-[#0A0F1D] border-l border-[#1E293B] z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col p-6 shadow-2xl"
+  class="fixed top-0 right-0 bottom-0 w-72 sm:w-80 bg-theme-base border-l border-theme-border z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col p-6 shadow-2xl"
   aria-label="Mobile Navigation"
 >
-  <div class="flex items-center justify-between pb-6 border-b border-[#1E293B]">
+  <div class="flex items-center justify-between pb-6 border-b border-theme-border">
     <div class="flex items-center gap-2">
-      <span class="h-2 w-2 rounded-full bg-[#10B981] animate-ping"></span>
-      <span class="font-mono text-sm font-semibold text-[#F8FAFC]">~/mhcybroot</span>
+      <span class="h-2 w-2 rounded-full bg-theme-secondaryAccent animate-ping"></span>
+      <span class="font-mono text-sm font-semibold text-theme-primary">~/mhcybroot</span>
     </div>
-    <button id="mobile-drawer-close" class="p-2 text-[#94A3B8] hover:text-[#F8FAFC] rounded hover:bg-[#1E293B]" aria-label="Close menu">
+    <button id="mobile-drawer-close" class="p-2 text-theme-muted hover:text-theme-primary rounded hover:bg-theme-surface" aria-label="Close menu">
       <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
   </div>
 
-  <nav class="flex flex-col space-y-4 py-6 font-medium text-base text-[#94A3B8]">
-    <a href="#hero" class="mobile-nav-link hover:text-[#38BDF8] py-1.5 transition-colors">Overview</a>
-    <a href="#systems" class="mobile-nav-link hover:text-[#38BDF8] py-1.5 transition-colors">Flagship Systems</a>
-    <a href="#deployments" class="mobile-nav-link hover:text-[#38BDF8] py-1.5 transition-colors">Live Deployments</a>
-    <a href="#arsenal" class="mobile-nav-link hover:text-[#38BDF8] py-1.5 transition-colors">Technical Arsenal</a>
-    <a href="#endorsements" class="mobile-nav-link hover:text-[#38BDF8] py-1.5 transition-colors">Endorsements</a>
-    <a href="#experience" class="mobile-nav-link hover:text-[#38BDF8] py-1.5 transition-colors">Career Timeline</a>
-    <a href="#contact" class="mobile-nav-link hover:text-[#38BDF8] py-1.5 transition-colors">Contact Transmission</a>
+  <nav class="flex flex-col space-y-4 py-6 font-medium text-base text-theme-muted">
+    <a href="#hero" class="mobile-nav-link hover:text-theme-accent py-1.5 transition-colors">Overview</a>
+    <a href="#systems" class="mobile-nav-link hover:text-theme-accent py-1.5 transition-colors">Flagship Systems</a>
+    <a href="#deployments" class="mobile-nav-link hover:text-theme-accent py-1.5 transition-colors">Live Deployments</a>
+    <a href="#arsenal" class="mobile-nav-link hover:text-theme-accent py-1.5 transition-colors">Technical Arsenal</a>
+    <a href="#endorsements" class="mobile-nav-link hover:text-theme-accent py-1.5 transition-colors">Endorsements</a>
+    <a href="#experience" class="mobile-nav-link hover:text-theme-accent py-1.5 transition-colors">Career Timeline</a>
+    <a href="#contact" class="mobile-nav-link hover:text-theme-accent py-1.5 transition-colors">Contact Transmission</a>
   </nav>
 
-  <div class="mt-auto pt-6 border-t border-[#1E293B] flex flex-col gap-3">
+  <!-- Mobile Quick Theme Switcher Pills -->
+  <div class="pt-4 pb-2 border-t border-theme-border space-y-2">
+    <div class="font-mono text-[10px] text-theme-muted uppercase tracking-wider">Quick Visual Theme</div>
+    <div class="grid grid-cols-5 gap-1.5">
+      <button type="button" class="mobile-theme-pill h-7 rounded border border-theme-border bg-[#38BDF8] hover:scale-105 transition-transform" data-theme="obsidian" title="Obsidian Telemetry"></button>
+      <button type="button" class="mobile-theme-pill h-7 rounded border border-theme-border bg-[#F59E0B] hover:scale-105 transition-transform" data-theme="amber" title="Amber Cockpit"></button>
+      <button type="button" class="mobile-theme-pill h-7 rounded border border-theme-border bg-[#EC4899] hover:scale-105 transition-transform" data-theme="synthwave" title="Neon Synthwave"></button>
+      <button type="button" class="mobile-theme-pill h-7 rounded border border-theme-border bg-[#10B981] hover:scale-105 transition-transform" data-theme="emerald" title="Emerald Mainframe"></button>
+      <button type="button" class="mobile-theme-pill h-7 rounded border border-theme-border bg-[#FFFFFF] hover:scale-105 transition-transform" data-theme="cleanroom" title="Cleanroom Lab"></button>
+    </div>
+  </div>
+
+  <div class="mt-auto pt-6 border-t border-theme-border flex flex-col gap-3">
     <button
       id="mobile-drawer-resume-btn"
       type="button"
-      class="w-full py-2.5 px-4 rounded bg-[#1E293B] border border-[#334155] text-sm font-medium text-[#F8FAFC] hover:border-[#38BDF8] hover:text-[#38BDF8] flex items-center justify-center gap-2"
+      class="w-full py-2.5 px-4 rounded-xl bg-theme-surface border border-theme-border text-sm font-medium text-theme-primary hover:border-theme-accent hover:text-theme-accent flex items-center justify-center gap-2"
     >
       <span>Quick View Resume</span>
       <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -44,7 +56,7 @@
     </button>
     <a
       href="#contact"
-      class="w-full py-2.5 px-4 rounded bg-[#06B6D4] text-[#090D16] text-sm font-semibold hover:bg-[#38BDF8] text-center"
+      class="w-full py-2.5 px-4 rounded-xl bg-theme-accent text-theme-lowest text-sm font-bold hover:brightness-110 text-center"
     >
       Connect Directly
     </a>
@@ -57,6 +69,7 @@
   const overlay = document.getElementById('mobile-drawer-overlay');
   const drawer = document.getElementById('mobile-drawer');
   const navLinks = document.querySelectorAll('.mobile-nav-link');
+  const themePills = document.querySelectorAll('.mobile-theme-pill');
 
   function openDrawer() {
     drawer?.classList.remove('translate-x-full');
@@ -76,6 +89,22 @@
   closeBtn?.addEventListener('click', closeDrawer);
   overlay?.addEventListener('click', closeDrawer);
   navLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+  themePills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const theme = pill.getAttribute('data-theme');
+      if (theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        if (theme === 'cleanroom') {
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+        localStorage.setItem('theme-preference', theme);
+        closeDrawer();
+      }
+    });
+  });
 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeDrawer();

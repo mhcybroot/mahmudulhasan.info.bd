@@ -1,49 +1,44 @@
 ---
 // Header / Navigation Bar Component
+import ThemeSwitcher from './ThemeSwitcher.astro';
 ---
 
-<header class="bg-[#090D16]/90 backdrop-blur-md sticky top-0 z-40 border-b border-[#1E293B]/60 transition-all duration-200">
+<header class="bg-theme-base/90 backdrop-blur-md sticky top-0 z-40 border-b border-theme-border transition-all duration-200">
   <div class="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 h-16 w-full">
     <!-- Brand Identifier -->
     <a href="#hero" class="flex items-center gap-2.5 group transition-transform active:scale-[0.98]">
       <span class="relative flex h-2.5 w-2.5">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-theme-secondaryAccent opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-theme-secondaryAccent"></span>
       </span>
-      <span class="font-mono text-sm sm:text-base font-semibold tracking-tight text-[#F8FAFC] group-hover:text-[#38BDF8] transition-colors">
+      <span class="font-mono text-sm sm:text-base font-semibold tracking-tight text-theme-primary group-hover:text-theme-accent transition-colors">
         ~/mhcybroot
       </span>
-      <span class="font-mono text-[10px] text-[#94A3B8] bg-[#1E293B]/70 px-1.5 py-0.5 rounded border border-[#334155]/60">
+      <span class="font-mono text-[10px] text-theme-muted bg-theme-surface px-1.5 py-0.5 rounded border border-theme-border">
         v2.4-prod
       </span>
     </a>
 
     <!-- Desktop Navigation Links -->
-    <nav class="hidden md:flex items-center space-x-6 text-sm text-[#94A3B8]">
-      <a href="#hero" class="hover:text-[#F8FAFC] transition-colors font-medium">Overview</a>
-      <a href="#systems" class="hover:text-[#F8FAFC] transition-colors font-medium">Systems</a>
-      <a href="#deployments" class="hover:text-[#F8FAFC] transition-colors font-medium">Deployments</a>
-      <a href="#arsenal" class="hover:text-[#F8FAFC] transition-colors font-medium">Arsenal</a>
-      <a href="#endorsements" class="hover:text-[#F8FAFC] transition-colors font-medium">Endorsements</a>
-      <a href="#experience" class="hover:text-[#F8FAFC] transition-colors font-medium">Career</a>
+    <nav class="hidden md:flex items-center space-x-6 text-sm text-theme-muted">
+      <a href="#hero" class="hover:text-theme-primary transition-colors font-medium">Overview</a>
+      <a href="#systems" class="hover:text-theme-primary transition-colors font-medium">Systems</a>
+      <a href="#deployments" class="hover:text-theme-primary transition-colors font-medium">Deployments</a>
+      <a href="#arsenal" class="hover:text-theme-primary transition-colors font-medium">Arsenal</a>
+      <a href="#endorsements" class="hover:text-theme-primary transition-colors font-medium">Endorsements</a>
+      <a href="#experience" class="hover:text-theme-primary transition-colors font-medium">Career</a>
     </nav>
 
     <!-- Trailing CTAs -->
     <div class="flex items-center gap-2 sm:gap-3">
-      <!-- Status Pill -->
-      <div class="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#0F172A] border border-[#1E293B] text-[11px] font-mono text-[#10B981]">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
-        </span>
-        <span>Available for Roles</span>
-      </div>
+      <!-- Theme Switcher Dropdown -->
+      <ThemeSwitcher />
 
       <!-- Quick Dossier Modal Trigger -->
       <button
         id="nav-resume-btn"
         type="button"
-        class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-[#1E293B]/70 border border-[#334155] text-xs sm:text-sm font-medium text-[#F8FAFC] hover:border-[#38BDF8] hover:text-[#38BDF8] transition-all cursor-pointer"
+        class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-theme-surface border border-theme-border text-xs sm:text-sm font-medium text-theme-primary hover:border-theme-accent hover:text-theme-accent transition-all cursor-pointer"
       >
         <span>Resume</span>
         <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -54,7 +49,7 @@
       <!-- Connect CTA -->
       <a
         href="#contact"
-        class="hidden sm:inline-flex items-center gap-1 px-3.5 py-1.5 rounded bg-[#06B6D4] text-[#090D16] text-xs sm:text-sm font-semibold hover:bg-[#38BDF8] transition-all shadow-[0_0_15px_rgba(6,182,212,0.3)] active:scale-95"
+        class="hidden sm:inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-theme-accent text-theme-lowest text-xs sm:text-sm font-bold hover:brightness-110 transition-all shadow-md active:scale-95"
       >
         <span>Connect</span>
         <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -66,7 +61,7 @@
       <button
         id="mobile-menu-toggle"
         type="button"
-        class="md:hidden p-2 rounded text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#1E293B] focus:outline-none"
+        class="md:hidden p-2 rounded text-theme-muted hover:text-theme-primary hover:bg-theme-surface focus:outline-none"
         aria-label="Toggle Navigation Menu"
       >
         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -1,0 +1,142 @@
+---
+// Theme Switcher Component
+const themes = [
+  { id: 'obsidian', name: 'Obsidian Telemetry', desc: 'Deep Slate & Cyan', dot: '#38BDF8', border: '#10B981' },
+  { id: 'amber', name: 'Amber Cockpit', desc: 'Brutalist Hazard Gold', dot: '#F59E0B', border: '#FCC742' },
+  { id: 'synthwave', name: 'Neon Synthwave', desc: 'Cyberpunk Magenta', dot: '#EC4899', border: '#8B5CF6' },
+  { id: 'emerald', name: 'Emerald Mainframe', desc: 'Phosphor Green TTY', dot: '#10B981', border: '#4EDEA3' },
+  { id: 'cleanroom', name: 'Cleanroom Lab', desc: 'High-Contrast Light', dot: '#2563EB', border: '#0F172A' },
+];
+---
+
+<div class="relative inline-block text-left" id="theme-switcher-container">
+  <!-- Trigger Button -->
+  <button
+    id="theme-switcher-btn"
+    type="button"
+    class="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-lg bg-theme-surface border border-theme-border text-xs font-mono text-theme-primary hover:border-theme-accent transition-all cursor-pointer shadow-sm"
+    aria-expanded="false"
+    aria-haspopup="true"
+    title="Switch Visual Theme"
+  >
+    <span class="w-2.5 h-2.5 rounded-full bg-theme-accent animate-pulse" id="active-theme-dot"></span>
+    <span class="hidden sm:inline font-medium" id="active-theme-label">Theme</span>
+    <svg class="w-3.5 h-3.5 text-theme-muted transition-transform duration-200" id="theme-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+
+  <!-- Dropdown Menu -->
+  <div
+    id="theme-dropdown-menu"
+    class="hidden absolute right-0 mt-2 w-64 rounded-2xl bg-theme-base border border-theme-border-strong shadow-2xl backdrop-blur-xl p-2 z-50 transition-all font-mono text-xs animate-in fade-in zoom-in-95"
+    role="menu"
+  >
+    <div class="px-3 py-2 text-[10px] uppercase tracking-wider text-theme-muted border-b border-theme-border flex items-center justify-between">
+      <span>CHOOSE SYSTEM THEME</span>
+      <span class="text-theme-accent">5 EDITIONS</span>
+    </div>
+
+    <div class="py-1 space-y-1">
+      {themes.map((t) => (
+        <button
+          type="button"
+          class="theme-option-btn w-full text-left px-3 py-2 rounded-xl flex items-center justify-between hover:bg-theme-surface hover:text-theme-primary transition-all group cursor-pointer"
+          data-theme-id={t.id}
+          data-theme-name={t.name}
+          role="menuitem"
+        >
+          <div class="flex items-center gap-2.5">
+            <span class="w-3 h-3 rounded-full shrink-0 border" style={`background-color: ${t.dot}; border-color: ${t.border}`}></span>
+            <div>
+              <div class="font-medium text-theme-primary text-xs">{t.name}</div>
+              <div class="text-[10px] text-theme-muted">{t.desc}</div>
+            </div>
+          </div>
+          <span class="theme-check hidden text-theme-accent text-sm font-bold">✓</span>
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupThemeSwitcher() {
+    const btn = document.getElementById('theme-switcher-btn');
+    const menu = document.getElementById('theme-dropdown-menu');
+    const chevron = document.getElementById('theme-chevron');
+    const label = document.getElementById('active-theme-label');
+    const dot = document.getElementById('active-theme-dot');
+    const options = document.querySelectorAll('.theme-option-btn');
+
+    function updateActiveState(currentTheme: string) {
+      options.forEach(opt => {
+        const themeId = opt.getAttribute('data-theme-id');
+        const check = opt.querySelector('.theme-check');
+        if (themeId === currentTheme) {
+          check?.classList.remove('hidden');
+          opt.classList.add('bg-theme-surface');
+          if (label) label.textContent = opt.getAttribute('data-theme-name') || 'Theme';
+        } else {
+          check?.classList.add('hidden');
+          opt.classList.remove('bg-theme-surface');
+        }
+      });
+    }
+
+    function toggleMenu() {
+      const isHidden = menu?.classList.contains('hidden');
+      if (isHidden) {
+        menu?.classList.remove('hidden');
+        chevron?.classList.add('rotate-180');
+      } else {
+        menu?.classList.add('hidden');
+        chevron?.classList.remove('rotate-180');
+      }
+    }
+
+    function closeMenu() {
+      menu?.classList.add('hidden');
+      chevron?.classList.remove('rotate-180');
+    }
+
+    btn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menu?.contains(e.target as Node) && !btn?.contains(e.target as Node)) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        const selectedTheme = opt.getAttribute('data-theme-id');
+        if (selectedTheme) {
+          document.documentElement.setAttribute('data-theme', selectedTheme);
+          if (selectedTheme === 'cleanroom') {
+            document.documentElement.classList.remove('dark');
+          } else {
+            document.documentElement.classList.add('dark');
+          }
+          localStorage.setItem('theme-preference', selectedTheme);
+          updateActiveState(selectedTheme);
+          closeMenu();
+        }
+      });
+    });
+
+    // Initialize state from current html attribute
+    const current = document.documentElement.getAttribute('data-theme') || 'obsidian';
+    updateActiveState(current);
+  }
+
+  // Run on page load
+  setupThemeSwitcher();
+</script>

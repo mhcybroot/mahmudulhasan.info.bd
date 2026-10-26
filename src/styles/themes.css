@@ -1,0 +1,96 @@
+/* Multi-Theme CSS Custom Properties for Mahmudul Hasan Portfolio */
+
+/* Default / Fallback: Obsidian Telemetry */
+:root, [data-theme="obsidian"] {
+  --bg-base: #090D16;
+  --bg-surface: #0F172A;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --bg-lowest: #05080F;
+  --border-subtle: #1E293B;
+  --border-strong: #334155;
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --accent-primary: #38BDF8;
+  --accent-secondary: #10B981;
+  --accent-glow: rgba(56, 189, 248, 0.25);
+  --badge-bg: rgba(56, 189, 248, 0.1);
+  --terminal-bar: #090D16;
+}
+
+/* Brutalist Amber Cockpit */
+[data-theme="amber"] {
+  --bg-base: #050505;
+  --bg-surface: #0D0D0C;
+  --bg-card: rgba(26, 25, 23, 0.8);
+  --bg-lowest: #000000;
+  --border-subtle: #2C2A26;
+  --border-strong: #44403C;
+  --text-primary: #FEF3C7;
+  --text-secondary: #FDE68A;
+  --text-muted: #D97706;
+  --accent-primary: #F59E0B;
+  --accent-secondary: #FCC742;
+  --accent-glow: rgba(245, 158, 11, 0.3);
+  --badge-bg: rgba(245, 158, 11, 0.12);
+  --terminal-bar: #0A0A09;
+}
+
+/* Neon Synthwave HUD */
+[data-theme="synthwave"] {
+  --bg-base: #030014;
+  --bg-surface: #080325;
+  --bg-card: rgba(18, 8, 54, 0.85);
+  --bg-lowest: #02000A;
+  --border-subtle: #2D1263;
+  --border-strong: #6B21A8;
+  --text-primary: #FDF2F8;
+  --text-secondary: #E2E8F0;
+  --text-muted: #C084FC;
+  --accent-primary: #EC4899;
+  --accent-secondary: #38BDF8;
+  --accent-glow: rgba(236, 72, 153, 0.35);
+  --badge-bg: rgba(236, 72, 153, 0.15);
+  --terminal-bar: #070220;
+}
+
+/* Emerald TTY Mainframe (Matrix Green) */
+[data-theme="emerald"] {
+  --bg-base: #020602;
+  --bg-surface: #040B04;
+  --bg-card: rgba(6, 19, 7, 0.85);
+  --bg-lowest: #010401;
+  --border-subtle: #14532D;
+  --border-strong: #166534;
+  --text-primary: #DCFCE7;
+  --text-secondary: #86EFAC;
+  --text-muted: #4ADE80;
+  --accent-primary: #10B981;
+  --accent-secondary: #4EDEA3;
+  --accent-glow: rgba(16, 185, 129, 0.35);
+  --badge-bg: rgba(16, 185, 129, 0.12);
+  --terminal-bar: #020602;
+}
+
+/* Cleanroom Laboratory Spec (Light Mode) */
+[data-theme="cleanroom"] {
+  --bg-base: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --bg-lowest: #F1F5F9;
+  --border-subtle: #E2E8F0;
+  --border-strong: #CBD5E1;
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --accent-primary: #2563EB;
+  --accent-secondary: #059669;
+  --accent-glow: rgba(37, 99, 235, 0.18);
+  --badge-bg: rgba(37, 99, 235, 0.08);
+  --terminal-bar: #F1F5F9;
+}
+
+/* Global Transition for Theme Switching */
+body, header, aside, section, div, button, a {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease, box-shadow 0.25s ease;
+}

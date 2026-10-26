@@ -1,6 +1,7 @@
 ---
 import MetaTags from '../components/seo/MetaTags.astro';
 import JsonLd from '../components/seo/JsonLd.astro';
+import '../styles/themes.css';
 
 interface Props {
   title?: string;
@@ -8,10 +9,11 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const envDefaultTheme = import.meta.env.PUBLIC_DEFAULT_THEME || 'obsidian';
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="scroll-smooth dark" data-theme={envDefaultTheme}>
   <head>
     <meta charset="UTF-8" />
     <MetaTags title={title} description={description} />
@@ -22,15 +24,33 @@ const { title, description } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Zero-Flash Theme Initialization Script (Runs synchronously before render) -->
+    <script is:inline define:vars={{ envDefaultTheme }}>
+      (function () {
+        try {
+          const stored = localStorage.getItem('theme-preference');
+          const activeTheme = stored || envDefaultTheme || 'obsidian';
+          document.documentElement.setAttribute('data-theme', activeTheme);
+          if (activeTheme === 'cleanroom') {
+            document.documentElement.classList.remove('dark');
+          } else {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', envDefaultTheme || 'obsidian');
+        }
+      })();
+    </script>
   </head>
-  <body class="bg-[#090D16] text-[#CBD5E1] font-sans antialiased selection:bg-[#06B6D4]/25 selection:text-[#38BDF8] min-h-screen relative overflow-x-hidden">
+  <body class="bg-theme-base text-theme-secondary font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-theme-accent/25 selection:text-theme-accent">
     <!-- Ambient Radial Mesh Glows -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#06B6D4]/10 rounded-full blur-[128px]"></div>
-      <div class="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-[#10B981]/5 rounded-full blur-[140px]"></div>
-      <div class="absolute bottom-10 left-1/4 w-[32rem] h-[32rem] bg-[#0284C7]/8 rounded-full blur-[160px]"></div>
+      <div class="absolute -top-40 -left-40 w-96 h-96 bg-theme-accent/10 rounded-full blur-[128px]"></div>
+      <div class="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-theme-secondaryAccent/10 rounded-full blur-[140px]"></div>
+      <div class="absolute bottom-10 left-1/4 w-[32rem] h-[32rem] bg-theme-accent/5 rounded-full blur-[160px]"></div>
       <!-- Subtle Grid Pattern Overlay -->
-      <div class="absolute inset-0 bg-[linear-gradient(to_right,#1E293B15_1px,transparent_1px),linear-gradient(to_bottom,#1E293B15_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,var(--border-subtle)_1px,transparent_1px),linear-gradient(to_bottom,var(--border-subtle)_1px,transparent_1px)] bg-[size:32px_32px] opacity-25"></div>
     </div>
 
     <!-- Main App Container -->
@@ -44,14 +64,14 @@ const { title, description } = Astro.props;
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #090D16;
+        background: var(--bg-base);
       }
       ::-webkit-scrollbar-thumb {
-        background: #1E293B;
+        background: var(--border-subtle);
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #334155;
+        background: var(--border-strong);
       }
     </style>
   </body>
