@@ -1,0 +1,68 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  githubUrl: string;
+  date: string;
+  primaryLanguage: string;
+  keywords: string[];
+}
+
+const {
+  title,
+  description,
+  slug,
+  githubUrl,
+  date,
+  primaryLanguage,
+  keywords,
+} = Astro.props;
+
+const url = `https://mahmudulhasan.info.bd/systems/${slug}`;
+
+const caseStudySchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": `${url}#software`,
+      "name": title,
+      "programmingLanguage": primaryLanguage,
+      "runtimePlatform": "Linux x86_64, Windows x86_64",
+      "codeRepository": githubUrl,
+      "author": {
+        "@type": "Person",
+        "name": "Mahmudul Hasan",
+        "alternateName": "mhcybroot",
+        "url": "https://mahmudulhasan.info.bd"
+      },
+      "description": description,
+      "url": url,
+      "datePublished": date
+    },
+    {
+      "@type": "TechArticle",
+      "@id": `${url}#article`,
+      "headline": `${title} — Systems Architecture & Telemetry Deep-Dive`,
+      "description": description,
+      "author": {
+        "@type": "Person",
+        "name": "Mahmudul Hasan",
+        "url": "https://mahmudulhasan.info.bd"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Mahmudul Hasan",
+        "url": "https://mahmudulhasan.info.bd"
+      },
+      "datePublished": date,
+      "dateModified": date,
+      "mainEntityOfPage": url,
+      "keywords": keywords.join(', ')
+    }
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(caseStudySchema)} />
