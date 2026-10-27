@@ -2,6 +2,7 @@
 > High-Throughput & Edge Systems Architect specializing in concurrent backends (Rust 2024, Java 21), bare-metal IoT hardware protocols (ZKTeco ADMS, RTSP, Frigate AI), and reactive modern web architectures. Based in Dhaka, Bangladesh.
 
 ## Core Navigation & Architectural Dossier
+- [ImageUpscale Pro Case Study](https://mahmudulhasan.info.bd/systems/image-upscale-simd): Deep-dive architecture whitepaper and live telemetry for SIMD-accelerated 292 FPS image enhancer in pure Rust with AMD FidelityFX CAS.
 - [Overview](https://mahmudulhasan.info.bd/#hero): Summary of systems engineering specializations, verified credentials, and real-time edge telemetry metrics.
 - [Flagship Systems](https://mahmudulhasan.info.bd/#systems): In-depth architectural specifications of PMS-V2 (Smart Parking Engine in Rust/Tokio), Enterprise Skylink HRMS Suite, and background workstation monitoring daemons.
 - [Live Commercial Deployments](https://mahmudulhasan.info.bd/#deployments): Production client instances running across global edge CDNs and cloud VPS clusters.

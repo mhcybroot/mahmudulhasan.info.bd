@@ -7,7 +7,9 @@
 - Location: Natun Bazar, Vatara, Dhaka, Bangladesh (UTC+6)
 - Email: info@mahmudulhasan.info.bd
 - Phone: +880 1410-749454
+## Canonical Website & Deep-Dive Architecture Case Studies
 - Canonical Website: https://mahmudulhasan.info.bd
+- Case Study (ImageUpscale Pro): https://mahmudulhasan.info.bd/systems/image-upscale-simd (Hardware AVX2 SIMD, 292 FPS, AMD FidelityFX CAS in pure Rust)
 - GitHub: https://github.com/mhcybroot
 - LinkedIn: https://linkedin.com/in/mhcybroot
 

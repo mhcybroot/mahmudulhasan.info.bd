@@ -30,6 +30,18 @@
       ]
     },
     {
+      "identifier": "urn:air:mahmudulhasan.info.bd:system:image-upscale-simd",
+      "displayName": "ImageUpscale Pro Architecture Case Study",
+      "type": "text/html",
+      "url": "https://mahmudulhasan.info.bd/systems/image-upscale-simd",
+      "description": "Hardware AVX2/NEON SIMD-accelerated Contrast-Adaptive Sharpening image enhancer in pure Rust achieving 292 FPS.",
+      "representativeQueries": [
+        "ImageUpscale Pro rust SIMD",
+        "contrast adaptive sharpening rust CAS",
+        "high throughput image upscaler mahmudul hasan"
+      ]
+    },
+    {
       "identifier": "urn:air:mahmudulhasan.info.bd:schema:person",
       "displayName": "Structured JSON-LD Person Graph",
       "type": "application/ld+json",
