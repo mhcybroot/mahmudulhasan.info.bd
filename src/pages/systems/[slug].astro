@@ -12,6 +12,7 @@ import MarksheetGradeSimulator from '../../components/case-study/MarksheetGradeS
 import VirtualClassroomSimulator from '../../components/case-study/VirtualClassroomSimulator.astro';
 import EdgeAiAttendanceSimulator from '../../components/case-study/EdgeAiAttendanceSimulator.astro';
 import SecureNotesSimulator from '../../components/case-study/SecureNotesSimulator.astro';
+import ConveyanceBillingSimulator from '../../components/case-study/ConveyanceBillingSimulator.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -37,6 +38,7 @@ const isMarksheet = data.slug === 'marksheets-automation';
 const isEdumeet = data.slug === 'edumeet-webrtc';
 const isSmartAi = data.slug === 'smartai-edge-vision';
 const isNotes = data.slug === 'secure-notes-cloud';
+const isSssms = data.slug === 'sssms-conveyance-ledger';
 
 let pageDescription = "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
 if (isPms) {
@@ -57,6 +59,8 @@ if (isPms) {
   pageDescription = "Mobile Edge Vision & Geofenced Attendance System. Android native (Kotlin & Jetpack Compose) running Google ML Kit on-device face tracking with FusedLocation geofencing for sub-350ms zero-trust presence.";
 } else if (isNotes) {
   pageDescription = "Enterprise Encrypted Knowledge Base & RBAC Engine. Clean Layered Architecture in NestJS & MongoDB with compound B-Tree indexing, JWT authentication, and sub-5ms lookups across millions of notes.";
+} else if (isSssms) {
+  pageDescription = "Enterprise Conveyance Billing & Instant Disbursal Platform. Engineered in Flutter & Cloud Firestore with multi-leg journey auditing, automated PDF vouchers, and bKash/EFT payouts.";
 }
 ---
 
@@ -162,6 +166,10 @@ if (isPms) {
           ) : isNotes ? (
             <>
               Enterprise encrypted knowledge management and multi-tenant documentation suite engineered in <strong class="text-white font-semibold">NestJS 10, TypeScript &amp; MongoDB</strong>. Built on a Clean Layered Architecture with the <strong class="text-emerald-300 font-semibold">Repository Pattern</strong>, it enforces strict multi-tenant isolation, cryptographic JWT token guards, and compound B-Tree indexing (<strong class="text-emerald-300 font-semibold">&lt; 4.8ms queries</strong> across millions of records).
+            </>
+          ) : isSssms ? (
+            <>
+              Enterprise employee conveyance billing and instant payout disbursal platform engineered in <strong class="text-white font-semibold">Flutter 3.29 &amp; Cloud Firestore</strong>. Replaces chaotic paper travel slips with an auditable <strong class="text-emerald-300 font-semibold">multi-leg journey tracker</strong> (Rickshaw, CNG, Bus, Bike Fuel), automated fare audit boundaries, print-ready PDF vouchers, and 1-click <strong class="text-emerald-300 font-semibold">bKash, Nagad &amp; EFT mobile banking settlement</strong>.
             </>
           ) : (
             <>
@@ -308,6 +316,21 @@ if (isPms) {
                 <span class="text-emerald-400 font-bold">✓</span> 94.2% Test Coverage (Jest Unit &amp; Supertest E2E)
               </div>
             </>
+          ) : isSssms ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Multi-Leg Journey Auditing (Rickshaw, CNG, Bus, Fuel)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> 1-Click bKash / Nagad / EFT Disbursal Settlement
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Instant Vectorized PDF Conveyance Voucher Compilation
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Cloud Firestore Real-Time ACID Ledger (&lt; 18ms Sync)
+              </div>
+            </>
           ) : (
             <>
               <div class="flex items-center gap-1.5">
@@ -351,6 +374,8 @@ if (isPms) {
         <EdgeAiAttendanceSimulator />
       ) : isNotes ? (
         <SecureNotesSimulator />
+      ) : isSssms ? (
+        <ConveyanceBillingSimulator />
       ) : (
         <BeforeAfterSlider />
       )}
@@ -382,6 +407,8 @@ if (isPms) {
             ? "Built to eliminate proxy roll-calls and fake GPS spoofing with zero cellular data costs and offline-first Room DB sync."
             : isNotes
             ? "Built to stop multi-tenant documentation leaks and eliminate slow unindexed table scans with strict RBAC guards."
+            : isSssms
+            ? "Built to stop inflated travel expenses, eliminate paper voucher loss, and disburse field reimbursements via bKash in seconds."
             : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
@@ -699,6 +726,41 @@ if (isPms) {
               <h3 class="font-mono font-bold text-white text-base">Engineering &amp; DevOps Teams</h3>
               <p class="text-xs text-slate-200 font-sans leading-relaxed">
                 Enables instant sub-5ms retrieval across tens of thousands of architectural decisions, incident post-mortems, and deployment runbooks using MongoDB compound B-Tree indexes, eliminating costly database table scan bottlenecks.
+              </p>
+            </div>
+          </>
+        ) : isSssms ? (
+          <>
+            <!-- Use Case 1: Telecom & Fiber Network Engineers -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                📡
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Telecom &amp; Fiber Maintenance Teams</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Field technicians hopping between base transceiver stations (BTS) and fiber optical network terminals log exact multi-leg rickshaw, CNG, and fuel claims. Eliminates lost paper chits and reconciles emergency fiber cut repairs in real-time.
+              </p>
+            </div>
+
+            <!-- Use Case 2: FMCG & Pharma Medical Reps -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                💊
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Pharma Medical Reps &amp; FMCG Sales</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Medical promotion officers visiting 15+ diagnostic clinics and pharmacies daily log door-to-door transit legs. Algorithmic rate caps prevent inflated travel expenses while finance managers disburse allowances straight to bKash wallets.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Construction & Civil Site Supervisors -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🏗️
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Civil Construction &amp; Inspection Crews</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Project engineers traveling across bridge, flyover, and housing development projects submit itemized travel legs. Generates signed, print-ready A4 PDF vouchers for external audit compliance with zero cash envelope handling.
               </p>
             </div>
           </>
@@ -1298,6 +1360,69 @@ if (isPms) {
             </table>
           </div>
         </div>
+      ) : isSssms ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+              Engineering Benchmark: SSSMS vs. Paper Expense Slips &amp; Generic Spreadsheets
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured across simulated field workforce workload (500 multi-leg journey expense claims with dual-tier managerial approvals and bKash settlements).
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-cyan-300 bg-cyan-950/40">SSSMS (Flutter + Firestore + bKash Disbursal)</th>
+                  <th class="py-3 px-4 font-semibold">Paper Slips &amp; Manual Spreadsheets</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Engineering Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Claim-to-Disbursement Cycle</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 4.5 Minutes (Instant Approval + bKash)</td>
+                  <td class="py-3.5 px-4 text-slate-400">14 – 21 Days (Manual routing &amp; paper signatures)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">99% Faster Turnaround</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Fare Discrepancy &amp; Dispute Rate</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 0.8% (Algorithmic BDT/km Rate Normalizer)</td>
+                  <td class="py-3.5 px-4 text-slate-400">28.4% (Frequent fare rounding &amp; inflated claims)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Eliminates Expense Fraud</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Official Voucher Generation &amp; Audit Prep</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Instant Vectorized PDF (0.4s compilation)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Manual envelope filing, stapling &amp; scanning (35 mins)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Audit-Ready Compliance</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Physical Cash Handling &amp; Envelope Loss</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">0.0% (bKash Corporate &amp; Bank EFT direct deposit)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Frequent cash shortages &amp; manual signature disputes</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Cash Pilferage</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Network Overhead &amp; Offline Cache</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 2.4 KB payload • Firestore offline sync</td>
+                  <td class="py-3.5 px-4 text-slate-400">Zero offline verification &amp; bulky email attachments</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Ultra-Low Bandwidth</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Monthly Software &amp; Licensing Cost</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">$0.00 (Open-Source Flutter + Firebase Free Tier)</td>
+                  <td class="py-3.5 px-4 text-slate-400">$8 – $15 / user / month enterprise SaaS</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Recurring Fees</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <BenchmarkMatrix />
       )}
@@ -1333,6 +1458,8 @@ if (isPms) {
               ? "Engineered in Kotlin 2.0 & Jetpack Compose with Google ML Kit Face Vision, FusedLocation Geofence, and Room DB."
               : isNotes
               ? "Engineered in NestJS 10 & TypeScript with Clean Layered Repository Pattern, MongoDB compound indexing, and Docker Compose."
+              : isSssms
+              ? "Engineered in Flutter 3.29 & Dart 3.11 with Cloud Firestore real-time ACID transactions, vectorized PDF generators, and Provider state management."
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
@@ -2449,6 +2576,128 @@ if (isPms) {
                 </p>
               </button>
             </>
+          ) : isSssms ? (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-sssms-ingress"
+                data-node-title="Multi-Leg Transit Telemetry & Leg Builder Ingress"
+                data-node-badge="Phase 1: Transit Segment Ingress"
+                data-node-desc="Validates and parses granular travel segments including origin, destination, vehicle modality (Rickshaw, CNG, Bus, Bike/Fuel), and claimed distance."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // TRANSIT INGRESS</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Multi-Leg Transit Ingress
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Ingests travel segments with vehicle modality, route coordinates, and claimed costs.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-sssms-rate-normalizer"
+                data-node-title="Algorithmic Transit Fare & Distance Rate Normalizer"
+                data-node-badge="Phase 2: Heuristic Rate Verification"
+                data-node-desc="Checks claimed segment fares against municipal transport baselines (e.g., CNG standard per-km rate vs rickshaw base fare), instantly flagging anomalous submissions."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // RATE NORMALIZER</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Heuristic Rate Normalizer
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Flags out-of-boundary transport claims against category standard fare thresholds.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-sssms-manager-gate"
+                data-node-title="Dual-Tier Departmental Review & Approval Gate"
+                data-node-badge="Phase 3: Managerial Audit Workflow"
+                data-node-desc="Enables department supervisors to review individual transit legs, adjust reimbursement amounts with mandatory audit remarks, and approve claims."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // MANAGERIAL GATE</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Departmental Review Gate
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Supports itemized line adjustments and manager sign-off with audit logging.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-sssms-firestore-ledger"
+                data-node-title="Cloud Firestore Real-Time ACID Ledger"
+                data-node-badge="Phase 4: ACID State Persistence"
+                data-node-desc="Commits approved conveyance claim objects to Cloud Firestore with atomic batch transactions, sub-18ms change listeners, and offline local cache sync."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // FIRESTORE LEDGER</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Real-Time Firestore Ledger
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Commits atomic financial transactions with real-time reactive sync across clients.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-sssms-pdf-voucher"
+                data-node-title="Vectorized PDF Conveyance Voucher Compiler"
+                data-node-badge="Phase 5: Vector Voucher Engine"
+                data-node-desc="Compiles print-ready A4 PDF reimbursement vouchers in under 0.4s using vector shapes, typography tables, and employee/manager signature lines."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // PDF COMPILER</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Vectorized PDF Voucher
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Compiles official A4 conveyance vouchers with company seals and signature boxes.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-sssms-bkash-disbursal"
+                data-node-title="bKash, Nagad & Corporate EFT Settlement Egress"
+                data-node-badge="Phase 6: Mobile Banking Disbursal"
+                data-node-desc="Triggers corporate payout disbursement via bKash Corporate API, Nagad Merchant, or Bangladesh Electronic Funds Transfer Network (BEFTN), stamping transaction hash into the permanent ledger."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // SETTLEMENT EGRESS</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  bKash / EFT Payout Disbursal
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Settles approved claims directly into employee mobile wallets with immutable receipt IDs.
+                </p>
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -2599,6 +2848,8 @@ if (isPms) {
                 ? "Edge AI & Geofencing Core: CameraX ML Kit Vision & FusedLocation Guard"
                 : isNotes
                 ? "Enterprise Repository Core: Compound B-Tree Indexing & Ownership Guard"
+                : isSssms
+                ? "Conveyance Claim Model & Multi-Leg Journey Calculation Core"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
@@ -2620,6 +2871,8 @@ if (isPms) {
                 ? <span>Directly from <code class="text-cyan-300 font-mono">app/src/main/java/.../FaceDetectorHelper.kt</code> and <code class="text-cyan-300 font-mono">LocationUtils.kt</code> showing ML Kit landmark analysis and WGS-84 radius checking.</span>
                 : isNotes
                 ? <span>Directly from <code class="text-cyan-300 font-mono">src/notes/repositories/notes.repository.ts</code> showing compound index lookups and tenant ownership isolation.</span>
+                : isSssms
+                ? <span>Directly from <code class="text-cyan-300 font-mono">lib/models/conveyance_claim_model.dart</code> showing multi-leg transit calculation and Firestore serialization.</span>
                 : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
@@ -2640,10 +2893,10 @@ if (isPms) {
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               <span class="ml-2 text-slate-200 font-medium">
-                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : "src/engine/enhancer.rs"}
+                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : "src/engine/enhancer.rs"}
               </span>
             </div>
-            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : "rust • 105 lines"}</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : "rust • 105 lines"}</span>
           </div>
 
           {isPms ? (
@@ -2940,6 +3193,49 @@ imageAnalysis.<span class="text-cyan-300">setAnalyzer</span>(executor) &#123; im
     &#125;;
   &#125;
 &#125;</code></pre>
+          ) : isSssms ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-slate-400">// SSSMS Multi-Leg Journey Item &amp; Conveyance Claim Model</span>
+<span class="text-rose-400">class</span> <span class="text-cyan-300">JourneyItem</span> &#123;
+  <span class="text-rose-400">final</span> <span class="text-amber-300">String</span> fromLocation;
+  <span class="text-rose-400">final</span> <span class="text-amber-300">String</span> toLocation;
+  <span class="text-rose-400">final</span> <span class="text-amber-300">String</span> transportMode; <span class="text-slate-400">// 'rickshaw', 'cng', 'bus', 'fuel', 'metro'</span>
+  <span class="text-rose-400">final</span> <span class="text-amber-300">double</span> distanceKm;
+  <span class="text-rose-400">final</span> <span class="text-amber-300">double</span> fareAmount;
+
+  <span class="text-cyan-300">JourneyItem</span>(&#123;
+    <span class="text-rose-400">required this</span>.fromLocation,
+    <span class="text-rose-400">required this</span>.toLocation,
+    <span class="text-rose-400">required this</span>.transportMode,
+    <span class="text-rose-400">required this</span>.distanceKm,
+    <span class="text-rose-400">required this</span>.fareAmount,
+  &#125;);
+
+  <span class="text-amber-300">Map</span>&lt;<span class="text-amber-300">String</span>, <span class="text-amber-300">dynamic</span>&gt; <span class="text-cyan-300">toMap</span>() =&gt; &#123;
+    <span class="text-emerald-300">'fromLocation'</span>: fromLocation,
+    <span class="text-emerald-300">'toLocation'</span>: toLocation,
+    <span class="text-emerald-300">'transportMode'</span>: transportMode,
+    <span class="text-emerald-300">'distanceKm'</span>: distanceKm,
+    <span class="text-emerald-300">'fareAmount'</span>: fareAmount,
+  &#125;;
+
+  <span class="text-rose-400">factory</span> <span class="text-cyan-300">JourneyItem</span>.<span class="text-cyan-300">fromMap</span>(<span class="text-amber-300">Map</span>&lt;<span class="text-amber-300">String</span>, <span class="text-amber-300">dynamic</span>&gt; map) =&gt; <span class="text-cyan-300">JourneyItem</span>(
+    fromLocation: map[<span class="text-emerald-300">'fromLocation'</span>] ?? <span class="text-emerald-300">''</span>,
+    toLocation: map[<span class="text-emerald-300">'toLocation'</span>] ?? <span class="text-emerald-300">''</span>,
+    transportMode: map[<span class="text-emerald-300">'transportMode'</span>] ?? <span class="text-emerald-300">'bus'</span>,
+    distanceKm: (map[<span class="text-emerald-300">'distanceKm'</span>] ?? 0).<span class="text-cyan-300">toDouble</span>(),
+    fareAmount: (map[<span class="text-emerald-300">'fareAmount'</span>] ?? 0).<span class="text-cyan-300">toDouble</span>(),
+  );
+&#125;
+
+<span class="text-slate-400">// Aggregator for multi-leg journey auditing and settlement</span>
+<span class="text-amber-300">double</span> <span class="text-cyan-300">computeAuditedFareTotal</span>(<span class="text-amber-300">List</span>&lt;<span class="text-cyan-300">JourneyItem</span>&gt; legs, <span class="text-amber-300">double</span> fuelRatePerKm) &#123;
+  <span class="text-rose-400">return</span> legs.<span class="text-cyan-300">fold</span>(0.0, (sum, leg) &#123;
+    <span class="text-rose-400">if</span> (leg.transportMode == <span class="text-emerald-300">'fuel'</span>) &#123;
+      <span class="text-rose-400">return</span> sum + (leg.distanceKm * fuelRatePerKm);
+    &#125;
+    <span class="text-rose-400">return</span> sum + leg.fareAmount;
+  &#125;);
+&#125;</code></pre>
           ) : (
             <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub fn</span> <span class="text-cyan-300">apply_adaptive_sharpen</span>(img: &<span class="text-amber-300">RgbaImage</span>, strength: <span class="text-rose-400">f32</span>) -&gt; <span class="text-amber-300">RgbaImage</span> &#123;
     <span class="text-slate-400">// Clamp strength & compute FidelityFX peak negative cross weight</span>
@@ -3005,6 +3301,8 @@ imageAnalysis.<span class="text-cyan-300">setAnalyzer</span>(executor) &#123; im
                 ? "Compile debug APK via Gradle, execute local unit test suite, or install onto physical Android test device."
                 : isNotes
                 ? "Run Jest unit and Supertest E2E integration test suites or launch full multi-container Docker Compose stack."
+                : isSssms
+                ? "Fetch Flutter packages, run Dart test suite, or launch the multi-platform client in Chrome or Android emulator."
                 : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
@@ -3104,6 +3402,17 @@ imageAnalysis.<span class="text-cyan-300">setAnalyzer</span>(executor) &#123; im
               <p class="text-emerald-400">npm run test &amp;&amp; npm run test:e2e</p>
               <p class="text-slate-400 mt-2"># 4. Launch full multi-container stack (NestJS API + MongoDB + Nginx)</p>
               <p class="text-emerald-400">docker-compose up --build -d</p>
+            </>
+          ) : isSssms ? (
+            <>
+              <p class="text-slate-400"># 1. Clone SSSMS repository</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/SSSMS.git &amp;&amp; cd SSSMS</p>
+              <p class="text-slate-400 mt-2"># 2. Fetch Flutter packages</p>
+              <p class="text-emerald-400">flutter pub get</p>
+              <p class="text-slate-400 mt-2"># 3. Run Flutter test suite</p>
+              <p class="text-emerald-400">flutter test</p>
+              <p class="text-slate-400 mt-2"># 4. Launch web or mobile client</p>
+              <p class="text-emerald-400">flutter run -d chrome</p>
             </>
           ) : (
             <>
