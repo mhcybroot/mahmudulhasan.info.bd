@@ -7,6 +7,7 @@ import ParkingGateSimulator from '../../components/case-study/ParkingGateSimulat
 import BiometricPunchSimulator from '../../components/case-study/BiometricPunchSimulator.astro';
 import WorkstationTelemetrySimulator from '../../components/case-study/WorkstationTelemetrySimulator.astro';
 import SwiftPdfSimulator from '../../components/case-study/SwiftPdfSimulator.astro';
+import SmartHomeVisualizer from '../../components/case-study/SmartHomeVisualizer.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -27,6 +28,7 @@ const isPms = data.slug === 'pms-v2';
 const isHrms = data.slug === 'skylink-hrms';
 const isMonitor = data.slug === 'skylink-monitor';
 const isSwift = data.slug === 'swift-pdf-editor';
+const isHomesync = data.slug === 'homesync-iot';
 
 let pageDescription = "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
 if (isPms) {
@@ -37,6 +39,8 @@ if (isPms) {
   pageDescription = "Ultra-Lightweight Workstation Activity & Focus Monitor. Runs in pure Rust 2024 with under 14MB RAM, <0.01% CPU, on-demand WebSocket screen streaming, and zero invasive keyloggers.";
 } else if (isSwift) {
   pageDescription = "Financial SWIFT Wire Confirmation Redaction & Precision Typography Engine. Sub-pixel PyMuPDF vector editing, bidirectional Arabic/English typesetting, and zero metadata leakage.";
+} else if (isHomesync) {
+  pageDescription = "Interactive 3D Digital Twin & Smart IoT Configurator. Real-time 60 FPS WebGL room visualizer with dynamic Kelvin lighting shaders, security radar cones, and Matter/Zigbee mesh.";
 }
 ---
 
@@ -123,6 +127,10 @@ if (isPms) {
             <>
               Financial document redaction and typography verification platform engineered with <strong class="text-white font-semibold">Python (FastAPI &amp; PyMuPDF)</strong> and <strong class="text-white font-semibold">Flutter</strong>. Delivers sub-pixel font metric reconstruction, bidirectional Arabic/English typesetting (Tajawal &amp; Amiri), and true cryptographic stream black-boxing with <strong class="text-emerald-300 font-semibold">zero metadata residue</strong>.
             </>
+          ) : isHomesync ? (
+            <>
+              Interactive 3D digital twin smart home configurator engineered with <strong class="text-white font-semibold">React 19, Three.js &amp; React Three Fiber</strong>. Renders real-time architectural floorplans at a locked <strong class="text-emerald-300 font-semibold">60 FPS</strong> with dynamic Kelvin ambient lighting shaders, security radar cones, and Matter/Zigbee mesh simulation.
+            </>
           ) : (
             <>
               Turn blurry, low-resolution photos into <strong class="text-white font-semibold">crystal-clear HD and 4K visuals</strong> in milliseconds. 
@@ -193,6 +201,21 @@ if (isPms) {
                 <span class="text-emerald-400 font-bold">✓</span> Zero Underlying Metadata Leakage
               </div>
             </>
+          ) : isHomesync ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> 60 FPS WebGL Frame Budget (16.6ms)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Real-Time Kelvin Lighting Shaders
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Matter 3.0 &amp; Zigbee Topology
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> &lt; 38 MB GPU VRAM Footprint
+              </div>
+            </>
           ) : (
             <>
               <div class="flex items-center gap-1.5">
@@ -226,6 +249,8 @@ if (isPms) {
         <WorkstationTelemetrySimulator />
       ) : isSwift ? (
         <SwiftPdfSimulator />
+      ) : isHomesync ? (
+        <SmartHomeVisualizer />
       ) : (
         <BeforeAfterSlider />
       )}
@@ -247,6 +272,8 @@ if (isPms) {
             ? "Built to deliver lightweight team focus insights with zero computer lag and total privacy protection."
             : isSwift
             ? "Built to sanitize confidential wire transfers and guarantee typographic compliance across international banking."
+            : isHomesync
+            ? "Built to eliminate guesswork in smart home installations and deliver instant interactive customer approvals."
             : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
@@ -389,6 +416,41 @@ if (isPms) {
               <h3 class="font-mono font-bold text-white text-base">GCC &amp; Middle East Trade Channels</h3>
               <p class="text-xs text-slate-200 font-sans leading-relaxed">
                 Native BiDi reshaper supports complex Arabic cursive fonts (Tajawal, Amiri, Naskh), preventing reverse-letter distortion on wire transfer confirmations from Dubai, Riyadh, and Doha.
+              </p>
+            </div>
+          </>
+        ) : isHomesync ? (
+          <>
+            <!-- Use Case 1: Residential Property Developers -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🏡
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Real Estate Developers &amp; Builders</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Replaces static 2D paper blueprints with interactive 3D virtual floorplans. Homebuyers customize ambient mood lighting and security packages on their smartphones prior to construction, boosting presale conversions.
+              </p>
+            </div>
+
+            <!-- Use Case 2: Smart Home Integrators & Electricians -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                🔌
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Smart IoT Integrators &amp; Installers</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Visualizes Matter 3.0 and Zigbee wireless mesh topologies before pulling cables on site. Simulates PIR motion sensor tripwires and camera blind spots to eliminate installation rework.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Commercial Facilities & Architecture -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🏢
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Architectural Studios &amp; Contractors</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Generates instant itemized bills of materials (BOM) based on client configurations. Provides live pricing estimates and exportable manifests, shortening sales approval cycles from weeks to minutes.
               </p>
             </div>
           </>
@@ -673,6 +735,69 @@ if (isPms) {
             </table>
           </div>
         </div>
+      ) : isHomesync ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+              Engineering Benchmark: HomeSync WebGL vs. Legacy 3D Embeds
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured across mid-range mobile devices and laptops rendering complex multi-room residential floorplans.
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-cyan-300 bg-cyan-950/40">HomeSync (Three.js + R3F)</th>
+                  <th class="py-3 px-4 font-semibold">Legacy 3D Embeds (Matterport/WebGL)</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Operational Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y border-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Initial Bundle Payload</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 2.4 MB (Instanced Geometry)</td>
+                  <td class="py-3.5 px-4 text-slate-400">45 MB – 120 MB (Heavy textures)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">95% Faster Time-To-Interactive</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Render Frame Budget</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Locked 60 FPS (&lt; 16.6ms)</td>
+                  <td class="py-3.5 px-4 text-slate-400">18 – 32 FPS (Mobile stutter)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero GPU Thermal Throttling</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">GPU VRAM Footprint</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 38 MB VRAM</td>
+                  <td class="py-3.5 px-4 text-slate-400">280 MB – 650 MB VRAM</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Runs on Low-End Smartphones</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Smart IoT Simulation</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Interactive Dimmers, Deadbolts &amp; Radar</td>
+                  <td class="py-3.5 px-4 text-slate-400">Static read-only panoramic photos</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Live State Verification</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Wireless Mesh Modeling</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Live Matter 3.0 &amp; Zigbee Topology</td>
+                  <td class="py-3.5 px-4 text-slate-400">Non-existent (Pure visuals)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Eliminates Wireless Dead Zones</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Contractor BOM Generation</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Instant Line-Item Pricing Estimates</td>
+                  <td class="py-3.5 px-4 text-slate-400">Manual spreadsheet quotation</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Shortens Presale Sales Cycles</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <BenchmarkMatrix />
       )}
@@ -698,6 +823,8 @@ if (isPms) {
               ? "Engineered in pure Rust 2024 (Tokio & xcap) with atomic video throttling, OS keyring encryption, and Spring Boot 3.4."
               : isSwift
               ? "Engineered in Python 3.12 (FastAPI & PyMuPDF) with sub-pixel font metric calculation, BiDi typography reshaping, and Flutter."
+              : isHomesync
+              ? "Engineered in React 19 & TypeScript with Three.js WebGL shaders, React Three Fiber GPU loops, and Matter 3.0 mesh state."
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
@@ -1204,6 +1331,128 @@ if (isPms) {
                 </p>
               </button>
             </>
+          ) : isHomesync ? (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-r3f-loop"
+                data-node-title="React Three Fiber (@react-three/fiber) Render Loop"
+                data-node-badge="Phase 1: 60 FPS WebGL Loop"
+                data-node-desc="Runs a fixed 16.6ms requestAnimationFrame loop optimizing Three.js GPU draw calls and eliminating battery drain on mobile viewports."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // R3F CANVAS LOOP</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  R3F 60 FPS Render Loop
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Locked 16.6ms frame budget running Three.js WebGL with zero stutter on mobile devices.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-instancing"
+                data-node-title="Instanced Room Geometry & Mesh Decoupling"
+                data-node-badge="Phase 2: Geometry Instancing"
+                data-node-desc="Batches repetitive architectural geometry, wall partitions, and floor tiles into single GPU draw calls, maintaining < 38 MB VRAM footprint."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // INSTANCED MESH</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Instanced Mesh Memory Pool
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Reduces GPU draw calls by 85% through instanced room geometry and low-overhead 2.5D meshes.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-kelvin-shader"
+                data-node-title="Dynamic Kelvin Ambient Lighting Shaders (GLSL)"
+                data-node-badge="Phase 3: Real-Time Lighting Compositor"
+                data-node-desc="Converts color temperature from 2700K warm incandescent to 6500K daylight in real time with ambient occlusion and bounce lighting."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // KELVIN SHADER</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  GLSL Kelvin Color Shader
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Simulates true architectural ambient lighting temperatures across room surfaces in real time.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-raycaster"
+                data-node-title="Three.js Raycaster & Camera FOV Radar Cones"
+                data-node-badge="Phase 4: Sensor Geometry & Raycasting"
+                data-node-desc="Calculates 90-degree conical projection rays for security cameras, verifying physical blind spots and PIR tripwire triggers."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // SENSOR RAYCAST</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Camera FOV &amp; Radar Raycast
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Visualizes CCTV coverage cones and detects perimeter blind spots through vector ray intersection.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-mesh-topology"
+                data-node-title="Matter 3.0 & Zigbee Mesh Topology Simulator"
+                data-node-badge="Phase 5: Wireless Mesh Graph"
+                data-node-desc="Models direct-line-of-sight signal propagation, repeater relays, and packet hops between smart switches and the central hub."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // MESH TOPOLOGY</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Matter / Zigbee Mesh Graph
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Eliminates wireless blind spots by validating repeater hops and RSSI signal propagation.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-bom-quoter"
+                data-node-title="Real-Time Contractor Bill of Materials (BOM) Quoter"
+                data-node-badge="Phase 6: Instant Commercial Quotation"
+                data-node-desc="Dynamically tallies configured smart dimmers, deadbolts, and sensors into line-item hardware quotes with exportable manifests."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // AUTOMATED BOM</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Automated BOM Quoter
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Generates instant equipment lists and contractor pricing estimates, accelerating sales cycles.
+                </p>
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -1344,6 +1593,8 @@ if (isPms) {
                 ? "Native Concurrency Core: Tokio WebSocket Screen Streaming & Dynamic Throttling"
                 : isSwift
                 ? "Typography & Redaction Engine: PyMuPDF Vector Sanitization & Arabic BiDi Layout"
+                : isHomesync
+                ? "Interactive Shaders: Dynamic Kelvin Ambient Lighting Compositor"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
@@ -1355,6 +1606,8 @@ if (isPms) {
                 ? <span>Directly from <code class="text-cyan-300 font-mono">skylink-monitor/src/network.rs</code> showing non-blocking xcap frame capture &amp; atomic quality throttling.</span>
                 : isSwift
                 ? <span>Directly from <code class="text-cyan-300 font-mono">backend/app/pdf_service.py</code> showing Pillow 4x antialiasing &amp; PyMuPDF baseline positioning.</span>
+                : isHomesync
+                ? <span>Directly from <code class="text-cyan-300 font-mono">src/components/ThreeCanvas/FloorplanLightingShader.ts</code> calculating Kelvin to linear RGB for WebGL shaders.</span>
                 : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
@@ -1375,10 +1628,10 @@ if (isPms) {
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               <span class="ml-2 text-slate-200 font-medium">
-                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : "src/engine/enhancer.rs"}
+                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : "src/engine/enhancer.rs"}
               </span>
             </div>
-            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : "rust • 105 lines"}</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : "rust • 105 lines"}</span>
           </div>
 
           {isPms ? (
@@ -1502,6 +1755,41 @@ if (isPms) {
         page.insert_image(rect, stream=img_byte_arr.getvalue())
     <span class="text-rose-400">except</span> Exception:
         page.insert_text(fitz.Point(left_x0, baseline_y), text_to_draw, fontsize=font_size, fontname=<span class="text-emerald-300">"helv"</span>, color=color)</code></pre>
+          ) : isHomesync ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-slate-400">// Dynamic Kelvin color temperature conversion (2700K - 6500K) to linear RGB for WebGL shaders</span>
+<span class="text-rose-400">export function</span> <span class="text-cyan-300">kelvinToRgb</span>(kelvin: <span class="text-amber-300">number</span>): [<span class="text-amber-300">number</span>, <span class="text-amber-300">number</span>, <span class="text-amber-300">number</span>] &#123;
+    <span class="text-rose-400">const</span> temp = <span class="text-amber-300">Math</span>.<span class="text-cyan-300">max</span>(1000, <span class="text-amber-300">Math</span>.<span class="text-cyan-300">min</span>(40000, kelvin)) / 100;
+    <span class="text-rose-400">let</span> r: <span class="text-amber-300">number</span>, g: <span class="text-amber-300">number</span>, b: <span class="text-amber-300">number</span>;
+
+    <span class="text-slate-400">// Red channel computation</span>
+    <span class="text-rose-400">if</span> (temp &lt;= 66) &#123;
+        r = 255;
+    &#125; <span class="text-rose-400">else</span> &#123;
+        r = 329.698727446 * <span class="text-amber-300">Math</span>.<span class="text-cyan-300">pow</span>(temp - 60, -0.1332047592);
+    &#125;
+
+    <span class="text-slate-400">// Green channel computation</span>
+    <span class="text-rose-400">if</span> (temp &lt;= 66) &#123;
+        g = 99.4708025861 * <span class="text-amber-300">Math</span>.<span class="text-cyan-300">log</span>(temp) - 161.1195681661;
+    &#125; <span class="text-rose-400">else</span> &#123;
+        g = 288.1221695283 * <span class="text-amber-300">Math</span>.<span class="text-cyan-300">pow</span>(temp - 60, -0.0755148492);
+    &#125;
+
+    <span class="text-slate-400">// Blue channel computation</span>
+    <span class="text-rose-400">if</span> (temp &gt;= 66) &#123;
+        b = 255;
+    &#125; <span class="text-rose-400">else if</span> (temp &lt;= 19) &#123;
+        b = 0;
+    &#125; <span class="text-rose-400">else</span> &#123;
+        b = 138.5177312231 * <span class="text-amber-300">Math</span>.<span class="text-cyan-300">log</span>(temp - 10) - 305.0447927307;
+    &#125;
+
+    <span class="text-rose-400">return</span> [
+        <span class="text-amber-300">Math</span>.<span class="text-cyan-300">min</span>(1.0, <span class="text-amber-300">Math</span>.<span class="text-cyan-300">max</span>(0.0, r / 255.0)),
+        <span class="text-amber-300">Math</span>.<span class="text-cyan-300">min</span>(1.0, <span class="text-amber-300">Math</span>.<span class="text-cyan-300">max</span>(0.0, g / 255.0)),
+        <span class="text-amber-300">Math</span>.<span class="text-cyan-300">min</span>(1.0, <span class="text-amber-300">Math</span>.<span class="text-cyan-300">max</span>(0.0, b / 255.0))
+    ];
+&#125;</code></pre>
           ) : (
             <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub fn</span> <span class="text-cyan-300">apply_adaptive_sharpen</span>(img: &<span class="text-amber-300">RgbaImage</span>, strength: <span class="text-rose-400">f32</span>) -&gt; <span class="text-amber-300">RgbaImage</span> &#123;
     <span class="text-slate-400">// Clamp strength & compute FidelityFX peak negative cross weight</span>
@@ -1557,6 +1845,8 @@ if (isPms) {
                 ? "Run the Rust cargo test suite locally or compile the release binary for Linux or Windows."
                 : isSwift
                 ? "Run the FastAPI vector service locally or run the cross-platform Flutter client."
+                : isHomesync
+                ? "Launch the React 19 + Three.js configurator locally or run the Vite production build."
                 : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
@@ -1601,6 +1891,17 @@ if (isPms) {
               <p class="text-emerald-400">uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload</p>
               <p class="text-slate-400 mt-2"># 4. Launch Flutter desktop / web client</p>
               <p class="text-emerald-400">cd ../frontend &amp;&amp; flutter run -d chrome</p>
+            </>
+          ) : isHomesync ? (
+            <>
+              <p class="text-slate-400"># 1. Clone HomeSync repository</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/Homesync.git &amp;&amp; cd Homesync</p>
+              <p class="text-slate-400 mt-2"># 2. Install React 19 &amp; Three.js dependencies</p>
+              <p class="text-emerald-400">npm install</p>
+              <p class="text-slate-400 mt-2"># 3. Launch 60 FPS WebGL development server (Vite)</p>
+              <p class="text-emerald-400">npm run dev</p>
+              <p class="text-slate-400 mt-2"># 4. Run test suite</p>
+              <p class="text-emerald-400">npm run test</p>
             </>
           ) : (
             <>

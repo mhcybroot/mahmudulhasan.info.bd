@@ -19,6 +19,7 @@ const deployments = [
     title: "HomeSync Smart Automation",
     url: "https://homesyncllc.org",
     domain: "homesyncllc.org",
+    caseStudyUrl: "/systems/homesync-iot",
     desc: "Interactive 3D smart home configurator allowing homeowners and builders to preview smart lighting, security cameras, and automated locks in real time.",
     tags: ["React Three Fiber", "Interactive 3D", "Tailwind CSS", "Zero-Lag"]
   },
@@ -102,13 +103,24 @@ const deployments = [
             {d.desc}
           </p>
 
-          <!-- Badges -->
-          <div class="flex flex-wrap gap-2 pt-2 border-t border-theme-border">
-            {d.tags.map((tag) => (
-              <span class="px-2.5 py-0.5 rounded bg-theme-base border border-theme-border font-mono text-xs text-theme-secondary">
-                {tag}
-              </span>
-            ))}
+          <!-- Badges & Links -->
+          <div class="flex items-center justify-between flex-wrap gap-2 pt-2 border-t border-theme-border">
+            <div class="flex flex-wrap gap-2">
+              {d.tags.map((tag) => (
+                <span class="px-2.5 py-0.5 rounded bg-theme-base border border-theme-border font-mono text-xs text-theme-secondary">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            {d.caseStudyUrl && (
+              <a
+                href={d.caseStudyUrl}
+                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 border border-theme-accent/30 text-xs font-mono font-semibold text-theme-accent hover:bg-theme-accent hover:text-slate-950 transition-colors ml-auto"
+              >
+                <span>Read 3D Case Study</span>
+                <span>→</span>
+              </a>
+            )}
           </div>
         </div>
       </div>

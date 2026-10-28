@@ -1,0 +1,282 @@
+---
+// SmartHomeVisualizer.astro
+// Interactive 3D/2.5D Smart Home Digital Twin, Lighting Shader & IoT Mesh Simulator
+---
+
+<div class="rounded-3xl border border-cyan-500/30 bg-slate-900/90 backdrop-blur-xl p-5 sm:p-7 shadow-2xl relative overflow-hidden">
+  <!-- Glowing Background Accents -->
+  <div class="absolute -top-24 -right-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Header -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-slate-800 gap-3">
+    <div>
+      <div class="flex items-center gap-2.5">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 font-mono text-sm border border-cyan-500/40">
+          🏡
+        </span>
+        <div>
+          <h3 class="text-base sm:text-lg font-bold text-white tracking-wide">
+            Interactive Smart Home 3D Digital Twin &amp; IoT Simulator
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">
+            Test ambient lighting shader Kelvin transitions, security camera FOV detection, and Matter/Zigbee mesh packets.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Status Pill -->
+    <div class="flex items-center gap-2 self-start sm:self-auto">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        60 FPS WEBGL PIPELINE ACTIVE
+      </span>
+    </div>
+  </div>
+
+  <!-- 1. Interactive Control Toggles -->
+  <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
+    <!-- Lighting Scene Selector -->
+    <div class="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-2">
+      <div class="flex items-center justify-between text-xs font-mono">
+        <span class="font-bold text-slate-300">💡 Ambient Lighting</span>
+        <span class="text-cyan-400 font-bold" id="light-kelvin-label">4000K (80%)</span>
+      </div>
+      <div class="grid grid-cols-3 gap-1.5 pt-1">
+        <button
+          id="btn-light-warm"
+          class="light-preset-btn px-2 py-1.5 rounded-lg text-[11px] font-mono border text-center transition-all bg-slate-800 text-slate-300 border-slate-700 hover:border-amber-400"
+          data-kelvin="2700K"
+          data-brightness="40%"
+          data-color="rgba(245, 158, 11, 0.4)"
+        >
+          Warm 2700K
+        </button>
+        <button
+          id="btn-light-neutral"
+          class="light-preset-btn active px-2 py-1.5 rounded-lg text-[11px] font-mono border text-center transition-all bg-cyan-500/20 text-cyan-200 border-cyan-400/50 shadow-sm"
+          data-kelvin="4000K"
+          data-brightness="80%"
+          data-color="rgba(56, 189, 248, 0.45)"
+        >
+          Work 4000K
+        </button>
+        <button
+          id="btn-light-day"
+          class="light-preset-btn px-2 py-1.5 rounded-lg text-[11px] font-mono border text-center transition-all bg-slate-800 text-slate-300 border-slate-700 hover:border-cyan-400"
+          data-kelvin="6500K"
+          data-brightness="100%"
+          data-color="rgba(255, 255, 255, 0.55)"
+        >
+          Day 6500K
+        </button>
+      </div>
+    </div>
+
+    <!-- Smart Deadbolt Control -->
+    <div class="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800 flex items-center justify-between">
+      <div>
+        <div class="text-xs font-mono font-bold text-slate-300 flex items-center gap-1.5">
+          <span>🔐 Entrance Deadbolt</span>
+        </div>
+        <div class="text-[10px] text-slate-400 mt-0.5" id="lock-state-desc">Motorized deadbolt locked</div>
+      </div>
+      <button
+        id="btn-toggle-lock"
+        class="px-3 py-1.5 rounded-xl font-mono text-xs font-bold border transition-all bg-emerald-500/20 text-emerald-300 border-emerald-500/40 hover:bg-emerald-500/30"
+      >
+        LOCKED
+      </button>
+    </div>
+
+    <!-- AI Security Perimeter Motion Simulation -->
+    <div class="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800 flex items-center justify-between">
+      <div>
+        <div class="text-xs font-mono font-bold text-slate-300 flex items-center gap-1.5">
+          <span>📹 AI Security Camera</span>
+        </div>
+        <div class="text-[10px] text-slate-400 mt-0.5">90° FOV Perimeter Radar</div>
+      </div>
+      <button
+        id="btn-trigger-motion"
+        class="px-3 py-1.5 rounded-xl font-mono text-xs font-bold border transition-all bg-slate-800 text-slate-300 border-slate-700 hover:border-rose-400"
+      >
+        TEST RADAR TRIP
+      </button>
+    </div>
+  </div>
+
+  <!-- 2. Interactive Isometric Floorplan Canvas -->
+  <div class="mt-5 p-4 sm:p-6 rounded-2xl bg-slate-950 border border-slate-800 relative overflow-hidden shadow-inner text-slate-200">
+    <div class="flex items-center justify-between text-xs font-mono border-b border-slate-800 pb-3 mb-4">
+      <span class="text-slate-400">ISOMETRIC 3D DIGITAL TWIN • LEVEL 01 MAIN RESIDENCE</span>
+      <span class="text-cyan-400 font-bold flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+        MATTER 3.0 MESH (14 NODES ONLINE)
+      </span>
+    </div>
+
+    <!-- SVG Digital Twin Floorplan Architecture -->
+    <div class="relative w-full aspect-[2/1] max-h-72 flex items-center justify-center overflow-hidden rounded-xl bg-slate-900/60 border border-slate-800/80">
+      <svg class="w-full h-full" viewBox="0 0 600 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Room Ambient Glow Layer (Dynamic) -->
+        <rect id="room-ambient-glow" x="40" y="40" width="520" height="220" rx="16" fill="rgba(56, 189, 248, 0.15)" class="transition-all duration-700" />
+
+        <!-- Outer Walls -->
+        <rect x="40" y="40" width="520" height="220" rx="16" stroke="#334155" stroke-width="3" stroke-dasharray="4 4" />
+
+        <!-- Interior Partitions -->
+        <!-- Living Room Divider -->
+        <line x1="280" y1="40" x2="280" y2="200" stroke="#475569" stroke-width="3" />
+        <!-- Entrance Hallway Divider -->
+        <line x1="420" y1="120" x2="420" y2="260" stroke="#475569" stroke-width="3" />
+
+        <!-- Living Room (Left Zone) -->
+        <text x="70" y="70" fill="#94A3B8" font-size="11" font-family="monospace" font-weight="bold">ZONE 01: SMART LIVING ROOM</text>
+        <circle cx="160" cy="140" r="45" id="living-light-halo" fill="rgba(56, 189, 248, 0.3)" class="transition-all duration-700" />
+        <circle cx="160" cy="140" r="10" fill="#38BDF8" stroke="#FFFFFF" stroke-width="2" />
+        <text x="120" y="200" fill="#E2E8F0" font-size="10" font-family="monospace">Smart Chandelier (4000K)</text>
+
+        <!-- Central IoT Gateway Hub (Center Zone) -->
+        <text x="295" y="70" fill="#94A3B8" font-size="11" font-family="monospace" font-weight="bold">ZONE 02: IOT CORE</text>
+        <rect x="330" y="100" width="45" height="45" rx="10" fill="#0F172A" stroke="#06B6D4" stroke-width="2" />
+        <circle cx="352" cy="122" r="6" fill="#10B981" />
+        <text x="305" y="165" fill="#38BDF8" font-size="10" font-family="monospace">Zigbee 3.0 Coordinator</text>
+
+        <!-- Wireless Mesh Connecting Lines -->
+        <line x1="160" y1="140" x2="330" y2="122" stroke="#06B6D4" stroke-width="1.5" stroke-dasharray="3 3" class="animate-pulse" />
+        <line x1="375" y1="122" x2="480" y2="190" stroke="#06B6D4" stroke-width="1.5" stroke-dasharray="3 3" class="animate-pulse" />
+        <line x1="375" y1="122" x2="490" y2="80" stroke="#06B6D4" stroke-width="1.5" stroke-dasharray="3 3" class="animate-pulse" />
+
+        <!-- Secure Entrance (Right Bottom Zone) -->
+        <text x="435" y="150" fill="#94A3B8" font-size="10" font-family="monospace" font-weight="bold">ZONE 03: ENTRANCE</text>
+        <circle cx="480" cy="190" r="14" id="lock-indicator" fill="#10B981" stroke="#FFFFFF" stroke-width="2" class="transition-colors duration-300" />
+        <text x="445" y="225" fill="#E2E8F0" font-size="10" font-family="monospace" id="lock-svg-text">Deadbolt [LOCKED]</text>
+
+        <!-- AI Security Camera & Radar Cone (Right Top Zone) -->
+        <text x="435" y="60" fill="#94A3B8" font-size="10" font-family="monospace" font-weight="bold">ZONE 04: PERIMETER</text>
+        <path id="camera-fov-cone" d="M 490 80 L 550 50 L 550 110 Z" fill="rgba(6, 182, 212, 0.25)" stroke="#06B6D4" stroke-width="1" class="transition-all duration-300" />
+        <circle cx="490" cy="80" r="8" fill="#F43F5E" stroke="#FFFFFF" stroke-width="2" />
+        <text x="440" y="105" fill="#FDA4AF" font-size="9" font-family="monospace" id="cam-status-text">AI Cam: Armed</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- 3. Real-Time Mesh Telemetry Packet Console -->
+  <div class="mt-4 rounded-2xl bg-slate-950 border border-slate-800 p-4 font-mono text-xs space-y-2 shadow-inner">
+    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-slate-800">
+      <span class="text-slate-400 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>ZIGBEE 3.0 / MATTER WIRELESS PACKET BUS</span>
+      </span>
+      <span class="text-emerald-400 text-[10px]" id="mesh-status">LQI: 255 (EXCELLENT • 100% SIGNAL)</span>
+    </div>
+    <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 text-[11px] leading-relaxed text-slate-300 font-mono overflow-x-auto space-y-1" id="mesh-console">
+      <div class="text-cyan-400">[Three.js WebGL] Canvas initialized: 60.0 FPS fixed frame budget (16.6ms)</div>
+      <div class="text-slate-400">[Matter Router] Connected to device node 0x2A19 (Living Room Chandelier) • Endpoint: 1</div>
+      <div class="text-emerald-400">[State Report] Biometric Deadbolt node 0x00F4 confirmed state: LOCKED (Latch Engaged)</div>
+      <div class="text-slate-400">[Sensor Radar] Perimeter Camera node 0x981C heartbeat received (Ping: 4ms)</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let isLocked = true;
+  let isMotionTripped = false;
+
+  const btnWarm = document.getElementById('btn-light-warm');
+  const btnNeutral = document.getElementById('btn-light-neutral');
+  const btnDay = document.getElementById('btn-light-day');
+  const lightLabel = document.getElementById('light-kelvin-label');
+
+  const glowLayer = document.getElementById('room-ambient-glow');
+  const haloLayer = document.getElementById('living-light-halo');
+
+  const btnLock = document.getElementById('btn-toggle-lock');
+  const lockDesc = document.getElementById('lock-state-desc');
+  const lockSvg = document.getElementById('lock-indicator');
+  const lockSvgText = document.getElementById('lock-svg-text');
+
+  const btnMotion = document.getElementById('btn-trigger-motion');
+  const cameraFov = document.getElementById('camera-fov-cone');
+  const camStatusText = document.getElementById('cam-status-text');
+
+  const meshConsole = document.getElementById('mesh-console');
+
+  function addMeshLog(msg: string, colorClass = 'text-slate-300') {
+    if (!meshConsole) return;
+    const div = document.createElement('div');
+    div.className = colorClass;
+    div.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+    meshConsole.appendChild(div);
+    meshConsole.scrollTop = meshConsole.scrollHeight;
+  }
+
+  // Lighting preset clicks
+  const presetBtns = [btnWarm, btnNeutral, btnDay];
+  presetBtns.forEach((btn) => {
+    btn?.addEventListener('click', () => {
+      presetBtns.forEach(b => {
+        b?.classList.remove('active', 'bg-cyan-500/20', 'text-cyan-200', 'border-cyan-400/50');
+        b?.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700');
+      });
+
+      btn.classList.add('active', 'bg-cyan-500/20', 'text-cyan-200', 'border-cyan-400/50');
+      btn.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700');
+
+      const kelvin = btn.getAttribute('data-kelvin') || '4000K';
+      const brightness = btn.getAttribute('data-brightness') || '80%';
+      const color = btn.getAttribute('data-color') || 'rgba(56, 189, 248, 0.45)';
+
+      if (lightLabel) lightLabel.textContent = `${kelvin} (${brightness})`;
+      if (glowLayer) glowLayer.setAttribute('fill', color.replace('0.45', '0.18').replace('0.55', '0.22'));
+      if (haloLayer) haloLayer.setAttribute('fill', color);
+
+      addMeshLog(`Cluster 0x0300 (Color Control): Transitioned to Color Temp ${kelvin} at ${brightness} brightness`, 'text-cyan-300');
+    });
+  });
+
+  // Lock Toggle
+  btnLock?.addEventListener('click', () => {
+    isLocked = !isLocked;
+    if (isLocked) {
+      btnLock.textContent = 'LOCKED';
+      btnLock.className = 'px-3 py-1.5 rounded-xl font-mono text-xs font-bold border transition-all bg-emerald-500/20 text-emerald-300 border-emerald-500/40 hover:bg-emerald-500/30';
+      if (lockDesc) lockDesc.textContent = 'Motorized deadbolt locked';
+      if (lockSvg) lockSvg.setAttribute('fill', '#10B981');
+      if (lockSvgText) lockSvgText.textContent = 'Deadbolt [LOCKED]';
+      addMeshLog('Cluster 0x0101 (Door Lock): Command LOCK dispatched -> Status: SUCCESS (Latch 100%)', 'text-emerald-400');
+    } else {
+      btnLock.textContent = 'UNLOCKED';
+      btnLock.className = 'px-3 py-1.5 rounded-xl font-mono text-xs font-bold border transition-all bg-amber-500/20 text-amber-300 border-amber-500/40 hover:bg-amber-500/30';
+      if (lockDesc) lockDesc.textContent = 'Deadbolt unlatched (Entry open)';
+      if (lockSvg) lockSvg.setAttribute('fill', '#F59E0B');
+      if (lockSvgText) lockSvgText.textContent = 'Deadbolt [OPEN]';
+      addMeshLog('Cluster 0x0101 (Door Lock): Command UNLOCK dispatched -> Latch retracted via mobile key', 'text-amber-400');
+    }
+  });
+
+  // Motion Trigger
+  btnMotion?.addEventListener('click', () => {
+    if (isMotionTripped) return;
+    isMotionTripped = true;
+
+    if (cameraFov) {
+      cameraFov.setAttribute('fill', 'rgba(244, 63, 94, 0.6)');
+      cameraFov.setAttribute('stroke', '#F43F5E');
+    }
+    if (camStatusText) camStatusText.textContent = 'ALERT: TRIP DETECTED';
+    addMeshLog('SECURITY TRIGGER: AI Camera Node 0x981C identified person crossing perimeter tripwire!', 'text-rose-400 font-bold');
+
+    setTimeout(() => {
+      if (cameraFov) {
+        cameraFov.setAttribute('fill', 'rgba(6, 182, 212, 0.25)');
+        cameraFov.setAttribute('stroke', '#06B6D4');
+      }
+      if (camStatusText) camStatusText.textContent = 'AI Cam: Armed';
+      isMotionTripped = false;
+      addMeshLog('Radar cone clear. Perimeter status returned to normal ARMED state.', 'text-slate-400');
+    }, 2800);
+  });
+</script>
