@@ -1,0 +1,598 @@
+---
+// Doller: Multi-Currency Trading, Settlement & PnL Ledger Engine Simulator
+---
+
+<div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-8 shadow-2xl">
+  <!-- Simulator Header -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+    <div>
+      <div class="flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-wider mb-1 font-bold">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        Interactive Financial Exchange &amp; Double-Entry Sandbox
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-mono font-bold text-white flex items-center gap-3">
+        Doller: FX Trading &amp; Ledger Simulator
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-300 font-sans mt-1">
+        Experience sub-14ms multi-currency trade execution, balanced double-entry ledger journals, and immutable end-of-day close seals.
+      </p>
+    </div>
+
+    <!-- Active Perspective Switcher -->
+    <div class="flex items-center p-1 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono overflow-x-auto">
+      <button
+        type="button"
+        id="fintech-tab-trading"
+        class="fintech-tab-btn px-3.5 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-semibold transition-all shadow-sm"
+        data-view="trading"
+      >
+        💱 Deal &amp; PnL Engine
+      </button>
+      <button
+        type="button"
+        id="fintech-tab-ledger"
+        class="fintech-tab-btn px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition-all font-semibold"
+        data-view="ledger"
+      >
+        ⚖️ Double-Entry Journal
+      </button>
+      <button
+        type="button"
+        id="fintech-tab-dayclose"
+        class="fintech-tab-btn px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition-all font-semibold"
+        data-view="dayclose"
+      >
+        🔒 EOD Freeze &amp; Snapshots
+      </button>
+    </div>
+  </div>
+
+  <!-- View 1: Deal & PnL Engine (Default) -->
+  <div id="fintech-screen-trading" class="fintech-screen space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Left Column: Trade Entry Form -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              New FX Trade Deal
+            </span>
+            <span class="px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 text-[10px]">
+              SPRING BOOT 3.5 • ACID
+            </span>
+          </div>
+
+          <!-- Currency Pair Selector -->
+          <div class="space-y-1.5">
+            <label class="text-[11px] text-slate-400 uppercase font-semibold">Instrument Currency Pair:</label>
+            <select
+              id="fintech-pair-select"
+              class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-100 font-mono text-xs focus:outline-none focus:border-emerald-400"
+            >
+              <option value="USD_BDT" data-rate="121.50" data-base="USD" data-quote="BDT">USD / BDT (US Dollar / Taka)</option>
+              <option value="EUR_BDT" data-rate="132.80" data-base="EUR" data-quote="BDT">EUR / BDT (Euro / Taka)</option>
+              <option value="GBP_USD" data-rate="1.31" data-base="GBP" data-quote="USD">GBP / USD (British Pound / Dollar)</option>
+              <option value="AED_BDT" data-rate="33.10" data-base="AED" data-quote="BDT">AED / BDT (UAE Dirham / Taka)</option>
+            </select>
+          </div>
+
+          <!-- Deal Direction: Buy / Sell -->
+          <div class="space-y-1.5">
+            <label class="text-[11px] text-slate-400 uppercase font-semibold">Trade Direction:</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                id="fintech-btn-buy"
+                class="py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs transition-all border border-emerald-500 shadow-sm"
+              >
+                BUY (Ingress)
+              </button>
+              <button
+                type="button"
+                id="fintech-btn-sell"
+                class="py-2 rounded-xl bg-slate-900 text-slate-400 hover:text-white font-bold text-xs transition-all border border-slate-700"
+              >
+                SELL (Egress)
+              </button>
+            </div>
+          </div>
+
+          <!-- Volume & Execution Rate -->
+          <div class="grid grid-cols-2 gap-3">
+            <div class="space-y-1.5">
+              <label class="text-[11px] text-slate-400 uppercase font-semibold">Base Volume:</label>
+              <input
+                type="number"
+                id="fintech-volume-input"
+                value="10000"
+                step="500"
+                class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-100 font-mono text-xs focus:outline-none focus:border-emerald-400"
+              />
+            </div>
+            <div class="space-y-1.5">
+              <label class="text-[11px] text-slate-400 uppercase font-semibold">Deal Rate:</label>
+              <input
+                type="number"
+                id="fintech-rate-input"
+                value="121.50"
+                step="0.05"
+                class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-100 font-mono text-xs focus:outline-none focus:border-emerald-400"
+              />
+            </div>
+          </div>
+
+          <!-- Counterparty & Settlement Basis -->
+          <div class="space-y-1.5">
+            <label class="text-[11px] text-slate-400 uppercase font-semibold">Counterparty Account:</label>
+            <select
+              id="fintech-party-select"
+              class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-100 font-mono text-xs focus:outline-none focus:border-emerald-400"
+            >
+              <option value="Apex Commercial Global">Apex Commercial Global (ID: #1042)</option>
+              <option value="Dhaka Treasury Clearing">Dhaka Treasury Clearing (ID: #1088)</option>
+              <option value="Gulf Remittance Exchange">Gulf Remittance Exchange (ID: #1105)</option>
+            </select>
+          </div>
+
+          <!-- Total Value Preview -->
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5 font-mono text-xs">
+            <div class="flex items-center justify-between text-slate-400 text-[11px]">
+              <span>CALCULATED NOTIONAL:</span>
+              <span id="fintech-calc-currency" class="text-emerald-400 font-bold">BDT</span>
+            </div>
+            <div id="fintech-total-value" class="text-xl font-bold text-white">
+              1,215,000.00
+            </div>
+          </div>
+
+          <!-- Execute Button -->
+          <button
+            type="button"
+            id="fintech-btn-execute"
+            class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-lg hover:shadow-emerald-500/20 active:scale-[0.98]"
+          >
+            Commit Deal to Ledger (<span id="fintech-btn-latency">12ms</span>)
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Column: Live Trading Desk Telemetry & PnL Explain -->
+      <div class="lg:col-span-7 space-y-4">
+        <!-- PnL Metrics HUD Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
+            <div class="text-[10px] font-mono text-slate-400 uppercase">REALIZED DAILY PnL</div>
+            <div id="fintech-pnl-realized" class="text-lg font-mono font-bold text-emerald-400">
+              +$1,450.00
+            </div>
+            <div class="text-[10px] font-mono text-slate-500">Spread: +0.42% net</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
+            <div class="text-[10px] font-mono text-slate-400 uppercase">ACTIVE EXPOSURE</div>
+            <div id="fintech-exposure-active" class="text-lg font-mono font-bold text-cyan-300">
+              $45,000.00
+            </div>
+            <div class="text-[10px] font-mono text-slate-500">Unhedged: 8.4% cap</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
+            <div class="text-[10px] font-mono text-slate-400 uppercase">OUTSTANDING DUES</div>
+            <div id="fintech-dues-active" class="text-lg font-mono font-bold text-amber-300">
+              BDT 4,820,000
+            </div>
+            <div class="text-[10px] font-mono text-slate-500">Aging: 0–30 Days</div>
+          </div>
+        </div>
+
+        <!-- Recent Deals Execution Tape -->
+        <div class="rounded-2xl bg-slate-950 border border-slate-800 p-5 space-y-3 flex flex-col h-[340px]">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="font-mono text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              Live Order Execution Stream (ACID Committed)
+            </span>
+            <span class="text-[10px] font-mono text-slate-400">
+              Auto-Scroll Active
+            </span>
+          </div>
+
+          <div
+            id="fintech-deal-tape"
+            class="flex-1 overflow-y-auto space-y-2 font-mono text-xs pr-1 scrollbar-thin scrollbar-thumb-slate-700"
+          >
+            <!-- Preset Deal 1 -->
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-bold">BUY</span>
+                  <span class="text-white font-bold">USD 25,000.00</span>
+                  <span class="text-slate-400">@ 121.40</span>
+                </div>
+                <div class="text-[10px] text-slate-400 mt-0.5">Counterparty: Apex Commercial Global • Ref: #DL-9821</div>
+              </div>
+              <div class="text-right">
+                <div class="text-emerald-400 font-bold">BDT 3,035,000</div>
+                <div class="text-[10px] text-slate-500">14ms Commit</div>
+              </div>
+            </div>
+
+            <!-- Preset Deal 2 -->
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[10px] font-bold">SELL</span>
+                  <span class="text-white font-bold">EUR 10,000.00</span>
+                  <span class="text-slate-400">@ 132.85</span>
+                </div>
+                <div class="text-[10px] text-slate-400 mt-0.5">Counterparty: Dhaka Treasury Clearing • Ref: #DL-9822</div>
+              </div>
+              <div class="text-right">
+                <div class="text-rose-400 font-bold">BDT 1,328,500</div>
+                <div class="text-[10px] text-slate-500">11ms Commit</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View 2: Double-Entry Journal Viewer -->
+  <div id="fintech-screen-ledger" class="fintech-screen hidden space-y-6">
+    <div class="rounded-2xl bg-slate-950 border border-slate-800 p-6 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+        <div>
+          <h3 class="text-lg font-mono font-bold text-white flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+            Double-Entry Accounting Journal (LedgerEntry Table)
+          </h3>
+          <p class="text-xs text-slate-300 font-sans mt-0.5">
+            Every transaction posts balanced Debit and Credit line items to guarantee financial equation integrity: Assets = Liabilities + Equity.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 font-mono text-xs">
+          <div class="px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">
+            Σ Debit: <strong id="fintech-sum-debit">$65,000</strong>
+          </div>
+          <div class="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-300">
+            Σ Credit: <strong id="fintech-sum-credit">$65,000</strong>
+          </div>
+          <span class="px-2 py-1 rounded bg-emerald-500/20 text-emerald-300 font-bold text-[10px]">
+            BALANCED ✓
+          </span>
+        </div>
+      </div>
+
+      <!-- Journal Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 text-slate-400 uppercase text-[11px]">
+              <th class="py-2.5 px-3 font-semibold">Entry ID</th>
+              <th class="py-2.5 px-3 font-semibold">Account Code</th>
+              <th class="py-2.5 px-3 font-semibold">Ref Type / ID</th>
+              <th class="py-2.5 px-3 font-semibold text-right">Debit</th>
+              <th class="py-2.5 px-3 font-semibold text-right">Credit</th>
+              <th class="py-2.5 px-3 font-semibold">Narration</th>
+            </tr>
+          </thead>
+          <tbody id="fintech-ledger-tbody" class="divide-y divide-slate-800/80 text-[11px]">
+            <tr>
+              <td class="py-2.5 px-3 text-slate-400">#LE-4011</td>
+              <td class="py-2.5 px-3 font-bold text-cyan-300">1010-CASH-USD</td>
+              <td class="py-2.5 px-3 text-slate-300">DEAL / #9821</td>
+              <td class="py-2.5 px-3 text-right text-emerald-400 font-bold">25,000.00</td>
+              <td class="py-2.5 px-3 text-right text-slate-600">—</td>
+              <td class="py-2.5 px-3 text-slate-300">FX Ingress: USD purchased @ 121.40</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-3 text-slate-400">#LE-4012</td>
+              <td class="py-2.5 px-3 font-bold text-orange-300">2010-PAYABLE-BDT</td>
+              <td class="py-2.5 px-3 text-slate-300">DEAL / #9821</td>
+              <td class="py-2.5 px-3 text-right text-slate-600">—</td>
+              <td class="py-2.5 px-3 text-right text-rose-400 font-bold">25,000.00</td>
+              <td class="py-2.5 px-3 text-slate-300">Offsetting liability booked to Apex Commercial</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-3 text-slate-400">#LE-4013</td>
+              <td class="py-2.5 px-3 font-bold text-purple-300">1020-RECEIVABLE-BDT</td>
+              <td class="py-2.5 px-3 text-slate-300">DEAL / #9822</td>
+              <td class="py-2.5 px-3 text-right text-emerald-400 font-bold">10,000.00</td>
+              <td class="py-2.5 px-3 text-right text-slate-600">—</td>
+              <td class="py-2.5 px-3 text-slate-300">Counterparty receivable for EUR sale</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-3 text-slate-400">#LE-4014</td>
+              <td class="py-2.5 px-3 font-bold text-amber-300">1015-CASH-EUR</td>
+              <td class="py-2.5 px-3 text-slate-300">DEAL / #9822</td>
+              <td class="py-2.5 px-3 text-right text-slate-600">—</td>
+              <td class="py-2.5 px-3 text-right text-rose-400 font-bold">10,000.00</td>
+              <td class="py-2.5 px-3 text-slate-300">Vault delivery of EUR currency notes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- View 3: Day-Close Freeze & Audit -->
+  <div id="fintech-screen-dayclose" class="fintech-screen hidden space-y-6">
+    <div class="rounded-2xl bg-slate-950 border border-slate-800 p-6 space-y-6">
+      <div class="border-b border-slate-800 pb-4">
+        <h3 class="text-lg font-mono font-bold text-white flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+          End-of-Day Ledger Freeze &amp; Statement Snapshots
+        </h3>
+        <p class="text-xs text-slate-300 font-sans mt-1">
+          Simulate the automated <code class="text-emerald-300 font-mono">confirmDayClose()</code> and audited <code class="text-amber-300 font-mono">reopenDay()</code> governance lifecycle.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Close Controls Card -->
+        <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <span class="font-bold text-white">Daily Close Controller</span>
+            <span id="fintech-close-status-badge" class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px]">
+              DAY STATUS: OPEN (EDITABLE)
+            </span>
+          </div>
+
+          <p class="text-slate-300 font-sans leading-relaxed text-xs">
+            Confirming the day freezes all deals for the calendar date, serializes immutable StatementSnapshot blobs, and locks transactions from retroactive tampering.
+          </p>
+
+          <div class="pt-2 flex flex-col sm:flex-row gap-3">
+            <button
+              type="button"
+              id="fintech-btn-confirm-close"
+              class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-all shadow-md text-xs"
+            >
+              🔒 Execute confirmDayClose()
+            </button>
+            <button
+              type="button"
+              id="fintech-btn-reopen-day"
+              disabled
+              class="flex-1 py-2.5 rounded-xl bg-slate-800 text-slate-500 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-700 hover:text-white transition-all text-xs font-bold"
+            >
+              ⚠️ Audited reopenDay()
+            </button>
+          </div>
+        </div>
+
+        <!-- Snapshot Telemetry Card -->
+        <div class="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <span class="font-bold text-white">StatementSnapshot Telemetry</span>
+            <span id="fintech-snapshot-count" class="text-emerald-400 text-[10px]">3 Counterparties</span>
+          </div>
+
+          <div class="space-y-2 text-[11px] text-slate-300">
+            <div class="flex justify-between p-2 rounded bg-slate-950 border border-slate-800/80">
+              <span class="text-slate-400">Snapshot Checksum:</span>
+              <span id="fintech-checksum-val" class="text-emerald-400 font-bold">SHA-256 (Pending)</span>
+            </div>
+            <div class="flex justify-between p-2 rounded bg-slate-950 border border-slate-800/80">
+              <span class="text-slate-400">Archived Trade Deals:</span>
+              <span id="fintech-archived-deals" class="text-white font-bold">2 Deals Today</span>
+            </div>
+            <div class="flex justify-between p-2 rounded bg-slate-950 border border-slate-800/80">
+              <span class="text-slate-400">Total Settlement Balance:</span>
+              <span class="text-cyan-300 font-bold">BDT 4,363,500.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initFintechSimulator() {
+    const tabTrading = document.getElementById('fintech-tab-trading');
+    const tabLedger = document.getElementById('fintech-tab-ledger');
+    const tabDayclose = document.getElementById('fintech-tab-dayclose');
+
+    const screenTrading = document.getElementById('fintech-screen-trading');
+    const screenLedger = document.getElementById('fintech-screen-ledger');
+    const screenDayclose = document.getElementById('fintech-screen-dayclose');
+
+    const tabs = [
+      { btn: tabTrading, screen: screenTrading },
+      { btn: tabLedger, screen: screenLedger },
+      { btn: tabDayclose, screen: screenDayclose },
+    ];
+
+    tabs.forEach(({ btn, screen }) => {
+      btn?.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.btn?.classList.remove('bg-emerald-500/20', 'text-emerald-300', 'border-emerald-500/40');
+          t.btn?.classList.add('text-slate-400');
+          t.screen?.classList.add('hidden');
+        });
+        btn.classList.add('bg-emerald-500/20', 'text-emerald-300', 'border-emerald-500/40');
+        btn.classList.remove('text-slate-400');
+        screen?.classList.remove('hidden');
+      });
+    });
+
+    // Form Elements
+    const pairSelect = document.getElementById('fintech-pair-select') as HTMLSelectElement | null;
+    const btnBuy = document.getElementById('fintech-btn-buy');
+    const btnSell = document.getElementById('fintech-btn-sell');
+    const volumeInput = document.getElementById('fintech-volume-input') as HTMLInputElement | null;
+    const rateInput = document.getElementById('fintech-rate-input') as HTMLInputElement | null;
+    const partySelect = document.getElementById('fintech-party-select') as HTMLSelectElement | null;
+    const calcCurrency = document.getElementById('fintech-calc-currency');
+    const totalValue = document.getElementById('fintech-total-value');
+    const btnExecute = document.getElementById('fintech-btn-execute');
+    const dealTape = document.getElementById('fintech-deal-tape');
+    const ledgerTbody = document.getElementById('fintech-ledger-tbody');
+
+    // Day-close elements
+    const btnConfirmClose = document.getElementById('fintech-btn-confirm-close');
+    const btnReopenDay = document.getElementById('fintech-btn-reopen-day') as HTMLButtonElement | null;
+    const closeStatusBadge = document.getElementById('fintech-close-status-badge');
+    const checksumVal = document.getElementById('fintech-checksum-val');
+    const archivedDeals = document.getElementById('fintech-archived-deals');
+
+    let isBuy = true;
+    let dealCounter = 9823;
+    let ledgerCounter = 4015;
+    let isDayClosed = false;
+
+    btnBuy?.addEventListener('click', () => {
+      isBuy = true;
+      btnBuy.className = 'py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs transition-all border border-emerald-500 shadow-sm';
+      btnSell?.classList.remove('bg-rose-600', 'text-white', 'border-rose-500');
+      btnSell?.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-700');
+    });
+
+    btnSell?.addEventListener('click', () => {
+      isBuy = false;
+      btnSell.className = 'py-2 rounded-xl bg-rose-600 text-white font-bold text-xs transition-all border border-rose-500 shadow-sm';
+      btnBuy?.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-500');
+      btnBuy?.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-700');
+    });
+
+    function updateCalculations() {
+      if (!pairSelect || !volumeInput || !rateInput) return;
+      const selectedOption = pairSelect.options[pairSelect.selectedIndex];
+      const quote = selectedOption.getAttribute('data-quote') || 'BDT';
+      const vol = parseFloat(volumeInput.value) || 0;
+      const rate = parseFloat(rateInput.value) || 0;
+      const total = vol * rate;
+
+      if (calcCurrency) calcCurrency.textContent = quote;
+      if (totalValue) {
+        totalValue.textContent = total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+    }
+
+    pairSelect?.addEventListener('change', () => {
+      if (!pairSelect || !rateInput) return;
+      const selectedOption = pairSelect.options[pairSelect.selectedIndex];
+      const defaultRate = selectedOption.getAttribute('data-rate');
+      if (defaultRate) rateInput.value = defaultRate;
+      updateCalculations();
+    });
+
+    volumeInput?.addEventListener('input', updateCalculations);
+    rateInput?.addEventListener('input', updateCalculations);
+
+    btnExecute?.addEventListener('click', () => {
+      if (isDayClosed) {
+        alert('Cannot execute deals: Current calendar date is FROZEN by confirmDayClose()! Please request audited reopen.');
+        return;
+      }
+      if (!pairSelect || !volumeInput || !rateInput || !partySelect) return;
+      const selectedOption = pairSelect.options[pairSelect.selectedIndex];
+      const base = selectedOption.getAttribute('data-base') || 'USD';
+      const quote = selectedOption.getAttribute('data-quote') || 'BDT';
+      const vol = parseFloat(volumeInput.value) || 0;
+      const rate = parseFloat(rateInput.value) || 0;
+      const total = vol * rate;
+      const party = partySelect.value;
+
+      dealCounter++;
+      ledgerCounter += 2;
+
+      // Append to Deal Tape
+      if (dealTape) {
+        const item = document.createElement('div');
+        item.className = 'p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between animate-fadeIn';
+        item.innerHTML = `
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-1.5 py-0.5 rounded ${isBuy ? 'bg-emerald-500/20 text-emerald-300' : 'bg-rose-500/20 text-rose-300'} text-[10px] font-bold">${isBuy ? 'BUY' : 'SELL'}</span>
+              <span class="text-white font-bold">${base} ${vol.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
+              <span class="text-slate-400">@ ${rate.toFixed(2)}</span>
+            </div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Counterparty: ${party} • Ref: #DL-${dealCounter}</div>
+          </div>
+          <div class="text-right">
+            <div class="${isBuy ? 'text-emerald-400' : 'text-rose-400'} font-bold">${quote} ${total.toLocaleString('en-US', { minimumFractionDigits: 2 })}</div>
+            <div class="text-[10px] text-slate-500">12ms Commit</div>
+          </div>
+        `;
+        dealTape.insertBefore(item, dealTape.firstChild);
+      }
+
+      // Append balanced double-entry rows to Ledger Journal
+      if (ledgerTbody) {
+        const debitRow = document.createElement('tr');
+        debitRow.className = 'bg-emerald-950/20';
+        debitRow.innerHTML = `
+          <td class="py-2.5 px-3 text-slate-400">#LE-${ledgerCounter - 1}</td>
+          <td class="py-2.5 px-3 font-bold text-cyan-300">1010-CASH-${base}</td>
+          <td class="py-2.5 px-3 text-slate-300">DEAL / #${dealCounter}</td>
+          <td class="py-2.5 px-3 text-right text-emerald-400 font-bold">${vol.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
+          <td class="py-2.5 px-3 text-right text-slate-600">—</td>
+          <td class="py-2.5 px-3 text-slate-300">FX ${isBuy ? 'Ingress' : 'Egress'}: ${base} trade with ${party}</td>
+        `;
+
+        const creditRow = document.createElement('tr');
+        creditRow.className = 'bg-rose-950/20';
+        creditRow.innerHTML = `
+          <td class="py-2.5 px-3 text-slate-400">#LE-${ledgerCounter}</td>
+          <td class="py-2.5 px-3 font-bold text-orange-300">2010-SETTLEMENT-${quote}</td>
+          <td class="py-2.5 px-3 text-slate-300">DEAL / #${dealCounter}</td>
+          <td class="py-2.5 px-3 text-right text-slate-600">—</td>
+          <td class="py-2.5 px-3 text-right text-rose-400 font-bold">${vol.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
+          <td class="py-2.5 px-3 text-slate-300">Offsetting double-entry liability allocation</td>
+        `;
+
+        ledgerTbody.insertBefore(creditRow, ledgerTbody.firstChild);
+        ledgerTbody.insertBefore(debitRow, creditRow);
+      }
+
+      if (btnExecute) {
+        const oldText = btnExecute.innerHTML;
+        btnExecute.innerHTML = '✓ Trade ACID Committed!';
+        setTimeout(() => {
+          btnExecute.innerHTML = oldText;
+        }, 1500);
+      }
+    });
+
+    btnConfirmClose?.addEventListener('click', () => {
+      isDayClosed = true;
+      if (closeStatusBadge) {
+        closeStatusBadge.className = 'px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[10px] font-bold';
+        closeStatusBadge.textContent = 'DAY STATUS: FROZEN (IMMUTABLE)';
+      }
+      if (checksumVal) checksumVal.textContent = 'SHA-256 e48f9a2c...b184';
+      if (btnReopenDay) {
+        btnReopenDay.disabled = false;
+        btnReopenDay.classList.remove('text-slate-500', 'disabled:opacity-40');
+        btnReopenDay.classList.add('text-amber-300', 'hover:bg-amber-950/40', 'border', 'border-amber-500/40');
+      }
+      if (archivedDeals) archivedDeals.textContent = `${dealCounter - 9820} Deals Frozen`;
+    });
+
+    btnReopenDay?.addEventListener('click', () => {
+      const reason = prompt('Enter mandatory administrative audit reason to reopen closed date:');
+      if (reason && reason.trim().length >= 10) {
+        isDayClosed = false;
+        if (closeStatusBadge) {
+          closeStatusBadge.className = 'px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px]';
+          closeStatusBadge.textContent = 'DAY STATUS: REOPENED (AUDITED)';
+        }
+        if (btnReopenDay) {
+          btnReopenDay.disabled = true;
+          btnReopenDay.classList.add('text-slate-500', 'disabled:opacity-40');
+          btnReopenDay.classList.remove('text-amber-300', 'hover:bg-amber-950/40', 'border', 'border-amber-500/40');
+        }
+        alert(`Audit log recorded! Day reopened for administrative correction. Reason logged: "${reason}"`);
+      } else if (reason !== null) {
+        alert('Reopen rejected: Audit reason must be at least 10 characters long.');
+      }
+    });
+
+    updateCalculations();
+  }
+
+  initFintechSimulator();
+  document.addEventListener('astro:page-load', initFintechSimulator);
+</script>

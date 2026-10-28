@@ -19,6 +19,7 @@ import MicrokernelSimulator from '../../components/case-study/MicrokernelSimulat
 import MediaStreamSimulator from '../../components/case-study/MediaStreamSimulator.astro';
 import WorkOrderSniperSimulator from '../../components/case-study/WorkOrderSniperSimulator.astro';
 import GeckoBrowserSimulator from '../../components/case-study/GeckoBrowserSimulator.astro';
+import FintechLedgerSimulator from '../../components/case-study/FintechLedgerSimulator.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -51,6 +52,7 @@ const isModernOs = data.slug === 'modern-os-microkernel';
 const isYtStream = data.slug === 'yt-playlist-engine';
 const isSniper = data.slug === 'amh-wo-sniper';
 const isGecko = data.slug === 'gecko-browser-engine';
+const isDoller = data.slug === 'doller-fintech-wallet';
 
 let pageDescription = "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
 if (isPms) {
@@ -85,6 +87,8 @@ if (isPms) {
   pageDescription = "High-Speed Work Order Auto-Acceptor & Memory Hook Engine. Chrome Extension MV3 with MAIN-world fetch interception, 80ms soft tab cycling, and sub-100ms automated order confirmation.";
 } else if (isGecko) {
   pageDescription = "Independent Android Web Browser & GeckoView Omni 134 Runtime. Replaces Android System WebView with Mozilla Quantum, singleton GeckoRuntime lifecycle, and reactive delegates in Kotlin.";
+} else if (isDoller) {
+  pageDescription = "Multi-Currency Trading, Settlement & PnL Ledger Engine. Engineered in Java 21, Spring Boot 3.5, and Flutter with double-entry accounting, Flyway V1-V10, and automated daily closes.";
 }
 ---
 
@@ -218,6 +222,10 @@ if (isPms) {
           ) : isGecko ? (
             <>
               Independent, privacy-first mobile web browser and rendering harness built in native <strong class="text-white font-semibold">Android Kotlin &amp; SDK 34</strong>. Replaces Google Chromium/Blink with <strong class="text-emerald-300 font-semibold">Mozilla GeckoView Omni 134</strong>, establishes a persistent singleton <strong class="text-emerald-300 font-semibold">GeckoRuntime</strong> across the Android activity lifecycle, binds reactive session delegates for progress and navigation, and resolves URL schemes with zero external dependencies.
+            </>
+          ) : isDoller ? (
+            <>
+              Enterprise foreign exchange trading, counterparty clearing, and real-time PnL explain engine engineered in <strong class="text-white font-semibold">Java 21, Spring Boot 3.5 &amp; Flutter 3.29</strong>. Enforces balanced <strong class="text-emerald-300 font-semibold">double-entry accounting journals</strong> across USD, EUR, GBP, AED, and BDT, features 10 sequential Flyway PostgreSQL schema migrations, automates end-of-day close seals with immutable snapshots, and guarantees offline trade resilience via mobile outbox queues.
             </>
           ) : (
             <>
@@ -469,6 +477,21 @@ if (isPms) {
                 <span class="text-emerald-400 font-bold">✓</span> 100% Chromium &amp; Google Play Services Independence
               </div>
             </>
+          ) : isDoller ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Balanced Double-Entry Accounting Ledger (Σ Debit == Σ Credit)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Real-Time Multi-Currency PnL Explain &amp; Spread Valuation
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Automated End-of-Day Freeze &amp; Audited Reopen Protocols
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Mobile Offline Outbox Store with Deterministic Replay
+              </div>
+            </>
           ) : (
             <>
               <div class="flex items-center gap-1.5">
@@ -526,6 +549,8 @@ if (isPms) {
         <WorkOrderSniperSimulator />
       ) : isGecko ? (
         <GeckoBrowserSimulator />
+      ) : isDoller ? (
+        <FintechLedgerSimulator />
       ) : (
         <BeforeAfterSlider />
       )}
@@ -571,6 +596,8 @@ if (isPms) {
             ? "Built to eliminate human reaction lag in high-stakes vendor portals, prevent account rate limits, and automate work order claims."
             : isGecko
             ? "Built to liberate Android apps from Chromium monoculture, prevent OS-level telemetry leaks, and empower privacy-first browsing."
+            : isDoller
+            ? "Built to stop forex spreadsheet errors, guarantee double-entry balance integrity, and provide real-time PnL explainability."
             : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
@@ -1133,6 +1160,41 @@ if (isPms) {
               <h3 class="font-mono font-bold text-white text-base">Enterprise Web Extension Handhelds</h3>
               <p class="text-xs text-slate-200 font-sans leading-relaxed">
                 Bypasses Google Chromium’s restrictive Manifest V3 limitations. Enables native Gecko WebExtension support for unrestricted uBlock Origin filtering, custom intranet script injectors, and enterprise compliance rules.
+              </p>
+            </div>
+          </>
+        ) : isDoller ? (
+          <>
+            <!-- Use Case 1: FX Brokers & Cross-Border Money Transfer Desks -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                💱
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">FX Brokers &amp; Remittance Desks</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Automates high-frequency foreign exchange trading across USD, EUR, GBP, AED, and BDT. Real-time PnL explain engine isolates trading spreads from market volatility, preventing phantom profits and currency devaluations.
+              </p>
+            </div>
+
+            <!-- Use Case 2: Import / Export Commercial Settlement Houses -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🚢
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Commercial Import/Export Houses</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Tracks multi-party credit limits, aging accounts receivable (0–90+ days), and partial settlements. Automated settlement inference maps lump-sum bank transfers against specific historical trade contracts.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Treasury Desks & Micro-Lending Cooperatives -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-amber-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-amber-950 border border-amber-500/50 flex items-center justify-center text-amber-300 font-mono text-lg font-bold">
+                🏛️
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Corporate Treasury &amp; Credit Unions</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Enforces strict double-entry balancing (Σ Debit == Σ Credit) with zero manual overrides. End-of-day freeze protocol creates tamper-proof StatementSnapshot cryptographic archives with audited reopen oversight.
               </p>
             </div>
           </>
@@ -2173,6 +2235,69 @@ if (isPms) {
             </table>
           </div>
         </div>
+      ) : isDoller ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+              Engineering Benchmark: Doller (Java 21 Spring Boot + Flyway) vs. Manual Spreadsheet FX Accounting
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured under concurrent OTC currency trading desks with 10,000 daily trade deals and multi-party settlements.
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-emerald-300 bg-emerald-950/40">Doller (Java 21 Spring Boot + PostgreSQL)</th>
+                  <th class="py-3 px-4 font-semibold">Manual Excel / Google Sheets FX Logs</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Engineering Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Double-Entry Ledger Balancing</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-emerald-950/20">100% Guaranteed Balanced Journal (Σ Dr == Σ Cr)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Single-entry drift, broken formulas &amp; phantom gains</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Financial Drift</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Transaction Commit Latency</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-emerald-950/20">&lt; 14ms (ACID Read-Committed + B-Tree)</td>
+                  <td class="py-3.5 px-4 text-slate-400">3,000ms – 10,000ms (File lock &amp; cloud sync latency)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">250x Faster Commit</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Real-Time PnL Explainability</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-emerald-950/20">Automated Spread, Mark-to-Market &amp; Commission breakdown</td>
+                  <td class="py-3.5 px-4 text-slate-400">Manual month-end estimations with large error margins</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Sub-Second Visibility</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">End-of-Day Freeze &amp; Auditing</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-emerald-950/20">Cryptographic Day-Close with Mandatory Reopen Audit</td>
+                  <td class="py-3.5 px-4 text-slate-400">Zero row locking; retroactive silent edits common</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Immutable Audit Trail</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Offline Field Trade Resilience</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-emerald-950/20">SQLite Mobile Outbox Store with Idempotency UUIDs</td>
+                  <td class="py-3.5 px-4 text-slate-400">Verbal notes, paper chits, high lost trade rate</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Lost Deals</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Database Schema Evolution</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-emerald-950/20">10 Sequential Flyway Migrations (Zero Downtime)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Uncontrolled column changes break existing formulas</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Enterprise Reliability</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <BenchmarkMatrix />
       )}
@@ -2222,6 +2347,8 @@ if (isPms) {
               ? "Engineered in Chrome Extension MV3 & JavaScript with MAIN-world fetch hooking, 80ms soft tab cycling, and MutationObservers."
               : isGecko
               ? "Engineered in Kotlin 1.9 & Android SDK 34 with Mozilla GeckoView Omni 134, singleton GeckoRuntime, and custom delegates."
+              : isDoller
+              ? "Engineered in Java 21 & Spring Boot 3.5 with PostgreSQL Flyway migrations, double-entry ledger journals, and Flutter."
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
@@ -4192,6 +4319,128 @@ if (isPms) {
                 </p>
               </button>
             </>
+          ) : isDoller ? (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-doller-ingress"
+                data-node-title="Deal Ingress &amp; Mobile Outbox Idempotency Engine"
+                data-node-badge="Phase 1: Deal Ingress &amp; Deduplication"
+                data-node-desc="Ingests trade deals via Spring Boot REST controllers or client-side Flutter SQLite outbox sync, validating UUID idempotency tokens against duplicate submits."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // TRADE INGRESS</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Trade Ingress &amp; Outbox
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Captures FX orders with client-side UUID idempotency tokens, preventing double execution.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-doller-validation"
+                data-node-title="FX Spread Verification &amp; Party Credit Limit Guard"
+                data-node-badge="Phase 2: Risk Management &amp; Exposure Gate"
+                data-node-desc="Validates agreed exchange rate against active market tickers, verifies counterparty credit headroom, and computes base vs quote currency notional totals."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // RISK &amp; CREDIT GATE</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Risk &amp; Credit Headroom
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Evaluates counterparty exposure limits and validates multi-currency conversion math.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-amber-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-amber-400"
+                data-node-id="node-doller-ledger"
+                data-node-title="Double-Entry Accounting Journal Postings (LedgerService)"
+                data-node-badge="Phase 3: Immutable Journal Posting"
+                data-node-desc="Executes transactional ledger journal entries: posting balanced debit and credit records across asset, liability, and equity accounts with zero balance drift."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // DOUBLE-ENTRY POST</span>
+                  <span class="text-amber-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-amber-300 transition-colors">
+                  Double-Entry Ledger Journal
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Posts balanced debit and credit entries to PostgreSQL with zero-drift ACID guarantees.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-purple-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-purple-400"
+                data-node-id="node-doller-pnl"
+                data-node-title="Real-Time PnL Explain &amp; Multi-Currency Spread Valuation"
+                data-node-badge="Phase 4: Profit &amp; Loss Attribution"
+                data-node-desc="Deconstructs financial margins into realized trading spread, counterparty fee deductions, operational overhead, and mark-to-market currency fluctuations."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // PNL EXPLAIN ENGINE</span>
+                  <span class="text-purple-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-purple-300 transition-colors">
+                  Real-Time PnL Explain
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Isolates trading spreads from currency fluctuations, computing net margins in real time.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-rose-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-rose-400"
+                data-node-id="node-doller-eod"
+                data-node-title="Automated End-of-Day Freeze &amp; Statement Snapshot Archive"
+                data-node-badge="Phase 5: EOD Freeze &amp; Governance"
+                data-node-desc="Invokes confirmDayClose to lock historical trading rows, serializes immutable StatementSnapshot ledger records, and enforces audited reopen oversight."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // EOD CLOSE FREEZE</span>
+                  <span class="text-rose-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-rose-300 transition-colors">
+                  Daily Close Freeze Protocol
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Cryptographically locks calendar transactions into immutable statement snapshots.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-doller-egress"
+                data-node-title="Multi-Platform Egress: Flutter UI, PDF Invoices &amp; CSV Exports"
+                data-node-badge="Phase 6: Multi-Channel Financial Egress"
+                data-node-desc="Streams live balance telemetry to Flutter mobile dashboards, generates vectorized PDF transaction vouchers, and streams CSV financial audit trails."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // FINANCIAL EGRESS</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Financial Egress &amp; PDF
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Streams balances to Flutter mobile screens and compiles print-ready PDF vouchers.
+                </p>
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -4356,6 +4605,8 @@ if (isPms) {
                 ? "In-Memory API Hook: window.fetch Monkeypatch & Rate-Limit Shield"
                 : isGecko
                 ? "GeckoRuntime Lifecycle: Singleton Process & Reactive Session Delegates"
+                : isDoller
+                ? "Double-Entry Ledger Core: Multi-Currency Deal & Balanced Journal Posting"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
@@ -4391,6 +4642,8 @@ if (isPms) {
                 ? <span>Directly from <code class="text-cyan-300 font-mono">extension/content.js</code> showing MAIN-world fetch interception &amp; exponential 429 backoff.</span>
                 : isGecko
                 ? <span>Directly from <code class="text-cyan-300 font-mono">app/src/main/java/com/example/browser/MainActivity.kt</code> showing singleton runtime &amp; session delegates.</span>
+                : isDoller
+                ? <span>Directly from <code class="text-cyan-300 font-mono">backend/src/main/java/.../TradingService.java</code> showing ACID deal creation &amp; balanced ledger posts.</span>
                 : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
@@ -4411,10 +4664,10 @@ if (isPms) {
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               <span class="ml-2 text-slate-200 font-medium">
-                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : isCampus ? "smart-academic-portal/src/App.vue" : isLandtrust ? "backend/src/main/java/.../LandRecordService.java" : isModernOs ? "kernel/src/proofs/capability_proofs.rs" : isYtStream ? "downloader.py" : isSniper ? "extension/content.js" : isGecko ? "app/src/main/java/com/example/browser/MainActivity.kt" : "src/engine/enhancer.rs"}
+                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : isCampus ? "smart-academic-portal/src/App.vue" : isLandtrust ? "backend/src/main/java/.../LandRecordService.java" : isModernOs ? "kernel/src/proofs/capability_proofs.rs" : isYtStream ? "downloader.py" : isSniper ? "extension/content.js" : isGecko ? "app/src/main/java/com/example/browser/MainActivity.kt" : isDoller ? "backend/src/main/java/.../TradingService.java" : "src/engine/enhancer.rs"}
               </span>
             </div>
-            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : isCampus ? "vue • 46 lines" : isLandtrust ? "java • 48 lines" : isModernOs ? "rust • 46 lines" : isYtStream ? "python • 45 lines" : isSniper ? "javascript • 52 lines" : isGecko ? "kotlin • 62 lines" : "rust • 105 lines"}</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : isCampus ? "vue • 46 lines" : isLandtrust ? "java • 48 lines" : isModernOs ? "rust • 46 lines" : isYtStream ? "python • 45 lines" : isSniper ? "javascript • 52 lines" : isGecko ? "kotlin • 62 lines" : isDoller ? "java • 44 lines" : "rust • 105 lines"}</span>
           </div>
 
           {isPms ? (
@@ -4999,6 +5252,43 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
         &#125;
     &#125;
 &#125;</code></pre>
+          ) : isDoller ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-slate-400">// TradingService: Multi-Currency Trade Deal Execution &amp; Double-Entry Ledger Posting</span>
+<span class="text-amber-300">@Transactional</span>
+<span class="text-rose-400">public</span> <span class="text-amber-300">TradeDeal</span> <span class="text-cyan-300">createDeal</span>(<span class="text-amber-300">TradingDtos.DealCreateRequest</span> req) &#123;
+    <span class="text-amber-300">Party</span> party = partyRepo.<span class="text-cyan-300">findById</span>(req.<span class="text-cyan-300">getPartyId</span>())
+        .<span class="text-cyan-300">orElseThrow</span>(() -&gt; <span class="text-rose-400">new</span> <span class="text-cyan-300">ApiException</span>(<span class="text-emerald-300">"Counterparty account not found"</span>));
+
+    <span class="text-slate-400">// 1. Compute notional settlement value in quote currency</span>
+    <span class="text-amber-300">BigDecimal</span> quoteAmount = req.<span class="text-cyan-300">getAmount</span>().<span class="text-cyan-300">multiply</span>(req.<span class="text-cyan-300">getRate</span>());
+
+    <span class="text-amber-300">TradeDeal</span> deal = <span class="text-amber-300">TradeDeal</span>.<span class="text-cyan-300">builder</span>()
+        .<span class="text-cyan-300">party</span>(party)
+        .<span class="text-cyan-300">instrumentCode</span>(req.<span class="text-cyan-300">getInstrumentCode</span>())
+        .<span class="text-cyan-300">dealType</span>(req.<span class="text-cyan-300">getDealType</span>())
+        .<span class="text-cyan-300">baseAmount</span>(req.<span class="text-cyan-300">getAmount</span>())
+        .<span class="text-cyan-300">exchangeRate</span>(req.<span class="text-cyan-300">getRate</span>())
+        .<span class="text-cyan-300">quoteAmount</span>(quoteAmount)
+        .<span class="text-cyan-300">dealDate</span>(<span class="text-amber-300">LocalDate</span>.<span class="text-cyan-300">now</span>(businessZone))
+        .<span class="text-cyan-300">build</span>();
+    <span class="text-amber-300">TradeDeal</span> savedDeal = dealRepo.<span class="text-cyan-300">save</span>(deal);
+
+    <span class="text-slate-400">// 2. Post balanced double-entry accounting journal entries (ACID)</span>
+    <span class="text-amber-300">LocalDateTime</span> now = <span class="text-amber-300">LocalDateTime</span>.<span class="text-cyan-300">now</span>(businessZone);
+    <span class="text-amber-300">String</span> baseAcc = <span class="text-emerald-300">"1010-CASH-"</span> + req.<span class="text-cyan-300">getInstrumentCode</span>().<span class="text-cyan-300">split</span>(<span class="text-emerald-300">"_"</span>)[0];
+    <span class="text-amber-300">String</span> quoteAcc = <span class="text-emerald-300">"2010-SETTLEMENT-"</span> + req.<span class="text-cyan-300">getInstrumentCode</span>().<span class="text-cyan-300">split</span>(<span class="text-emerald-300">"_"</span>)[1];
+
+    <span class="text-rose-400">if</span> (req.<span class="text-cyan-300">getDealType</span>() == <span class="text-amber-300">DealType</span>.BUY) &#123;
+        ledgerService.<span class="text-cyan-300">post</span>(now, baseAcc, req.<span class="text-cyan-300">getAmount</span>(), <span class="text-amber-300">BigDecimal</span>.ZERO, <span class="text-emerald-300">"DEAL"</span>, savedDeal.<span class="text-cyan-300">getId</span>(), <span class="text-emerald-300">"FX Ingress"</span>);
+        ledgerService.<span class="text-cyan-300">post</span>(now, quoteAcc, <span class="text-amber-300">BigDecimal</span>.ZERO, quoteAmount, <span class="text-emerald-300">"DEAL"</span>, savedDeal.<span class="text-cyan-300">getId</span>(), <span class="text-emerald-300">"Offsetting Liability"</span>);
+    &#125; <span class="text-rose-400">else</span> &#123;
+        ledgerService.<span class="text-cyan-300">post</span>(now, quoteAcc, quoteAmount, <span class="text-amber-300">BigDecimal</span>.ZERO, <span class="text-emerald-300">"DEAL"</span>, savedDeal.<span class="text-cyan-300">getId</span>(), <span class="text-emerald-300">"Receivable Booking"</span>);
+        ledgerService.<span class="text-cyan-300">post</span>(now, baseAcc, <span class="text-amber-300">BigDecimal</span>.ZERO, req.<span class="text-cyan-300">getAmount</span>(), <span class="text-emerald-300">"DEAL"</span>, savedDeal.<span class="text-cyan-300">getId</span>(), <span class="text-emerald-300">"Inventory Egress"</span>);
+    &#125;
+
+    auditService.<span class="text-cyan-300">log</span>(<span class="text-emerald-300">"TRADE_DEAL"</span>, savedDeal.<span class="text-cyan-300">getId</span>(), <span class="text-emerald-300">"ACID Transaction Committed"</span>);
+    <span class="text-rose-400">return</span> savedDeal;
+&#125;</code></pre>
           ) : (
             <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub fn</span> <span class="text-cyan-300">apply_adaptive_sharpen</span>(img: &<span class="text-amber-300">RgbaImage</span>, strength: <span class="text-rose-400">f32</span>) -&gt; <span class="text-amber-300">RgbaImage</span> &#123;
     <span class="text-slate-400">// Clamp strength & compute FidelityFX peak negative cross weight</span>
@@ -5078,6 +5368,8 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
                 ? "Load the unpacked Chrome Extension in Developer Mode or install the userscript in Tampermonkey."
                 : isGecko
                 ? "Clone the repository, compile the Android debug APK with Gradle, and deploy to a physical device or emulator via adb."
+                : isDoller
+                ? "Launch PostgreSQL and the Spring Boot backend, run Flyway migrations, and start the Flutter mobile app."
                 : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
@@ -5254,6 +5546,17 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
               <p class="text-emerald-400">adb install -r app/build/outputs/apk/debug/app-debug.apk</p>
               <p class="text-slate-400 mt-2"># 4. Stream GeckoRuntime &amp; SpiderMonkey logcat telemetry</p>
               <p class="text-emerald-400">adb logcat -s GeckoRuntime GeckoSession GeckoView</p>
+            </>
+          ) : isDoller ? (
+            <>
+              <p class="text-slate-400"># 1. Clone Doller Platform repository</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/doller-platform.git &amp;&amp; cd doller-platform</p>
+              <p class="text-slate-400 mt-2"># 2. Spin up PostgreSQL 16 database via Docker Compose</p>
+              <p class="text-emerald-400">docker compose up -d postgres</p>
+              <p class="text-slate-400 mt-2"># 3. Run Flyway database migrations and start Spring Boot 3.5 backend</p>
+              <p class="text-emerald-400">cd backend &amp;&amp; mvn spring-boot:run</p>
+              <p class="text-slate-400 mt-2"># 4. Launch Flutter cross-platform mobile client with offline outbox store</p>
+              <p class="text-emerald-400">cd ../mobile &amp;&amp; flutter pub get &amp;&amp; flutter run -d chrome</p>
             </>
           ) : (
             <>
