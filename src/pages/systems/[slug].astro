@@ -5,6 +5,7 @@ import TelemetryHud from '../../components/case-study/TelemetryHud.astro';
 import BeforeAfterSlider from '../../components/case-study/BeforeAfterSlider.astro';
 import ParkingGateSimulator from '../../components/case-study/ParkingGateSimulator.astro';
 import BiometricPunchSimulator from '../../components/case-study/BiometricPunchSimulator.astro';
+import WorkstationTelemetrySimulator from '../../components/case-study/WorkstationTelemetrySimulator.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -23,12 +24,15 @@ const { entry } = Astro.props;
 const { data } = entry;
 const isPms = data.slug === 'pms-v2';
 const isHrms = data.slug === 'skylink-hrms';
+const isMonitor = data.slug === 'skylink-monitor';
 
 let pageDescription = "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
 if (isPms) {
   pageDescription = "Autonomous Smart Parking & Barrier Gate Automation platform. Sub-second gate opening (<0.84s), anti-passback security, and zero revenue leakage built with Rust and Flutter.";
 } else if (isHrms) {
   pageDescription = "Enterprise Biometric Attendance & Automated Payroll Platform. Ingests 10,000+ punches/min with Java 21 Project Loom virtual threads, ZKTeco ADMS, and zero salary errors.";
+} else if (isMonitor) {
+  pageDescription = "Ultra-Lightweight Workstation Activity & Focus Monitor. Runs in pure Rust 2024 with under 14MB RAM, <0.01% CPU, on-demand WebSocket screen streaming, and zero invasive keyloggers.";
 }
 ---
 
@@ -107,6 +111,10 @@ if (isPms) {
             <>
               Enterprise biometric attendance and automated payroll platform engineered with <strong class="text-white font-semibold">Java 21 (Project Loom)</strong> and <strong class="text-white font-semibold">Spring Boot 3.4</strong>. Ingests raw HTTP push telemetry from ZKTeco biometric terminals during peak shift rush hours, with zero lost punches and 1-click salary disbarment.
             </>
+          ) : isMonitor ? (
+            <>
+              Enterprise workstation activity and productivity monitoring daemon engineered in <strong class="text-white font-semibold">Rust 2024 (Tokio &amp; xcap)</strong> and <strong class="text-white font-semibold">Spring Boot 3.4</strong>. Replaces heavy commercial surveillance software with an ultra-lightweight client consuming <strong class="text-emerald-300 font-semibold">&lt; 14 MB RAM</strong> and <strong class="text-emerald-300 font-semibold">&lt; 0.01% CPU</strong>, featuring on-demand WebSocket streaming and local keyring encryption.
+            </>
           ) : (
             <>
               Turn blurry, low-resolution photos into <strong class="text-white font-semibold">crystal-clear HD and 4K visuals</strong> in milliseconds. 
@@ -147,6 +155,21 @@ if (isPms) {
                 <span class="text-emerald-400 font-bold">✓</span> 1-Click Automated Monthly Payroll
               </div>
             </>
+          ) : isMonitor ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> &lt; 14 MB Total RAM Footprint
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> &lt; 0.01% CPU Overhead
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Zero Keyloggers (Bank-Grade Privacy)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> 100% Offline Local Buffer Resilience
+              </div>
+            </>
           ) : (
             <>
               <div class="flex items-center gap-1.5">
@@ -176,6 +199,8 @@ if (isPms) {
         <ParkingGateSimulator />
       ) : isHrms ? (
         <BiometricPunchSimulator />
+      ) : isMonitor ? (
+        <WorkstationTelemetrySimulator />
       ) : (
         <BeforeAfterSlider />
       )}
@@ -193,6 +218,8 @@ if (isPms) {
             ? "Built to stop revenue theft and eliminate vehicle entry queues across commercial properties."
             : isHrms
             ? "Built to eliminate shift-change attendance chaos and reduce month-end payroll reconciliation from days to minutes."
+            : isMonitor
+            ? "Built to deliver lightweight team focus insights with zero computer lag and total privacy protection."
             : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
@@ -265,6 +292,41 @@ if (isPms) {
               <h3 class="font-mono font-bold text-white text-base">Finance &amp; Payroll Departments</h3>
               <p class="text-xs text-slate-200 font-sans leading-relaxed">
                 Replaces 4 to 7 days of manual spreadsheet reconciliations with 1-click automated salary calculation. Generates bank-ready salary disbarment advice sheets, tax withholdings, and instant employee payslips.
+              </p>
+            </div>
+          </>
+        ) : isMonitor ? (
+          <>
+            <!-- Use Case 1: Remote Software Engineering Teams -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                👨‍💻
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Remote Software Engineering Teams</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Keeps developer laptops lightning fast. Running heavy Docker containers, IntelliJ IDEs, and Rust builds without any surveillance lag or memory throttling.
+              </p>
+            </div>
+
+            <!-- Use Case 2: Operations & Agency Leadership -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                📊
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Agencies &amp; BPO Operations</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Eliminates client billing disputes. Generates automated, cryptographic proof of work and focus hours, with on-demand encrypted screen stream verification for project supervisors.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Information Security & Privacy -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🔒
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Information Security &amp; Compliance</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Zero keyloggers protects banking logins, passwords, and private correspondence. Authentication tokens are securely encrypted inside native OS credential vaults.
               </p>
             </div>
           </>
@@ -423,6 +485,69 @@ if (isPms) {
             </table>
           </div>
         </div>
+      ) : isMonitor ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+              Engineering Benchmark: Skylink Workstation Guard vs. Commercial Trackers
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured during typical developer workflows running IntelliJ IDEA, Docker, and Chrome across an 8-hour shift.
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-cyan-300 bg-cyan-950/40">Skylink Guard (Rust 2024)</th>
+                  <th class="py-3 px-4 font-semibold">Commercial Trackers (Electron / Node)</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Operational Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Client RAM Footprint</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 14 MB RAM</td>
+                  <td class="py-3.5 px-4 text-slate-400">450 MB – 1,200 MB (Electron)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">97.5% Memory Saved</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Background CPU Impact</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 0.01% Idle CPU</td>
+                  <td class="py-3.5 px-4 text-slate-400">2.5% – 8.0% Sustained Spikes</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Machine Slowdown</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Screen Streaming Protocol</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">On-Demand WSS Encrypted (720p)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Constant heavy cloud upload</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">99% Bandwidth Saved</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Credential Vault Security</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Native OS Keyring Vault</td>
+                  <td class="py-3.5 px-4 text-slate-400">Plain-text JSON config on disk</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Bank-Grade Token Security</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Network Outage Handling</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Local Encrypted Auto-Flush Queue</td>
+                  <td class="py-3.5 px-4 text-slate-400">Crashes or drops tracked hours</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Lost Billable Hours</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Keystroke Privacy Compliance</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Zero Keylogging By Design</td>
+                  <td class="py-3.5 px-4 text-slate-400">Invasive global keylogger risks</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">100% Privacy Compliant</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <BenchmarkMatrix />
       )}
@@ -444,6 +569,8 @@ if (isPms) {
               ? "Engineered in pure Rust 2024 (Axum & Tokio) with SeaORM dynamic pools, ZKTeco ADMS daemons, and Flutter BLoC."
               : isHrms
               ? "Engineered in modern Java 21 with Project Loom virtual threads, Spring Boot 3.4, ZKTeco ADMS, and PostgreSQL 16."
+              : isMonitor
+              ? "Engineered in pure Rust 2024 (Tokio & xcap) with atomic video throttling, OS keyring encryption, and Spring Boot 3.4."
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
@@ -706,6 +833,128 @@ if (isPms) {
                 </p>
               </button>
             </>
+          ) : isMonitor ? (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-kernel"
+                data-node-title="OS Kernel Telemetry Ingress (sysinfo & active-win-pos-rs)"
+                data-node-badge="Phase 1: Zero-Lag Ingress"
+                data-node-desc="Extracts the foreground window title and process identifier with sub-millisecond OS handle calls, without polling loops or UI thread lag."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // OS TELEMETRY</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Active Window &amp; Proc Ingress
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Direct OS handle queries detecting foreground applications with zero desktop compositor stutter.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-tokio-reactor"
+                data-node-title="Tokio Multi-Threaded Async Daemon & Channel Queue"
+                data-node-badge="Phase 2: Concurrency Reactor"
+                data-node-desc="tokio::sync::mpsc channel managing periodic 60s snapshots and supervisor live stream command messages with < 14MB RAM footprint."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // CONCURRENCY</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Tokio Channel Reactor
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Asynchronous bounded mpsc channel orchestrating telemetry ticks and WebSocket control frames.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-stream"
+                data-node-title="Atomic Live Screen Streamer (xcap + spawn_blocking)"
+                data-node-badge="Phase 3: Screen Streaming"
+                data-node-desc="Captures 720p frames at 15 FPS dynamically only when requested by supervisors, using AtomicU32 and AtomicU8 quality regulators."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // LIVE STREAM</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  On-Demand xcap Streamer
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Atomic-regulated screen capture yielding 720p JPEG frames to WebSockets without disk writes.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-keyring"
+                data-node-title="OS Keyring Hardware Vault Token Storage"
+                data-node-badge="Phase 4: Credential Vault"
+                data-node-desc="Stores employee JWT tokens and machine identifiers inside the native OS security keychain (GNOME Keyring / Windows Credential Vault)."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // OS KEYRING</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Encrypted Keyring Store
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Eliminates plain-text disk storage, protecting session tokens from local endpoint malware.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-buffer"
+                data-node-title="Offline In-Memory Resilient Buffer Queue"
+                data-node-badge="Phase 5: Offline Resilience"
+                data-node-desc="Guarantees zero unbilled employee work hours during ISP outages by queueing snapshots locally and auto-flushing upon reconnection."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // OFFLINE BUFFER</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Auto-Flush Buffer Queue
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Safeguards billable hours during network blackouts and bulk flushes telemetry with HTTP 200.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-spring"
+                data-node-title="Spring Boot 3.4 Telemetry Hub & Live Relay"
+                data-node-badge="Phase 6: Ingestion Hub"
+                data-node-desc="Ingests bearer-authenticated snapshots into PostgreSQL 16 and relays WebSocket live streams directly to supervisor consoles."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // INGEST HUB</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Spring Boot 3.4 Telemetry
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Centralized aggregation endpoint with focus categorization, team dashboards, and exportable reports.
+                </p>
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -842,6 +1091,8 @@ if (isPms) {
                 ? "Hardware Protocol Engine: ZKTeco ADMS & Barrier Relay Latch" 
                 : isHrms
                 ? "Biometric Protocol Handler: Raw ADMS HTTP Telemetry Ingestion"
+                : isMonitor
+                ? "Native Concurrency Core: Tokio WebSocket Screen Streaming & Dynamic Throttling"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
@@ -849,6 +1100,8 @@ if (isPms) {
                 ? <span>Directly from <code class="text-cyan-300 font-mono">backend/src/service/zk_adms_service.rs</code> handling raw push packets with zero middleware.</span>
                 : isHrms
                 ? <span>Directly from <code class="text-cyan-300 font-mono">src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java</code> handling Project Loom push ingestion.</span>
+                : isMonitor
+                ? <span>Directly from <code class="text-cyan-300 font-mono">skylink-monitor/src/network.rs</code> showing non-blocking xcap frame capture &amp; atomic quality throttling.</span>
                 : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
@@ -869,10 +1122,10 @@ if (isPms) {
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               <span class="ml-2 text-slate-200 font-medium">
-                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : "src/engine/enhancer.rs"}
+                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : "src/engine/enhancer.rs"}
               </span>
             </div>
-            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : "rust • 105 lines"}</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : "rust • 105 lines"}</span>
           </div>
 
           {isPms ? (
@@ -919,6 +1172,54 @@ if (isPms) {
 
         <span class="text-slate-400">// Immediate ADMS protocol ACK response back to terminal</span>
         <span class="text-rose-400">return</span> <span class="text-amber-300">ResponseEntity</span>.<span class="text-cyan-300">ok</span>(<span class="text-emerald-300">"OK"</span>);
+    &#125;
+&#125;</code></pre>
+          ) : isMonitor ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub async fn</span> <span class="text-cyan-300">run_websocket_client</span>(url: &<span class="text-amber-300">str</span>, token: &<span class="text-amber-300">str</span>, <span class="text-rose-400">mut</span> activity_rx: <span class="text-amber-300">Receiver</span>&lt;<span class="text-amber-300">String</span>&gt;) &#123;
+    <span class="text-rose-400">let</span> ws_url = <span class="text-cyan-300">format!</span>(<span class="text-emerald-300">"&#123;&#125;?token=&#123;&#125;"</span>, url, token);
+    <span class="text-rose-400">loop</span> &#123;
+        <span class="text-rose-400">match</span> <span class="text-cyan-300">connect_async</span>(&amp;ws_url).<span class="text-rose-400">await</span> &#123;
+            <span class="text-amber-300">Ok</span>((ws_stream, _)) =&gt; &#123;
+                <span class="text-rose-400">let</span> (mut write, mut read) = ws_stream.<span class="text-cyan-300">split</span>();
+                
+                <span class="text-slate-400">// Dynamic resolution & bitrate control governed by supervisor commands</span>
+                <span class="text-rose-400">let</span> target_width = <span class="text-amber-300">Arc</span>::<span class="text-cyan-300">new</span>(<span class="text-amber-300">AtomicU32</span>::<span class="text-cyan-300">new</span>(1280));
+                <span class="text-rose-400">let</span> target_height = <span class="text-amber-300">Arc</span>::<span class="text-cyan-300">new</span>(<span class="text-amber-300">AtomicU32</span>::<span class="text-cyan-300">new</span>(720));
+                <span class="text-rose-400">let</span> quality = <span class="text-amber-300">Arc</span>::<span class="text-cyan-300">new</span>(<span class="text-amber-300">AtomicU8</span>::<span class="text-cyan-300">new</span>(50));
+                <span class="text-rose-400">let</span> streaming = <span class="text-amber-300">Arc</span>::<span class="text-cyan-300">new</span>(<span class="text-amber-300">AtomicBool</span>::<span class="text-cyan-300">new</span>(<span class="text-rose-400">false</span>));
+
+                <span class="text-rose-400">let</span> tw = target_width.<span class="text-cyan-300">clone</span>();
+                <span class="text-rose-400">let</span> th = target_height.<span class="text-cyan-300">clone</span>();
+                <span class="text-rose-400">let</span> q = quality.<span class="text-cyan-300">clone</span>();
+                <span class="text-rose-400">let</span> s = streaming.<span class="text-cyan-300">clone</span>();
+                
+                <span class="text-rose-400">let</span> (tx, <span class="text-rose-400">mut</span> rx) = tokio::sync::mpsc::<span class="text-cyan-300">channel</span>::&lt;<span class="text-amber-300">Message</span>&gt;(5);
+                <span class="text-rose-400">let</span> tx_clone = tx.<span class="text-cyan-300">clone</span>();
+
+                <span class="text-slate-400">// Low-impact screen capture worker: spawn_blocking isolates CPU-bound compression</span>
+                <span class="text-rose-400">let</span> capture_task = tokio::<span class="text-cyan-300">spawn</span>(<span class="text-rose-400">async move</span> &#123;
+                    <span class="text-rose-400">loop</span> &#123;
+                        <span class="text-rose-400">if</span> s.<span class="text-cyan-300">load</span>(<span class="text-amber-300">Ordering</span>::Relaxed) &#123;
+                            <span class="text-rose-400">let</span> w = tw.<span class="text-cyan-300">load</span>(<span class="text-amber-300">Ordering</span>::Relaxed);
+                            <span class="text-rose-400">let</span> h = th.<span class="text-cyan-300">load</span>(<span class="text-amber-300">Ordering</span>::Relaxed);
+                            <span class="text-rose-400">let</span> qu = q.<span class="text-cyan-300">load</span>(<span class="text-amber-300">Ordering</span>::Relaxed);
+                            
+                            <span class="text-rose-400">let</span> res = tokio::task::<span class="text-cyan-300">spawn_blocking</span>(<span class="text-rose-400">move</span> || &#123;
+                                crate::screen::<span class="text-cyan-300">capture_screen_jpeg</span>(w, h, qu)
+                            &#125;).<span class="text-rose-400">await</span>;
+
+                            <span class="text-rose-400">if let</span> <span class="text-amber-300">Ok</span>(<span class="text-amber-300">Ok</span>(data)) = res &#123;
+                                <span class="text-rose-400">if</span> tx_clone.<span class="text-cyan-300">send</span>(<span class="text-amber-300">Message</span>::<span class="text-amber-300">Binary</span>(data.<span class="text-cyan-300">into</span>())).<span class="text-rose-400">await</span>.<span class="text-cyan-300">is_err</span>() &#123;
+                                    <span class="text-rose-400">break</span>;
+                                &#125;
+                            &#125;
+                        &#125;
+                        tokio::time::<span class="text-cyan-300">sleep</span>(<span class="text-amber-300">Duration</span>::<span class="text-cyan-300">from_millis</span>(66)).<span class="text-rose-400">await</span>; <span class="text-slate-400">// ~15 FPS throttled</span>
+                    &#125;
+                &#125;);
+            &#125;
+            <span class="text-amber-300">Err</span>(_) =&gt; tokio::time::<span class="text-cyan-300">sleep</span>(<span class="text-amber-300">Duration</span>::<span class="text-cyan-300">from_secs</span>(5)).<span class="text-rose-400">await</span>,
+        &#125;
     &#125;
 &#125;</code></pre>
           ) : (
@@ -972,6 +1273,8 @@ if (isPms) {
                 ? "Run the backend test suite locally or launch the entire multi-container environment via Docker Compose."
                 : isHrms
                 ? "Run the Gradle test suite locally or launch the Spring Boot application with Java 21."
+                : isMonitor
+                ? "Run the Rust cargo test suite locally or compile the release binary for Linux or Windows."
                 : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
@@ -996,6 +1299,15 @@ if (isPms) {
               <p class="text-emerald-400">./gradlew test</p>
               <p class="text-slate-400 mt-2"># 3. Launch Spring Boot application (port 8080)</p>
               <p class="text-emerald-400">./gradlew bootRun</p>
+            </>
+          ) : isMonitor ? (
+            <>
+              <p class="text-slate-400"># 1. Clone Skylink Monitor repository</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/watch-employee.git &amp;&amp; cd watch-employee</p>
+              <p class="text-slate-400 mt-2"># 2. Run Rust unit &amp; integration test suite</p>
+              <p class="text-emerald-400">cargo test --release</p>
+              <p class="text-slate-400 mt-2"># 3. Launch native monitor agent</p>
+              <p class="text-emerald-400">cargo run --release</p>
             </>
           ) : (
             <>

@@ -1,0 +1,356 @@
+---
+// WorkstationTelemetrySimulator.astro
+// Interactive real-time workstation telemetry, RAM efficiency gauge, and WebSocket live stream simulator
+---
+
+<div class="rounded-3xl border border-cyan-500/30 bg-slate-900/90 backdrop-blur-xl p-5 sm:p-7 shadow-2xl relative overflow-hidden">
+  <!-- Glowing Background Accents -->
+  <div class="absolute -top-24 -right-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Header -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-slate-800 gap-3">
+    <div>
+      <div class="flex items-center gap-2.5">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 font-mono text-sm border border-cyan-500/40">
+          ⚡
+        </span>
+        <div>
+          <h3 class="text-base sm:text-lg font-bold text-white tracking-wide">
+            Interactive Workstation Telemetry & Stream Simulator
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">
+            Test real-time window tracking, memory efficiency comparison, offline buffering, and on-demand live streaming.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Status Pill -->
+    <div class="flex items-center gap-2 self-start sm:self-auto">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        DAEMON ACTIVE (PID: 4192)
+      </span>
+    </div>
+  </div>
+
+  <!-- 1. Resource Footprint Comparison (Skylink vs Legacy) -->
+  <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Skylink Rust Agent -->
+    <div class="p-4 rounded-2xl bg-cyan-950/20 border border-cyan-500/30 space-y-2">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-mono font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          Skylink Rust Daemon (Native 2024)
+        </span>
+        <span class="text-xs font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">97.8% Lighter</span>
+      </div>
+      <div class="grid grid-cols-2 gap-2 pt-1 font-mono text-xs">
+        <div class="bg-slate-900/70 p-2.5 rounded-xl border border-slate-800">
+          <span class="text-slate-400 text-[10px] block">RAM USAGE</span>
+          <span class="text-base font-bold text-cyan-300" id="skylink-ram">11.8 MB</span>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-1.5 overflow-hidden">
+            <div class="bg-cyan-400 h-full w-[4%] rounded-full"></div>
+          </div>
+        </div>
+        <div class="bg-slate-900/70 p-2.5 rounded-xl border border-slate-800">
+          <span class="text-slate-400 text-[10px] block">CPU SPEND</span>
+          <span class="text-base font-bold text-emerald-300" id="skylink-cpu">&lt; 0.01%</span>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-1.5 overflow-hidden">
+            <div class="bg-emerald-400 h-full w-[2%] rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legacy Electron / Python Trackers -->
+    <div class="p-4 rounded-2xl bg-slate-900/50 border border-slate-800 space-y-2">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-rose-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="15" y1="9" x2="9" y2="15"/>
+            <line x1="9" y1="9" x2="15" y2="15"/>
+          </svg>
+          Legacy Commercial Tracker (Electron)
+        </span>
+        <span class="text-xs font-mono text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded border border-rose-500/30">Heavy Bloat</span>
+      </div>
+      <div class="grid grid-cols-2 gap-2 pt-1 font-mono text-xs">
+        <div class="bg-slate-900/70 p-2.5 rounded-xl border border-slate-800">
+          <span class="text-slate-400 text-[10px] block">RAM USAGE</span>
+          <span class="text-base font-bold text-rose-400">584.2 MB</span>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-1.5 overflow-hidden">
+            <div class="bg-rose-500 h-full w-[82%] rounded-full"></div>
+          </div>
+        </div>
+        <div class="bg-slate-900/70 p-2.5 rounded-xl border border-slate-800">
+          <span class="text-slate-400 text-[10px] block">CPU SPEND</span>
+          <span class="text-base font-bold text-amber-400">4.8% Spikes</span>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full mt-1.5 overflow-hidden">
+            <div class="bg-amber-400 h-full w-[45%] rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Interactive Workstation Window Switcher -->
+  <div class="mt-5 space-y-3">
+    <div class="flex items-center justify-between">
+      <label class="text-xs font-mono font-semibold text-slate-300 uppercase tracking-wider">
+        Step 1: Switch Simulated Employee Workstation Activity
+      </label>
+      <span class="text-[11px] font-mono text-cyan-400" id="current-active-label">Current: VS Code</span>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+      <button
+        id="btn-app-vscode"
+        class="activity-btn active px-3 py-2.5 rounded-xl text-xs font-mono font-medium transition-all text-left border bg-cyan-500/20 text-cyan-200 border-cyan-400/50 shadow-sm"
+        data-app="Code"
+        data-title="src/network.rs - skylink-monitor [Rust Core]"
+        data-category="Productive Engineering"
+        data-flag="PASSED"
+      >
+        <div class="font-bold truncate">💻 VS Code</div>
+        <div class="text-[10px] text-slate-400 truncate mt-0.5">Rust Engineering</div>
+      </button>
+
+      <button
+        id="btn-app-figma"
+        class="activity-btn px-3 py-2.5 rounded-xl text-xs font-mono font-medium transition-all text-left border bg-slate-800/80 text-slate-300 border-slate-700/80 hover:border-slate-600"
+        data-app="Figma"
+        data-title="Skylink Dashboard v2.4 (Design Review)"
+        data-category="Productive Design"
+        data-flag="PASSED"
+      >
+        <div class="font-bold truncate">🎨 Figma</div>
+        <div class="text-[10px] text-slate-400 truncate mt-0.5">UI/UX Design</div>
+      </button>
+
+      <button
+        id="btn-app-terminal"
+        class="activity-btn px-3 py-2.5 rounded-xl text-xs font-mono font-medium transition-all text-left border bg-slate-800/80 text-slate-300 border-slate-700/80 hover:border-slate-600"
+        data-app="bash"
+        data-title="cargo test --all-features (Passing)"
+        data-category="Deep Focus"
+        data-flag="PASSED"
+      >
+        <div class="font-bold truncate">⚡ Linux Terminal</div>
+        <div class="text-[10px] text-slate-400 truncate mt-0.5">Testing & Build</div>
+      </button>
+
+      <button
+        id="btn-app-youtube"
+        class="activity-btn px-3 py-2.5 rounded-xl text-xs font-mono font-medium transition-all text-left border bg-slate-800/80 text-slate-300 border-slate-700/80 hover:border-slate-600"
+        data-app="google-chrome"
+        data-title="Funniest Cat Fails Compilation 2026 - YouTube"
+        data-category="Non-Work / Leisure"
+        data-flag="DRIFT_FLAGGED"
+      >
+        <div class="font-bold text-rose-300 truncate">⚠️ YouTube Video</div>
+        <div class="text-[10px] text-slate-400 truncate mt-0.5">Focus Drift Alert</div>
+      </button>
+    </div>
+  </div>
+
+  <!-- 3. Network Outage & WebSocket Stream Toggle Controls -->
+  <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+    <!-- Stream Request Toggle -->
+    <div class="p-3.5 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
+      <div>
+        <div class="text-xs font-mono font-semibold text-white flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+          </svg>
+          Supervisor Live Stream
+        </div>
+        <div class="text-[10px] text-slate-400 mt-0.5">WSS encrypted screen verification on demand</div>
+      </div>
+      <button
+        id="btn-toggle-stream"
+        class="px-3 py-1.5 rounded-xl font-mono text-xs font-bold border transition-all bg-cyan-500/20 text-cyan-300 border-cyan-500/40 hover:bg-cyan-500/30"
+      >
+        START LIVE STREAM
+      </button>
+    </div>
+
+    <!-- Network Outage Simulation Toggle -->
+    <div class="p-3.5 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center justify-between">
+      <div>
+        <div class="text-xs font-mono font-semibold text-white flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          Offline Buffer Simulation
+        </div>
+        <div class="text-[10px] text-slate-400 mt-0.5">Test connection drops &amp; auto-reconnect flush</div>
+      </div>
+      <button
+        id="btn-toggle-network"
+        class="px-3 py-1.5 rounded-xl font-mono text-xs font-bold border transition-all bg-slate-800 text-slate-300 border-slate-700 hover:border-slate-500"
+      >
+        CUT NETWORK
+      </button>
+    </div>
+  </div>
+
+  <!-- 4. Interactive Live Screen Stream Viewport (Expandable when stream active) -->
+  <div id="stream-viewport-container" class="hidden mt-4 p-4 rounded-2xl bg-black/90 border border-cyan-500/50 space-y-2">
+    <div class="flex items-center justify-between text-xs font-mono pb-2 border-b border-slate-800">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
+        <span class="text-rose-400 font-bold uppercase tracking-wider">LIVE WSS STREAM</span>
+        <span class="text-slate-500">•</span>
+        <span class="text-cyan-300" id="stream-resolution">1280x720 @ 15 FPS (Quality 50)</span>
+      </div>
+      <span class="text-[10px] text-emerald-400 font-mono bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">
+        Data Rate: ~184 KB/s
+      </span>
+    </div>
+    <div class="relative aspect-video max-h-52 w-full rounded-xl bg-slate-950 flex flex-col items-center justify-center border border-slate-800 overflow-hidden text-center p-4">
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent pointer-events-none"></div>
+      <div class="z-10 space-y-1.5">
+        <div class="text-xs font-mono text-cyan-300" id="stream-preview-app">[Active Window: Code]</div>
+        <div class="text-sm font-sans font-bold text-white" id="stream-preview-title">src/network.rs - skylink-monitor</div>
+        <div class="text-[11px] font-mono text-slate-400">Captured via native <span class="text-cyan-400 font-semibold">xcap 0.9.6</span> with zero compositor lag</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Live Telemetry Packet Terminal -->
+  <div class="mt-4 rounded-2xl bg-slate-950 border border-slate-800 p-4 font-mono text-xs space-y-2 shadow-inner">
+    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-slate-800">
+      <span class="text-slate-400 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>DAEMON TELEMETRY DISPATCH LOG</span>
+      </span>
+      <span class="text-slate-500" id="network-status-badge">
+        <span class="text-emerald-400">NET: ONLINE (HTTP 200 OK)</span>
+      </span>
+    </div>
+
+    <!-- Packet Stream View -->
+    <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 text-[11px] leading-relaxed text-slate-300 font-mono overflow-x-auto" id="packet-console">
+      <div class="text-cyan-400">// Dispatching 60s Activity Snapshot to Spring Boot Telemetry Hub</div>
+      <div>&#123;</div>
+      <div class="pl-4 text-emerald-300">"timestamp": "<span id="telemetry-time">2026-10-28T09:14:02Z</span>",</div>
+      <div class="pl-4 text-slate-300">"activeWindow": "<span id="telemetry-window" class="text-amber-300">src/network.rs - skylink-monitor [Rust Core]</span>",</div>
+      <div class="pl-4 text-slate-300">"activeApp": "<span id="telemetry-app" class="text-cyan-300">Code</span>",</div>
+      <div class="pl-4 text-slate-300">"category": "<span id="telemetry-category" class="text-emerald-400">Productive Engineering</span>",</div>
+      <div class="pl-4 text-slate-300">"memoryUsageMB": 11.8,</div>
+      <div class="pl-4 text-slate-300">"auditFlag": "<span id="telemetry-flag" class="text-emerald-400">PASSED</span>",</div>
+      <div class="pl-4 text-slate-400">"authType": "KeyringOSVaultBearerToken"</div>
+      <div>&#125;</div>
+    </div>
+  </div>
+
+  <!-- Explanatory Footer -->
+  <div class="mt-4 pt-3 border-t border-slate-800 flex flex-wrap items-center justify-between text-xs font-mono text-slate-400 gap-2">
+    <span>🔒 Privacy-first: Zero keystroke loggers. Passwords &amp; private messages are never collected.</span>
+    <span class="text-cyan-400">Statically compiled Rust 2024</span>
+  </div>
+</div>
+
+<script>
+  let isOnline = true;
+  let isStreaming = false;
+  let bufferedPackets = 0;
+
+  const buttons = document.querySelectorAll('.activity-btn');
+  const label = document.getElementById('current-active-label');
+  const telTime = document.getElementById('telemetry-time');
+  const telWindow = document.getElementById('telemetry-window');
+  const telApp = document.getElementById('telemetry-app');
+  const telCategory = document.getElementById('telemetry-category');
+  const telFlag = document.getElementById('telemetry-flag');
+  const netBadge = document.getElementById('network-status-badge');
+  const btnToggleNet = document.getElementById('btn-toggle-network');
+  const btnToggleStream = document.getElementById('btn-toggle-stream');
+  const streamContainer = document.getElementById('stream-viewport-container');
+  const streamPreviewApp = document.getElementById('stream-preview-app');
+  const streamPreviewTitle = document.getElementById('stream-preview-title');
+
+  function updateTelemetry(app: string, title: string, category: string, flag: string) {
+    if (label) label.textContent = `Current: ${app}`;
+    if (telTime) telTime.textContent = new Date().toISOString();
+    if (telWindow) telWindow.textContent = title;
+    if (telApp) telApp.textContent = app;
+    if (telCategory) telCategory.textContent = category;
+    
+    if (telFlag) {
+      telFlag.textContent = flag;
+      if (flag === 'DRIFT_FLAGGED') {
+        telFlag.className = 'text-rose-400 font-bold';
+      } else {
+        telFlag.className = 'text-emerald-400';
+      }
+    }
+
+    if (streamPreviewApp) streamPreviewApp.textContent = `[Active Window: ${app}]`;
+    if (streamPreviewTitle) streamPreviewTitle.textContent = title;
+
+    if (!isOnline) {
+      bufferedPackets++;
+      if (netBadge) {
+        netBadge.innerHTML = `<span class="text-amber-400 font-bold">OFFLINE: Encrypted Buffer (${bufferedPackets} queued)</span>`;
+      }
+    }
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => {
+        b.classList.remove('active', 'bg-cyan-500/20', 'text-cyan-200', 'border-cyan-400/50');
+        b.classList.add('bg-slate-800/80', 'text-slate-300', 'border-slate-700/80');
+      });
+
+      btn.classList.add('active', 'bg-cyan-500/20', 'text-cyan-200', 'border-cyan-400/50');
+      btn.classList.remove('bg-slate-800/80', 'text-slate-300', 'border-slate-700/80');
+
+      const app = btn.getAttribute('data-app') || 'Code';
+      const title = btn.getAttribute('data-title') || '';
+      const category = btn.getAttribute('data-category') || '';
+      const flag = btn.getAttribute('data-flag') || 'PASSED';
+
+      updateTelemetry(app, title, category, flag);
+    });
+  });
+
+  // Toggle Stream
+  if (btnToggleStream && streamContainer) {
+    btnToggleStream.addEventListener('click', () => {
+      isStreaming = !isStreaming;
+      if (isStreaming) {
+        streamContainer.classList.remove('hidden');
+        btnToggleStream.textContent = 'STOP LIVE STREAM';
+        btnToggleStream.className = 'px-3 py-1.5 rounded-xl font-mono text-xs font-bold border transition-all bg-rose-500/20 text-rose-300 border-rose-500/40 hover:bg-rose-500/30';
+      } else {
+        streamContainer.classList.add('hidden');
+        btnToggleStream.textContent = 'START LIVE STREAM';
+        btnToggleStream.className = 'px-3 py-1.5 rounded-xl font-mono text-xs font-bold border transition-all bg-cyan-500/20 text-cyan-300 border-cyan-500/40 hover:bg-cyan-500/30';
+      }
+    });
+  }
+
+  // Toggle Network
+  if (btnToggleNet && netBadge) {
+    btnToggleNet.addEventListener('click', () => {
+      isOnline = !isOnline;
+      if (!isOnline) {
+        btnToggleNet.textContent = 'RESTORE NETWORK';
+        btnToggleNet.className = 'px-3 py-1.5 rounded-xl font-mono text-xs font-bold border transition-all bg-emerald-500/20 text-emerald-300 border-emerald-500/40 hover:bg-emerald-500/30';
+        netBadge.innerHTML = `<span class="text-amber-400 font-bold">OFFLINE: Encrypted Buffer (${bufferedPackets} queued)</span>`;
+      } else {
+        btnToggleNet.textContent = 'CUT NETWORK';
+        btnToggleNet.className = 'px-3 py-1.5 rounded-xl font-mono text-xs font-bold border transition-all bg-slate-800 text-slate-300 border-slate-700 hover:border-slate-500';
+        netBadge.innerHTML = `<span class="text-emerald-400">FLUSHED ${bufferedPackets} QUEUED PACKETS (HTTP 200 OK)</span>`;
+        bufferedPackets = 0;
+      }
+    });
+  }
+</script>
