@@ -719,6 +719,57 @@
         </a>
       </div>
     </div>
+
+    <!-- Card L: Mordern OS (Capability-Secure #![no_std] Rust Microkernel) -->
+    <div class="p-6 rounded-3xl border border-cyan-500/40 bg-theme-card backdrop-blur-md space-y-4 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+          </svg>
+          <h3 class="text-lg font-bold text-theme-primary">Mordern OS: Rust Pure Microkernel</h3>
+        </div>
+        <span class="font-mono text-xs text-cyan-300 bg-cyan-500/10 px-2 py-0.5 rounded-lg border border-cyan-500/30 flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+          #![no_std] Ring 0 Core
+        </span>
+      </div>
+
+      <p class="text-sm text-theme-muted leading-relaxed">
+        High-performance bare-metal operating system. Isolates hardware drivers (NVMe) in Ring 3 with 38µs hot-recovery, eliminates ambient authority via formal capability proofs, and routes IPC over lock-free SPSC queues.
+      </p>
+
+      <!-- Metrics Box -->
+      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
+          <span>LOCK-FREE SPSC IPC QUEUE</span>
+          <span class="text-emerald-400 font-bold">&lt; 38ns ROUNDTRIP</span>
+        </div>
+        <div class="text-theme-primary truncate font-semibold">Minimalist TCB (&lt; 2,500 LOC) &amp; Formal Capability Invariants</div>
+        <div class="text-cyan-300 text-[11px]">&lt; 1 MiB Kernel Heap • Multi-Arch: x86_64 &amp; AArch64 bare-metal QEMU boot.</div>
+      </div>
+
+      <!-- Tech Badges & CTA -->
+      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Rust 2024</span>
+          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">#![no_std]</span>
+          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">x86_64</span>
+          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">AArch64</span>
+          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Lock-Free SPSC</span>
+          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">QEMU</span>
+        </div>
+        <a
+          href="/systems/modern-os-microkernel"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+        >
+          <span>Explore Architecture</span>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 

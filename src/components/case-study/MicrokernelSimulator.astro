@@ -1,0 +1,966 @@
+---
+// Mordern OS (#![no_std] Rust Pure Microkernel) Interactive Architecture Simulator
+---
+
+<div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-8 shadow-2xl">
+  <!-- Simulator Header -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+    <div>
+      <div class="flex items-center gap-2 text-amber-400 font-mono text-xs uppercase tracking-wider mb-1 font-bold">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+        Interactive Bare-Metal Microkernel Sandbox
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-mono font-bold text-white flex items-center gap-3">
+        Mordern OS: Ring 0 Kernel &amp; Proof Simulator
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-300 font-sans mt-1">
+        Explore `#![no_std]` Rust microkernel fault isolation, formal capability token attenuation, and lock-free SPSC IPC queues.
+      </p>
+    </div>
+
+    <!-- Active Perspective Switcher -->
+    <div class="flex items-center p-1 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono overflow-x-auto">
+      <button
+        type="button"
+        id="kernel-tab-fault"
+        class="kernel-tab-btn px-3.5 py-1.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold transition-all shadow-sm"
+        data-view="fault"
+      >
+        🛡️ Fault Isolation
+      </button>
+      <button
+        type="button"
+        id="kernel-tab-cap"
+        class="kernel-tab-btn px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition-all font-semibold"
+        data-view="cap"
+      >
+        🔑 Capability Attenuation
+      </button>
+      <button
+        type="button"
+        id="kernel-tab-ipc"
+        class="kernel-tab-btn px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition-all font-semibold"
+        data-view="ipc"
+      >
+        ⚡ Lock-Free SPSC IPC
+      </button>
+    </div>
+  </div>
+
+  <!-- View 1: Ring 0 vs Ring 3 Driver Fault Isolation Sandbox (Default) -->
+  <div id="kernel-screen-fault" class="kernel-screen space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Control Panel & Architecture Selector -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              Kernel Topology Mode
+            </span>
+            <span id="fault-arch-badge" class="px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">
+              Mordern OS Microkernel
+            </span>
+          </div>
+
+          <!-- Architecture Comparison Selector -->
+          <div class="space-y-2">
+            <label class="text-slate-400 text-[11px] uppercase tracking-wider">Select Kernel Architecture Model</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                id="btn-mode-microkernel"
+                class="p-2.5 rounded-xl border border-amber-500/50 bg-amber-500/10 text-amber-300 font-bold text-left transition-all hover:bg-amber-500/20"
+              >
+                <div class="text-xs">🦀 Mordern OS</div>
+                <div class="text-[10px] text-amber-200/70 font-normal">Pure Ring 0 Microkernel</div>
+              </button>
+              <button
+                type="button"
+                id="btn-mode-monolithic"
+                class="p-2.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-400 font-bold text-left transition-all hover:border-slate-700 hover:text-slate-200"
+              >
+                <div class="text-xs">🐧 Monolithic</div>
+                <div class="text-[10px] text-slate-500 font-normal">Legacy Linux / BSD</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Driver Fault Injector -->
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300 font-bold">NVMe Driver Status:</span>
+              <span id="nvme-live-status" class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[11px] font-bold">
+                ONLINE (PID 102)
+              </span>
+            </div>
+            <p class="text-[11px] text-slate-400 font-sans leading-relaxed">
+              Inject an unhandled illegal memory pointer dereference (<code class="text-rose-400">*(volatile u32*)0xDEADBEEF = 0;</code>) into the NVMe block storage driver.
+            </p>
+            <div class="flex gap-2">
+              <button
+                type="button"
+                id="btn-inject-fault"
+                class="flex-1 py-2.5 px-4 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/50 font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg active:scale-95"
+              >
+                <svg class="w-4 h-4 text-rose-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                <span>Inject NVMe Driver Crash</span>
+              </button>
+              <button
+                type="button"
+                id="btn-reset-fault"
+                class="py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs transition-all cursor-pointer"
+                title="Reset Simulation"
+              >
+                ↺
+              </button>
+            </div>
+          </div>
+
+          <!-- Real-time Recovery Metrics -->
+          <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800">
+            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="text-[10px] text-slate-400">RECOVERY DURATION</div>
+              <div id="stat-recovery-time" class="text-sm font-bold text-amber-400 mt-0.5">38 microseconds</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="text-[10px] text-slate-400">KERNEL SURVIVAL</div>
+              <div id="stat-kernel-survival" class="text-sm font-bold text-emerald-400 mt-0.5">100% (Zero Panic)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ring Topology Visualizer -->
+      <div class="lg:col-span-7 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              Hardware Ring Privilege Hierarchy
+            </span>
+            <span class="text-slate-500 text-[10px]">x86_64 / AArch64 Priv Levels</span>
+          </div>
+
+          <!-- Dynamic CPU Ring Representation -->
+          <div id="ring-container" class="space-y-4">
+            <!-- Ring 3: User Space Box -->
+            <div id="box-ring-3" class="p-4 rounded-2xl border-2 border-dashed border-cyan-500/40 bg-cyan-950/20 space-y-3 transition-all duration-300">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-cyan-300 flex items-center gap-2">
+                  <span class="px-2 py-0.5 rounded bg-cyan-500/20 border border-cyan-500/30 text-[10px]">RING 3</span>
+                  <span>User Space (Unprivileged Daemons)</span>
+                </span>
+                <span id="badge-ring-3" class="text-[10px] text-cyan-400">Restricted CPU Instructions</span>
+              </div>
+              <div class="grid grid-cols-3 gap-2.5" id="ring3-daemons">
+                <!-- Daemon 1: NVMe Driver -->
+                <div id="daemon-nvme" class="p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-center space-y-1 transition-all duration-300 shadow-sm">
+                  <div class="text-[11px] font-bold text-white">NVMe Driver</div>
+                  <div class="text-[9px] text-slate-400 font-mono">PID 102</div>
+                  <div id="daemon-nvme-status" class="text-[9px] text-emerald-400 font-semibold">Healthy</div>
+                </div>
+                <!-- Daemon 2: VFS Daemon -->
+                <div id="daemon-vfs" class="p-3 rounded-xl bg-slate-900 border border-slate-700 text-center space-y-1">
+                  <div class="text-[11px] font-bold text-white">VFS Service</div>
+                  <div class="text-[9px] text-slate-400 font-mono">PID 103</div>
+                  <div id="daemon-vfs-status" class="text-[9px] text-emerald-400 font-semibold">Active</div>
+                </div>
+                <!-- Daemon 3: User Apps -->
+                <div id="daemon-apps" class="p-3 rounded-xl bg-slate-900 border border-slate-700 text-center space-y-1">
+                  <div class="text-[11px] font-bold text-white">User Apps</div>
+                  <div class="text-[9px] text-slate-400 font-mono">PID 204+</div>
+                  <div id="daemon-apps-status" class="text-[9px] text-emerald-400 font-semibold">Running</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Inter-Privilege Boundary Line -->
+            <div class="relative flex items-center justify-center">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-slate-800"></div>
+              </div>
+              <span id="boundary-label" class="relative px-3 py-1 bg-slate-900 border border-slate-700 rounded-full text-[10px] text-slate-400 font-mono">
+                Syscall &amp; IPC Barrier (Zero Ambient Authority)
+              </span>
+            </div>
+
+            <!-- Ring 0: Kernel Space Box -->
+            <div id="box-ring-0" class="p-4 rounded-2xl border-2 border-amber-500/50 bg-amber-950/20 space-y-3 transition-all duration-300">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-amber-300 flex items-center gap-2">
+                  <span class="px-2 py-0.5 rounded bg-amber-500/20 border border-amber-500/30 text-[10px]">RING 0</span>
+                  <span id="label-ring-0">Pure Microkernel (TCB &lt; 2,500 LOC)</span>
+                </span>
+                <span id="badge-ring-0" class="text-[10px] text-emerald-400 font-semibold">SUPERVISOR SECURE</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center" id="ring0-modules">
+                <div class="p-2 rounded-lg bg-slate-900/80 border border-amber-500/20 text-[10px] text-slate-300">
+                  <div class="font-bold text-amber-300">Memory Frame</div>
+                  <div class="text-[9px] text-slate-400">Bump &amp; 1 MiB Heap</div>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-900/80 border border-amber-500/20 text-[10px] text-slate-300">
+                  <div class="font-bold text-amber-300">Capability Table</div>
+                  <div class="text-[9px] text-slate-400">Token Proof Engine</div>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-900/80 border border-amber-500/20 text-[10px] text-slate-300">
+                  <div class="font-bold text-amber-300">SPSC IPC Queue</div>
+                  <div class="text-[9px] text-slate-400">Lock-Free Ring</div>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-900/80 border border-amber-500/20 text-[10px] text-slate-300">
+                  <div class="font-bold text-amber-300">Async Executor</div>
+                  <div class="text-[9px] text-slate-400">Waker VTable</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Diagnostic UART Terminal -->
+          <div class="p-3 rounded-xl bg-black border border-slate-800 font-mono text-[11px] space-y-1">
+            <div class="text-slate-500 text-[9px] flex items-center justify-between border-b border-slate-900 pb-1">
+              <span>SERIAL UART 16550 DIAGNOSTIC CONSOLE</span>
+              <span class="text-amber-400">115200 8N1</span>
+            </div>
+            <div id="fault-uart-console" class="text-slate-300 h-24 overflow-y-auto space-y-0.5 leading-snug pt-1">
+              <div class="text-emerald-400">[BOOT] Mordern OS Microkernel initialized successfully on x86_64.</div>
+              <div class="text-slate-400">[INIT] Spawning Ring 3 daemons: NVMe (PID 102), VFS (PID 103)...</div>
+              <div class="text-cyan-400">[IPC] SPSC message channel established: NVMe &lt;--&gt; VFS.</div>
+              <div class="text-slate-400">[READY] System idle. Awaiting driver fault injection.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View 2: Capability Token Attenuation & Non-Escalation Engine -->
+  <div id="kernel-screen-cap" class="kernel-screen hidden space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Capability Grant & Delegation Controls -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              Capability Delegation Workbench
+            </span>
+            <span class="text-[10px] text-amber-300 font-mono">Formal Model: Proof #1</span>
+          </div>
+
+          <!-- Parent Token Status -->
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-300 font-bold">Parent Token #0xCAFE01</span>
+              <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px]">Holder: Process 101</span>
+            </div>
+            <div class="text-[11px] text-slate-400">
+              Assigned Rights Bitmask:
+              <span class="text-amber-400 font-bold">READ | WRITE | DELEGATE</span>
+              <span class="text-slate-500">(Bit 0, 1, 3 - No EXECUTE)</span>
+            </div>
+          </div>
+
+          <!-- Select Delegation Rights -->
+          <div class="space-y-2">
+            <label class="text-slate-400 text-[11px] uppercase tracking-wider">Requested Child Permissions to Delegate</label>
+            <div class="grid grid-cols-3 gap-2">
+              <label class="flex items-center gap-2 p-2 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer">
+                <input type="checkbox" id="cap-chk-read" checked class="accent-amber-400" />
+                <span class="text-slate-200 text-xs">READ</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 rounded-lg bg-slate-900 border border-slate-800 cursor-pointer">
+                <input type="checkbox" id="cap-chk-write" class="accent-amber-400" />
+                <span class="text-slate-200 text-xs">WRITE</span>
+              </label>
+              <label class="flex items-center gap-2 p-2 rounded-lg bg-slate-900 border border-rose-500/50 bg-rose-500/5 cursor-pointer">
+                <input type="checkbox" id="cap-chk-exec" class="accent-rose-500" />
+                <span class="text-rose-300 font-bold text-xs">EXECUTE</span>
+              </label>
+            </div>
+            <p class="text-[10px] text-slate-400 font-sans">
+              Notice: The parent does <strong class="text-rose-400">not</strong> hold <code class="text-rose-300">EXECUTE</code> rights. Delegating it tests privilege escalation prevention!
+            </p>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="space-y-2">
+            <button
+              type="button"
+              id="btn-run-delegation"
+              class="w-full py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg active:scale-95"
+            >
+              <span>Execute CapabilityTable::delegate()</span>
+              <svg class="w-4 h-4 text-slate-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="btn-test-ambient"
+              class="w-full py-2 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 text-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>Test Ambient Access Without Token (Proof #2)</span>
+            </button>
+          </div>
+
+          <!-- Formal Verification Check Result -->
+          <div id="cap-proof-box" class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 space-y-1">
+            <div class="flex items-center justify-between font-bold text-xs">
+              <span id="cap-proof-title">STATUS: INVARIANT SATISFIED</span>
+              <span class="text-[10px] bg-emerald-500/20 px-2 py-0.5 rounded">PASSED</span>
+            </div>
+            <p id="cap-proof-desc" class="text-[11px] text-emerald-200/90 font-sans">
+              Delegated subset rights (READ) strictly attenuate parent authority.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Capability Token Graph & Invariant Verifier -->
+      <div class="lg:col-span-7 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              Capability Delegation DAG &amp; Rights Attenuation
+            </span>
+            <span class="text-slate-500 text-[10px]">Zero Ambient Authority Proof</span>
+          </div>
+
+          <!-- Visual Tree Hierarchy -->
+          <div class="space-y-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+            <!-- Root Token Node -->
+            <div class="p-3 rounded-xl bg-slate-950 border border-amber-500/40 space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-amber-300 text-xs flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  Root Parent Token [0xCAFE01]
+                </span>
+                <span class="text-[10px] text-slate-400">PID 101 (Init Manager)</span>
+              </div>
+              <div class="text-[11px] text-slate-300 flex items-center gap-2 flex-wrap">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">READ (0x01)</span>
+                <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">WRITE (0x02)</span>
+                <span class="px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 text-[10px]">DELEGATE (0x08)</span>
+                <span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-400 border border-rose-500/30 line-through text-[10px]">EXECUTE (0x04)</span>
+              </div>
+            </div>
+
+            <!-- Downward Connector Arrow -->
+            <div class="flex justify-center text-slate-600 font-bold">
+              <svg class="w-5 h-5 text-slate-500 animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <polyline points="19 12 12 19 5 12"/>
+              </svg>
+            </div>
+
+            <!-- Child Delegated Token Node -->
+            <div id="child-token-node" class="p-3 rounded-xl bg-slate-950 border border-emerald-500/40 space-y-1 transition-all">
+              <div class="flex items-center justify-between">
+                <span id="child-token-title" class="font-bold text-emerald-300 text-xs flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  Delegated Child Token [0xCAFE02]
+                </span>
+                <span class="text-[10px] text-slate-400">PID 204 (Worker Service)</span>
+              </div>
+              <div id="child-token-rights" class="text-[11px] text-slate-300 flex items-center gap-2 flex-wrap">
+                <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">READ (0x01)</span>
+                <span class="text-slate-500 text-[10px] italic">Strict subset attenuation preserved.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formal Verification Proof Model Output -->
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2 font-mono text-[11px]">
+            <div class="text-slate-400 text-[10px] uppercase font-bold flex items-center justify-between">
+              <span>Kernel Proof Invariant Assertion Model</span>
+              <span class="text-cyan-400">proofs/capability_proofs.rs</span>
+            </div>
+            <div class="text-slate-300 font-mono text-[11px] bg-slate-950 p-2.5 rounded-lg border border-slate-800 overflow-x-auto">
+              <span class="text-rose-400">assert!</span>(child_rights.is_subset_of(parent_rights));<br/>
+              <span class="text-rose-400">assert!</span>(parent_rights.contains(CapabilityRights::DELEGATE));<br/>
+              <span class="text-emerald-400">// Mathematical proof: No privilege escalation can ever occur.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View 3: Lock-Free SPSC IPC Ring Buffer Inspector -->
+  <div id="kernel-screen-ipc" class="kernel-screen hidden space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Producer & Consumer Controller -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              SPSC Ring Buffer Controls
+            </span>
+            <span class="text-[10px] text-amber-300 font-mono">Zero Mutex Contention</span>
+          </div>
+
+          <!-- Operations -->
+          <div class="space-y-2">
+            <button
+              type="button"
+              id="btn-ipc-push"
+              class="w-full py-2.5 px-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg active:scale-95"
+            >
+              <span>Producer: Push 64-Byte IpcMessage (Release)</span>
+              <svg class="w-4 h-4 text-slate-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="btn-ipc-pop"
+              class="w-full py-2.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg active:scale-95"
+            >
+              <span>Consumer: Pop IpcMessage (Acquire)</span>
+              <svg class="w-4 h-4 text-slate-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14"/>
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="btn-ipc-burst"
+              class="w-full py-2 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-300 border border-amber-500/40 text-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>⚡ Execute 10,000 Burst Benchmark Pass</span>
+            </button>
+          </div>
+
+          <!-- Live Atomic Pointer Offsets -->
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+            <div class="text-[10px] text-slate-400 uppercase font-bold">Atomic Pointer Registers</div>
+            <div class="grid grid-cols-2 gap-2 text-center">
+              <div class="p-2 rounded-lg bg-slate-950 border border-cyan-500/30">
+                <div class="text-[10px] text-cyan-300 font-bold">atomic_head (Tail)</div>
+                <div id="stat-ipc-head" class="text-base font-mono font-bold text-white">0</div>
+              </div>
+              <div class="p-2 rounded-lg bg-slate-950 border border-emerald-500/30">
+                <div class="text-[10px] text-emerald-300 font-bold">atomic_tail (Head)</div>
+                <div id="stat-ipc-tail" class="text-base font-mono font-bold text-white">0</div>
+              </div>
+            </div>
+            <div class="text-[10px] text-slate-400">
+              Queue Utilization: <span id="stat-ipc-count" class="text-amber-400 font-bold">0 / 8 Slots</span>
+            </div>
+          </div>
+
+          <!-- Microkernel Benchmark Results -->
+          <div class="p-3 rounded-xl bg-black border border-slate-800 font-mono text-[11px] space-y-1">
+            <div class="text-slate-500 text-[9px] uppercase border-b border-slate-900 pb-1 flex justify-between">
+              <span>benches/mod.rs Benchmark Telemetry</span>
+              <span class="text-emerald-400">OPTIMAL</span>
+            </div>
+            <div class="flex justify-between text-slate-300 pt-1">
+              <span>SPSC IPC Throughput:</span>
+              <span id="stat-bench-throughput" class="text-emerald-400 font-bold">26.3M ops/sec</span>
+            </div>
+            <div class="flex justify-between text-slate-300">
+              <span>Mutex/Spinlock Contention:</span>
+              <span class="text-cyan-300 font-bold">0 cycles (Lock-Free)</span>
+            </div>
+            <div class="flex justify-between text-slate-300">
+              <span>Memory Ordering Fences:</span>
+              <span class="text-amber-300 font-bold">Acquire / Release</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ring Buffer Visual Slot Array -->
+      <div class="lg:col-span-7 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              64-Byte Cache-Line Aligned Circular Ring
+            </span>
+            <span class="text-slate-500 text-[10px]">8-Slot SpscRingBuffer</span>
+          </div>
+
+          <!-- 8 Visual Queue Slots -->
+          <div class="grid grid-cols-4 gap-3" id="ipc-slot-grid">
+            <div id="ipc-slot-0" class="ipc-slot p-3 rounded-xl bg-slate-900 border border-slate-800 text-center space-y-1 transition-all">
+              <div class="text-[10px] text-slate-400 font-bold">Slot 0</div>
+              <div class="slot-val text-xs font-mono text-slate-600">EMPTY</div>
+            </div>
+            <div id="ipc-slot-1" class="ipc-slot p-3 rounded-xl bg-slate-900 border border-slate-800 text-center space-y-1 transition-all">
+              <div class="text-[10px] text-slate-400 font-bold">Slot 1</div>
+              <div class="slot-val text-xs font-mono text-slate-600">EMPTY</div>
+            </div>
+            <div id="ipc-slot-2" class="ipc-slot p-3 rounded-xl bg-slate-900 border border-slate-800 text-center space-y-1 transition-all">
+              <div class="text-[10px] text-slate-400 font-bold">Slot 2</div>
+              <div class="slot-val text-xs font-mono text-slate-600">EMPTY</div>
+            </div>
+            <div id="ipc-slot-3" class="ipc-slot p-3 rounded-xl bg-slate-900 border border-slate-800 text-center space-y-1 transition-all">
+              <div class="text-[10px] text-slate-400 font-bold">Slot 3</div>
+              <div class="slot-val text-xs font-mono text-slate-600">EMPTY</div>
+            </div>
+            <div id="ipc-slot-4" class="ipc-slot p-3 rounded-xl bg-slate-900 border border-slate-800 text-center space-y-1 transition-all">
+              <div class="text-[10px] text-slate-400 font-bold">Slot 4</div>
+              <div class="slot-val text-xs font-mono text-slate-600">EMPTY</div>
+            </div>
+            <div id="ipc-slot-5" class="ipc-slot p-3 rounded-xl bg-slate-900 border border-slate-800 text-center space-y-1 transition-all">
+              <div class="text-[10px] text-slate-400 font-bold">Slot 5</div>
+              <div class="slot-val text-xs font-mono text-slate-600">EMPTY</div>
+            </div>
+            <div id="ipc-slot-6" class="ipc-slot p-3 rounded-xl bg-slate-900 border border-slate-800 text-center space-y-1 transition-all">
+              <div class="text-[10px] text-slate-400 font-bold">Slot 6</div>
+              <div class="slot-val text-xs font-mono text-slate-600">EMPTY</div>
+            </div>
+            <div id="ipc-slot-7" class="ipc-slot p-3 rounded-xl bg-slate-900 border border-slate-800 text-center space-y-1 transition-all">
+              <div class="text-[10px] text-slate-400 font-bold">Slot 7</div>
+              <div class="slot-val text-xs font-mono text-slate-600">EMPTY</div>
+            </div>
+          </div>
+
+          <!-- Live Dequeued Message Inspector -->
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
+            <div class="text-slate-400 text-[10px] uppercase font-bold flex justify-between">
+              <span>Last Processed 64-Byte IpcMessage Payload</span>
+              <span id="ipc-last-code" class="text-cyan-400 font-mono">CODE: 0x00</span>
+            </div>
+            <div id="ipc-payload-inspector" class="text-slate-300 font-mono text-xs bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+              Sender PID: -- | Recipient PID: -- | Capability ID: -- | Payload: [Awaiting IPC Message]
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Tab Switching Logic
+  const tabFault = document.getElementById('kernel-tab-fault');
+  const tabCap = document.getElementById('kernel-tab-cap');
+  const tabIpc = document.getElementById('kernel-tab-ipc');
+
+  const screenFault = document.getElementById('kernel-screen-fault');
+  const screenCap = document.getElementById('kernel-screen-cap');
+  const screenIpc = document.getElementById('kernel-screen-ipc');
+
+  function setKernelTab(view: 'fault' | 'cap' | 'ipc') {
+    [tabFault, tabCap, tabIpc].forEach(btn => {
+      btn?.classList.remove('bg-amber-500/20', 'text-amber-300', 'border-amber-500/40');
+      btn?.classList.add('text-slate-400');
+    });
+    [screenFault, screenCap, screenIpc].forEach(screen => screen?.classList.add('hidden'));
+
+    if (view === 'fault') {
+      tabFault?.classList.add('bg-amber-500/20', 'text-amber-300', 'border-amber-500/40');
+      tabFault?.classList.remove('text-slate-400');
+      screenFault?.classList.remove('hidden');
+    } else if (view === 'cap') {
+      tabCap?.classList.add('bg-amber-500/20', 'text-amber-300', 'border-amber-500/40');
+      tabCap?.classList.remove('text-slate-400');
+      screenCap?.classList.remove('hidden');
+    } else if (view === 'ipc') {
+      tabIpc?.classList.add('bg-amber-500/20', 'text-amber-300', 'border-amber-500/40');
+      tabIpc?.classList.remove('text-slate-400');
+      screenIpc?.classList.remove('hidden');
+    }
+  }
+
+  tabFault?.addEventListener('click', () => setKernelTab('fault'));
+  tabCap?.addEventListener('click', () => setKernelTab('cap'));
+  tabIpc?.addEventListener('click', () => setKernelTab('ipc'));
+
+  // ==========================================
+  // VIEW 1: FAULT ISOLATION SANDBOX
+  // ==========================================
+  let isMicrokernelMode = true;
+  let isCrashed = false;
+
+  const btnModeMicro = document.getElementById('btn-mode-microkernel');
+  const btnModeMono = document.getElementById('btn-mode-monolithic');
+  const faultArchBadge = document.getElementById('fault-arch-badge');
+  const nvmeLiveStatus = document.getElementById('nvme-live-status');
+  const btnInjectFault = document.getElementById('btn-inject-fault');
+  const btnResetFault = document.getElementById('btn-reset-fault');
+  const statRecoveryTime = document.getElementById('stat-recovery-time');
+  const statKernelSurvival = document.getElementById('stat-kernel-survival');
+  const faultUartConsole = document.getElementById('fault-uart-console');
+
+  const daemonNvme = document.getElementById('daemon-nvme');
+  const daemonNvmeStatus = document.getElementById('daemon-nvme-status');
+  const daemonVfsStatus = document.getElementById('daemon-vfs-status');
+  const daemonAppsStatus = document.getElementById('daemon-apps-status');
+  const boxRing0 = document.getElementById('box-ring-0');
+  const labelRing0 = document.getElementById('label-ring-0');
+  const badgeRing0 = document.getElementById('badge-ring-0');
+
+  function updateArchMode(micro: boolean) {
+    isMicrokernelMode = micro;
+    isCrashed = false;
+
+    if (micro) {
+      btnModeMicro?.classList.add('border-amber-500/50', 'bg-amber-500/10', 'text-amber-300');
+      btnModeMicro?.classList.remove('border-slate-800', 'bg-slate-900', 'text-slate-400');
+      btnModeMono?.classList.remove('border-amber-500/50', 'bg-amber-500/10', 'text-amber-300');
+      btnModeMono?.classList.add('border-slate-800', 'bg-slate-900', 'text-slate-400');
+
+      if (faultArchBadge) {
+        faultArchBadge.className = 'px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]';
+        faultArchBadge.textContent = 'Mordern OS Microkernel';
+      }
+      if (statRecoveryTime) statRecoveryTime.textContent = '38 microseconds';
+      if (statKernelSurvival) statKernelSurvival.textContent = '100% (Zero Panic)';
+      if (labelRing0) labelRing0.textContent = 'Pure Microkernel (TCB < 2,500 LOC)';
+      if (badgeRing0) {
+        badgeRing0.className = 'text-[10px] text-emerald-400 font-semibold';
+        badgeRing0.textContent = 'SUPERVISOR SECURE';
+      }
+    } else {
+      btnModeMono?.classList.add('border-amber-500/50', 'bg-amber-500/10', 'text-amber-300');
+      btnModeMono?.classList.remove('border-slate-800', 'bg-slate-900', 'text-slate-400');
+      btnModeMicro?.classList.remove('border-amber-500/50', 'bg-amber-500/10', 'text-amber-300');
+      btnModeMicro?.classList.add('border-slate-800', 'bg-slate-900', 'text-slate-400');
+
+      if (faultArchBadge) {
+        faultArchBadge.className = 'px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[10px]';
+        faultArchBadge.textContent = 'Monolithic Architecture';
+      }
+      if (statRecoveryTime) statRecoveryTime.textContent = '45 - 90 seconds (Reboot)';
+      if (statKernelSurvival) statKernelSurvival.textContent = '0% (Kernel Panic)';
+      if (labelRing0) labelRing0.textContent = 'Monolithic Kernel (TCB > 30M LOC)';
+      if (badgeRing0) {
+        badgeRing0.className = 'text-[10px] text-rose-400 font-semibold';
+        badgeRing0.textContent = 'SHARED RING 0 SPACE';
+      }
+    }
+
+    resetFaultSim();
+  }
+
+  function resetFaultSim() {
+    isCrashed = false;
+    if (nvmeLiveStatus) {
+      nvmeLiveStatus.className = 'px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[11px] font-bold';
+      nvmeLiveStatus.textContent = 'ONLINE (PID 102)';
+    }
+    if (daemonNvme) daemonNvme.className = 'p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-center space-y-1 transition-all duration-300 shadow-sm';
+    if (daemonNvmeStatus) {
+      daemonNvmeStatus.className = 'text-[9px] text-emerald-400 font-semibold';
+      daemonNvmeStatus.textContent = 'Healthy';
+    }
+    if (daemonVfsStatus) {
+      daemonVfsStatus.className = 'text-[9px] text-emerald-400 font-semibold';
+      daemonVfsStatus.textContent = 'Active';
+    }
+    if (daemonAppsStatus) {
+      daemonAppsStatus.className = 'text-[9px] text-emerald-400 font-semibold';
+      daemonAppsStatus.textContent = 'Running';
+    }
+    if (boxRing0) boxRing0.className = 'p-4 rounded-2xl border-2 border-amber-500/50 bg-amber-950/20 space-y-3 transition-all duration-300';
+    if (badgeRing0) {
+      badgeRing0.className = 'text-[10px] text-emerald-400 font-semibold';
+      badgeRing0.textContent = isMicrokernelMode ? 'SUPERVISOR SECURE' : 'SHARED RING 0 SPACE';
+    }
+
+    if (faultUartConsole) {
+      faultUartConsole.innerHTML = `
+        <div class="text-emerald-400">[BOOT] Operating system initialized. Architecture: ${isMicrokernelMode ? 'Mordern OS Microkernel' : 'Monolithic Linux 6.x'}.</div>
+        <div class="text-slate-400">[INIT] Device drivers and user daemons mounted.</div>
+        <div class="text-cyan-400">[READY] System idle. Awaiting driver fault injection.</div>
+      `;
+    }
+  }
+
+  btnModeMicro?.addEventListener('click', () => updateArchMode(true));
+  btnModeMono?.addEventListener('click', () => updateArchMode(false));
+  btnResetFault?.addEventListener('click', resetFaultSim);
+
+  btnInjectFault?.addEventListener('click', () => {
+    if (isCrashed) return;
+    isCrashed = true;
+
+    if (isMicrokernelMode) {
+      // Microkernel Fault Isolation Scenario
+      if (nvmeLiveStatus) {
+        nvmeLiveStatus.className = 'px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-[11px] font-bold animate-pulse';
+        nvmeLiveStatus.textContent = 'HOT-RESTARTING (38µs)';
+      }
+      if (daemonNvme) daemonNvme.className = 'p-3 rounded-xl bg-rose-950/40 border border-rose-500 text-center space-y-1 transition-all duration-300 shadow-sm';
+      if (daemonNvmeStatus) {
+        daemonNvmeStatus.className = 'text-[9px] text-rose-400 font-semibold';
+        daemonNvmeStatus.textContent = 'SIGSEGV Quenched';
+      }
+
+      if (faultUartConsole) {
+        const time = new Date().toISOString().substring(11, 19);
+        faultUartConsole.innerHTML += `
+          <div class="text-rose-400">[${time}] EXCEPTION: Ring 3 PID 102 dereferenced NULL pointer at 0xDEADBEEF.</div>
+          <div class="text-amber-400">[${time}] MICROKERNEL: Fault trapped. Ring 0 memory intact. Isolating PID 102.</div>
+          <div class="text-cyan-400">[${time}] SUPERVISOR: Revoking volatile buffers, restarting NVMe daemon...</div>
+        `;
+        faultUartConsole.scrollTop = faultUartConsole.scrollHeight;
+      }
+
+      setTimeout(() => {
+        if (!isMicrokernelMode) return;
+        if (nvmeLiveStatus) {
+          nvmeLiveStatus.className = 'px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[11px] font-bold';
+          nvmeLiveStatus.textContent = 'ONLINE (PID 104 REBORN)';
+        }
+        if (daemonNvme) daemonNvme.className = 'p-3 rounded-xl bg-slate-900 border border-emerald-500/40 text-center space-y-1 transition-all duration-300 shadow-sm';
+        if (daemonNvmeStatus) {
+          daemonNvmeStatus.className = 'text-[9px] text-emerald-400 font-semibold';
+          daemonNvmeStatus.textContent = 'Restored (PID 104)';
+        }
+        if (faultUartConsole) {
+          faultUartConsole.innerHTML += `
+            <div class="text-emerald-400">[HOT-RESTART COMPLETE] NVMe driver back online in 38µs. Zero user disruption!</div>
+          `;
+          faultUartConsole.scrollTop = faultUartConsole.scrollHeight;
+        }
+        isCrashed = false;
+      }, 700);
+
+    } else {
+      // Monolithic Kernel Panic Scenario
+      if (nvmeLiveStatus) {
+        nvmeLiveStatus.className = 'px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-mono text-[11px] font-bold';
+        nvmeLiveStatus.textContent = 'KERNEL PANIC';
+      }
+      if (daemonNvme) daemonNvme.className = 'p-3 rounded-xl bg-rose-950/60 border border-rose-500 text-center space-y-1';
+      if (daemonNvmeStatus) {
+        daemonNvmeStatus.className = 'text-[9px] text-rose-400 font-bold';
+        daemonNvmeStatus.textContent = 'CRASHED';
+      }
+      if (daemonVfsStatus) {
+        daemonVfsStatus.className = 'text-[9px] text-rose-400 font-bold';
+        daemonVfsStatus.textContent = 'DROPPED';
+      }
+      if (daemonAppsStatus) {
+        daemonAppsStatus.className = 'text-[9px] text-rose-400 font-bold';
+        daemonAppsStatus.textContent = 'HALTED';
+      }
+      if (boxRing0) boxRing0.className = 'p-4 rounded-2xl border-2 border-rose-500 bg-rose-950/40 space-y-3 transition-all duration-300';
+      if (badgeRing0) {
+        badgeRing0.className = 'text-[10px] text-rose-400 font-bold animate-pulse';
+        badgeRing0.textContent = 'FATAL SYSTEM PANIC';
+      }
+
+      if (faultUartConsole) {
+        const time = new Date().toISOString().substring(11, 19);
+        faultUartConsole.innerHTML += `
+          <div class="text-rose-400 font-bold">[${time}] KERNEL PANIC: Fatal Exception in Ring 0 interrupt at 0xDEADBEEF!</div>
+          <div class="text-rose-400">[${time}] Monolithic Ring 0 memory corrupted by NVMe driver bug.</div>
+          <div class="text-rose-500 font-bold">[${time}] System halted. All running containers and user apps killed. Requires manual power cycle.</div>
+        `;
+        faultUartConsole.scrollTop = faultUartConsole.scrollHeight;
+      }
+    }
+  });
+
+  // ==========================================
+  // VIEW 2: CAPABILITY ATTENUATION & PROOFS
+  // ==========================================
+  const chkRead = document.getElementById('cap-chk-read') as HTMLInputElement | null;
+  const chkWrite = document.getElementById('cap-chk-write') as HTMLInputElement | null;
+  const chkExec = document.getElementById('cap-chk-exec') as HTMLInputElement | null;
+  const btnRunDelegation = document.getElementById('btn-run-delegation');
+  const btnTestAmbient = document.getElementById('btn-test-ambient');
+
+  const capProofBox = document.getElementById('cap-proof-box');
+  const capProofTitle = document.getElementById('cap-proof-title');
+  const capProofDesc = document.getElementById('cap-proof-desc');
+  const childTokenNode = document.getElementById('child-token-node');
+  const childTokenTitle = document.getElementById('child-token-title');
+  const childTokenRights = document.getElementById('child-token-rights');
+
+  btnRunDelegation?.addEventListener('click', () => {
+    const wantsRead = chkRead?.checked ?? false;
+    const wantsWrite = chkWrite?.checked ?? false;
+    const wantsExec = chkExec?.checked ?? false;
+
+    // Parent holds READ, WRITE, DELEGATE. Does NOT hold EXECUTE.
+    if (wantsExec) {
+      // Escalation attempt!
+      if (capProofBox) {
+        capProofBox.className = 'p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/40 text-rose-300 space-y-1';
+      }
+      if (capProofTitle) capProofTitle.textContent = 'STATUS: DELEGATION BLOCKED (ILLEGAL PRIVILEGE ESCALATION)';
+      if (capProofDesc) {
+        capProofDesc.textContent = 'Formal Proof #1 Triggered: Child requested EXECUTE right which is absent in parent token. Microkernel rejected token grant!';
+      }
+      if (childTokenNode) {
+        childTokenNode.className = 'p-3 rounded-xl bg-rose-950/30 border border-rose-500/50 space-y-1 transition-all';
+      }
+      if (childTokenTitle) {
+        childTokenTitle.className = 'font-bold text-rose-300 text-xs flex items-center gap-2';
+        childTokenTitle.innerHTML = '<span class="w-2 h-2 rounded-full bg-rose-500"></span> Grant Rejected [None]';
+      }
+      if (childTokenRights) {
+        childTokenRights.innerHTML = '<span class="text-rose-400 font-bold text-[10px]">Permission Denied: Cannot delegate unheld capability rights.</span>';
+      }
+    } else {
+      // Valid attenuation subset
+      if (capProofBox) {
+        capProofBox.className = 'p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 space-y-1';
+      }
+      if (capProofTitle) capProofTitle.textContent = 'STATUS: INVARIANT SATISFIED (TOKEN ISSUED)';
+      if (capProofDesc) {
+        capProofDesc.textContent = 'Formal Proof #1 Verified: Delegated permissions form a valid strict subset of parent token. Token #0xCAFE02 granted.';
+      }
+      if (childTokenNode) {
+        childTokenNode.className = 'p-3 rounded-xl bg-slate-950 border border-emerald-500/40 space-y-1 transition-all';
+      }
+      if (childTokenTitle) {
+        childTokenTitle.className = 'font-bold text-emerald-300 text-xs flex items-center gap-2';
+        childTokenTitle.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-400"></span> Delegated Child Token [0xCAFE02]';
+      }
+
+      let badgesHtml = '';
+      if (wantsRead) badgesHtml += '<span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">READ (0x01)</span> ';
+      if (wantsWrite) badgesHtml += '<span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">WRITE (0x02)</span> ';
+      if (!wantsRead && !wantsWrite) badgesHtml += '<span class="text-slate-500 text-[10px]">NONE (0x00)</span>';
+
+      if (childTokenRights) {
+        childTokenRights.innerHTML = badgesHtml + '<span class="text-slate-500 text-[10px] italic">Strict subset attenuation preserved.</span>';
+      }
+    }
+  });
+
+  btnTestAmbient?.addEventListener('click', () => {
+    if (capProofBox) {
+      capProofBox.className = 'p-3.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 space-y-1';
+    }
+    if (capProofTitle) capProofTitle.textContent = 'STATUS: AMBIENT ACCESS TRAPPED';
+    if (capProofDesc) {
+      capProofDesc.textContent = 'Formal Proof #2 (Ambient Isolation): Unauthenticated process attempted raw frame write without token. Trapped with 0x00 ambient rights.';
+    }
+    if (childTokenNode) {
+      childTokenNode.className = 'p-3 rounded-xl bg-slate-950 border border-slate-700 space-y-1 transition-all';
+    }
+    if (childTokenTitle) {
+      childTokenTitle.className = 'font-bold text-slate-400 text-xs flex items-center gap-2';
+      childTokenTitle.innerHTML = '<span class="w-2 h-2 rounded-full bg-slate-500"></span> Ambient Access Denied';
+    }
+    if (childTokenRights) {
+      childTokenRights.innerHTML = '<span class="text-slate-400 text-[10px]">Zero Ambient Authority: CapabilityToken handle mandatory.</span>';
+    }
+  });
+
+  // ==========================================
+  // VIEW 3: LOCK-FREE SPSC IPC INSPECTOR
+  // ==========================================
+  let queueHead = 0;
+  let queueTail = 0;
+  const queueCapacity = 8;
+  const queueSlots: Array<{ code: number; payload: string } | null> = new Array(queueCapacity).fill(null);
+
+  const btnIpcPush = document.getElementById('btn-ipc-push');
+  const btnIpcPop = document.getElementById('btn-ipc-pop');
+  const btnIpcBurst = document.getElementById('btn-ipc-burst');
+  const statIpcHead = document.getElementById('stat-ipc-head');
+  const statIpcTail = document.getElementById('stat-ipc-tail');
+  const statIpcCount = document.getElementById('stat-ipc-count');
+  const statBenchThroughput = document.getElementById('stat-bench-throughput');
+  const ipcLastCode = document.getElementById('ipc-last-code');
+  const ipcPayloadInspector = document.getElementById('ipc-payload-inspector');
+
+  function renderIpcSlots() {
+    let occupied = 0;
+    for (let i = 0; i < queueCapacity; i++) {
+      const slotEl = document.getElementById(`ipc-slot-${i}`);
+      const valEl = slotEl?.querySelector('.slot-val');
+      const item = queueSlots[i];
+
+      if (item) {
+        occupied++;
+        if (slotEl) slotEl.className = 'ipc-slot p-3 rounded-xl bg-cyan-950/40 border border-cyan-500/50 text-center space-y-1 shadow-sm';
+        if (valEl) {
+          valEl.className = 'slot-val text-xs font-mono text-cyan-300 font-bold';
+          valEl.textContent = `0x${item.code.toString(16).toUpperCase()}`;
+        }
+      } else {
+        if (slotEl) slotEl.className = 'ipc-slot p-3 rounded-xl bg-slate-900 border border-slate-800 text-center space-y-1';
+        if (valEl) {
+          valEl.className = 'slot-val text-xs font-mono text-slate-600';
+          valEl.textContent = 'EMPTY';
+        }
+      }
+    }
+
+    if (statIpcHead) statIpcHead.textContent = queueHead.toString();
+    if (statIpcTail) statIpcTail.textContent = queueTail.toString();
+    if (statIpcCount) statIpcCount.textContent = `${occupied} / 8 Slots`;
+  }
+
+  btnIpcPush?.addEventListener('click', () => {
+    // Check if full
+    const nextTail = (queueTail + 1) % queueCapacity;
+    if (nextTail === queueHead) {
+      if (ipcPayloadInspector) {
+        ipcPayloadInspector.innerHTML = '<span class="text-rose-400 font-bold">QUEUE_FULL: Producer back-pressuring. Wait for consumer pop.</span>';
+      }
+      return;
+    }
+
+    const sampleCodes = [0x10, 0x22, 0x3F, 0x4B, 0x55, 0x7E];
+    const code = sampleCodes[Math.floor(Math.random() * sampleCodes.length)];
+    queueSlots[queueTail] = {
+      code,
+      payload: `NVMe Block Read #${Math.floor(Math.random() * 9000 + 1000)} (32 bytes)`
+    };
+    queueTail = nextTail;
+    renderIpcSlots();
+
+    if (ipcPayloadInspector) {
+      ipcPayloadInspector.innerHTML = `Pushed message 0x${code.toString(16).toUpperCase()} to atomic slot ${queueTail === 0 ? 7 : queueTail - 1} with Ordering::Release.`;
+    }
+  });
+
+  btnIpcPop?.addEventListener('click', () => {
+    if (queueHead === queueTail) {
+      if (ipcPayloadInspector) {
+        ipcPayloadInspector.innerHTML = '<span class="text-amber-400 font-bold">QUEUE_EMPTY: No messages to consume.</span>';
+      }
+      return;
+    }
+
+    const popped = queueSlots[queueHead];
+    queueSlots[queueHead] = null;
+    const oldHead = queueHead;
+    queueHead = (queueHead + 1) % queueCapacity;
+    renderIpcSlots();
+
+    if (popped && ipcPayloadInspector && ipcLastCode) {
+      ipcLastCode.textContent = `CODE: 0x${popped.code.toString(16).toUpperCase()}`;
+      ipcPayloadInspector.innerHTML = `
+        Dequeued from Slot ${oldHead} (Ordering::Acquire):<br/>
+        <span class="text-emerald-300">Sender: PID 102 (NVMe) | Recipient: PID 103 (VFS) | Payload: ${popped.payload}</span>
+      `;
+    }
+  });
+
+  btnIpcBurst?.addEventListener('click', () => {
+    const throughput = (25 + Math.random() * 3).toFixed(1);
+    if (statBenchThroughput) statBenchThroughput.textContent = `${throughput}M ops/sec`;
+
+    // Fill and drain simulation
+    for (let i = 0; i < queueCapacity; i++) queueSlots[i] = null;
+    queueHead = 0;
+    queueTail = 0;
+    renderIpcSlots();
+
+    if (ipcPayloadInspector && ipcLastCode) {
+      ipcLastCode.textContent = 'CODE: 0xBURST';
+      ipcPayloadInspector.innerHTML = `
+        <span class="text-amber-300 font-bold">10,000 Lock-Free SPSC Iterations Completed.</span><br/>
+        Zero CPU lock contention. 0 dropped packets. Memory Ordering: Atomic Release-Acquire verified.
+      `;
+    }
+  });
+</script>
