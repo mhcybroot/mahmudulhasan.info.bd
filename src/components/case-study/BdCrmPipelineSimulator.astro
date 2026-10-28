@@ -1,0 +1,611 @@
+---
+// BD CRM: Multi-Tenant Sales Pipeline, Fuzzy Duplicate Rescan & SLA Escalation Simulator
+---
+
+<div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-8 shadow-2xl">
+  <!-- Simulator Header -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+    <div>
+      <div class="flex items-center gap-2 text-rose-400 font-mono text-xs uppercase tracking-wider mb-1 font-bold">
+        <span class="w-2.5 h-2.5 rounded-full bg-rose-400 animate-pulse"></span>
+        Interactive Sales Pipeline &amp; Deduplication Sandbox
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-mono font-bold text-white flex items-center gap-3">
+        BD CRM: Pipeline &amp; Duplicate Engine
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-300 font-sans mt-1">
+        Experience interactive Kanban deal velocity, real-time Levenshtein fuzzy duplicate scoring, and automated SLA follow-up escalation.
+      </p>
+    </div>
+
+    <!-- Active Perspective Switcher -->
+    <div class="flex items-center p-1 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono overflow-x-auto">
+      <button
+        type="button"
+        id="crm-tab-pipeline"
+        class="crm-tab-btn px-3.5 py-1.5 rounded-lg bg-rose-500/20 text-rose-300 border border-rose-500/40 font-semibold transition-all shadow-sm"
+        data-view="pipeline"
+      >
+        📊 Kanban Deal Pipeline
+      </button>
+      <button
+        type="button"
+        id="crm-tab-duplicate"
+        class="crm-tab-btn px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition-all font-semibold"
+        data-view="duplicate"
+      >
+        🔍 Fuzzy Duplicate Rescan
+      </button>
+      <button
+        type="button"
+        id="crm-tab-escalation"
+        class="crm-tab-btn px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition-all font-semibold"
+        data-view="escalation"
+      >
+        ⏰ SLA Escalation &amp; Tenancy
+      </button>
+    </div>
+  </div>
+
+  <!-- View 1: Kanban Deal Pipeline (Default) -->
+  <div id="crm-screen-pipeline" class="crm-screen space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Left Column: Pipeline Controls & Metrics -->
+      <div class="lg:col-span-4 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+              Active Sales Pipeline
+            </span>
+            <span class="text-[10px] text-slate-400 font-mono">React 18 + Spring 3.3</span>
+          </div>
+
+          <!-- Pipeline Health Telemetry -->
+          <div class="grid grid-cols-2 gap-2 text-[11px]">
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="text-[9px] text-slate-500 uppercase">Gross Pipeline</div>
+              <div class="font-bold text-emerald-400 font-mono text-sm mt-0.5" id="crm-total-pipeline">$39,700</div>
+              <div class="text-[9px] text-slate-400">4 Active Deals</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="text-[9px] text-slate-500 uppercase">Weighted Value</div>
+              <div class="font-bold text-rose-300 font-mono text-sm mt-0.5" id="crm-weighted-pipeline">$24,800</div>
+              <div class="text-[9px] text-slate-400">Probabilistic Sum</div>
+            </div>
+          </div>
+
+          <!-- Interactive Advance Deal Action -->
+          <div class="space-y-2">
+            <label class="text-[11px] text-slate-300 font-sans font-semibold">Select Deal to Advance:</label>
+            <select id="crm-deal-select" class="w-full p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white focus:outline-none focus:border-rose-400">
+              <option value="deal-1">Apex Logistics ERP ($12,000)</option>
+              <option value="deal-2">Dhaka Garments CRM ($8,500)</option>
+              <option value="deal-3">Chittagong Shipping API ($15,000)</option>
+              <option value="deal-4">Sylhet Tea Estate POS ($4,200)</option>
+            </select>
+
+            <button
+              type="button"
+              id="crm-btn-advance-deal"
+              class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-rose-500 to-violet-600 hover:from-rose-400 hover:to-violet-500 text-white font-mono font-bold text-xs shadow-lg shadow-rose-500/20 transition-all flex items-center justify-center gap-2"
+            >
+              <span>⚡ Advance Deal to Next Stage</span>
+            </button>
+          </div>
+
+          <!-- Real-Time Activity Audit Feed -->
+          <div class="space-y-1.5 pt-2 border-t border-slate-800">
+            <div class="text-[10px] text-slate-400 uppercase font-bold">Stage History Audit Trail:</div>
+            <div id="crm-stage-audit-feed" class="p-3 rounded-xl bg-slate-900 border border-slate-800 font-mono text-[10px] text-slate-300 space-y-1.5 max-h-32 overflow-y-auto">
+              <div class="text-rose-300">[03:45:01] Deal #3 moved: PROPOSAL_SENT &rarr; NEGOTIATION</div>
+              <div class="text-slate-400">[03:40:12] Deal #1 moved: QUALIFIED &rarr; PROPOSAL_SENT</div>
+              <div class="text-slate-400">[03:32:00] Deal #2 created: QUALIFIED ($8,500)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Kanban Board Preview -->
+      <div class="lg:col-span-8 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-violet-400"></span>
+              Visual Kanban Pipeline Board
+            </span>
+            <span class="text-[10px] text-emerald-400">B-Tree Stage Indexes Active</span>
+          </div>
+
+          <!-- Board Columns -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-[11px]">
+            <!-- Col 1: Prospect -->
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between text-[10px] uppercase font-bold text-slate-400 pb-1 border-b border-slate-800">
+                <span>Prospect</span>
+                <span class="text-slate-400" id="crm-col-count-prospect">1</span>
+              </div>
+              <div id="crm-cards-prospect" class="space-y-2 min-h-24">
+                <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 space-y-1">
+                  <div class="font-bold text-white truncate text-xs">Sylhet Tea POS</div>
+                  <div class="text-emerald-400 font-bold">$4,200</div>
+                  <div class="text-[9px] text-slate-400">Rep: Samira H.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Col 2: Qualified -->
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between text-[10px] uppercase font-bold text-sky-400 pb-1 border-b border-slate-800">
+                <span>Qualified</span>
+                <span class="text-sky-400" id="crm-col-count-qualified">1</span>
+              </div>
+              <div id="crm-cards-qualified" class="space-y-2 min-h-24">
+                <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 space-y-1">
+                  <div class="font-bold text-white truncate text-xs">Dhaka Garments</div>
+                  <div class="text-emerald-400 font-bold">$8,500</div>
+                  <div class="text-[9px] text-slate-400">Rep: Ayesha R.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Col 3: Proposal Sent -->
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between text-[10px] uppercase font-bold text-amber-400 pb-1 border-b border-slate-800">
+                <span>Proposal</span>
+                <span class="text-amber-400" id="crm-col-count-proposal">1</span>
+              </div>
+              <div id="crm-cards-proposal" class="space-y-2 min-h-24">
+                <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 space-y-1">
+                  <div class="font-bold text-white truncate text-xs">Apex Logistics ERP</div>
+                  <div class="text-emerald-400 font-bold">$12,000</div>
+                  <div class="text-[9px] text-slate-400">Rep: Tanvir A.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Col 4: Negotiation / Won -->
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between text-[10px] uppercase font-bold text-emerald-400 pb-1 border-b border-slate-800">
+                <span>Negotiation</span>
+                <span class="text-emerald-400" id="crm-col-count-negotiation">1</span>
+              </div>
+              <div id="crm-cards-negotiation" class="space-y-2 min-h-24">
+                <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 space-y-1">
+                  <div class="font-bold text-white truncate text-xs">Ctg Shipping API</div>
+                  <div class="text-emerald-400 font-bold">$15,000</div>
+                  <div class="text-[9px] text-slate-400">Rep: Rohan M.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View 2: Fuzzy Duplicate Rescan (Levenshtein) -->
+  <div id="crm-screen-duplicate" class="crm-screen hidden space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Left Column: Duplicate Candidate Scenarios -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              Duplicate Lead Pair Comparison
+            </span>
+            <span class="text-[10px] text-amber-400 font-mono">DuplicateService.java</span>
+          </div>
+
+          <div class="space-y-2">
+            <label class="text-[11px] text-slate-300 font-sans font-semibold">Select Inbound Candidate Pair:</label>
+            <div class="grid grid-cols-1 gap-2">
+              <button
+                type="button"
+                class="crm-dup-btn text-left p-2.5 rounded-xl border border-amber-500/50 bg-amber-950/30 text-white hover:border-amber-400 transition-all text-xs"
+                data-dup="scenario_techcorp"
+              >
+                <div class="font-bold flex items-center justify-between text-amber-300">
+                  <span>TechCorp Solutions vs TechCorp Int'l</span>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono">85% MATCH</span>
+                </div>
+                <div class="text-[11px] text-slate-400 font-sans mt-0.5">Matching Email Domain + Levenshtein Edit Distance 2</div>
+              </button>
+
+              <button
+                type="button"
+                class="crm-dup-btn text-left p-2.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-300 hover:border-slate-700 transition-all text-xs"
+                data-dup="scenario_phone"
+              >
+                <div class="font-bold flex items-center justify-between text-rose-300">
+                  <span>Apex Cargo vs Apex Freight</span>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 font-mono">80% MATCH</span>
+                </div>
+                <div class="text-[11px] text-slate-400 font-sans mt-0.5">Exact Phone (+30) + Company Token Substring (+50)</div>
+              </button>
+
+              <button
+                type="button"
+                class="crm-dup-btn text-left p-2.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-300 hover:border-slate-700 transition-all text-xs"
+                data-dup="scenario_unique"
+              >
+                <div class="font-bold flex items-center justify-between text-emerald-300">
+                  <span>Initech Software vs Acme Corp</span>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">0% CLEAN</span>
+                </div>
+                <div class="text-[11px] text-slate-400 font-sans mt-0.5">Zero Field Overlap • Distinct Commercial Entity</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Formula Inspector -->
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-[11px]">
+            <div class="text-[10px] uppercase font-bold text-slate-400">Scoring Vector Breakdown</div>
+            <div class="flex items-center justify-between text-slate-300">
+              <span>Email Match Weight:</span>
+              <span class="font-mono text-emerald-400 font-bold">+50 pts</span>
+            </div>
+            <div class="flex items-center justify-between text-slate-300">
+              <span>Phone Match Weight:</span>
+              <span class="font-mono text-emerald-400 font-bold">+30 pts</span>
+            </div>
+            <div class="flex items-center justify-between text-slate-300">
+              <span>Levenshtein Edit Distance:</span>
+              <span class="font-mono text-sky-400">max(0, 100 - Dist*100/Len) / 2</span>
+            </div>
+            <div class="flex items-center justify-between text-slate-300">
+              <span>Suspected Threshold:</span>
+              <span class="font-mono text-amber-400 font-bold">&ge; 70 pts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Match Analysis & Atomic Merge Execution -->
+      <div class="lg:col-span-7 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              Algorithmic Deduplication Result
+            </span>
+            <span class="text-[10px] text-slate-400">DuplicatePairKey.java</span>
+          </div>
+
+          <!-- Score Card -->
+          <div class="grid grid-cols-3 gap-3">
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+              <div class="text-[9px] text-slate-500 uppercase">Match Score</div>
+              <div class="font-bold text-base text-amber-300 font-mono mt-0.5" id="crm-dup-score">85 / 100</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+              <div class="text-[9px] text-slate-500 uppercase">Duplicate State</div>
+              <div class="font-bold text-sm text-rose-300 font-mono mt-0.5" id="crm-dup-state">SUSPECTED</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+              <div class="text-[9px] text-slate-500 uppercase">Action Protocol</div>
+              <div class="font-bold text-sm text-sky-300 font-mono mt-0.5" id="crm-dup-action">MERGE_READY</div>
+            </div>
+          </div>
+
+          <!-- Reason Breakdown -->
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 space-y-1">
+            <div class="text-[10px] uppercase font-bold text-slate-400">Evaluated Match Reasons:</div>
+            <p id="crm-dup-reason" class="text-xs font-sans text-slate-200">
+              matching email (50 pts), similar company name (35 pts: Levenshtein distance 2). Exceeds 70-point threshold.
+            </p>
+          </div>
+
+          <!-- Merge Execution Sandbox -->
+          <div class="space-y-2 pt-2 border-t border-slate-800">
+            <button
+              type="button"
+              id="crm-btn-execute-merge"
+              class="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-emerald-950/50 border border-emerald-500/40 text-emerald-200 font-mono font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2"
+            >
+              <span>⚖️ Execute ACID Transactional Merge</span>
+            </button>
+            <div id="crm-merge-telemetry" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[10px] text-slate-400 font-mono hidden">
+              [TRANSACTION COMMIT] Re-pointing 4 child notes, 2 followups, and 1 document from source Lead #104 to target Lead #88. Source marked MERGED. Written to lead_merge_events.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View 3: SLA Escalation & Multi-Company Guard -->
+  <div id="crm-screen-escalation" class="crm-screen hidden space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Left Column: Tenant Context & SLA Controls -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-violet-400"></span>
+              Organization Context Guard
+            </span>
+            <span class="text-[10px] text-violet-400">Flyway V5 Isolation</span>
+          </div>
+
+          <div class="space-y-2">
+            <label class="text-[11px] text-slate-300 font-sans font-semibold">Active Organization Tenant:</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                class="crm-org-btn p-2 rounded-xl border border-violet-500/50 bg-violet-950/30 text-white font-mono text-xs text-center"
+                data-org="alpha"
+              >
+                Org Alpha (Acme Agency)
+              </button>
+              <button
+                type="button"
+                class="crm-org-btn p-2 rounded-xl border border-slate-800 bg-slate-900 text-slate-400 font-mono text-xs text-center"
+                data-org="beta"
+              >
+                Org Beta (Zenith Corp)
+              </button>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-[11px]">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Tenant Slug:</span>
+              <span class="font-mono text-violet-300 font-bold" id="crm-org-slug">org-alpha-01</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Foreign Key Isolation:</span>
+              <span class="font-mono text-emerald-400">organization_id = 101</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">SLA Daemon State:</span>
+              <span class="font-mono text-emerald-400 font-bold">POLLING (every 60s)</span>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            id="crm-btn-trigger-sla"
+            class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white font-mono font-bold text-xs shadow-lg shadow-rose-500/20 transition-all flex items-center justify-center gap-2"
+          >
+            <span>⏰ Trigger SLA Breach Escalation Pass</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Column: Escalation Stream & Cross-Tenant Barrier -->
+      <div class="lg:col-span-7 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+              Live SLA Daemon &amp; Security Stream
+            </span>
+            <span class="text-[10px] text-slate-400">FollowupEscalationService.java</span>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-[11px] space-y-2 max-h-56 overflow-y-auto" id="crm-escalation-logs">
+            <div class="text-slate-400">[03:46:01.010] [SLA_DAEMON] Querying lead_followups WHERE due_date &lt; NOW() AND status = 'PENDING'...</div>
+            <div class="text-emerald-400">[03:46:01.042] [TENANT_GUARD] Scoped to organization_id: 101 (Org Alpha).</div>
+            <div class="text-slate-400">[03:46:01.085] [OK] Zero unescalated overdue tasks in queue.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // BD CRM Pipeline & Duplicate Simulator Reactive Sandbox Script
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Tab Switching
+    const tabButtons = document.querySelectorAll('.crm-tab-btn');
+    const screens = {
+      pipeline: document.getElementById('crm-screen-pipeline'),
+      duplicate: document.getElementById('crm-screen-duplicate'),
+      escalation: document.getElementById('crm-screen-escalation'),
+    };
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const view = btn.getAttribute('data-view');
+        tabButtons.forEach(b => {
+          b.classList.remove('bg-rose-500/20', 'text-rose-300', 'border', 'border-rose-500/40');
+          b.classList.add('text-slate-400');
+        });
+        btn.classList.add('bg-rose-500/20', 'text-rose-300', 'border', 'border-rose-500/40');
+        btn.classList.remove('text-slate-400');
+
+        Object.keys(screens).forEach(key => {
+          if (screens[key]) {
+            if (key === view) {
+              screens[key].classList.remove('hidden');
+            } else {
+              screens[key].classList.add('hidden');
+            }
+          }
+        });
+      });
+    });
+
+    // 2. Kanban Deals State
+    const deals = {
+      'deal-1': { title: 'Apex Logistics ERP', value: 12000, stage: 'proposal', rep: 'Tanvir A.' },
+      'deal-2': { title: 'Dhaka Garments CRM', value: 8500, stage: 'qualified', rep: 'Ayesha R.' },
+      'deal-3': { title: 'Ctg Shipping API', value: 15000, stage: 'negotiation', rep: 'Rohan M.' },
+      'deal-4': { title: 'Sylhet Tea POS', value: 4200, stage: 'prospect', rep: 'Samira H.' },
+    };
+
+    const stageSequence = ['prospect', 'qualified', 'proposal', 'negotiation'];
+    const stageWeights = { prospect: 0.2, qualified: 0.5, proposal: 0.75, negotiation: 0.9 };
+
+    const advanceBtn = document.getElementById('crm-btn-advance-deal');
+    const dealSelect = document.getElementById('crm-deal-select');
+    const totalPipelineEl = document.getElementById('crm-total-pipeline');
+    const weightedPipelineEl = document.getElementById('crm-weighted-pipeline');
+    const stageAuditFeed = document.getElementById('crm-stage-audit-feed');
+
+    function renderDeals() {
+      ['prospect', 'qualified', 'proposal', 'negotiation'].forEach(st => {
+        const container = document.getElementById(`crm-cards-${st}`);
+        const countEl = document.getElementById(`crm-col-count-${st}`);
+        if (!container) return;
+
+        const matching = Object.keys(deals).filter(k => deals[k].stage === st);
+        if (countEl) countEl.textContent = matching.length;
+
+        container.innerHTML = matching.map(k => {
+          const d = deals[k];
+          return `
+            <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 space-y-1 hover:border-rose-400/50 transition-colors">
+              <div class="font-bold text-white truncate text-xs">${d.title}</div>
+              <div class="text-emerald-400 font-bold">$${d.value.toLocaleString()}</div>
+              <div class="text-[9px] text-slate-400">Rep: ${d.rep}</div>
+            </div>
+          `;
+        }).join('');
+      });
+
+      // Recalculate Totals
+      let total = 0;
+      let weighted = 0;
+      Object.values(deals).forEach(d => {
+        total += d.value;
+        weighted += Math.round(d.value * (stageWeights[d.stage] || 0.5));
+      });
+
+      if (totalPipelineEl) totalPipelineEl.textContent = `$${total.toLocaleString()}`;
+      if (weightedPipelineEl) weightedPipelineEl.textContent = `$${weighted.toLocaleString()}`;
+    }
+
+    if (advanceBtn && dealSelect) {
+      advanceBtn.addEventListener('click', () => {
+        const dealKey = dealSelect.value;
+        const deal = deals[dealKey];
+        if (!deal) return;
+
+        const currIdx = stageSequence.indexOf(deal.stage);
+        const nextIdx = (currIdx + 1) % stageSequence.length;
+        const prevStage = deal.stage.toUpperCase();
+        deal.stage = stageSequence[nextIdx];
+        const newStage = deal.stage.toUpperCase();
+
+        renderDeals();
+
+        if (stageAuditFeed) {
+          const time = new Date().toTimeString().split(' ')[0];
+          const entry = document.createElement('div');
+          entry.className = 'text-rose-300';
+          entry.textContent = `[${time}] ${deal.title} moved: ${prevStage} → ${newStage}`;
+          stageAuditFeed.prepend(entry);
+        }
+      });
+    }
+
+    // 3. Duplicate Simulation
+    const dupPresets = {
+      scenario_techcorp: {
+        score: '85 / 100',
+        state: 'SUSPECTED',
+        action: 'MERGE_READY',
+        reason: 'matching email (50 pts), similar company name (35 pts: Levenshtein distance 2). Exceeds 70-point threshold.'
+      },
+      scenario_phone: {
+        score: '80 / 100',
+        state: 'SUSPECTED',
+        action: 'MERGE_READY',
+        reason: 'matching phone (+8801819001122 = 30 pts), company name substring overlap (50 pts). Exceeds 70-point threshold.'
+      },
+      scenario_unique: {
+        score: '0 / 100',
+        state: 'CLEAN',
+        action: 'INDEPENDENT_LEAD',
+        reason: 'Zero email, phone, or company name overlap. Safe for independent rep assignment.'
+      }
+    };
+
+    const dupButtons = document.querySelectorAll('.crm-dup-btn');
+    const dupScoreEl = document.getElementById('crm-dup-score');
+    const dupStateEl = document.getElementById('crm-dup-state');
+    const dupActionEl = document.getElementById('crm-dup-action');
+    const dupReasonEl = document.getElementById('crm-dup-reason');
+    const mergeBtn = document.getElementById('crm-btn-execute-merge');
+    const mergeTelemetry = document.getElementById('crm-merge-telemetry');
+
+    dupButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-dup');
+        const data = dupPresets[key];
+        if (!data) return;
+
+        dupButtons.forEach(b => {
+          b.classList.remove('border-amber-500/50', 'bg-amber-950/30');
+          b.classList.add('border-slate-800', 'bg-slate-900');
+        });
+        btn.classList.add('border-amber-500/50', 'bg-amber-950/30');
+        btn.classList.remove('border-slate-800', 'bg-slate-900');
+
+        if (dupScoreEl) dupScoreEl.textContent = data.score;
+        if (dupStateEl) dupStateEl.textContent = data.state;
+        if (dupActionEl) dupActionEl.textContent = data.action;
+        if (dupReasonEl) dupReasonEl.textContent = data.reason;
+        if (mergeTelemetry) mergeTelemetry.classList.add('hidden');
+      });
+    });
+
+    if (mergeBtn && mergeTelemetry) {
+      mergeBtn.addEventListener('click', () => {
+        mergeTelemetry.classList.remove('hidden');
+      });
+    }
+
+    // 4. SLA Escalation & Multi-Company Guard
+    const orgButtons = document.querySelectorAll('.crm-org-btn');
+    const orgSlugEl = document.getElementById('crm-org-slug');
+    const triggerSlaBtn = document.getElementById('crm-btn-trigger-sla');
+    const escalationLogs = document.getElementById('crm-escalation-logs');
+
+    function logEscalation(msg, type = 'info') {
+      if (!escalationLogs) return;
+      const time = new Date().toTimeString().split(' ')[0] + '.' + Math.floor(Math.random() * 900 + 100);
+      const colorClass = type === 'rose' ? 'text-rose-400 font-bold' : type === 'emerald' ? 'text-emerald-400' : type === 'amber' ? 'text-amber-300' : 'text-slate-400';
+      const el = document.createElement('div');
+      el.className = colorClass;
+      el.textContent = `[${time}] ${msg}`;
+      escalationLogs.appendChild(el);
+      escalationLogs.scrollTop = escalationLogs.scrollHeight;
+    }
+
+    orgButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const org = btn.getAttribute('data-org');
+        orgButtons.forEach(b => {
+          b.classList.remove('border-violet-500/50', 'bg-violet-950/30', 'text-white');
+          b.classList.add('border-slate-800', 'bg-slate-900', 'text-slate-400');
+        });
+        btn.classList.add('border-violet-500/50', 'bg-violet-950/30', 'text-white');
+        btn.classList.remove('border-slate-800', 'bg-slate-900', 'text-slate-400');
+
+        if (orgSlugEl) {
+          orgSlugEl.textContent = org === 'alpha' ? 'org-alpha-01' : 'org-beta-02';
+        }
+        logEscalation(`[TENANT_SWITCH] Switched active PostgreSQL tenant context to org_${org}.`, 'emerald');
+      });
+    });
+
+    if (triggerSlaBtn) {
+      triggerSlaBtn.addEventListener('click', () => {
+        logEscalation('[SLA_SCAN] Checking lead_followups for overdue records...', 'slate');
+        setTimeout(() => {
+          logEscalation('⚠️ SLA BREACH DETECTED: Followup #884 overdue by 4.2 hours for Lead #104!', 'rose');
+          logEscalation('[EVENT] Inserted escalation_events (lead_id: 104, priority: URGENT, target: ORG_MANAGER).', 'amber');
+          logEscalation('[NOTIFICATION] Pushed WebSocket alert to Rep Tanvir and Manager Farhan.', 'emerald');
+        }, 250);
+      });
+    }
+
+    // Initialize initial render
+    renderDeals();
+  });
+</script>
