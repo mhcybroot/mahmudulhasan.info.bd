@@ -18,6 +18,7 @@ import LandTrustSimulator from '../../components/case-study/LandTrustSimulator.a
 import MicrokernelSimulator from '../../components/case-study/MicrokernelSimulator.astro';
 import MediaStreamSimulator from '../../components/case-study/MediaStreamSimulator.astro';
 import WorkOrderSniperSimulator from '../../components/case-study/WorkOrderSniperSimulator.astro';
+import GeckoBrowserSimulator from '../../components/case-study/GeckoBrowserSimulator.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -49,6 +50,7 @@ const isLandtrust = data.slug === 'landtrust-bhumisetu';
 const isModernOs = data.slug === 'modern-os-microkernel';
 const isYtStream = data.slug === 'yt-playlist-engine';
 const isSniper = data.slug === 'amh-wo-sniper';
+const isGecko = data.slug === 'gecko-browser-engine';
 
 let pageDescription = "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
 if (isPms) {
@@ -81,6 +83,8 @@ if (isPms) {
   pageDescription = "High-Concurrency Media Ingestion & Multi-ISP Caching Engine. Features 16-socket segmented TCP acceleration via aria2c, SponsorBlock ad stripping, H.265 transcoding, and Jellyfin/Plex sync.";
 } else if (isSniper) {
   pageDescription = "High-Speed Work Order Auto-Acceptor & Memory Hook Engine. Chrome Extension MV3 with MAIN-world fetch interception, 80ms soft tab cycling, and sub-100ms automated order confirmation.";
+} else if (isGecko) {
+  pageDescription = "Independent Android Web Browser & GeckoView Omni 134 Runtime. Replaces Android System WebView with Mozilla Quantum, singleton GeckoRuntime lifecycle, and reactive delegates in Kotlin.";
 }
 ---
 
@@ -210,6 +214,10 @@ if (isPms) {
           ) : isSniper ? (
             <>
               High-speed browser automation and in-memory API interception engine engineered as a <strong class="text-white font-semibold">Chrome Extension MV3</strong>. Eliminates white-screen reload overhead with an <strong class="text-emerald-300 font-semibold">80ms in-page soft tab toggle</strong>, hooks directly into <strong class="text-emerald-300 font-semibold">window.fetch &amp; XMLHttpRequest</strong> in the page's MAIN execution world, auto-latches terms checkboxes via MutationObservers, and claims vendor work orders in under 250ms with zero manual clicks.
+            </>
+          ) : isGecko ? (
+            <>
+              Independent, privacy-first mobile web browser and rendering harness built in native <strong class="text-white font-semibold">Android Kotlin &amp; SDK 34</strong>. Replaces Google Chromium/Blink with <strong class="text-emerald-300 font-semibold">Mozilla GeckoView Omni 134</strong>, establishes a persistent singleton <strong class="text-emerald-300 font-semibold">GeckoRuntime</strong> across the Android activity lifecycle, binds reactive session delegates for progress and navigation, and resolves URL schemes with zero external dependencies.
             </>
           ) : (
             <>
@@ -446,6 +454,21 @@ if (isPms) {
                 <span class="text-emerald-400 font-bold">✓</span> Adaptive Rate-Limit Shield (Exponential 429 Cooldown)
               </div>
             </>
+          ) : isGecko ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Mozilla GeckoView Omni 134 Quantum Rendering Engine
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Singleton GeckoRuntime Process Management (0 Memory Leaks)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Reactive Progress &amp; Navigation Delegate Hooks
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> 100% Chromium &amp; Google Play Services Independence
+              </div>
+            </>
           ) : (
             <>
               <div class="flex items-center gap-1.5">
@@ -501,6 +524,8 @@ if (isPms) {
         <MediaStreamSimulator />
       ) : isSniper ? (
         <WorkOrderSniperSimulator />
+      ) : isGecko ? (
+        <GeckoBrowserSimulator />
       ) : (
         <BeforeAfterSlider />
       )}
@@ -544,6 +569,8 @@ if (isPms) {
             ? "Built to eliminate bandwidth throttling, strip sponsor noise from lectures, and automate home theater media libraries."
             : isSniper
             ? "Built to eliminate human reaction lag in high-stakes vendor portals, prevent account rate limits, and automate work order claims."
+            : isGecko
+            ? "Built to liberate Android apps from Chromium monoculture, prevent OS-level telemetry leaks, and empower privacy-first browsing."
             : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
@@ -1071,6 +1098,41 @@ if (isPms) {
               <h3 class="font-mono font-bold text-white text-base">High-Volume Field Service Operations</h3>
               <p class="text-xs text-slate-200 font-sans leading-relaxed">
                 Replaces slow browser reloads with zero-reload 80ms Ant Design tab toggles. Integrated Rate-Limit Shield dynamically suppresses outgoing API calls during HTTP 429 backoff to ensure 100% vendor account protection.
+              </p>
+            </div>
+          </>
+        ) : isGecko ? (
+          <>
+            <!-- Use Case 1: Industrial Kiosk Terminals & Rugged Field Tablets -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-orange-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-orange-950 border border-orange-500/50 flex items-center justify-center text-orange-300 font-mono text-lg font-bold">
+                🏭
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Industrial Kiosks &amp; Rugged Field Terminals</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Delivers full browser lockdown for retail POS, warehouse scanners, and logistics tablets. Operates seamlessly on AOSP and custom ROMs without Google Play Services or Chromium WebView binaries.
+              </p>
+            </div>
+
+            <!-- Use Case 2: De-Googled & Security-Hardened Mobile OS -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                🛡️
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">De-Googled &amp; Hardened Mobile OS</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Essential for GrapheneOS, CalyxOS, and privacy-first devices. Completely eliminates OS-level advertising IDs, telemetry beacons, and Google account sync cookies at the browser engine level.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Enterprise Web Extension & Content Filtering Handhelds -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🧩
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Enterprise Web Extension Handhelds</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Bypasses Google Chromium’s restrictive Manifest V3 limitations. Enables native Gecko WebExtension support for unrestricted uBlock Origin filtering, custom intranet script injectors, and enterprise compliance rules.
               </p>
             </div>
           </>
@@ -2048,6 +2110,69 @@ if (isPms) {
             </table>
           </div>
         </div>
+      ) : isGecko ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-orange-400"></span>
+              Engineering Benchmark: Mozilla GeckoView Omni 134 vs. Android System WebView (Blink)
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured on Android 14 (API 34) across privacy-hardened enterprise kiosk environments and benchmark suites.
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-orange-300 bg-orange-950/40">Mozilla GeckoView Omni 134</th>
+                  <th class="py-3 px-4 font-semibold">Android System WebView (Chromium Blink)</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Engineering Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Browser Engine Independence</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-orange-950/20">100% Independent Mozilla Quantum Engine</td>
+                  <td class="py-3.5 px-4 text-slate-400">Google Chromium Monoculture</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Complete Freedom</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Runtime Lifecycle &amp; Memory Leaks</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-orange-950/20">Singleton GeckoRuntime Pattern (&lt; 42MB Boot)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Frequent multi-process leaks across Activity recreations</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero OOM Kills</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Content Filtering &amp; Extension Support</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-orange-950/20">Unrestricted Gecko WebExtensions API</td>
+                  <td class="py-3.5 px-4 text-slate-400">Crippled Manifest V3 (Zero dynamic blocking)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Full Ad/Tracker Blocking</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Telemetry &amp; User Fingerprinting</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-orange-950/20">0% Google Play Services / Ad ID Telemetry</td>
+                  <td class="py-3.5 px-4 text-slate-400">Mandatory Android Advertising ID Binding</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Total Privacy Isolation</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">CSS Styling &amp; GPU Compositing</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-orange-950/20">Parallel Rust Stylo + WebRender (60 FPS)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Standard single-threaded CSS layout passes</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Smooth 60 FPS Jitterless</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">De-Googled ROM &amp; AOSP Portability</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-orange-950/20">Runs identically on GrapheneOS, FireOS, AOSP</td>
+                  <td class="py-3.5 px-4 text-slate-400">Requires Google Play Services framework</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">100% Autonomous Binary</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <BenchmarkMatrix />
       )}
@@ -2095,6 +2220,8 @@ if (isPms) {
               ? "Engineered in Python 3.12 with concurrent.futures worker pools, aria2c socket slicing, and FFmpeg transcode hooks."
               : isSniper
               ? "Engineered in Chrome Extension MV3 & JavaScript with MAIN-world fetch hooking, 80ms soft tab cycling, and MutationObservers."
+              : isGecko
+              ? "Engineered in Kotlin 1.9 & Android SDK 34 with Mozilla GeckoView Omni 134, singleton GeckoRuntime, and custom delegates."
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
@@ -3943,6 +4070,128 @@ if (isPms) {
                 </p>
               </button>
             </>
+          ) : isGecko ? (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-orange-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-orange-400"
+                data-node-id="node-gecko-ui-ingress"
+                data-node-title="Android Native Activity Lifecycle &amp; UI Ingress"
+                data-node-badge="Phase 1: Native Ingress &amp; Edge-to-Edge"
+                data-node-desc="Inflates activity_main.xml layout, mounts GeckoView container, and sets up IME keyboard action listeners on the URL input bar."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // NATIVE UI INGRESS</span>
+                  <span class="text-orange-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-orange-300 transition-colors">
+                  Activity Lifecycle &amp; UI
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Binds native Android widgets, IME keyboard listeners, and GeckoView view surface.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-gecko-runtime"
+                data-node-title="Singleton GeckoRuntime Process Management"
+                data-node-badge="Phase 2: Thread-Safe Engine Daemon"
+                data-node-desc="Initializes a single persistent GeckoRuntime instance in application context to manage the SpiderMonkey JS engine and WebRender compositor without memory leaks."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // RUNTIME SINGLETON</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  GeckoRuntime Singleton
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Thread-safe singleton lifecycle prevents multi-process GPU leaks across activity recreations.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-gecko-session"
+                data-node-title="GeckoSession Attachment &amp; SurfaceView Binding"
+                data-node-badge="Phase 3: Hardware Compositor Bridge"
+                data-node-desc="Opens the GeckoSession inside the GeckoRuntime daemon and binds hardware render buffers to the native GeckoView SurfaceView."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // GECKOSESSION BIND</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  GeckoSession Attachment
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Attaches isolated tab session to GeckoView with hardware WebRender GPU compositing.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-amber-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-amber-400"
+                data-node-id="node-gecko-progress"
+                data-node-title="Reactive ProgressDelegate Hook (0-100% Telemetry)"
+                data-node-badge="Phase 4: Page Load Progress Gate"
+                data-node-desc="Subscribes to onPageStart, onProgressChange, and onPageStop events to drive a smooth native ProgressBar and toggle network activity flags."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // PROGRESS DELEGATE</span>
+                  <span class="text-amber-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-amber-300 transition-colors">
+                  ProgressDelegate Hooks
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Captures DOM, stylesheet, and asset progress (0–100%) to drive smooth native UI indicators.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-purple-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-purple-400"
+                data-node-id="node-gecko-navigation"
+                data-node-title="NavigationDelegate &amp; History Stack Controller"
+                data-node-badge="Phase 5: Location &amp; History Guards"
+                data-node-desc="Monitors onLocationChange to keep the address bar synchronized, and onCanGoBack/onCanGoForward to dynamically enable native navigation buttons."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // NAVIGATION DELEGATE</span>
+                  <span class="text-purple-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-purple-300 transition-colors">
+                  NavigationDelegate Router
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Synchronizes address bar with URL commits and toggles back/forward history buttons.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-rose-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-rose-400"
+                data-node-id="node-gecko-resolver"
+                data-node-title="Scheme-Aware URL Normalizer &amp; Search Engine Fallback"
+                data-node-badge="Phase 6: Protocol Dispatch Egress"
+                data-node-desc="Validates input format: passing explicit http/https protocols, auto-prepending https:// on dotted domain names, or encoding terms into search queries."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // SCHEME RESOLVER</span>
+                  <span class="text-rose-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-rose-300 transition-colors">
+                  Scheme Resolver Egress
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Normalizes user input, auto-detects TLD domains, and routes plain queries to search engines.
+                </p>
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -4105,6 +4354,8 @@ if (isPms) {
                 ? "Downloader Core: 16-Socket aria2c Engine & SponsorBlock Removal"
                 : isSniper
                 ? "In-Memory API Hook: window.fetch Monkeypatch & Rate-Limit Shield"
+                : isGecko
+                ? "GeckoRuntime Lifecycle: Singleton Process & Reactive Session Delegates"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
@@ -4138,6 +4389,8 @@ if (isPms) {
                 ? <span>Directly from <code class="text-cyan-300 font-mono">downloader.py</code> showing external downloader flags and hook dispatch.</span>
                 : isSniper
                 ? <span>Directly from <code class="text-cyan-300 font-mono">extension/content.js</code> showing MAIN-world fetch interception &amp; exponential 429 backoff.</span>
+                : isGecko
+                ? <span>Directly from <code class="text-cyan-300 font-mono">app/src/main/java/com/example/browser/MainActivity.kt</code> showing singleton runtime &amp; session delegates.</span>
                 : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
@@ -4158,10 +4411,10 @@ if (isPms) {
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               <span class="ml-2 text-slate-200 font-medium">
-                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : isCampus ? "smart-academic-portal/src/App.vue" : isLandtrust ? "backend/src/main/java/.../LandRecordService.java" : isModernOs ? "kernel/src/proofs/capability_proofs.rs" : isYtStream ? "downloader.py" : isSniper ? "extension/content.js" : "src/engine/enhancer.rs"}
+                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : isCampus ? "smart-academic-portal/src/App.vue" : isLandtrust ? "backend/src/main/java/.../LandRecordService.java" : isModernOs ? "kernel/src/proofs/capability_proofs.rs" : isYtStream ? "downloader.py" : isSniper ? "extension/content.js" : isGecko ? "app/src/main/java/com/example/browser/MainActivity.kt" : "src/engine/enhancer.rs"}
               </span>
             </div>
-            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : isCampus ? "vue • 46 lines" : isLandtrust ? "java • 48 lines" : isModernOs ? "rust • 46 lines" : isYtStream ? "python • 45 lines" : isSniper ? "javascript • 52 lines" : "rust • 105 lines"}</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : isCampus ? "vue • 46 lines" : isLandtrust ? "java • 48 lines" : isModernOs ? "rust • 46 lines" : isYtStream ? "python • 45 lines" : isSniper ? "javascript • 52 lines" : isGecko ? "kotlin • 62 lines" : "rust • 105 lines"}</span>
           </div>
 
           {isPms ? (
@@ -4690,6 +4943,62 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
 
     <span class="text-rose-400">return</span> response;
 &#125;;</code></pre>
+          ) : isGecko ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-slate-400">// GeckoEngine: Singleton GeckoRuntime &amp; GeckoSession Delegates</span>
+<span class="text-rose-400">class</span> <span class="text-cyan-300">MainActivity</span> : <span class="text-amber-300">AppCompatActivity</span>() &#123;
+    <span class="text-rose-400">private lateinit var</span> geckoView: <span class="text-amber-300">GeckoView</span>
+    <span class="text-rose-400">private val</span> geckoSession = <span class="text-amber-300">GeckoSession</span>()
+
+    <span class="text-rose-400">companion object</span> &#123;
+        <span class="text-rose-400">private var</span> geckoRuntime: <span class="text-amber-300">GeckoRuntime</span>? = <span class="text-rose-400">null</span>
+    &#125;
+
+    <span class="text-rose-400">override fun</span> <span class="text-cyan-300">onCreate</span>(savedInstanceState: <span class="text-amber-300">Bundle</span>?) &#123;
+        <span class="text-rose-400">super</span>.<span class="text-cyan-300">onCreate</span>(savedInstanceState)
+        <span class="text-cyan-300">setContentView</span>(R.layout.activity_main)
+
+        <span class="text-slate-400">// 1. Thread-safe singleton GeckoRuntime across Activity lifecycle</span>
+        <span class="text-rose-400">if</span> (geckoRuntime == <span class="text-rose-400">null</span>) &#123;
+            geckoRuntime = <span class="text-amber-300">GeckoRuntime</span>.<span class="text-cyan-300">create</span>(applicationContext)
+        &#125;
+
+        <span class="text-slate-400">// 2. Attach GeckoSession to native GeckoView SurfaceView</span>
+        geckoSession.<span class="text-cyan-300">open</span>(geckoRuntime!!)
+        geckoView.<span class="text-cyan-300">setSession</span>(geckoSession)
+
+        <span class="text-cyan-300">setupGeckoDelegates</span>()
+        <span class="text-cyan-300">setupUIListeners</span>()
+        <span class="text-cyan-300">loadUrl</span>(<span class="text-emerald-300">"https://mozilla.org"</span>)
+    &#125;
+
+    <span class="text-rose-400">private fun</span> <span class="text-cyan-300">setupGeckoDelegates</span>() &#123;
+        <span class="text-slate-400">// Track load progress (0-100) &amp; toggle UI progress bar</span>
+        geckoSession.progressDelegate = <span class="text-rose-400">object</span> : <span class="text-amber-300">GeckoSession.ProgressDelegate</span> &#123;
+            <span class="text-rose-400">override fun</span> <span class="text-cyan-300">onPageStart</span>(session: <span class="text-amber-300">GeckoSession</span>, url: <span class="text-amber-300">String</span>) &#123;
+                <span class="text-cyan-300">runOnUiThread</span> &#123; progressBar.visibility = View.VISIBLE &#125;
+            &#125;
+            <span class="text-rose-400">override fun</span> <span class="text-cyan-300">onProgressChange</span>(session: <span class="text-amber-300">GeckoSession</span>, progress: <span class="text-rose-400">Int</span>) &#123;
+                <span class="text-cyan-300">runOnUiThread</span> &#123; progressBar.progress = progress &#125;
+            &#125;
+            <span class="text-rose-400">override fun</span> <span class="text-cyan-300">onPageStop</span>(session: <span class="text-amber-300">GeckoSession</span>, success: <span class="text-rose-400">Boolean</span>) &#123;
+                <span class="text-cyan-300">runOnUiThread</span> &#123; progressBar.visibility = View.GONE &#125;
+            &#125;
+        &#125;
+
+        <span class="text-slate-400">// Synchronize URL bar &amp; manage Back/Forward history stack</span>
+        geckoSession.navigationDelegate = <span class="text-rose-400">object</span> : <span class="text-amber-300">GeckoSession.NavigationDelegate</span> &#123;
+            <span class="text-rose-400">override fun</span> <span class="text-cyan-300">onLocationChange</span>(session: <span class="text-amber-300">GeckoSession</span>, url: <span class="text-amber-300">String</span>?, perms: <span class="text-amber-300">List</span>&lt;<span class="text-amber-300">ContentPermission</span>&gt;) &#123;
+                <span class="text-cyan-300">runOnUiThread</span> &#123; url?.<span class="text-cyan-300">let</span> &#123; <span class="text-rose-400">if</span> (!urlInput.<span class="text-cyan-300">hasFocus</span>()) urlInput.<span class="text-cyan-300">setText</span>(it) &#125; &#125;
+            &#125;
+            <span class="text-rose-400">override fun</span> <span class="text-cyan-300">onCanGoBack</span>(session: <span class="text-amber-300">GeckoSession</span>, canGoBack: <span class="text-rose-400">Boolean</span>) &#123;
+                <span class="text-cyan-300">runOnUiThread</span> &#123; btnBack.isEnabled = canGoBack &#125;
+            &#125;
+            <span class="text-rose-400">override fun</span> <span class="text-cyan-300">onCanGoForward</span>(session: <span class="text-amber-300">GeckoSession</span>, canGoForward: <span class="text-rose-400">Boolean</span>) &#123;
+                <span class="text-cyan-300">runOnUiThread</span> &#123; btnForward.isEnabled = canGoForward &#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre>
           ) : (
             <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub fn</span> <span class="text-cyan-300">apply_adaptive_sharpen</span>(img: &<span class="text-amber-300">RgbaImage</span>, strength: <span class="text-rose-400">f32</span>) -&gt; <span class="text-amber-300">RgbaImage</span> &#123;
     <span class="text-slate-400">// Clamp strength & compute FidelityFX peak negative cross weight</span>
@@ -4767,6 +5076,8 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
                 ? "Clone the YT-Stream repository, initialize virtual environment, install requirements, and run the queue server and downloader CLI."
                 : isSniper
                 ? "Load the unpacked Chrome Extension in Developer Mode or install the userscript in Tampermonkey."
+                : isGecko
+                ? "Clone the repository, compile the Android debug APK with Gradle, and deploy to a physical device or emulator via adb."
                 : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
@@ -4932,6 +5243,17 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
               <p class="text-emerald-400">Select directory: ./extension (Manifest V3 Dual-World Engine)</p>
               <p class="text-slate-400 mt-2"># 4. Open Vendor Portal (or run mock test server) and verify in-memory hook</p>
               <p class="text-emerald-400">AMH Sniper HUD: Status [ONLINE] • In-Memory Fetch Interceptor [ACTIVE]</p>
+            </>
+          ) : isGecko ? (
+            <>
+              <p class="text-slate-400"># 1. Clone GeckoEngine repository</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/gecko-browser-engine.git &amp;&amp; cd gecko-browser-engine</p>
+              <p class="text-slate-400 mt-2"># 2. Compile debug APK via Gradle with Mozilla Maven repository</p>
+              <p class="text-emerald-400">./gradlew assembleDebug</p>
+              <p class="text-slate-400 mt-2"># 3. Install APK onto connected physical Android device or emulator</p>
+              <p class="text-emerald-400">adb install -r app/build/outputs/apk/debug/app-debug.apk</p>
+              <p class="text-slate-400 mt-2"># 4. Stream GeckoRuntime &amp; SpiderMonkey logcat telemetry</p>
+              <p class="text-emerald-400">adb logcat -s GeckoRuntime GeckoSession GeckoView</p>
             </>
           ) : (
             <>
