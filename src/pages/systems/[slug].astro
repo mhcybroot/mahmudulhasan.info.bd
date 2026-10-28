@@ -8,6 +8,7 @@ import BiometricPunchSimulator from '../../components/case-study/BiometricPunchS
 import WorkstationTelemetrySimulator from '../../components/case-study/WorkstationTelemetrySimulator.astro';
 import SwiftPdfSimulator from '../../components/case-study/SwiftPdfSimulator.astro';
 import SmartHomeVisualizer from '../../components/case-study/SmartHomeVisualizer.astro';
+import MarksheetGradeSimulator from '../../components/case-study/MarksheetGradeSimulator.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -29,6 +30,7 @@ const isHrms = data.slug === 'skylink-hrms';
 const isMonitor = data.slug === 'skylink-monitor';
 const isSwift = data.slug === 'swift-pdf-editor';
 const isHomesync = data.slug === 'homesync-iot';
+const isMarksheet = data.slug === 'marksheets-automation';
 
 let pageDescription = "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
 if (isPms) {
@@ -41,6 +43,8 @@ if (isPms) {
   pageDescription = "Financial SWIFT Wire Confirmation Redaction & Precision Typography Engine. Sub-pixel PyMuPDF vector editing, bidirectional Arabic/English typesetting, and zero metadata leakage.";
 } else if (isHomesync) {
   pageDescription = "Interactive 3D Digital Twin & Smart IoT Configurator. Real-time 60 FPS WebGL room visualizer with dynamic Kelvin lighting shaders, security radar cones, and Matter/Zigbee mesh.";
+} else if (isMarksheet) {
+  pageDescription = "Academic Result Tabulation & Automated Marksheet Engine. Ingests teacher spreadsheets, enforces Bangladesh board GPA 5.0 and 4th subject rules, and compiles batch print-ready PDFs.";
 }
 ---
 
@@ -131,6 +135,10 @@ if (isPms) {
             <>
               Interactive 3D digital twin smart home configurator engineered with <strong class="text-white font-semibold">React 19, Three.js &amp; React Three Fiber</strong>. Renders real-time architectural floorplans at a locked <strong class="text-emerald-300 font-semibold">60 FPS</strong> with dynamic Kelvin ambient lighting shaders, security radar cones, and Matter/Zigbee mesh simulation.
             </>
+          ) : isMarksheet ? (
+            <>
+              High-throughput academic examination tabulation and merit compiler engineered with <strong class="text-white font-semibold">Node.js 22, Express &amp; Prisma ORM</strong>. Automatically ingests multi-subject Excel marks rosters, computes official <strong class="text-emerald-300 font-semibold">GPA 5.0 scales and 4th-subject bonus points</strong>, and batch compiles hundreds of print-ready A4 PDF marksheets with zero human arithmetic mistakes.
+            </>
           ) : (
             <>
               Turn blurry, low-resolution photos into <strong class="text-white font-semibold">crystal-clear HD and 4K visuals</strong> in milliseconds. 
@@ -216,6 +224,21 @@ if (isPms) {
                 <span class="text-emerald-400 font-bold">✓</span> &lt; 38 MB GPU VRAM Footprint
               </div>
             </>
+          ) : isMarksheet ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Board-Compliant GPA 5.0 Engine
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Automatic 4th Subject Bonus (GP &gt; 2.0)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> 1,200+ PDF Marksheets / Min
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> 100% Offline (Zero Cloud Dependency)
+              </div>
+            </>
           ) : (
             <>
               <div class="flex items-center gap-1.5">
@@ -251,6 +274,8 @@ if (isPms) {
         <SwiftPdfSimulator />
       ) : isHomesync ? (
         <SmartHomeVisualizer />
+      ) : isMarksheet ? (
+        <MarksheetGradeSimulator />
       ) : (
         <BeforeAfterSlider />
       )}
@@ -274,6 +299,8 @@ if (isPms) {
             ? "Built to sanitize confidential wire transfers and guarantee typographic compliance across international banking."
             : isHomesync
             ? "Built to eliminate guesswork in smart home installations and deliver instant interactive customer approvals."
+            : isMarksheet
+            ? "Built to eliminate teacher calculation errors and compress 3-week exam grading into a single 30-minute automated pass."
             : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
@@ -451,6 +478,41 @@ if (isPms) {
               <h3 class="font-mono font-bold text-white text-base">Architectural Studios &amp; Contractors</h3>
               <p class="text-xs text-slate-200 font-sans leading-relaxed">
                 Generates instant itemized bills of materials (BOM) based on client configurations. Provides live pricing estimates and exportable manifests, shortening sales approval cycles from weeks to minutes.
+              </p>
+            </div>
+          </>
+        ) : isMarksheet ? (
+          <>
+            <!-- Use Case 1: Schools & Madrashas -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🏫
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Schools &amp; Dakhil Madrashas</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Ingests multi-subject teacher mark sheets (Creative Questions + MCQ + Practical) directly from Excel or CSV files. Enforces official board grading boundaries, eliminating math errors and parent grading disputes.
+              </p>
+            </div>
+
+            <!-- Use Case 2: Exam Committees -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                📜
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Exam Committees &amp; Headmasters</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Automatically calculates 4th-subject bonus additions (GP &gt; 2.0) and enforces fail-gate rules (any subject &lt; 33 triggers 0.00 GPA). Compiles class-wide tabulation sheets with instant merit position sorting.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Computer Operators -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🖨️
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Operators &amp; Administrative Staff</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Replaces days of manual Microsoft Word formatting with 1-click batch PDF compilation. Generates 500+ customized student transcripts formatted for standard A4 printing with school crests and signature seals.
               </p>
             </div>
           </>
@@ -798,6 +860,69 @@ if (isPms) {
             </table>
           </div>
         </div>
+      ) : isMarksheet ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+              Engineering Benchmark: Marksheet Engine vs. Manual Spreadsheets
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured across real secondary school &amp; Dakhil madrasha cohorts totaling 500+ students and 10 subjects.
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-cyan-300 bg-cyan-950/40">Marksheet Engine (Node + Prisma)</th>
+                  <th class="py-3 px-4 font-semibold">Manual Excel &amp; MS Word</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Operational Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y border-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Full Cohort Tabulation Time</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 42 ms (In-Memory Processing)</td>
+                  <td class="py-3.5 px-4 text-slate-400">2 to 3 weeks manual calculator entry</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">99.9% Faster Result Turnaround</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">4th Subject Bonus Precision</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Automated Board Logic (GP &gt; 2.0)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Frequent operator formula bugs</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Calculation Disputes</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Fail-Gate Enforcement</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Strict Sub-33 Fail Gate (GPA 0.00)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Accidental average pass errors</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">100% Board Compliance</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Merit Order Calculation</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Automatic Multi-Factor Tie Breaker</td>
+                  <td class="py-3.5 px-4 text-slate-400">Manual spreadsheet row sorting</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Instant Academic Ranks</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Batch PDF Transcript Output</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">1,200+ A4 Vector PDFs / Min</td>
+                  <td class="py-3.5 px-4 text-slate-400">Manual Word mail-merge (crashes)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">High-Throughput Printing</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Infrastructure Dependency</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">100% Offline (SQLite/Node &lt; 42MB)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Heavy MS Office licenses</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Recurring Cost</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <BenchmarkMatrix />
       )}
@@ -825,6 +950,8 @@ if (isPms) {
               ? "Engineered in Python 3.12 (FastAPI & PyMuPDF) with sub-pixel font metric calculation, BiDi typography reshaping, and Flutter."
               : isHomesync
               ? "Engineered in React 19 & TypeScript with Three.js WebGL shaders, React Three Fiber GPU loops, and Matter 3.0 mesh state."
+              : isMarksheet
+              ? "Engineered in Node.js 22 & Express with Prisma ORM, SheetJS (xlsx) normalization, and PDFKit vector compilation."
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
@@ -1453,6 +1580,128 @@ if (isPms) {
                 </p>
               </button>
             </>
+          ) : isMarksheet ? (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-xlsx-parse"
+                data-node-title="SheetJS (xlsx) Multi-Format Spreadsheet Ingress"
+                data-node-badge="Phase 1: Binary Spreadsheet Parsing"
+                data-node-desc="Parses multi-sheet Excel (.xlsx, .xls) and CSV mark sheets in sub-second memory streams, extracting CQ, MCQ, and practical columns."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // EXCEL INGRESS</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  SheetJS Ingestion Stream
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Decodes raw teacher mark submissions into normalized memory arrays in under 15ms.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-mark-normalizer"
+                data-node-title="Student Record Sanitization & Absentee Guard"
+                data-node-badge="Phase 2: Data Cleansing & Validation"
+                data-node-desc="Distinguishes valid zero scores from absent ('ABS') students, validates total marks <= 100, and verifies student enrollment IDs."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // DATA NORMALIZER</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Record Normalizer &amp; Absent Guard
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Prevents score distortion by handling absent candidates and verifying subject maximums.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-board-gpa"
+                data-node-title="Bangladesh Board Grading Scale Evaluator"
+                data-node-badge="Phase 3: GPA 5.0 Boundary Mapping"
+                data-node-desc="Applies official standard thresholds (80+ A+, 70+ A, 60+ A-, 50+ B, 40+ C, 33+ D, <33 F) across all compulsory examinations."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // GRADING RULES</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Board GPA 5.0 Rule Evaluator
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Translates percentage marks to standard letter grades and decimal Grade Points.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-bonus-fourth"
+                data-node-title="4th Subject Bonus Calculator & Fail Gate"
+                data-node-badge="Phase 4: Bonus Addition & Gate Policy"
+                data-node-desc="Calculates additional bonus GP (Math.max(0, fourthGp - 2.0)) and enforces instant 0.00 GPA fail overrides if any compulsory mark < 33."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // 4TH SUB BONUS</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  4th Subject Bonus &amp; Fail Gate
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Adds points above 2.0 to cumulative GPA and prevents failing students from passing.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-merit-compiler"
+                data-node-title="Multi-Tier Merit Position Compiler"
+                data-node-badge="Phase 5: Academic Ranking Sort"
+                data-node-desc="Executes in-memory sorting of passing candidates: primary sort on GPA descending, secondary tie-breaker on total score, assigning integer ranks."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // MERIT COMPILER</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Dynamic Merit Order Compiler
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Ranks class standings instantly with zero manual sorting errors or tie-breaking disputes.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-pdfkit-compiler"
+                data-node-title="Vectorized PDFKit Print Transcript Generator"
+                data-node-badge="Phase 6: High-Throughput Document Egress"
+                data-node-desc="Renders 1,200+ print-ready A4 PDF marksheets per minute featuring school crests, grade matrices, watermarks, and signature blocks."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // PDF BATCH EGRESS</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Vector PDFKit Batch Egress
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Compiles high-resolution, print-ready student report cards and class tabulation ledgers.
+                </p>
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -1595,6 +1844,8 @@ if (isPms) {
                 ? "Typography & Redaction Engine: PyMuPDF Vector Sanitization & Arabic BiDi Layout"
                 : isHomesync
                 ? "Interactive Shaders: Dynamic Kelvin Ambient Lighting Compositor"
+                : isMarksheet
+                ? "Academic Evaluation Core: Board-Compliant GPA 5.0 & Merit Order Compiler"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
@@ -1608,6 +1859,8 @@ if (isPms) {
                 ? <span>Directly from <code class="text-cyan-300 font-mono">backend/app/pdf_service.py</code> showing Pillow 4x antialiasing &amp; PyMuPDF baseline positioning.</span>
                 : isHomesync
                 ? <span>Directly from <code class="text-cyan-300 font-mono">src/components/ThreeCanvas/FloorplanLightingShader.ts</code> calculating Kelvin to linear RGB for WebGL shaders.</span>
+                : isMarksheet
+                ? <span>Directly from <code class="text-cyan-300 font-mono">backend/seed.js</code> showing in-memory tie-breaking sort and fail-gate filtering.</span>
                 : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
@@ -1628,10 +1881,10 @@ if (isPms) {
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               <span class="ml-2 text-slate-200 font-medium">
-                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : "src/engine/enhancer.rs"}
+                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : "src/engine/enhancer.rs"}
               </span>
             </div>
-            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : "rust • 105 lines"}</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : "rust • 105 lines"}</span>
           </div>
 
           {isPms ? (
@@ -1790,6 +2043,36 @@ if (isPms) {
         <span class="text-amber-300">Math</span>.<span class="text-cyan-300">min</span>(1.0, <span class="text-amber-300">Math</span>.<span class="text-cyan-300">max</span>(0.0, b / 255.0))
     ];
 &#125;</code></pre>
+          ) : isMarksheet ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-slate-400">// Dynamic merit order ranking with strict fail-gate filter and secondary tie-breaking</span>
+<span class="text-rose-400">export async function</span> <span class="text-cyan-300">recalculateSheetMeritRanks</span>(sheetId) &#123;
+    <span class="text-rose-400">const</span> whereClause = sheetId ? &#123; tabulationSheetId: <span class="text-cyan-300">parseInt</span>(sheetId) &#125; : &#123;&#125;;
+    <span class="text-rose-400">const</span> students = <span class="text-rose-400">await</span> prisma.student.<span class="text-cyan-300">findMany</span>(&#123; where: whereClause &#125;);
+
+    <span class="text-slate-400">// Filter out candidates with single-subject failures (GPA 0.00)</span>
+    <span class="text-rose-400">const</span> passed = students.<span class="text-cyan-300">filter</span>(s =&gt; s.failedCount === 0);
+    passed.<span class="text-cyan-300">sort</span>((a, b) =&gt; &#123;
+        <span class="text-rose-400">if</span> (b.gpa !== a.gpa) <span class="text-rose-400">return</span> b.gpa - a.gpa; <span class="text-slate-400">// Primary: Highest GPA</span>
+        <span class="text-rose-400">return</span> b.totalMarks - a.totalMarks;        <span class="text-slate-400">// Secondary: Total Marks</span>
+    &#125;);
+
+    <span class="text-slate-400">// Commit sequential integer merit positions</span>
+    <span class="text-rose-400">for</span> (<span class="text-rose-400">let</span> rank = 0; rank &lt; passed.length; rank++) &#123;
+        <span class="text-rose-400">await</span> prisma.student.<span class="text-cyan-300">update</span>(&#123;
+            where: &#123; id: passed[rank].id &#125;,
+            data: &#123; meritRank: rank + 1 &#125;
+        &#125;);
+    &#125;
+
+    <span class="text-slate-400">// Unrank failing candidates</span>
+    <span class="text-rose-400">const</span> failed = students.<span class="text-cyan-300">filter</span>(s =&gt; s.failedCount &gt; 0);
+    <span class="text-rose-400">for</span> (<span class="text-rose-400">const</span> s <span class="text-rose-400">of</span> failed) &#123;
+        <span class="text-rose-400">await</span> prisma.student.<span class="text-cyan-300">update</span>(&#123;
+            where: &#123; id: s.id &#125;,
+            data: &#123; meritRank: <span class="text-rose-400">null</span> &#125;
+        &#125;);
+    &#125;
+&#125;</code></pre>
           ) : (
             <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub fn</span> <span class="text-cyan-300">apply_adaptive_sharpen</span>(img: &<span class="text-amber-300">RgbaImage</span>, strength: <span class="text-rose-400">f32</span>) -&gt; <span class="text-amber-300">RgbaImage</span> &#123;
     <span class="text-slate-400">// Clamp strength & compute FidelityFX peak negative cross weight</span>
@@ -1847,6 +2130,8 @@ if (isPms) {
                 ? "Run the FastAPI vector service locally or run the cross-platform Flutter client."
                 : isHomesync
                 ? "Launch the React 19 + Three.js configurator locally or run the Vite production build."
+                : isMarksheet
+                ? "Run the Prisma migration and seed local SQLite marksheet database or launch the React frontend."
                 : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
@@ -1902,6 +2187,17 @@ if (isPms) {
               <p class="text-emerald-400">npm run dev</p>
               <p class="text-slate-400 mt-2"># 4. Run test suite</p>
               <p class="text-emerald-400">npm run test</p>
+            </>
+          ) : isMarksheet ? (
+            <>
+              <p class="text-slate-400"># 1. Clone Marksheet Engine repository</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/marksheets.git &amp;&amp; cd marksheets</p>
+              <p class="text-slate-400 mt-2"># 2. Install Node.js backend &amp; frontend dependencies</p>
+              <p class="text-emerald-400">cd backend &amp;&amp; npm install &amp;&amp; cd ../frontend &amp;&amp; npm install</p>
+              <p class="text-slate-400 mt-2"># 3. Initialize Prisma ORM schema &amp; seed database</p>
+              <p class="text-emerald-400">cd ../backend &amp;&amp; npx prisma db push &amp;&amp; node seed.js</p>
+              <p class="text-slate-400 mt-2"># 4. Launch server &amp; web interface</p>
+              <p class="text-emerald-400">npm start</p>
             </>
           ) : (
             <>

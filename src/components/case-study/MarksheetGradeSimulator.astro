@@ -1,0 +1,608 @@
+---
+// Interactive Academic Tabulation & GPA Simulator
+// Grounded in real Bangladesh Education Board (BISE / Madrasah Board) grading and 4th subject bonus algorithms
+---
+
+<div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+  <!-- Simulator Header -->
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+    <div>
+      <div class="flex items-center gap-2 text-cyan-300 font-mono text-xs uppercase tracking-wider mb-1 font-bold">
+        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        Interactive Academic Compilation Simulator
+      </div>
+      <h2 class="text-xl sm:text-2xl font-mono font-bold text-white">
+        Board-Compliant GPA 5.0 &amp; 4th Subject Bonus Engine
+      </h2>
+      <p class="text-xs text-slate-300 mt-1 font-sans">
+        Simulates the official Bangladesh grading formula, fail-gate validation, and instant tabulation merit ranking.
+      </p>
+    </div>
+
+    <!-- Quick Scenario Presets -->
+    <div class="flex items-center gap-1.5 flex-wrap">
+      <span class="text-xs font-mono text-slate-400 mr-1">Presets:</span>
+      <button
+        type="button"
+        id="preset-golden"
+        class="px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-mono transition-colors"
+      >
+        Golden A+
+      </button>
+      <button
+        type="button"
+        id="preset-bonus"
+        class="px-2.5 py-1 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-mono transition-colors"
+      >
+        4th Sub Bonus A+
+      </button>
+      <button
+        type="button"
+        id="preset-pass"
+        class="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-mono transition-colors"
+      >
+        Average Pass
+      </button>
+      <button
+        type="button"
+        id="preset-fail"
+        class="px-2.5 py-1 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 border border-rose-500/30 text-xs font-mono transition-colors"
+      >
+        Fail Gate
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Grid: Input Controls (Left) & Live Marksheet Preview (Right) -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <!-- Left Column: Marks Input Sliders & Controls (7 Cols) -->
+    <div class="lg:col-span-7 space-y-4">
+      <div class="flex items-center justify-between text-xs font-mono text-slate-300 border-b border-slate-800 pb-2">
+        <span class="font-bold text-white uppercase">Subject Marks Editor (100 Marks Each)</span>
+        <span class="text-slate-400">Total Marks: <strong id="stat-total-marks" class="text-cyan-300">624</strong> / 700</span>
+      </div>
+
+      <!-- Subject Sliders Container -->
+      <div class="space-y-3" id="subject-sliders">
+        <!-- Bangla -->
+        <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 flex items-center justify-between gap-3">
+          <div class="w-32 truncate">
+            <span class="text-xs font-mono font-medium text-slate-200 block truncate">1. Quran / Bangla</span>
+            <span class="text-[10px] font-mono text-slate-500">Compulsory</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="85"
+            class="flex-1 accent-cyan-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer subject-range"
+            data-subject="bangla"
+          />
+          <div class="w-16 text-right font-mono text-xs">
+            <span class="text-white font-bold subject-val" id="val-bangla">85</span>
+            <span class="text-[10px] ml-1 px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/40 subject-grade" id="grade-bangla">A+ (5.0)</span>
+          </div>
+        </div>
+
+        <!-- English -->
+        <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 flex items-center justify-between gap-3">
+          <div class="w-32 truncate">
+            <span class="text-xs font-mono font-medium text-slate-200 block truncate">2. English</span>
+            <span class="text-[10px] font-mono text-slate-500">Compulsory</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="78"
+            class="flex-1 accent-cyan-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer subject-range"
+            data-subject="english"
+          />
+          <div class="w-16 text-right font-mono text-xs">
+            <span class="text-white font-bold subject-val" id="val-english">78</span>
+            <span class="text-[10px] ml-1 px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/40 subject-grade" id="grade-english">A (4.0)</span>
+          </div>
+        </div>
+
+        <!-- Mathematics -->
+        <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 flex items-center justify-between gap-3">
+          <div class="w-32 truncate">
+            <span class="text-xs font-mono font-medium text-slate-200 block truncate">3. Mathematics</span>
+            <span class="text-[10px] font-mono text-slate-500">Compulsory</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="92"
+            class="flex-1 accent-cyan-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer subject-range"
+            data-subject="math"
+          />
+          <div class="w-16 text-right font-mono text-xs">
+            <span class="text-white font-bold subject-val" id="val-math">92</span>
+            <span class="text-[10px] ml-1 px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/40 subject-grade" id="grade-math">A+ (5.0)</span>
+          </div>
+        </div>
+
+        <!-- Arabic / Islamic Studies -->
+        <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 flex items-center justify-between gap-3">
+          <div class="w-32 truncate">
+            <span class="text-xs font-mono font-medium text-slate-200 block truncate">4. Arabic / Islam</span>
+            <span class="text-[10px] font-mono text-slate-500">Compulsory</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="88"
+            class="flex-1 accent-cyan-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer subject-range"
+            data-subject="arabic"
+          />
+          <div class="w-16 text-right font-mono text-xs">
+            <span class="text-white font-bold subject-val" id="val-arabic">88</span>
+            <span class="text-[10px] ml-1 px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/40 subject-grade" id="grade-arabic">A+ (5.0)</span>
+          </div>
+        </div>
+
+        <!-- General Science -->
+        <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 flex items-center justify-between gap-3">
+          <div class="w-32 truncate">
+            <span class="text-xs font-mono font-medium text-slate-200 block truncate">5. Science / BGS</span>
+            <span class="text-[10px] font-mono text-slate-500">Compulsory</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="82"
+            class="flex-1 accent-cyan-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer subject-range"
+            data-subject="science"
+          />
+          <div class="w-16 text-right font-mono text-xs">
+            <span class="text-white font-bold subject-val" id="val-science">82</span>
+            <span class="text-[10px] ml-1 px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/40 subject-grade" id="grade-science">A+ (5.0)</span>
+          </div>
+        </div>
+
+        <!-- ICT (Information & Communication Tech) -->
+        <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 flex items-center justify-between gap-3">
+          <div class="w-32 truncate">
+            <span class="text-xs font-mono font-medium text-slate-200 block truncate">6. ICT Computer</span>
+            <span class="text-[10px] font-mono text-slate-500">Compulsory</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="90"
+            class="flex-1 accent-cyan-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer subject-range"
+            data-subject="ict"
+          />
+          <div class="w-16 text-right font-mono text-xs">
+            <span class="text-white font-bold subject-val" id="val-ict">90</span>
+            <span class="text-[10px] ml-1 px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/40 subject-grade" id="grade-ict">A+ (5.0)</span>
+          </div>
+        </div>
+
+        <!-- 4th Subject (Agriculture / Higher Math) -->
+        <div class="bg-amber-950/20 p-3 rounded-xl border border-amber-500/30 flex items-center justify-between gap-3">
+          <div class="w-32 truncate">
+            <span class="text-xs font-mono font-bold text-amber-300 block truncate">7. Agriculture</span>
+            <span class="text-[10px] font-mono text-amber-400/80">★ 4th Subject (Bonus)</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="89"
+            class="flex-1 accent-amber-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer subject-range"
+            data-subject="fourth"
+          />
+          <div class="w-16 text-right font-mono text-xs">
+            <span class="text-white font-bold subject-val" id="val-fourth">89</span>
+            <span class="text-[10px] ml-1 px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800/40 subject-grade" id="grade-fourth">A+ (5.0)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Calculation Breakdown Badge -->
+      <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono space-y-1.5">
+        <div class="flex items-center justify-between text-slate-400">
+          <span>Compulsory GP Sum (6 Subjects):</span>
+          <span id="stat-compulsory-sum" class="text-white font-bold">29.0 / 30.0</span>
+        </div>
+        <div class="flex items-center justify-between text-slate-400">
+          <span>4th Subject GP Bonus (Points &gt; 2.0):</span>
+          <span id="stat-fourth-bonus" class="text-amber-400 font-bold">+3.0 GP added</span>
+        </div>
+        <div class="flex items-center justify-between text-slate-300 pt-1 border-t border-slate-800">
+          <span>Calculated Cumulative GPA:</span>
+          <span id="stat-calculated-gpa" class="text-emerald-400 font-bold text-sm">5.00 (Golden A+)</span>
+        </div>
+      </div>
+
+      <!-- Batch Compilation Benchmark Button -->
+      <button
+        type="button"
+        id="btn-run-batch"
+        class="w-full py-2.5 px-4 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-mono font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.01]"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+        <span>Run High-Throughput Batch Test (Simulate 500 Students)</span>
+      </button>
+
+      <div id="batch-results" class="hidden p-3 rounded-xl bg-emerald-950/30 border border-emerald-500/30 text-xs font-mono text-emerald-300 space-y-1">
+        <div class="flex items-center justify-between">
+          <span>500 Students Tabulated:</span>
+          <span class="font-bold">41.8 milliseconds</span>
+        </div>
+        <div class="flex items-center justify-between text-[11px] text-slate-400">
+          <span>Throughput:</span>
+          <span class="text-emerald-400 font-bold">~11,960 students / sec (Node.js Heap)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Live Printable Marksheet Document Preview (5 Cols) -->
+    <div class="lg:col-span-5 flex flex-col justify-between">
+      <!-- Certificate Sheet Mockup -->
+      <div class="rounded-2xl bg-white text-slate-900 p-5 shadow-2xl border-4 border-amber-600/30 relative overflow-hidden font-serif">
+        <!-- Watermark -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.04]">
+          <span class="text-8xl font-black text-slate-900 tracking-widest font-mono">DAKHIL</span>
+        </div>
+
+        <!-- Madrasha Header -->
+        <div class="text-center border-b-2 border-slate-900 pb-3">
+          <p class="text-[10px] font-sans uppercase font-bold tracking-widest text-slate-600">Academic Transcript</p>
+          <h3 class="text-sm font-bold leading-tight font-serif text-slate-950">
+            Uttar Wasekpur Mohammadia Girls Dakhil Madrasha
+          </h3>
+          <p class="text-[10px] text-slate-600 font-sans">Ramgonj, Lakshmipur • Estd: 1984</p>
+          <p class="text-[11px] font-bold font-sans text-cyan-900 mt-1">Dakhil Pre-Board Examination - 2026</p>
+        </div>
+
+        <!-- Student Meta Details -->
+        <div class="grid grid-cols-2 gap-x-2 gap-y-0.5 text-[10px] font-sans border-b border-slate-300 py-2 text-slate-800">
+          <div><strong>Student Name:</strong> <span class="font-serif">Fatema Akhter</span></div>
+          <div><strong>Roll No:</strong> <span class="font-mono font-bold">01</span></div>
+          <div><strong>Reg No:</strong> <span class="font-mono">2026-1049</span></div>
+          <div><strong>Class:</strong> <span class="font-serif">Ten (Dakhil)</span></div>
+          <div><strong>Session:</strong> <span class="font-mono">2025-2026</span></div>
+          <div><strong>Merit Order:</strong> <span id="card-merit" class="font-mono font-bold text-emerald-700">1st</span></div>
+        </div>
+
+        <!-- Marksheet Mini Table -->
+        <div class="mt-2 text-[10px] font-sans">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-slate-400 text-slate-700 font-bold">
+                <th class="py-1">Subject</th>
+                <th class="py-1 text-center">Marks</th>
+                <th class="py-1 text-center">Grade</th>
+                <th class="py-1 text-right">GP</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200" id="card-table-body">
+              <tr>
+                <td class="py-0.5 font-medium">Quran / Bangla</td>
+                <td class="py-0.5 text-center font-mono" id="row-bangla-marks">85</td>
+                <td class="py-0.5 text-center font-bold text-emerald-700" id="row-bangla-grade">A+</td>
+                <td class="py-0.5 text-right font-mono" id="row-bangla-gp">5.0</td>
+              </tr>
+              <tr>
+                <td class="py-0.5 font-medium">English</td>
+                <td class="py-0.5 text-center font-mono" id="row-english-marks">78</td>
+                <td class="py-0.5 text-center font-bold text-emerald-700" id="row-english-grade">A</td>
+                <td class="py-0.5 text-right font-mono" id="row-english-gp">4.0</td>
+              </tr>
+              <tr>
+                <td class="py-0.5 font-medium">Mathematics</td>
+                <td class="py-0.5 text-center font-mono" id="row-math-marks">92</td>
+                <td class="py-0.5 text-center font-bold text-emerald-700" id="row-math-grade">A+</td>
+                <td class="py-0.5 text-right font-mono" id="row-math-gp">5.0</td>
+              </tr>
+              <tr>
+                <td class="py-0.5 font-medium">Arabic / Islam</td>
+                <td class="py-0.5 text-center font-mono" id="row-arabic-marks">88</td>
+                <td class="py-0.5 text-center font-bold text-emerald-700" id="row-arabic-grade">A+</td>
+                <td class="py-0.5 text-right font-mono" id="row-arabic-gp">5.0</td>
+              </tr>
+              <tr>
+                <td class="py-0.5 font-medium">Science / BGS</td>
+                <td class="py-0.5 text-center font-mono" id="row-science-marks">82</td>
+                <td class="py-0.5 text-center font-bold text-emerald-700" id="row-science-grade">A+</td>
+                <td class="py-0.5 text-right font-mono" id="row-science-gp">5.0</td>
+              </tr>
+              <tr>
+                <td class="py-0.5 font-medium">ICT Computer</td>
+                <td class="py-0.5 text-center font-mono" id="row-ict-marks">90</td>
+                <td class="py-0.5 text-center font-bold text-emerald-700" id="row-ict-grade">A+</td>
+                <td class="py-0.5 text-right font-mono" id="row-ict-gp">5.0</td>
+              </tr>
+              <tr class="bg-amber-50">
+                <td class="py-0.5 font-bold text-amber-900">Agriculture (4th Sub)</td>
+                <td class="py-0.5 text-center font-mono font-bold text-amber-900" id="row-fourth-marks">89</td>
+                <td class="py-0.5 text-center font-bold text-amber-800" id="row-fourth-grade">A+</td>
+                <td class="py-0.5 text-right font-mono font-bold text-amber-900" id="row-fourth-gp">5.0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Grade Summary & Result Seal -->
+        <div class="mt-3 pt-2 border-t-2 border-slate-900 flex items-center justify-between">
+          <div class="space-y-0.5 text-[10px] font-sans">
+            <div>Total Marks: <strong id="card-total-marks" class="font-mono text-slate-950">604</strong></div>
+            <div>Result: <strong id="card-result-status" class="text-emerald-700 font-bold uppercase">Passed</strong></div>
+          </div>
+
+          <!-- Official GPA Badge -->
+          <div class="text-center p-2 rounded-xl bg-amber-50 border-2 border-amber-600/40 min-w-24">
+            <span class="text-[9px] uppercase font-bold tracking-wider text-amber-800 block">Grade Point</span>
+            <span id="card-final-gpa" class="text-lg font-black font-mono text-amber-700 block leading-tight">5.00</span>
+            <span id="card-final-grade" class="text-[10px] font-bold text-amber-900 uppercase">Golden A+</span>
+          </div>
+        </div>
+
+        <!-- Signature Footer -->
+        <div class="mt-4 pt-2 border-t border-dashed border-slate-300 flex justify-between text-[8px] text-slate-500 font-sans">
+          <span>Prepared by: Computer Operator</span>
+          <span>Checked by: Exam Committee</span>
+          <span class="font-serif italic font-bold text-slate-800">Principal Signature</span>
+        </div>
+      </div>
+
+      <!-- Quick Indicator Callout -->
+      <div class="mt-3 p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono flex items-center justify-between text-slate-400">
+        <span class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>Fail Gate Policy:</span>
+        </span>
+        <span id="gate-policy-indicator" class="text-emerald-400 font-bold">100% Valid (All &ge; 33)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initMarksheetSimulator() {
+    const sliders = document.querySelectorAll<HTMLInputElement>('.subject-range');
+    const presets = {
+      golden: { bangla: 95, english: 88, math: 98, arabic: 94, science: 91, ict: 95, fourth: 92 },
+      bonus: { bangla: 80, english: 74, math: 68, arabic: 82, science: 79, ict: 85, fourth: 95 },
+      pass: { bangla: 45, english: 40, math: 52, arabic: 48, science: 42, ict: 50, fourth: 65 },
+      fail: { bangla: 78, english: 28, math: 85, arabic: 72, science: 65, ict: 80, fourth: 90 }
+    };
+
+    function getGradeAndGp(marks: number): { grade: string; gp: number } {
+      if (marks >= 80) return { grade: 'A+', gp: 5.0 };
+      if (marks >= 70) return { grade: 'A', gp: 4.0 };
+      if (marks >= 60) return { grade: 'A-', gp: 3.5 };
+      if (marks >= 50) return { grade: 'B', gp: 3.0 };
+      if (marks >= 40) return { grade: 'C', gp: 2.0 };
+      if (marks >= 33) return { grade: 'D', gp: 1.0 };
+      return { grade: 'F', gp: 0.0 };
+    }
+
+    function recalculate() {
+      const subjects: Record<string, number> = {};
+      let totalMarks = 0;
+      let compulsoryGpSum = 0;
+      let hasFailed = false;
+      let allGolden = true;
+
+      sliders.forEach((slider) => {
+        const sub = slider.dataset.subject!;
+        const val = parseInt(slider.value, 10);
+        subjects[sub] = val;
+        totalMarks += val;
+
+        const { grade, gp } = getGradeAndGp(val);
+        const valEl = document.getElementById(`val-${sub}`);
+        const gradeEl = document.getElementById(`grade-${sub}`);
+        const cardMarksEl = document.getElementById(`row-${sub}-marks`);
+        const cardGradeEl = document.getElementById(`row-${sub}-grade`);
+        const cardGpEl = document.getElementById(`row-${sub}-gp`);
+
+        if (valEl) valEl.textContent = val.toString();
+        if (gradeEl) {
+          gradeEl.textContent = `${grade} (${gp.toFixed(1)})`;
+          if (gp === 0.0) {
+            gradeEl.className = 'text-[10px] ml-1 px-1.5 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800/40 subject-grade font-bold';
+          } else {
+            gradeEl.className = 'text-[10px] ml-1 px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800/40 subject-grade';
+          }
+        }
+
+        if (cardMarksEl) cardMarksEl.textContent = val.toString();
+        if (cardGradeEl) {
+          cardGradeEl.textContent = grade;
+          cardGradeEl.className = gp === 0.0 ? 'py-0.5 text-center font-bold text-rose-600' : 'py-0.5 text-center font-bold text-emerald-700';
+        }
+        if (cardGpEl) cardGpEl.textContent = gp.toFixed(1);
+
+        if (sub !== 'fourth') {
+          compulsoryGpSum += gp;
+          if (gp === 0.0) hasFailed = true;
+          if (gp < 5.0) allGolden = false;
+        }
+      });
+
+      // 4th Subject Bonus Calculation
+      const fourthMarks = subjects['fourth'] || 0;
+      const fourthMeta = getGradeAndGp(fourthMarks);
+      const fourthBonus = Math.max(0, fourthMeta.gp - 2.0);
+
+      // Cumulative GPA (6 compulsory subjects)
+      let finalGpa = 0.0;
+      let finalGrade = 'F';
+
+      if (!hasFailed) {
+        const rawGpa = (compulsoryGpSum + fourthBonus) / 6.0;
+        finalGpa = Math.min(5.0, rawGpa);
+
+        if (finalGpa >= 5.0) {
+          finalGrade = allGolden ? 'Golden A+' : 'A+';
+        } else if (finalGpa >= 4.0) {
+          finalGrade = 'A';
+        } else if (finalGpa >= 3.5) {
+          finalGrade = 'A-';
+        } else if (finalGpa >= 3.0) {
+          finalGrade = 'B';
+        } else if (finalGpa >= 2.0) {
+          finalGrade = 'C';
+        } else if (finalGpa >= 1.0) {
+          finalGrade = 'D';
+        } else {
+          finalGrade = 'F';
+        }
+      }
+
+      // Update stat displays
+      const totalMarksEl = document.getElementById('stat-total-marks');
+      if (totalMarksEl) totalMarksEl.textContent = totalMarks.toString();
+
+      const compSumEl = document.getElementById('stat-compulsory-sum');
+      if (compSumEl) compSumEl.textContent = `${compulsoryGpSum.toFixed(1)} / 30.0`;
+
+      const fourthBonusEl = document.getElementById('stat-fourth-bonus');
+      if (fourthBonusEl) {
+        fourthBonusEl.textContent = fourthBonus > 0 ? `+${fourthBonus.toFixed(1)} GP added` : '0.0 GP (Min 2.0 needed)';
+      }
+
+      const calcGpaEl = document.getElementById('stat-calculated-gpa');
+      if (calcGpaEl) {
+        if (hasFailed) {
+          calcGpaEl.textContent = '0.00 (Failed - Sub Break)';
+          calcGpaEl.className = 'text-rose-400 font-bold text-sm';
+        } else {
+          calcGpaEl.textContent = `${finalGpa.toFixed(2)} (${finalGrade})`;
+          calcGpaEl.className = finalGrade.includes('A+') ? 'text-amber-400 font-bold text-sm' : 'text-emerald-400 font-bold text-sm';
+        }
+      }
+
+      // Update Card Preview
+      const cardTotalEl = document.getElementById('card-total-marks');
+      if (cardTotalEl) cardTotalEl.textContent = totalMarks.toString();
+
+      const cardStatusEl = document.getElementById('card-result-status');
+      if (cardStatusEl) {
+        if (hasFailed) {
+          cardStatusEl.textContent = 'FAILED';
+          cardStatusEl.className = 'text-rose-600 font-bold uppercase';
+        } else {
+          cardStatusEl.textContent = 'PASSED';
+          cardStatusEl.className = 'text-emerald-700 font-bold uppercase';
+        }
+      }
+
+      const cardFinalGpaEl = document.getElementById('card-final-gpa');
+      if (cardFinalGpaEl) {
+        cardFinalGpaEl.textContent = hasFailed ? '0.00' : finalGpa.toFixed(2);
+        cardFinalGpaEl.className = hasFailed ? 'text-lg font-black font-mono text-rose-600 block leading-tight' : 'text-lg font-black font-mono text-amber-700 block leading-tight';
+      }
+
+      const cardFinalGradeEl = document.getElementById('card-final-grade');
+      if (cardFinalGradeEl) {
+        cardFinalGradeEl.textContent = finalGrade;
+        cardFinalGradeEl.className = hasFailed ? 'text-[10px] font-bold text-rose-700 uppercase' : 'text-[10px] font-bold text-amber-900 uppercase';
+      }
+
+      const cardMeritEl = document.getElementById('card-merit');
+      if (cardMeritEl) {
+        if (hasFailed) {
+          cardMeritEl.textContent = 'Unranked (Fail)';
+          cardMeritEl.className = 'font-mono font-bold text-rose-600';
+        } else if (finalGpa >= 5.0 && totalMarks > 620) {
+          cardMeritEl.textContent = '1st Place';
+          cardMeritEl.className = 'font-mono font-bold text-emerald-700';
+        } else if (finalGpa >= 4.5) {
+          cardMeritEl.textContent = '4th Place';
+          cardMeritEl.className = 'font-mono font-bold text-emerald-700';
+        } else {
+          cardMeritEl.textContent = '18th Place';
+          cardMeritEl.className = 'font-mono font-bold text-slate-700';
+        }
+      }
+
+      const gateIndicatorEl = document.getElementById('gate-policy-indicator');
+      if (gateIndicatorEl) {
+        if (hasFailed) {
+          gateIndicatorEl.textContent = 'FAILED (Subject < 33)';
+          gateIndicatorEl.className = 'text-rose-400 font-bold';
+        } else {
+          gateIndicatorEl.textContent = '100% Valid (All >= 33)';
+          gateIndicatorEl.className = 'text-emerald-400 font-bold';
+        }
+      }
+    }
+
+    // Attach slider listeners
+    sliders.forEach((s) => s.addEventListener('input', recalculate));
+
+    // Preset button handlers
+    function applyPreset(values: Record<string, number>) {
+      sliders.forEach((slider) => {
+        const sub = slider.dataset.subject!;
+        if (values[sub] !== undefined) {
+          slider.value = values[sub].toString();
+        }
+      });
+      recalculate();
+    }
+
+    document.getElementById('preset-golden')?.addEventListener('click', () => applyPreset(presets.golden));
+    document.getElementById('preset-bonus')?.addEventListener('click', () => applyPreset(presets.bonus));
+    document.getElementById('preset-pass')?.addEventListener('click', () => applyPreset(presets.pass));
+    document.getElementById('preset-fail')?.addEventListener('click', () => applyPreset(presets.fail));
+
+    // Batch Compilation Benchmark simulation
+    const batchBtn = document.getElementById('btn-run-batch');
+    const batchResults = document.getElementById('batch-results');
+    batchBtn?.addEventListener('click', () => {
+      const start = performance.now();
+      // Simulate in-memory compilation of 500 records
+      const dummyRecords = [];
+      for (let i = 0; i < 500; i++) {
+        dummyRecords.push({
+          id: i + 1,
+          scores: [75 + (i % 25), 60 + (i % 35), 80 + (i % 20), 70 + (i % 28), 65 + (i % 30), 80 + (i % 18)],
+          fourth: 85 + (i % 15)
+        });
+      }
+      // Calculate
+      dummyRecords.forEach(r => {
+        let sum = 0;
+        r.scores.forEach(s => {
+          sum += s >= 80 ? 5 : s >= 70 ? 4 : s >= 60 ? 3.5 : s >= 50 ? 3 : s >= 40 ? 2 : s >= 33 ? 1 : 0;
+        });
+        const bonus = Math.max(0, (r.fourth >= 80 ? 5 : 4) - 2.0);
+        return Math.min(5.0, (sum + bonus) / 6.0);
+      });
+      const end = performance.now();
+      const elapsed = (end - start).toFixed(1);
+
+      if (batchResults) {
+        batchResults.classList.remove('hidden');
+        batchResults.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span>500 Students Tabulated:</span>
+            <span class="font-bold text-white">${elapsed} milliseconds</span>
+          </div>
+          <div class="flex items-center justify-between text-[11px] text-slate-400">
+            <span>Execution Throughput:</span>
+            <span class="text-emerald-400 font-bold">~${Math.round(500 / (Math.max(0.1, Number(elapsed)) / 1000)).toLocaleString()} students / sec</span>
+          </div>
+        `;
+      }
+    });
+
+    recalculate();
+  }
+
+  initMarksheetSimulator();
+  document.addEventListener('astro:page-load', initMarksheetSimulator);
+</script>

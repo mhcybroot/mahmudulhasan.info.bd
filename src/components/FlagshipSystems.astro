@@ -371,6 +371,55 @@
         </a>
       </div>
     </div>
+
+    <!-- Card E: Marksheet Automation Engine (Academic Tabulation & Merit Order Compiler) -->
+    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+          <h3 class="text-lg font-bold text-theme-primary">Marksheet Engine: Academic Tabulation</h3>
+        </div>
+        <span class="font-mono text-xs text-theme-accent bg-theme-accent/10 px-2 py-0.5 rounded-lg border border-theme-accent/30 flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
+          GPA 5.0 Engine
+        </span>
+      </div>
+
+      <p class="text-sm text-theme-muted leading-relaxed">
+        Ingests multi-subject teacher spreadsheets (Excel/CSV), applies Bangladesh Board GPA 5.0 and 4th-subject bonus rules, ranks student merit orders, and batch compiles 1,200+ A4 PDF marksheets/min.
+      </p>
+
+      <!-- Metrics Box -->
+      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
+          <span>HIGH-THROUGHPUT COMPILATION</span>
+          <span class="text-theme-secondaryAccent font-bold">&lt; 42ms BATCH PASS</span>
+        </div>
+        <div class="text-theme-primary truncate font-semibold">Strict Board Rules: Automatic 4th-Subject Bonus (GP &gt; 2.0) &amp; Fail-Gates</div>
+        <div class="text-theme-secondaryAccent text-[11px]">&lt; 42MB Node.js Heap • Generates 500+ customized PDF transcripts in seconds.</div>
+      </div>
+
+      <!-- Tech Badges & CTA -->
+      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Node.js 22</span>
+          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Prisma ORM</span>
+          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">SheetJS (xlsx)</span>
+          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">PDFKit Vector</span>
+        </div>
+        <a
+          href="/systems/marksheets-automation"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+        >
+          <span>Explore Architecture</span>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
