@@ -1,0 +1,413 @@
+---
+// Interactive Virtual Classroom & WebRTC Video Simulator
+// Simulates low-latency peer-to-peer classroom conferences, network adaptation, and automated attendance logging
+---
+
+<div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+  <!-- Simulator Header -->
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+    <div>
+      <div class="flex items-center gap-2 text-cyan-300 font-mono text-xs uppercase tracking-wider mb-1 font-bold">
+        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        Interactive WebRTC Telemetry Simulator
+      </div>
+      <h2 class="text-xl sm:text-2xl font-mono font-bold text-white">
+        EduMeet: Multi-Flavor WebRTC Virtual Classroom
+      </h2>
+      <p class="text-xs text-slate-300 mt-1 font-sans">
+        Simulates peer-to-peer video streaming, adaptive bitrate throttling across rural 3G/4G, and live attendance logging.
+      </p>
+    </div>
+
+    <!-- Role Switcher -->
+    <div class="flex items-center gap-1.5 p-1 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono">
+      <button
+        type="button"
+        id="role-teacher"
+        class="px-3 py-1 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold transition-all"
+      >
+        Teacher View
+      </button>
+      <button
+        type="button"
+        id="role-student"
+        class="px-3 py-1 rounded-lg text-slate-400 hover:text-slate-200 transition-all"
+      >
+        Student View
+      </button>
+      <button
+        type="button"
+        id="role-admin"
+        class="px-3 py-1 rounded-lg text-slate-400 hover:text-slate-200 transition-all"
+      >
+        Admin Console
+      </button>
+    </div>
+  </div>
+
+  <!-- Video Conference Grid & Controls -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <!-- Left: Video Grid (8 Cols) -->
+    <div class="lg:col-span-8 space-y-4">
+      <!-- Classroom Video Canvas Mockup -->
+      <div class="rounded-2xl bg-slate-950 border border-slate-800 p-3 sm:p-4 relative overflow-hidden shadow-2xl">
+        <!-- Room Status Bar -->
+        <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-3 px-1 border-b border-slate-800/80 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span class="text-white font-bold">Room: CST-402 // Advanced Data Structures</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-emerald-400" id="stat-latency">Latency: 48ms (P2P)</span>
+            <span class="text-slate-500">|</span>
+            <span class="text-cyan-300 font-bold" id="stat-bitrate">1.85 Mbps (HD)</span>
+          </div>
+        </div>
+
+        <!-- 2x2 Video Tile Layout -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 aspect-video sm:aspect-[16/10]" id="video-grid">
+          <!-- Tile 1: Instructor (Main Stream) -->
+          <div class="relative rounded-xl bg-slate-900 border border-cyan-500/40 overflow-hidden flex flex-col justify-between p-3 group">
+            <div class="flex items-center justify-between text-[11px] font-mono z-10">
+              <span class="px-2 py-0.5 rounded bg-cyan-950/80 text-cyan-300 border border-cyan-500/30 font-bold">
+                Engr. Mahmudul Hasan (Host)
+              </span>
+              <span class="flex items-center gap-1 text-emerald-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <span>1080p</span>
+              </span>
+            </div>
+
+            <!-- Simulated Video Waveform / Avatar -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div class="w-20 h-20 rounded-full bg-cyan-500/10 border-2 border-cyan-500/30 flex items-center justify-center text-3xl font-mono text-cyan-300 shadow-[0_0_20px_rgba(0,240,255,0.2)]">
+                👨‍🏫
+              </div>
+            </div>
+
+            <!-- Audio Meter Wave -->
+            <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 z-10">
+              <div class="flex items-center gap-1">
+                <span class="w-1.5 h-3 bg-cyan-400 rounded-sm animate-pulse"></span>
+                <span class="w-1.5 h-5 bg-cyan-400 rounded-sm animate-pulse" style="animation-delay: 150ms"></span>
+                <span class="w-1.5 h-2 bg-cyan-400 rounded-sm animate-pulse" style="animation-delay: 300ms"></span>
+                <span class="text-slate-300 ml-1">Mic Active</span>
+              </div>
+              <span class="text-[10px] text-slate-500 font-sans">Dhaka Polytechnic</span>
+            </div>
+          </div>
+
+          <!-- Tile 2: Student 1 (Sumiya Akhter) -->
+          <div class="relative rounded-xl bg-slate-900 border border-slate-800 overflow-hidden flex flex-col justify-between p-3">
+            <div class="flex items-center justify-between text-[11px] font-mono z-10">
+              <span class="px-2 py-0.5 rounded bg-slate-950/80 text-slate-200 border border-slate-700">
+                Sumiya Akhter (Roll: 104)
+              </span>
+              <span class="text-emerald-400 text-[10px]">720p</span>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div class="w-16 h-16 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-2xl font-mono text-slate-300">
+                👩‍🎓
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-[10px] font-mono text-slate-500 z-10">
+              <span>Muted</span>
+              <span class="text-slate-400">Sylhet Node</span>
+            </div>
+          </div>
+
+          <!-- Tile 3: Student 2 (Tanvir Ahmed) -->
+          <div class="relative rounded-xl bg-slate-900 border border-slate-800 overflow-hidden flex flex-col justify-between p-3">
+            <div class="flex items-center justify-between text-[11px] font-mono z-10">
+              <span class="px-2 py-0.5 rounded bg-slate-950/80 text-slate-200 border border-slate-700">
+                Tanvir Ahmed (Roll: 108)
+              </span>
+              <span class="text-amber-400 text-[10px]" id="tile-student-res">480p (Adaptive)</span>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div class="w-16 h-16 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-2xl font-mono text-slate-300">
+                🧑‍🎓
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-[10px] font-mono text-slate-500 z-10">
+              <span class="text-amber-400 font-bold flex items-center gap-1">
+                <span>✋</span>
+                <span>Hand Raised</span>
+              </span>
+              <span class="text-slate-400">Barisal Node</span>
+            </div>
+          </div>
+
+          <!-- Tile 4: Presentation / Whiteboard Stream -->
+          <div class="relative rounded-xl bg-slate-900 border border-emerald-500/30 overflow-hidden flex flex-col justify-between p-3">
+            <div class="flex items-center justify-between text-[11px] font-mono z-10">
+              <span class="px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-500/30 font-bold">
+                📊 Lecture Slides &amp; Code
+              </span>
+              <span class="text-emerald-400 text-[10px]">1080p@60fps</span>
+            </div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none font-mono text-center p-4">
+              <div class="text-xs text-cyan-300 font-bold">Binary Search Tree Balance</div>
+              <div class="text-[10px] text-slate-400 mt-1 font-mono">Height(Left) - Height(Right) &le; 1</div>
+            </div>
+            <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 z-10">
+              <span>Screen Share</span>
+              <span class="text-emerald-400">Zero-Drop Stream</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- In-Call Control Bar -->
+        <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-center gap-3">
+          <button
+            type="button"
+            id="ctrl-mic"
+            class="p-2.5 rounded-full bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 transition-colors"
+            title="Toggle Microphone"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            id="ctrl-cam"
+            class="p-2.5 rounded-full bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 transition-colors"
+            title="Toggle Video Camera"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            id="ctrl-hand"
+            class="p-2.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 hover:bg-amber-500/30 transition-colors"
+            title="Raise Hand"
+          >
+            <span class="text-sm">✋</span>
+          </button>
+
+          <button
+            type="button"
+            id="ctrl-share"
+            class="p-2.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors"
+            title="Share Screen"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            class="px-4 py-2 rounded-full bg-rose-600 hover:bg-rose-500 text-white font-mono text-xs font-bold transition-colors ml-2"
+          >
+            Leave Room
+          </button>
+        </div>
+      </div>
+
+      <!-- Network Quality Throttler (Test Simulation) -->
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
+        <div class="flex items-center justify-between text-xs font-mono text-slate-300">
+          <span class="font-bold text-white uppercase">Simulated Network Environment:</span>
+          <span id="current-network-label" class="text-cyan-300 font-bold">Broadband Fiber (Fast)</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2 pt-1">
+          <button
+            type="button"
+            id="net-fiber"
+            class="py-1.5 px-2 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-[11px] font-mono font-bold transition-all text-center"
+          >
+            Fiber 100Mbps
+          </button>
+          <button
+            type="button"
+            id="net-3g"
+            class="py-1.5 px-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-amber-400 text-slate-400 hover:text-amber-300 text-[11px] font-mono transition-all text-center"
+          >
+            Rural 3G Mobile
+          </button>
+          <button
+            type="button"
+            id="net-packetloss"
+            class="py-1.5 px-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-rose-400 text-slate-400 hover:text-rose-300 text-[11px] font-mono transition-all text-center"
+          >
+            15% Packet Loss
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Automated Attendance & Telemetry Log (4 Cols) -->
+    <div class="lg:col-span-4 space-y-4">
+      <!-- Attendance Ledger Box -->
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 shadow-xl">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <span class="text-xs font-mono font-bold text-white uppercase flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            Live Attendance Ledger
+          </span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800/40 font-bold">
+            3 / 3 Present
+          </span>
+        </div>
+
+        <!-- Student Attendance Items -->
+        <div class="space-y-2 text-xs font-mono">
+          <div class="p-2 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+            <div>
+              <span class="text-white font-medium block">Sumiya Akhter</span>
+              <span class="text-[10px] text-slate-500">Roll: 104 • Joined: 10:01 AM</span>
+            </div>
+            <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 font-bold">
+              100% Present
+            </span>
+          </div>
+
+          <div class="p-2 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+            <div>
+              <span class="text-white font-medium block">Tanvir Ahmed</span>
+              <span class="text-[10px] text-slate-500">Roll: 108 • Joined: 10:02 AM</span>
+            </div>
+            <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 font-bold">
+              100% Present
+            </span>
+          </div>
+
+          <div class="p-2 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+            <div>
+              <span class="text-white font-medium block">Farhan Kabir</span>
+              <span class="text-[10px] text-slate-500">Roll: 112 • Joined: 10:05 AM</span>
+            </div>
+            <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 font-bold">
+              95% Present
+            </span>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          id="btn-export-attendance"
+          class="w-full py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-mono font-bold transition-all text-center flex items-center justify-center gap-1.5"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          <span>Export Attendance CSV</span>
+        </button>
+      </div>
+
+      <!-- Live WebRTC Connection Telemetry Box -->
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 text-xs font-mono">
+        <span class="text-slate-400 font-bold block uppercase border-b border-slate-800 pb-1.5">
+          WebRTC Transport Pipeline
+        </span>
+        <div class="flex items-center justify-between text-slate-300">
+          <span>Signaling Server:</span>
+          <span class="text-cyan-300">meet.ffmuc.net</span>
+        </div>
+        <div class="flex items-center justify-between text-slate-300">
+          <span>Audio Codec:</span>
+          <span class="text-emerald-400">Opus 48kHz (Full Band)</span>
+        </div>
+        <div class="flex items-center justify-between text-slate-300">
+          <span>Video Codec:</span>
+          <span class="text-emerald-400">VP8 / H.264 Simcast</span>
+        </div>
+        <div class="flex items-center justify-between text-slate-300">
+          <span>ICE Candidate:</span>
+          <span class="text-slate-400">UDP / STUN / TURN</span>
+        </div>
+        <div class="flex items-center justify-between text-slate-300 pt-1 border-t border-slate-800">
+          <span>Packet Loss Buffer:</span>
+          <span id="stat-packet-loss" class="text-emerald-400 font-bold">0.0% (Clean)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initClassroomSimulator() {
+    const netFiber = document.getElementById('net-fiber');
+    const net3G = document.getElementById('net-3g');
+    const netPacketLoss = document.getElementById('net-packetloss');
+    const netLabel = document.getElementById('current-network-label');
+    const statLatency = document.getElementById('stat-latency');
+    const statBitrate = document.getElementById('stat-bitrate');
+    const statPacketLoss = document.getElementById('stat-packet-loss');
+    const tileStudentRes = document.getElementById('tile-student-res');
+
+    function setNetworkMode(mode: 'fiber' | '3g' | 'loss') {
+      [netFiber, net3G, netPacketLoss].forEach(b => {
+        if (b) b.className = 'py-1.5 px-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white text-[11px] font-mono transition-all text-center';
+      });
+
+      if (mode === 'fiber') {
+        if (netFiber) netFiber.className = 'py-1.5 px-2 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-[11px] font-mono font-bold transition-all text-center';
+        if (netLabel) { netLabel.textContent = 'Broadband Fiber (Fast)'; netLabel.className = 'text-cyan-300 font-bold'; }
+        if (statLatency) statLatency.textContent = 'Latency: 48ms (P2P)';
+        if (statBitrate) { statBitrate.textContent = '1.85 Mbps (HD)'; statBitrate.className = 'text-cyan-300 font-bold'; }
+        if (statPacketLoss) { statPacketLoss.textContent = '0.0% (Clean)'; statPacketLoss.className = 'text-emerald-400 font-bold'; }
+        if (tileStudentRes) { tileStudentRes.textContent = '720p (Normal)'; tileStudentRes.className = 'text-emerald-400 text-[10px]'; }
+      } else if (mode === '3g') {
+        if (net3G) net3G.className = 'py-1.5 px-2 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[11px] font-mono font-bold transition-all text-center';
+        if (netLabel) { netLabel.textContent = 'Rural 3G Mobile (Constrained)'; netLabel.className = 'text-amber-300 font-bold'; }
+        if (statLatency) statLatency.textContent = 'Latency: 142ms (Relayed)';
+        if (statBitrate) { statBitrate.textContent = '380 Kbps (SD Adaptive)'; statBitrate.className = 'text-amber-400 font-bold'; }
+        if (statPacketLoss) { statPacketLoss.textContent = '1.8% (FEC Recovered)'; statPacketLoss.className = 'text-amber-400 font-bold'; }
+        if (tileStudentRes) { tileStudentRes.textContent = '360p (Adaptive Stream)'; tileStudentRes.className = 'text-amber-400 text-[10px]'; }
+      } else {
+        if (netPacketLoss) netPacketLoss.className = 'py-1.5 px-2 rounded-lg bg-rose-500/20 border border-rose-500/40 text-rose-300 text-[11px] font-mono font-bold transition-all text-center';
+        if (netLabel) { netLabel.textContent = '15% Severe Packet Loss Spike'; netLabel.className = 'text-rose-300 font-bold'; }
+        if (statLatency) statLatency.textContent = 'Latency: 280ms (Jitter Buffer)';
+        if (statBitrate) { statBitrate.textContent = '120 Kbps (Audio Priority)'; statBitrate.className = 'text-rose-400 font-bold'; }
+        if (statPacketLoss) { statPacketLoss.textContent = '14.8% (Audio-Only Fallback)'; statPacketLoss.className = 'text-rose-400 font-bold'; }
+        if (tileStudentRes) { tileStudentRes.textContent = 'Audio Fallback (Freeze)'; tileStudentRes.className = 'text-rose-400 text-[10px] font-bold'; }
+      }
+    }
+
+    netFiber?.addEventListener('click', () => setNetworkMode('fiber'));
+    net3G?.addEventListener('click', () => setNetworkMode('3g'));
+    netPacketLoss?.addEventListener('click', () => setNetworkMode('loss'));
+
+    // Mic and Camera toggles
+    const btnMic = document.getElementById('ctrl-mic');
+    let micOn = true;
+    btnMic?.addEventListener('click', () => {
+      micOn = !micOn;
+      btnMic.className = micOn 
+        ? 'p-2.5 rounded-full bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 transition-colors'
+        : 'p-2.5 rounded-full bg-rose-600/30 text-rose-300 border border-rose-500/50 transition-colors';
+    });
+
+    const btnCam = document.getElementById('ctrl-cam');
+    let camOn = true;
+    btnCam?.addEventListener('click', () => {
+      camOn = !camOn;
+      btnCam.className = camOn
+        ? 'p-2.5 rounded-full bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 transition-colors'
+        : 'p-2.5 rounded-full bg-rose-600/30 text-rose-300 border border-rose-500/50 transition-colors';
+    });
+
+    const btnExport = document.getElementById('btn-export-attendance');
+    btnExport?.addEventListener('click', () => {
+      btnExport.textContent = 'Exported to CSV!';
+      setTimeout(() => {
+        btnExport.innerHTML = `
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          <span>Export Attendance CSV</span>
+        `;
+      }, 2000);
+    });
+  }
+
+  initClassroomSimulator();
+  document.addEventListener('astro:page-load', initClassroomSimulator);
+</script>

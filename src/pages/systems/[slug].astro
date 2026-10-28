@@ -9,6 +9,7 @@ import WorkstationTelemetrySimulator from '../../components/case-study/Workstati
 import SwiftPdfSimulator from '../../components/case-study/SwiftPdfSimulator.astro';
 import SmartHomeVisualizer from '../../components/case-study/SmartHomeVisualizer.astro';
 import MarksheetGradeSimulator from '../../components/case-study/MarksheetGradeSimulator.astro';
+import VirtualClassroomSimulator from '../../components/case-study/VirtualClassroomSimulator.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -31,6 +32,7 @@ const isMonitor = data.slug === 'skylink-monitor';
 const isSwift = data.slug === 'swift-pdf-editor';
 const isHomesync = data.slug === 'homesync-iot';
 const isMarksheet = data.slug === 'marksheets-automation';
+const isEdumeet = data.slug === 'edumeet-webrtc';
 
 let pageDescription = "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
 if (isPms) {
@@ -45,6 +47,8 @@ if (isPms) {
   pageDescription = "Interactive 3D Digital Twin & Smart IoT Configurator. Real-time 60 FPS WebGL room visualizer with dynamic Kelvin lighting shaders, security radar cones, and Matter/Zigbee mesh.";
 } else if (isMarksheet) {
   pageDescription = "Academic Result Tabulation & Automated Marksheet Engine. Ingests teacher spreadsheets, enforces Bangladesh board GPA 5.0 and 4th subject rules, and compiles batch print-ready PDFs.";
+} else if (isEdumeet) {
+  pageDescription = "Low-Latency Virtual Classroom & WebRTC Video Conferencing Platform. Built in Flutter with multi-flavor APKs, adaptive 3G/4G bandwidth throttling, and live attendance logging.";
 }
 ---
 
@@ -138,6 +142,10 @@ if (isPms) {
           ) : isMarksheet ? (
             <>
               High-throughput academic examination tabulation and merit compiler engineered with <strong class="text-white font-semibold">Node.js 22, Express &amp; Prisma ORM</strong>. Automatically ingests multi-subject Excel marks rosters, computes official <strong class="text-emerald-300 font-semibold">GPA 5.0 scales and 4th-subject bonus points</strong>, and batch compiles hundreds of print-ready A4 PDF marksheets with zero human arithmetic mistakes.
+            </>
+          ) : isEdumeet ? (
+            <>
+              Low-latency virtual classroom and WebRTC live lecture conferencing suite engineered in <strong class="text-white font-semibold">Flutter 3.29 &amp; Dart</strong>. Features a multi-flavor architecture generating isolated <strong class="text-emerald-300 font-semibold">Student, Teacher &amp; Admin APKs</strong>, with adaptive 3G/4G bandwidth downscaling (VP8/H.264), automated in-call attendance logging, and sub-95ms delay.
             </>
           ) : (
             <>
@@ -239,6 +247,21 @@ if (isPms) {
                 <span class="text-emerald-400 font-bold">✓</span> 100% Offline (Zero Cloud Dependency)
               </div>
             </>
+          ) : isEdumeet ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Multi-Flavor APKs (Student/Teacher/Admin)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Sub-95ms WebRTC Peer-to-Peer Latency
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Adaptive Bitrate Downscaling (3G/4G)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Real-Time In-Call Attendance Logging
+              </div>
+            </>
           ) : (
             <>
               <div class="flex items-center gap-1.5">
@@ -276,6 +299,8 @@ if (isPms) {
         <SmartHomeVisualizer />
       ) : isMarksheet ? (
         <MarksheetGradeSimulator />
+      ) : isEdumeet ? (
+        <VirtualClassroomSimulator />
       ) : (
         <BeforeAfterSlider />
       )}
@@ -301,6 +326,8 @@ if (isPms) {
             ? "Built to eliminate guesswork in smart home installations and deliver instant interactive customer approvals."
             : isMarksheet
             ? "Built to eliminate teacher calculation errors and compress 3-week exam grading into a single 30-minute automated pass."
+            : isEdumeet
+            ? "Built to deliver crystal-clear distance lectures to rural students over unstable 3G/4G with zero roll-call time waste."
             : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
@@ -513,6 +540,41 @@ if (isPms) {
               <h3 class="font-mono font-bold text-white text-base">Operators &amp; Administrative Staff</h3>
               <p class="text-xs text-slate-200 font-sans leading-relaxed">
                 Replaces days of manual Microsoft Word formatting with 1-click batch PDF compilation. Generates 500+ customized student transcripts formatted for standard A4 printing with school crests and signature seals.
+              </p>
+            </div>
+          </>
+        ) : isEdumeet ? (
+          <>
+            <!-- Use Case 1: Polytechnics & Universities -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🎓
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Polytechnics &amp; Colleges</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Connects hundreds of engineering and diploma students across Bangladesh with adaptive VP8 downscaling to 380 Kbps, keeping lectures active on unstable rural 3G/4G connections with zero dropped calls.
+              </p>
+            </div>
+
+            <!-- Use Case 2: Instructors & Faculty -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                👨‍🏫
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Instructors &amp; Faculty</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Eliminates 20 minutes of daily manual roll-call overhead with automated in-call attendance logging. Includes integrated screen sharing, whiteboard streaming, and interactive hand-raising priority queues.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Academic Administration -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🏛️
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Academic Deans &amp; IT Admins</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Deploys isolated target APKs for Students, Teachers, and Admins from a unified Flutter codebase. Monitors live classroom load, verifies faculty teaching hours, and exports audit-ready attendance rosters.
               </p>
             </div>
           </>
@@ -923,6 +985,69 @@ if (isPms) {
             </table>
           </div>
         </div>
+      ) : isEdumeet ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+              Engineering Benchmark: EduMeet WebRTC vs. Generic Conferencing
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured across simulated 3G/4G cellular connections in Bangladesh with 15% random packet jitter.
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-cyan-300 bg-cyan-950/40">EduMeet (Flutter + WebRTC)</th>
+                  <th class="py-3 px-4 font-semibold">Commercial Zoom / MS Teams</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Operational Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y border-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Min Bandwidth Threshold</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">380 Kbps (Adaptive Downscale)</td>
+                  <td class="py-3.5 px-4 text-slate-400">1,500 – 3,000 Kbps</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">75% Lower Data Usage</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">End-to-End Audio Delay</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 95 ms (P2P Opus 48kHz)</td>
+                  <td class="py-3.5 px-4 text-slate-400">240 ms – 480 ms (Cloud Relays)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Lecture Interruption</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Session Timeout Limit</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Unlimited (Federated Bridge)</td>
+                  <td class="py-3.5 px-4 text-slate-400">40-minute hard disconnect (Free)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Continuous Full Lectures</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">In-Call Attendance Logging</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Automated Firestore Heartbeat</td>
+                  <td class="py-3.5 px-4 text-slate-400">Manual teacher roll call (20 mins)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">100% Verified Attendance</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Build Architecture</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">3 Dedicated Target APKs</td>
+                  <td class="py-3.5 px-4 text-slate-400">Single bloated generic app</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Clutter-Free Student UI</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Mobile RAM Footprint</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 48 MB RAM</td>
+                  <td class="py-3.5 px-4 text-slate-400">180 MB – 320 MB RAM</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Runs on Entry-Level Phones</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <BenchmarkMatrix />
       )}
@@ -952,6 +1077,8 @@ if (isPms) {
               ? "Engineered in React 19 & TypeScript with Three.js WebGL shaders, React Three Fiber GPU loops, and Matter 3.0 mesh state."
               : isMarksheet
               ? "Engineered in Node.js 22 & Express with Prisma ORM, SheetJS (xlsx) normalization, and PDFKit vector compilation."
+              : isEdumeet
+              ? "Engineered in Flutter 3.29 & Dart 3.11 with Jitsi Meet WebRTC SDK, Flavorizr multi-target builds, and Cloud Firestore."
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
@@ -1702,6 +1829,128 @@ if (isPms) {
                 </p>
               </button>
             </>
+          ) : isEdumeet ? (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-flavor-ingress"
+                data-node-title="Flavorizr Multi-Target Architecture Dispatch"
+                data-node-badge="Phase 1: Multi-Target Build Dispatch"
+                data-node-desc="Initializes Student, Teacher, or Admin UI states and permission bounds based on compile-time Gradle and iOS flavor flags."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // FLUTTER FLAVOR</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Multi-Flavor Target Dispatch
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Runs isolated mobile configurations for Students, Teachers, and Admins from one codebase.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-webrtc-bridge"
+                data-node-title="Jitsi Meet WebRTC Federation Transport"
+                data-node-badge="Phase 2: Signaling & SDP Handshake"
+                data-node-desc="Exchanges SDP offer/answers via WebSocket signaling over meet.ffmuc.net, eliminating default 5-minute timeout disconnects."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // WEBRTC BRIDGE</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  WebRTC Signaling Bridge
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Establishes low-latency peer connections without 5-minute public cloud session drops.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-adaptive-video"
+                data-node-title="VP8/H.264 Dynamic Simulcast Downscaling"
+                data-node-badge="Phase 3: Adaptive Video Transcoding"
+                data-node-desc="Continuously monitors packet loss and round-trip time, dynamically dropping from 1080p to 360p or audio-only to prevent call drops on 3G."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // ADAPTIVE BITRATE</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Adaptive Video Downscaling
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Throttles bandwidth from 2Mbps down to 380Kbps to maintain lectures on spotty mobile links.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-opus-audio"
+                data-node-title="Full-Band Opus 48kHz Acoustic Pipeline"
+                data-node-badge="Phase 4: Hardware Audio DSP"
+                data-node-desc="Hardware-accelerated acoustic echo cancellation (AEC) and noise suppression (ANS) prioritizing teacher voice clarity over low jitter buffers."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // OPUS AUDIO DSP</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Opus Acoustic Pipeline
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Suppresses ambient classroom echo and preserves voice clarity under 15% packet loss.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-firestore-heartbeat"
+                data-node-title="Cloud Firestore Real-Time Session Heartbeat"
+                data-node-badge="Phase 5: Automated State Sync"
+                data-node-desc="Streams 30-second peer connection heartbeats, active talk-time metrics, and hand-raise queues directly into Cloud Firestore."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // FIRESTORE SYNC</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Firestore Real-Time Heartbeat
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Synchronizes raise-hand queues and live student connection status with zero latency.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-attendance-ledger"
+                data-node-title="Automated Roll-Call Attendance Roster Egress"
+                data-node-badge="Phase 6: Attendance Verification"
+                data-node-desc="Aggregates student join timestamps, active participation durations, and disconnection events into audit-ready CSV/Excel files."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // ATTENDANCE ROSTER</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Automated Attendance Egress
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Eliminates manual roll calls by compiling accurate student lecture attendance logs.
+                </p>
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -1846,6 +2095,8 @@ if (isPms) {
                 ? "Interactive Shaders: Dynamic Kelvin Ambient Lighting Compositor"
                 : isMarksheet
                 ? "Academic Evaluation Core: Board-Compliant GPA 5.0 & Merit Order Compiler"
+                : isEdumeet
+                ? "WebRTC Gateway & Signaling Core: Jitsi Meet Server Routing & Heartbeat"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
@@ -1861,6 +2112,8 @@ if (isPms) {
                 ? <span>Directly from <code class="text-cyan-300 font-mono">src/components/ThreeCanvas/FloorplanLightingShader.ts</code> calculating Kelvin to linear RGB for WebGL shaders.</span>
                 : isMarksheet
                 ? <span>Directly from <code class="text-cyan-300 font-mono">backend/seed.js</code> showing in-memory tie-breaking sort and fail-gate filtering.</span>
+                : isEdumeet
+                ? <span>Directly from <code class="text-cyan-300 font-mono">lib/config/jitsi_config.dart</code> showing federated signaling routing to bypass public 5-minute timeout disconnects.</span>
                 : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
@@ -1881,10 +2134,10 @@ if (isPms) {
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               <span class="ml-2 text-slate-200 font-medium">
-                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : "src/engine/enhancer.rs"}
+                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : "src/engine/enhancer.rs"}
               </span>
             </div>
-            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : "rust • 105 lines"}</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : "rust • 105 lines"}</span>
           </div>
 
           {isPms ? (
@@ -2073,6 +2326,42 @@ if (isPms) {
         &#125;);
     &#125;
 &#125;</code></pre>
+          ) : isEdumeet ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-slate-400">// WebRTC Gateway &amp; Signaling Configuration: Bypasses public 5-minute timeout disconnects</span>
+<span class="text-rose-400">class</span> <span class="text-cyan-300">JitsiConfig</span> &#123;
+  <span class="text-slate-400">// Points to dedicated open-source relay to ensure uninterrupted lectures</span>
+  <span class="text-rose-400">static const</span> <span class="text-amber-300">String</span> serverUrl = <span class="text-emerald-300">'https://meet.ffmuc.net'</span>;
+&#125;
+
+<span class="text-slate-400">// Dynamic WebRTC Room Ingress with Role Authorization &amp; Feature Gate</span>
+<span class="text-rose-400">void</span> <span class="text-cyan-300">joinClassroomConference</span>(&#123;
+  <span class="text-rose-400">required</span> <span class="text-amber-300">String</span> roomName,
+  <span class="text-rose-400">required</span> <span class="text-amber-300">AppUser</span> user,
+  <span class="text-amber-300">bool</span> isTeacher = <span class="text-rose-400">false</span>,
+&#125;) &#123;
+  <span class="text-rose-400">final</span> jitsiMeet = <span class="text-cyan-300">JitsiMeet</span>();
+
+  <span class="text-rose-400">var</span> options = <span class="text-cyan-300">JitsiMeetConferenceOptions</span>(
+    serverURL: <span class="text-cyan-300">JitsiConfig</span>.serverUrl,
+    room: roomName,
+    configOverrides: &#123;
+      <span class="text-emerald-300">"startWithAudioMuted"</span>: !isTeacher,
+      <span class="text-emerald-300">"startWithVideoMuted"</span>: !isTeacher,
+      <span class="text-emerald-300">"subject"</span>: <span class="text-emerald-300">"Live Class Session"</span>,
+    &#125;,
+    featureFlags: &#123;
+      <span class="text-emerald-300">"welcomepage.enabled"</span>: <span class="text-rose-400">false</span>,
+      <span class="text-emerald-300">"recording.enabled"</span>: isTeacher,
+      <span class="text-emerald-300">"live-streaming.enabled"</span>: isTeacher,
+    &#125;,
+    userInfo: <span class="text-cyan-300">JitsiMeetUserInfo</span>(
+      displayName: user.name,
+      email: user.email,
+    ),
+  );
+
+  jitsiMeet.<span class="text-cyan-300">join</span>(options);
+&#125;</code></pre>
           ) : (
             <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub fn</span> <span class="text-cyan-300">apply_adaptive_sharpen</span>(img: &<span class="text-amber-300">RgbaImage</span>, strength: <span class="text-rose-400">f32</span>) -&gt; <span class="text-amber-300">RgbaImage</span> &#123;
     <span class="text-slate-400">// Clamp strength & compute FidelityFX peak negative cross weight</span>
@@ -2132,6 +2421,8 @@ if (isPms) {
                 ? "Launch the React 19 + Three.js configurator locally or run the Vite production build."
                 : isMarksheet
                 ? "Run the Prisma migration and seed local SQLite marksheet database or launch the React frontend."
+                : isEdumeet
+                ? "Fetch Flutter packages, run Flavorizr build targets for Android/iOS, or launch the Teacher dashboard."
                 : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
@@ -2198,6 +2489,17 @@ if (isPms) {
               <p class="text-emerald-400">cd ../backend &amp;&amp; npx prisma db push &amp;&amp; node seed.js</p>
               <p class="text-slate-400 mt-2"># 4. Launch server &amp; web interface</p>
               <p class="text-emerald-400">npm start</p>
+            </>
+          ) : isEdumeet ? (
+            <>
+              <p class="text-slate-400"># 1. Clone JitsiMeet virtual classroom repository</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/JitsiMeet.git &amp;&amp; cd JitsiMeet</p>
+              <p class="text-slate-400 mt-2"># 2. Fetch Flutter packages and configure flavor assets</p>
+              <p class="text-emerald-400">flutter pub get</p>
+              <p class="text-slate-400 mt-2"># 3. Build Student Flavor APK (release target)</p>
+              <p class="text-emerald-400">flutter build apk --flavor student -t lib/main_student.dart</p>
+              <p class="text-slate-400 mt-2"># 4. Launch Teacher Flavor in local simulator or device</p>
+              <p class="text-emerald-400">flutter run --flavor teacher -t lib/main_teacher.dart</p>
             </>
           ) : (
             <>
