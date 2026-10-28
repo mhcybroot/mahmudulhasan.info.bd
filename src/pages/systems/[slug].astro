@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import TelemetryHud from '../../components/case-study/TelemetryHud.astro';
 import BeforeAfterSlider from '../../components/case-study/BeforeAfterSlider.astro';
 import ParkingGateSimulator from '../../components/case-study/ParkingGateSimulator.astro';
+import BiometricPunchSimulator from '../../components/case-study/BiometricPunchSimulator.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -21,10 +22,14 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { data } = entry;
 const isPms = data.slug === 'pms-v2';
+const isHrms = data.slug === 'skylink-hrms';
 
-const pageDescription = isPms
-  ? "Autonomous Smart Parking & Barrier Gate Automation platform. Sub-second gate opening (<0.84s), anti-passback security, and zero revenue leakage built with Rust and Flutter."
-  : "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
+let pageDescription = "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
+if (isPms) {
+  pageDescription = "Autonomous Smart Parking & Barrier Gate Automation platform. Sub-second gate opening (<0.84s), anti-passback security, and zero revenue leakage built with Rust and Flutter.";
+} else if (isHrms) {
+  pageDescription = "Enterprise Biometric Attendance & Automated Payroll Platform. Ingests 10,000+ punches/min with Java 21 Project Loom virtual threads, ZKTeco ADMS, and zero salary errors.";
+}
 ---
 
 <Layout
@@ -98,6 +103,10 @@ const pageDescription = isPms
             <>
               Commercial parking automation and revenue protection platform engineered with <strong class="text-white font-semibold">Rust (Axum &amp; Tokio)</strong> and <strong class="text-white font-semibold">Flutter</strong>. Opens barrier gates in <strong class="text-emerald-300 font-semibold">&lt; 0.84 seconds</strong>, stops manual cash leakage, and guarantees 100% operational uptime.
             </>
+          ) : isHrms ? (
+            <>
+              Enterprise biometric attendance and automated payroll platform engineered with <strong class="text-white font-semibold">Java 21 (Project Loom)</strong> and <strong class="text-white font-semibold">Spring Boot 3.4</strong>. Ingests raw HTTP push telemetry from ZKTeco biometric terminals during peak shift rush hours, with zero lost punches and 1-click salary disbarment.
+            </>
           ) : (
             <>
               Turn blurry, low-resolution photos into <strong class="text-white font-semibold">crystal-clear HD and 4K visuals</strong> in milliseconds. 
@@ -121,6 +130,21 @@ const pageDescription = isPms
               </div>
               <div class="flex items-center gap-1.5">
                 <span class="text-emerald-400 font-bold">✓</span> 100% Offline-Capable Gate Lanes
+              </div>
+            </>
+          ) : isHrms ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> 10,000+ Punches / Minute Ingestion
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Zero Lost Punches Under Shift Rush
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Direct ZKTeco ADMS Protocol Sync
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> 1-Click Automated Monthly Payroll
               </div>
             </>
           ) : (
@@ -150,6 +174,8 @@ const pageDescription = isPms
     <section class="space-y-4">
       {isPms ? (
         <ParkingGateSimulator />
+      ) : isHrms ? (
+        <BiometricPunchSimulator />
       ) : (
         <BeforeAfterSlider />
       )}
@@ -165,6 +191,8 @@ const pageDescription = isPms
         <p class="text-sm text-slate-300 mt-1 font-sans">
           {isPms 
             ? "Built to stop revenue theft and eliminate vehicle entry queues across commercial properties."
+            : isHrms
+            ? "Built to eliminate shift-change attendance chaos and reduce month-end payroll reconciliation from days to minutes."
             : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
@@ -202,6 +230,41 @@ const pageDescription = isPms
               <h3 class="font-mono font-bold text-white text-base">Corporate Campuses &amp; Communities</h3>
               <p class="text-xs text-slate-200 font-sans leading-relaxed">
                 Provides instant barrier access for whitelisted executive and resident vehicles. Built-in anti-passback rules block unauthorized tailgating and shared parking pass misuse.
+              </p>
+            </div>
+          </>
+        ) : isHrms ? (
+          <>
+            <!-- Use Case 1: RMG Factories & Manufacturing -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🏭
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Manufacturing Plants &amp; RMG</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Handles thousands of factory workers clocking in at 9:00 AM shift change simultaneously. Eliminates manual queue bottlenecks, prevents proxy punches, and accurately calculates overtime hours.
+              </p>
+            </div>
+
+            <!-- Use Case 2: Multi-Branch Enterprises -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                🌐
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Multi-Branch Corporate Enterprises</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Aggregates real-time attendance across dozens of distributed branch offices into a central PostgreSQL ledger with automated employee shift scheduling and supervisor approval workflows.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Finance & Payroll -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                💰
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Finance &amp; Payroll Departments</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Replaces 4 to 7 days of manual spreadsheet reconciliations with 1-click automated salary calculation. Generates bank-ready salary disbarment advice sheets, tax withholdings, and instant employee payslips.
               </p>
             </div>
           </>
@@ -303,6 +366,63 @@ const pageDescription = isPms
             </table>
           </div>
         </div>
+      ) : isHrms ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+              Engineering Benchmark: Skylink HRMS vs. Legacy HR Systems
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured during simulated 9:00 AM factory shift changes across 50 active ZKTeco biometric terminals.
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-cyan-300 bg-cyan-950/40">Skylink HRMS (Java 21 Loom)</th>
+                  <th class="py-3 px-4 font-semibold">Legacy HR Software (PHP / Python)</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Operational Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Shift-Change Rush Capacity</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">10,000+ Punches / Min</td>
+                  <td class="py-3.5 px-4 text-slate-400">Drops connections @ 150 / min</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Dropped Records</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Telemetry Ingestion Latency</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 14ms per punch</td>
+                  <td class="py-3.5 px-4 text-slate-400">1,200ms - 4,500ms</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Instant Punch Feedback</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Concurrency Architecture</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Project Loom Virtual Threads</td>
+                  <td class="py-3.5 px-4 text-slate-400">OS Thread per client (Blocking)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Near-Zero Memory Overhead</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Month-End Salary Run Speed</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 5 seconds (1-Click)</td>
+                  <td class="py-3.5 px-4 text-slate-400">4 to 7 days manual Excel work</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">99% Time Saved for HR</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Double-Punch Mitigation</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">3-Minute Sliding Window Cache</td>
+                  <td class="py-3.5 px-4 text-slate-400">Requires manual HR correction</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Worker Disputes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <BenchmarkMatrix />
       )}
@@ -322,6 +442,8 @@ const pageDescription = isPms
           <p class="text-xs text-slate-300 mt-1 font-sans">
             {isPms
               ? "Engineered in pure Rust 2024 (Axum & Tokio) with SeaORM dynamic pools, ZKTeco ADMS daemons, and Flutter BLoC."
+              : isHrms
+              ? "Engineered in modern Java 21 with Project Loom virtual threads, Spring Boot 3.4, ZKTeco ADMS, and PostgreSQL 16."
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
@@ -462,6 +584,128 @@ const pageDescription = isPms
                 </p>
               </button>
             </>
+          ) : isHrms ? (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-adms"
+                data-node-title="ZKTeco ADMS Hardware Terminal Push Ingress"
+                data-node-badge="Phase 1: Device Telemetry Ingress"
+                data-node-desc="Captures raw HTTP push POST packets from biometric terminals over port 8080 without intermediate driver dependencies."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // ADMS INGRESS</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  ZKTeco Hardware Push
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Direct raw HTTP push telemetry parsing terminal serial number, punch timestamp, and employee PIN.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-loom"
+                data-node-title="Java 21 Project Loom Virtual Thread Dispatcher"
+                data-node-badge="Phase 2: High-Concurrency Workers"
+                data-node-desc="Spins up lightweight non-blocking virtual threads for every device socket, handling thousands of simultaneous punches."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // CONCURRENCY</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Project Loom Virtual Threads
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Non-blocking I/O threads scaling to 10k+ punches/min with zero OS thread starvation.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-dedup"
+                data-node-title="Sliding-Window Double Punch Filter"
+                data-node-badge="Phase 3: Data Cleansing"
+                data-node-desc="Merges duplicate punches within a 3-minute sliding window, preserving the true entry time without duplicate penalties."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // FILTER</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  De-Duplication Engine
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  In-memory cache filtering duplicate finger taps from anxious employees during rush hour.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-jpa"
+                data-node-title="PostgreSQL 16 Composite B-Tree Indexed Ledger"
+                data-node-badge="Phase 4: Persistence Layer"
+                data-node-desc="Stores attendance records with composite indexes across employee ID and timestamps for sub-millisecond report generation."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // DB LEDGER</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  PostgreSQL 16 B-Tree Index
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  ACID-compliant relational storage supporting millions of historical punch records with zero slowdown.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-payroll"
+                data-node-title="Automated Payroll & Overtime Calculator"
+                data-node-badge="Phase 5: Financial Engine"
+                data-node-desc="Evaluates grace periods, late penalties, leave quotas, and overtime bonuses to produce 1-click bank advice sheets."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // PAYROLL</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Salary &amp; Overtime Engine
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Computes net salary, tax deductions, and bank disbursement exports in under 5 seconds.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-websocket"
+                data-node-title="WebSocket Real-Time Dashboard & Notification Hub"
+                data-node-badge="Phase 6: Live Telemetry"
+                data-node-desc="Broadcasts live employee presence events to the HR dashboard and sends automated SMS/WhatsApp alerts."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // LIVE FEED</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Live HR Dashboard &amp; Alerts
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Real-time presence charts, punctuality scores, and automated mobile check-in alerts.
+                </p>
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -596,11 +840,15 @@ const pageDescription = isPms
               <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
               {isPms 
                 ? "Hardware Protocol Engine: ZKTeco ADMS & Barrier Relay Latch" 
+                : isHrms
+                ? "Biometric Protocol Handler: Raw ADMS HTTP Telemetry Ingestion"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
               {isPms
                 ? <span>Directly from <code class="text-cyan-300 font-mono">backend/src/service/zk_adms_service.rs</code> handling raw push packets with zero middleware.</span>
+                : isHrms
+                ? <span>Directly from <code class="text-cyan-300 font-mono">src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java</code> handling Project Loom push ingestion.</span>
                 : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
@@ -621,10 +869,10 @@ const pageDescription = isPms
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               <span class="ml-2 text-slate-200 font-medium">
-                {isPms ? "backend/src/service/zk_adms_service.rs" : "src/engine/enhancer.rs"}
+                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : "src/engine/enhancer.rs"}
               </span>
             </div>
-            <span class="text-slate-300">{isPms ? "rust • 94 lines" : "rust • 105 lines"}</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : "rust • 105 lines"}</span>
           </div>
 
           {isPms ? (
@@ -647,6 +895,30 @@ const pageDescription = isPms
             <span class="text-amber-300">Ok</span>(<span class="text-emerald-300">"OK"</span>)
         &#125;
         _ =&gt; <span class="text-amber-300">Ok</span>(<span class="text-emerald-300">"OK"</span>),
+    &#125;
+&#125;</code></pre>
+          ) : isHrms ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-amber-300">@RestController</span>
+<span class="text-amber-300">@RequestMapping</span>(<span class="text-emerald-300">"/iclock"</span>)
+<span class="text-rose-400">public class</span> <span class="text-cyan-300">AdmsController</span> &#123;
+
+    <span class="text-rose-400">private final</span> <span class="text-amber-300">AdmsService</span> admsService;
+
+    <span class="text-amber-300">@PostMapping</span>(<span class="text-emerald-300">"/cdata"</span>)
+    <span class="text-rose-400">public</span> <span class="text-amber-300">ResponseEntity</span>&lt;<span class="text-amber-300">String</span>&gt; <span class="text-cyan-300">receiveCData</span>(
+            <span class="text-amber-300">@RequestParam</span>(<span class="text-emerald-300">"SN"</span>) <span class="text-amber-300">String</span> serialNumber,
+            <span class="text-amber-300">@RequestParam</span>(<span class="text-emerald-300">"table"</span>) <span class="text-amber-300">String</span> table,
+            <span class="text-amber-300">@RequestBody</span> <span class="text-amber-300">String</span> rawPayload) &#123;
+
+        <span class="text-slate-400">// Project Loom non-blocking virtual thread processing</span>
+        <span class="text-rose-400">if</span> (<span class="text-emerald-300">"ATTLOG"</span>.<span class="text-cyan-300">equalsIgnoreCase</span>(table)) &#123;
+            admsService.<span class="text-cyan-300">processAttendanceLog</span>(serialNumber, rawPayload);
+        &#125; <span class="text-rose-400">else if</span> (<span class="text-emerald-300">"OPERLOG"</span>.<span class="text-cyan-300">equalsIgnoreCase</span>(table)) &#123;
+            admsService.<span class="text-cyan-300">processDeviceOperationLog</span>(serialNumber, rawPayload);
+        &#125;
+
+        <span class="text-slate-400">// Immediate ADMS protocol ACK response back to terminal</span>
+        <span class="text-rose-400">return</span> <span class="text-amber-300">ResponseEntity</span>.<span class="text-cyan-300">ok</span>(<span class="text-emerald-300">"OK"</span>);
     &#125;
 &#125;</code></pre>
           ) : (
@@ -698,6 +970,8 @@ const pageDescription = isPms
             <p class="text-xs text-slate-300 font-sans mt-0.5">
               {isPms
                 ? "Run the backend test suite locally or launch the entire multi-container environment via Docker Compose."
+                : isHrms
+                ? "Run the Gradle test suite locally or launch the Spring Boot application with Java 21."
                 : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
@@ -713,6 +987,15 @@ const pageDescription = isPms
               <p class="text-emerald-400">cd backend &amp;&amp; cargo test</p>
               <p class="text-slate-400 mt-2"># 3. Launch full stack via Docker Compose (Rust API + PostgreSQL + Flutter Nginx)</p>
               <p class="text-emerald-400">docker-compose up --build -d</p>
+            </>
+          ) : isHrms ? (
+            <>
+              <p class="text-slate-400"># 1. Clone Skylink HRMS repository</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/AttendanceSystemZk.git &amp;&amp; cd AttendanceSystemZk</p>
+              <p class="text-slate-400 mt-2"># 2. Run Gradle test suite with Java 21</p>
+              <p class="text-emerald-400">./gradlew test</p>
+              <p class="text-slate-400 mt-2"># 3. Launch Spring Boot application (port 8080)</p>
+              <p class="text-emerald-400">./gradlew bootRun</p>
             </>
           ) : (
             <>
