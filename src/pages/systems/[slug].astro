@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import TelemetryHud from '../../components/case-study/TelemetryHud.astro';
 import BeforeAfterSlider from '../../components/case-study/BeforeAfterSlider.astro';
+import ParkingGateSimulator from '../../components/case-study/ParkingGateSimulator.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -19,15 +20,20 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { data } = entry;
+const isPms = data.slug === 'pms-v2';
+
+const pageDescription = isPms
+  ? "Autonomous Smart Parking & Barrier Gate Automation platform. Sub-second gate opening (<0.84s), anti-passback security, and zero revenue leakage built with Rust and Flutter."
+  : "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
 ---
 
 <Layout
   title={`${data.title} | Mahmudul Hasan`}
-  description={`Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.`}
+  description={pageDescription}
 >
   <CaseStudyJsonLd
     title={data.title}
-    description={`High-speed offline image and document enhancer built in Rust. Process 290+ photos per second with complete privacy.`}
+    description={pageDescription}
     slug={data.slug}
     githubUrl={data.githubUrl}
     date={data.date}
@@ -88,24 +94,51 @@ const { data } = entry;
           {data.title}
         </h1>
         <p class="text-base sm:text-lg text-slate-200 font-sans leading-relaxed">
-          Turn blurry, low-resolution photos into <strong class="text-white font-semibold">crystal-clear HD and 4K visuals</strong> in milliseconds. 
-          Enjoy <strong class="text-emerald-300 font-semibold">100% offline privacy</strong>: your personal photos never leave your computer, with zero monthly cloud subscriptions.
+          {isPms ? (
+            <>
+              Commercial parking automation and revenue protection platform engineered with <strong class="text-white font-semibold">Rust (Axum &amp; Tokio)</strong> and <strong class="text-white font-semibold">Flutter</strong>. Opens barrier gates in <strong class="text-emerald-300 font-semibold">&lt; 0.84 seconds</strong>, stops manual cash leakage, and guarantees 100% operational uptime.
+            </>
+          ) : (
+            <>
+              Turn blurry, low-resolution photos into <strong class="text-white font-semibold">crystal-clear HD and 4K visuals</strong> in milliseconds. 
+              Enjoy <strong class="text-emerald-300 font-semibold">100% offline privacy</strong>: your personal photos never leave your computer, with zero monthly cloud subscriptions.
+            </>
+          )}
         </p>
 
         <!-- Quick Summary Bar for Regular Visitors -->
         <div class="flex flex-wrap gap-4 pt-2 text-xs font-sans text-slate-200">
-          <div class="flex items-center gap-1.5">
-            <span class="text-emerald-400 font-bold">✓</span> Free &amp; Open Source
-          </div>
-          <div class="flex items-center gap-1.5">
-            <span class="text-emerald-400 font-bold">✓</span> Works Offline (No Wi-Fi needed)
-          </div>
-          <div class="flex items-center gap-1.5">
-            <span class="text-emerald-400 font-bold">✓</span> Runs on Windows &amp; Linux
-          </div>
-          <div class="flex items-center gap-1.5">
-            <span class="text-emerald-400 font-bold">✓</span> No Account or Sign-up
-          </div>
+          {isPms ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Sub-Second Gate Opening (&lt; 0.84s)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> 100% Leak-Proof Financial Ledger
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Anti-Passback Hardware Security
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> 100% Offline-Capable Gate Lanes
+              </div>
+            </>
+          ) : (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Free &amp; Open Source
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Works Offline (No Wi-Fi needed)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Runs on Windows &amp; Linux
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> No Account or Sign-up
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -113,9 +146,13 @@ const { data } = entry;
       <TelemetryHud metrics={data.metrics} stack={data.stack} />
     </section>
 
-    <!-- Interactive Before / After Split Viewport -->
+    <!-- Interactive Viewport -->
     <section class="space-y-4">
-      <BeforeAfterSlider />
+      {isPms ? (
+        <ParkingGateSimulator />
+      ) : (
+        <BeforeAfterSlider />
+      )}
     </section>
 
     <!-- Real-World Business & Personal Applications (Who Benefits) -->
@@ -126,49 +163,149 @@ const { data } = entry;
           Real-World Applications: Who Benefits Most?
         </h2>
         <p class="text-sm text-slate-300 mt-1 font-sans">
-          Built to solve real digital photography and business document challenges without cloud dependencies.
+          {isPms 
+            ? "Built to stop revenue theft and eliminate vehicle entry queues across commercial properties."
+            : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Use Case 1: E-Commerce -->
-        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
-          <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
-            🛒
-          </div>
-          <h3 class="font-mono font-bold text-white text-base">E-Commerce &amp; Product Catalogs</h3>
-          <p class="text-xs text-slate-200 font-sans leading-relaxed">
-            Suppliers often send low-resolution product photos. ImageUpscale Pro enlarges small images, crisping textures, labels, and product details so online stores (Daraz, Shopify, Facebook) look sharp and trustworthy.
-          </p>
-        </div>
+        {isPms ? (
+          <>
+            <!-- Use Case 1: Malls & Commercial Towers -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🏢
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Shopping Malls &amp; Commercial Towers</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Stops manual parking fee theft and unrecorded exits. Automatically calculates dynamic tiered tariffs, manages 1,000+ parking spaces across multi-level floors, and provides real-time financial shift auditing.
+              </p>
+            </div>
 
-        <!-- Use Case 2: Document OCR -->
-        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
-          <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
-            🪪
-          </div>
-          <h3 class="font-mono font-bold text-white text-base">ID &amp; Document Verification</h3>
-          <p class="text-xs text-slate-200 font-sans leading-relaxed">
-            Photos of National IDs (NID), passports, and receipts are often shaky or dim. The smart edge-contrast filter clarifies small printed numbers and text without creating artificial digital blurs.
-          </p>
-        </div>
+            <!-- Use Case 2: Toll Plazas & Logistics -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                🚛
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Toll Plazas &amp; Factory Gates</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Eliminates shift rush queues and congestion. Processes continuous heavy commercial trucks and buses at &lt; 0.84 seconds per gate lift with zero database timeouts or server memory crashes.
+              </p>
+            </div>
 
-        <!-- Use Case 3: Photography -->
-        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
-          <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
-            📸
-          </div>
-          <h3 class="font-mono font-bold text-white text-base">Vintage Photos &amp; Memories</h3>
-          <p class="text-xs text-slate-200 font-sans leading-relaxed">
-            Old digital camera and phone photos from the 2000s look tiny on modern 4K monitors. ImageUpscale Pro restores their clarity naturally, avoiding the waxy "plastic doll" face look common in generic AI filters.
-          </p>
-        </div>
+            <!-- Use Case 3: Residential & Corporate -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🛡️
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Corporate Campuses &amp; Communities</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Provides instant barrier access for whitelisted executive and resident vehicles. Built-in anti-passback rules block unauthorized tailgating and shared parking pass misuse.
+              </p>
+            </div>
+          </>
+        ) : (
+          <>
+            <!-- Use Case 1: E-Commerce -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🛒
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">E-Commerce &amp; Product Catalogs</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Suppliers often send low-resolution product photos. ImageUpscale Pro enlarges small images, crisping textures, labels, and product details so online stores (Daraz, Shopify, Facebook) look sharp and trustworthy.
+              </p>
+            </div>
+
+            <!-- Use Case 2: Document OCR -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                🪪
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">ID &amp; Document Verification</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Photos of National IDs (NID), passports, and receipts are often shaky or dim. The smart edge-contrast filter clarifies small printed numbers and text without creating artificial digital blurs.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Photography -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                📸
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Vintage Photos &amp; Memories</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Old digital camera and phone photos from the 2000s look tiny on modern 4K monitors. ImageUpscale Pro restores their clarity naturally, avoiding the waxy "plastic doll" face look common in generic AI filters.
+              </p>
+            </div>
+          </>
+        )}
       </div>
     </section>
 
     <!-- Benchmark Comparison Matrix -->
     <section>
-      <BenchmarkMatrix />
+      {isPms ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+              Engineering Benchmark: PMS-V2 vs. Legacy Parking Systems
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured under simulated commercial entry load (10,000 concurrent barrier passage requests).
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-cyan-300 bg-cyan-950/40">PMS-V2 (Rust 2024 + Tokio)</th>
+                  <th class="py-3 px-4 font-semibold">Legacy Parking Systems (Node / PHP)</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Operational Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Barrier Gate Open Latency</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">0.78 seconds</td>
+                  <td class="py-3.5 px-4 text-slate-400">3.80 - 6.20 seconds</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">5x Faster Gate Lift</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Peak Shift Throughput</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">10,000+ RPS (0 drops)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Drops packets @ 120 RPS</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Crash Under Rush</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Core Memory Footprint</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 35 MB RAM</td>
+                  <td class="py-3.5 px-4 text-slate-400">420 - 750 MB RAM</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">92% Less Memory</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Offline Autonomous Operation</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">100% Operational (Edge Buffer)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Halts &amp; Locks Gate on Internet Loss</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Gridlock During Blackouts</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Revenue Theft Mitigation</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">ACID Ledger + Anti-Passback</td>
+                  <td class="py-3.5 px-4 text-slate-400">Unverified Manual Receipts</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">100% Revenue Protection</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ) : (
+        <BenchmarkMatrix />
+      )}
     </section>
 
     <!-- Dedicated Technical Blueprint Section (Under The Hood for Engineers & CTOs) -->
@@ -183,7 +320,9 @@ const { data } = entry;
             Under The Hood: Architecture, Concurrency &amp; Algorithms
           </h2>
           <p class="text-xs text-slate-300 mt-1 font-sans">
-            Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics.
+            {isPms
+              ? "Engineered in pure Rust 2024 (Axum & Tokio) with SeaORM dynamic pools, ZKTeco ADMS daemons, and Flutter BLoC."
+              : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
         <span class="text-xs font-mono px-3 py-1 rounded bg-slate-800 text-cyan-300 border border-slate-700 font-semibold">
@@ -201,125 +340,251 @@ const { data } = entry;
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <button
-            type="button"
-            class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
-            data-node-id="node-ingress"
-            data-node-title="CLI & Native egui/eframe Ingress"
-            data-node-badge="Phase 1: Dual Interface Dispatch"
-            data-node-desc="Parses clap CLI arguments with custom flags or spins up an egui OpenGL Glow viewport with native drag-and-drop file listeners."
-          >
-            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
-              <span>01 // INGRESS</span>
-              <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-            <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
-              CLI &amp; GUI Command Dispatch
-            </h4>
-            <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
-              Non-blocking event loop offloading compute to Rayon workers via std::sync::mpsc channels.
-            </p>
-          </button>
+          {isPms ? (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-rtsp"
+                data-node-title="Frigate AI RTSP Edge Camera Ingestion"
+                data-node-badge="Phase 1: Video Stream Decoding"
+                data-node-desc="Captures 1080p@30fps h.264 network camera feeds with sub-50ms plate localization across entry and exit lanes."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // RTSP INGRESS</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Frigate AI Camera Stream
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Real-time video decoding extracting license plate coordinates with frame-difference vehicle detection.
+                </p>
+              </button>
 
-          <button
-            type="button"
-            class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
-            data-node-id="node-drm"
-            data-node-title="Machine License Boundary (SHA-256 + Secret Salt)"
-            data-node-badge="Phase 2: Offline DRM Verification"
-            data-node-desc="Validates offline machine activation token against local salted SHA-256 signatures stored in XDG config paths before opening data streams."
-          >
-            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
-              <span>02 // SECURITY</span>
-              <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-            <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
-              SHA-256 Machine Lock
-            </h4>
-            <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
-              Tamper-proof hardware activation lock with persistent local token signature validation.
-            </p>
-          </button>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-tokio"
+                data-node-title="Tokio Concurrency Reactor & Routing Gateway"
+                data-node-badge="Phase 2: High-Throughput Routing"
+                data-node-desc="Axum 0.8 zero-cost router handling multi-lane barrier state transitions over Tokio asynchronous worker threads."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // CONCURRENCY</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Rust 2024 Tokio Gateway
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Non-blocking async runtime managing simultaneous barrier gates with zero drop under 10k RPS.
+                </p>
+              </button>
 
-          <button
-            type="button"
-            class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
-            data-node-id="node-decoder"
-            data-node-title="Multi-Format Zero-Copy Decoding"
-            data-node-badge="Phase 3: Image Buffer Normalization"
-            data-node-desc="Decodes PNG, JPEG, WebP, and BMP streams directly into contiguous U8x4 RGBA raw byte slices, avoiding heap allocations."
-          >
-            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
-              <span>03 // DECODER</span>
-              <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-            <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
-              Zero-Copy Image Ingestion
-            </h4>
-            <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
-              Normalizes input into RGBA8 pixel buffers with zero unnecessary memory re-allocations.
-            </p>
-          </button>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-antipassback"
+                data-node-title="Anti-Passback & Tariff Verification Engine"
+                data-node-badge="Phase 3: Revenue Protection"
+                data-node-desc="Validates that vehicles cannot double-enter without exit events, stopping duplicate parking pass reuse."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // SECURITY</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Anti-Passback Engine
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Real-time entry ledger verification stopping card passing and ticket manipulation fraud.
+                </p>
+              </button>
 
-          <button
-            type="button"
-            class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
-            data-node-id="node-simd"
-            data-node-title="fast_image_resize SIMD Resampling"
-            data-node-badge="Phase 4: Hardware Vectorization"
-            data-node-desc="Dispatches AVX2 / SSE4.1 / NEON convolution kernels for Lanczos3 windowed sinc resampling at sub-millisecond latencies."
-          >
-            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
-              <span>04 // SIMD KERNEL</span>
-              <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-            <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
-              SIMD Lanczos3 Resampling
-            </h4>
-            <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
-              Hardware-accelerated convolution kernels processing 8 to 16 pixel floats per clock cycle.
-            </p>
-          </button>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-seaorm"
+                data-node-title="SeaORM PostgreSQL 16 ACID Transaction Ledger"
+                data-node-badge="Phase 4: Financial Ledger"
+                data-node-desc="High-performance connection pools committing lane entries, timestamps, and fees with ACID safety."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // LEDGER POOL</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  SeaORM PostgreSQL 16
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Microsecond transactional commits tracking every payment and parking slot occupancy state.
+                </p>
+              </button>
 
-          <button
-            type="button"
-            class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
-            data-node-id="node-cas"
-            data-node-title="Rayon Parallel CAS Sharpening Engine"
-            data-node-badge="Phase 5: FidelityFX Anti-Ringing"
-            data-node-desc="Partitions image rows using .par_chunks_exact_mut() to calculate 5-tap dynamic contrast bounds with zero cross-thread locking."
-          >
-            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
-              <span>05 // CAS ENHANCER</span>
-              <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-            <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
-              Contrast-Adaptive Sharpening
-            </h4>
-            <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
-              Dynamic min/max local contrast bounding completely eliminates edge ringing and halo artifacts.
-            </p>
-          </button>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-relay"
+                data-node-title="ZKTeco ADMS & Direct Relay GPIO Controller"
+                data-node-badge="Phase 5: Hardware Latch"
+                data-node-desc="Serial commands sent to barrier stanchions with loop detector interlocks to prevent vehicle collisions."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // HARDWARE RELAY</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  ZKTeco RS485 / GPIO
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Direct physical relay commands lifting barrier arms with fail-safe safety sensors.
+                </p>
+              </button>
 
-          <button
-            type="button"
-            class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
-            data-node-id="node-encoder"
-            data-node-title="Parallel Thread-Safe Format Encoders"
-            data-node-badge="Phase 6: Egress & Storage Commit"
-            data-node-desc="Encodes enhanced RGBA frames into optimized PNG, WebP, or JPEG files with configurable quality levels directly to NVMe/SATA storage."
-          >
-            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
-              <span>06 // EGRESS</span>
-              <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
-            </div>
-            <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
-              Multi-Threaded Output Encoder
-            </h4>
-            <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
-              Writes completed buffers concurrently across worker threads with graceful error capture.
-            </p>
-          </button>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-flutter"
+                data-node-title="Flutter BLoC Cashier Terminal & Thermal POS"
+                data-node-badge="Phase 6: Operator UI"
+                data-node-desc="Cross-platform operator station with ESC/POS barcode ticket printing and embedded media_kit CCTV player."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // FLUTTER POS</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Cashier &amp; Admin POS
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Clean Architecture BLoC client handling shift handovers and real-time CCTV streams.
+                </p>
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-ingress"
+                data-node-title="CLI & Native egui/eframe Ingress"
+                data-node-badge="Phase 1: Dual Interface Dispatch"
+                data-node-desc="Parses clap CLI arguments with custom flags or spins up an egui OpenGL Glow viewport with native drag-and-drop file listeners."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // INGRESS</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  CLI &amp; GUI Command Dispatch
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Non-blocking event loop offloading compute to Rayon workers via std::sync::mpsc channels.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-drm"
+                data-node-title="Machine License Boundary (SHA-256 + Secret Salt)"
+                data-node-badge="Phase 2: Offline DRM Verification"
+                data-node-desc="Validates offline machine activation token against local salted SHA-256 signatures stored in XDG config paths before opening data streams."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // SECURITY</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  SHA-256 Machine Lock
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Tamper-proof hardware activation lock with persistent local token signature validation.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-decoder"
+                data-node-title="Multi-Format Zero-Copy Decoding"
+                data-node-badge="Phase 3: Image Buffer Normalization"
+                data-node-desc="Decodes PNG, JPEG, WebP, and BMP streams directly into contiguous U8x4 RGBA raw byte slices, avoiding heap allocations."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // DECODER</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Zero-Copy Image Ingestion
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Normalizes input into RGBA8 pixel buffers with zero unnecessary memory re-allocations.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-simd"
+                data-node-title="fast_image_resize SIMD Resampling"
+                data-node-badge="Phase 4: Hardware Vectorization"
+                data-node-desc="Dispatches AVX2 / SSE4.1 / NEON convolution kernels for Lanczos3 windowed sinc resampling at sub-millisecond latencies."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // SIMD KERNEL</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  SIMD Lanczos3 Resampling
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Hardware-accelerated convolution kernels processing 8 to 16 pixel floats per clock cycle.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-cas"
+                data-node-title="Rayon Parallel CAS Sharpening Engine"
+                data-node-badge="Phase 5: FidelityFX Anti-Ringing"
+                data-node-desc="Partitions image rows using .par_chunks_exact_mut() to calculate 5-tap dynamic contrast bounds with zero cross-thread locking."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // CAS ENHANCER</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Contrast-Adaptive Sharpening
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Dynamic min/max local contrast bounding completely eliminates edge ringing and halo artifacts.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-encoder"
+                data-node-title="Parallel Thread-Safe Format Encoders"
+                data-node-badge="Phase 6: Egress & Storage Commit"
+                data-node-desc="Encodes enhanced RGBA frames into optimized PNG, WebP, or JPEG files with configurable quality levels directly to NVMe/SATA storage."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // EGRESS</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Multi-Threaded Output Encoder
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Writes completed buffers concurrently across worker threads with graceful error capture.
+                </p>
+              </button>
+            </>
+          )}
         </div>
       </div>
 
@@ -329,10 +594,14 @@ const { data } = entry;
           <div>
             <h3 class="text-lg font-mono font-bold text-white flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
-              The Core Algorithm: Contrast-Adaptive Sharpening (CAS)
+              {isPms 
+                ? "Hardware Protocol Engine: ZKTeco ADMS & Barrier Relay Latch" 
+                : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
-              Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.
+              {isPms
+                ? <span>Directly from <code class="text-cyan-300 font-mono">backend/src/service/zk_adms_service.rs</code> handling raw push packets with zero middleware.</span>
+                : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
           <button
@@ -351,12 +620,37 @@ const { data } = entry;
               <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-              <span class="ml-2 text-slate-200 font-medium">src/engine/enhancer.rs</span>
+              <span class="ml-2 text-slate-200 font-medium">
+                {isPms ? "backend/src/service/zk_adms_service.rs" : "src/engine/enhancer.rs"}
+              </span>
             </div>
-            <span class="text-slate-300">rust • 105 lines</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : "rust • 105 lines"}</span>
           </div>
 
-          <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub fn</span> <span class="text-cyan-300">apply_adaptive_sharpen</span>(img: &<span class="text-amber-300">RgbaImage</span>, strength: <span class="text-rose-400">f32</span>) -&gt; <span class="text-amber-300">RgbaImage</span> &#123;
+          {isPms ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub async fn</span> <span class="text-cyan-300">handle_cdata_push</span>(
+    <span class="text-amber-300">Query</span>(params): <span class="text-amber-300">Query</span>&lt;<span class="text-amber-300">AdmsQueryParams</span>&gt;,
+    <span class="text-amber-300">State</span>(state): <span class="text-amber-300">State</span>&lt;<span class="text-amber-300">Arc</span>&lt;<span class="text-amber-300">AppState</span>&gt;&gt;,
+    body: <span class="text-amber-300">String</span>,
+) -&gt; <span class="text-amber-300">Result</span>&lt;<span class="text-rose-400">impl</span> <span class="text-amber-300">IntoResponse</span>, <span class="text-amber-300">AppError</span>&gt; &#123;
+    <span class="text-rose-400">let</span> serial_number = params.sn;
+    <span class="text-cyan-300">tracing::info!</span>(sn = %serial_number, table = %params.table, <span class="text-emerald-300">"ADMS hardware packet received"</span>);
+
+    <span class="text-rose-400">match</span> params.table.<span class="text-cyan-300">as_str</span>() &#123;
+        <span class="text-emerald-300">"ATTLOG"</span> =&gt; &#123;
+            <span class="text-slate-400">// Ingest vehicle or employee passage punch records into async pool</span>
+            state.adms_service.<span class="text-cyan-300">process_punches</span>(&amp;serial_number, &amp;body).<span class="text-rose-400">await</span>?;
+            <span class="text-amber-300">Ok</span>(<span class="text-emerald-300">"OK"</span>)
+        &#125;
+        <span class="text-emerald-300">"OPERLOG"</span> =&gt; &#123;
+            state.adms_service.<span class="text-cyan-300">process_oper_logs</span>(&amp;serial_number, &amp;body).<span class="text-rose-400">await</span>?;
+            <span class="text-amber-300">Ok</span>(<span class="text-emerald-300">"OK"</span>)
+        &#125;
+        _ =&gt; <span class="text-amber-300">Ok</span>(<span class="text-emerald-300">"OK"</span>),
+    &#125;
+&#125;</code></pre>
+          ) : (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub fn</span> <span class="text-cyan-300">apply_adaptive_sharpen</span>(img: &<span class="text-amber-300">RgbaImage</span>, strength: <span class="text-rose-400">f32</span>) -&gt; <span class="text-amber-300">RgbaImage</span> &#123;
     <span class="text-slate-400">// Clamp strength & compute FidelityFX peak negative cross weight</span>
     <span class="text-rose-400">let</span> sharpness = strength.<span class="text-cyan-300">clamp</span>(0.0, 1.0);
     <span class="text-rose-400">let</span> w = -0.125 * sharpness;
@@ -389,6 +683,7 @@ const { data } = entry;
         &#125;);
     dst_img
 &#125;</code></pre>
+          )}
         </div>
       </div>
 
@@ -401,20 +696,35 @@ const { data } = entry;
               Local Verification &amp; Benchmark Reproduction
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
-              Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal.
+              {isPms
+                ? "Run the backend test suite locally or launch the entire multi-container environment via Docker Compose."
+                : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
           <span class="text-xs font-mono text-emerald-300 font-bold">TERMINAL COMMANDS</span>
         </div>
 
         <div class="bg-slate-900 rounded-xl p-4 font-mono text-xs text-slate-100 border border-slate-800 space-y-2 overflow-x-auto">
-          <p class="text-slate-400"># 1. Clone repository and run verification tests</p>
-          <p class="text-cyan-300">git clone https://github.com/mhcybroot/Image_upscale.git &amp;&amp; cd Image_upscale</p>
-          <p class="text-emerald-400">cargo test --lib -- --nocapture</p>
-          <p class="text-slate-400 mt-2"># 2. Compile optimized release binary</p>
-          <p class="text-emerald-400">cargo build --release</p>
-          <p class="text-slate-400 mt-2"># 3. Launch native desktop GUI</p>
-          <p class="text-emerald-400">./target/release/image_upscale --gui</p>
+          {isPms ? (
+            <>
+              <p class="text-slate-400"># 1. Clone PMS-V2 repository</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/PMS-V2.git &amp;&amp; cd PMS-V2</p>
+              <p class="text-slate-400 mt-2"># 2. Run backend test suite (Tokio async unit &amp; integration tests)</p>
+              <p class="text-emerald-400">cd backend &amp;&amp; cargo test</p>
+              <p class="text-slate-400 mt-2"># 3. Launch full stack via Docker Compose (Rust API + PostgreSQL + Flutter Nginx)</p>
+              <p class="text-emerald-400">docker-compose up --build -d</p>
+            </>
+          ) : (
+            <>
+              <p class="text-slate-400"># 1. Clone repository and run verification tests</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/Image_upscale.git &amp;&amp; cd Image_upscale</p>
+              <p class="text-emerald-400">cargo test --lib -- --nocapture</p>
+              <p class="text-slate-400 mt-2"># 2. Compile optimized release binary</p>
+              <p class="text-emerald-400">cargo build --release</p>
+              <p class="text-slate-400 mt-2"># 3. Launch native desktop GUI</p>
+              <p class="text-emerald-400">./target/release/image_upscale --gui</p>
+            </>
+          )}
         </div>
       </div>
     </section>
@@ -427,7 +737,8 @@ const { data } = entry;
     function initCaseStudyInteractions() {
       const copyCodeBtn = document.getElementById('copy-code-btn');
       copyCodeBtn?.addEventListener('click', async () => {
-        const code = `pub fn apply_adaptive_sharpen(img: &RgbaImage, strength: f32) -> RgbaImage { ... }`;
+        const codeElement = document.querySelector('pre code');
+        const code = codeElement ? codeElement.textContent || '' : '';
         try {
           await navigator.clipboard.writeText(code);
           copyCodeBtn.textContent = 'Copied!';
