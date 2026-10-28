@@ -21,6 +21,7 @@ import WorkOrderSniperSimulator from '../../components/case-study/WorkOrderSnipe
 import GeckoBrowserSimulator from '../../components/case-study/GeckoBrowserSimulator.astro';
 import FintechLedgerSimulator from '../../components/case-study/FintechLedgerSimulator.astro';
 import QuickbooksSyncSimulator from '../../components/case-study/QuickbooksSyncSimulator.astro';
+import EdugoPlatformSimulator from '../../components/case-study/EdugoPlatformSimulator.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -55,6 +56,7 @@ const isSniper = data.slug === 'amh-wo-sniper';
 const isGecko = data.slug === 'gecko-browser-engine';
 const isDoller = data.slug === 'doller-fintech-wallet';
 const isQuickbooks = data.slug === 'quickbooks-ledger-sync';
+const isEdugo = data.slug === 'edugo-institute-core';
 
 let pageDescription = "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
 if (isPms) {
@@ -93,6 +95,8 @@ if (isPms) {
   pageDescription = "Multi-Currency Trading, Settlement & PnL Ledger Engine. Engineered in Java 21, Spring Boot 3.5, and Flutter with double-entry accounting, Flyway V1-V10, and automated daily closes.";
 } else if (isQuickbooks) {
   pageDescription = "Automated Multi-Entity CSV Normalization, Tiered Bank Reconciliation & Resilient Intuit OAuth 2.0 API Gateway built on Java 21, Spring Boot 4 & Vaadin 25 Flow.";
+} else if (isEdugo) {
+  pageDescription = "Multi-Tenant Academic ERP & Dual-Security Microservice Architecture. Engineered in Java 21, Spring Boot 3.3, Vaadin Flow, and Flutter 3.29 with dual filter chains and Flyway V1-V8.";
 }
 ---
 
@@ -234,6 +238,10 @@ if (isPms) {
           ) : isQuickbooks ? (
             <>
               Automated multi-entity accounting synchronization and bank statement reconciliation engine built in <strong class="text-white font-semibold">Java 21, Spring Boot 4 &amp; Vaadin 25 Flow</strong>. Normalizes heterogeneous CSV exports into <strong class="text-emerald-300 font-semibold">canonical QuickBooks Online payloads</strong>, enforces strict pre-flight tax-rate and idempotency gates, executes multi-tier reconciliation with exact, date-window, and fuzzy matching, and manages multi-tenant OAuth 2.0 credentials via an <strong class="text-emerald-300 font-semibold">AES-256-GCM encrypted vault</strong>.
+            </>
+          ) : isEdugo ? (
+            <>
+              Multi-tenant academic enterprise resource planning platform engineered in <strong class="text-white font-semibold">Java 21, Spring Boot 3.3, Vaadin Flow &amp; Flutter 3.29</strong>. Solves the dual-client dilemma through <strong class="text-emerald-300 font-semibold">simultaneous Spring Security filter chains</strong>: stateless HMAC-SHA256 JWT at @Order(0) for high-frequency mobile APIs, and stateful session-based OAuth2 Google login at @Order(1) for desktop administrators, backed by 8 sequential Flyway PostgreSQL migrations.
             </>
           ) : (
             <>
@@ -515,6 +523,21 @@ if (isPms) {
                 <span class="text-emerald-400 font-bold">✓</span> Reactive Vaadin 25 Flow Enterprise Dashboard with Real-Time Server-Push
               </div>
             </>
+          ) : isEdugo ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Dual Spring Security Filter Chains (@Order(0) JWT + @Order(1) Vaadin)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Hierarchical Multi-Tenancy (Institutes, Divisions &amp; Subscription Plans)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Flutter Mobile Outbox with Silent 401 Interception &amp; Replay
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Flyway V1-V8 Schema Migrations &amp; B-Tree Multi-Tenant Indexing
+              </div>
+            </>
           ) : (
             <>
               <div class="flex items-center gap-1.5">
@@ -576,6 +599,8 @@ if (isPms) {
         <FintechLedgerSimulator />
       ) : isQuickbooks ? (
         <QuickbooksSyncSimulator />
+      ) : isEdugo ? (
+        <EdugoPlatformSimulator />
       ) : (
         <BeforeAfterSlider />
       )}
@@ -625,6 +650,8 @@ if (isPms) {
             ? "Built to stop forex spreadsheet errors, guarantee double-entry balance integrity, and provide real-time PnL explainability."
             : isQuickbooks
             ? "Built to eliminate manual invoice entry into QuickBooks, automate multi-tier bank reconciliation, and prevent duplicate tax billing."
+            : isEdugo
+            ? "Built to eliminate multi-campus school chaos, unify desktop admin and mobile student security, and isolate institutional data."
             : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
@@ -1257,6 +1284,41 @@ if (isPms) {
               <h3 class="font-mono font-bold text-white text-base">Accounting Firms &amp; Multi-Company Vaults</h3>
               <p class="text-xs text-slate-200 font-sans leading-relaxed">
                 Manages multi-company Intuit Realm IDs with AES-256-GCM encrypted OAuth 2.0 credential storage. Pre-flight dry-run rollback tools allow accountants to inspect dependency trees and simulate bulk cleanup operations with zero risk of ledger corruption.
+              </p>
+            </div>
+          </>
+        ) : isEdugo ? (
+          <>
+            <!-- Use Case 1: Multi-Campus School Chains & District Boards -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-sky-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-sky-950 border border-sky-500/50 flex items-center justify-center text-sky-300 font-mono text-lg font-bold">
+                🏫
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Multi-Campus Chains &amp; School Districts</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Super Admins provision dozens of independent educational institutions under a unified SaaS tier. Hierarchical division models isolate campus-specific faculty rosters, classroom allocations, and student transcripts with zero cross-tenant data leakage.
+              </p>
+            </div>
+
+            <!-- Use Case 2: Mobile-First Student & Parent Portals -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                📱
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Mobile-First Student &amp; Parent Portals</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Delivers native Android/iOS Flutter experiences with Google OAuth sign-in. Intelligent HTTP interceptors capture 401 token expiration events, execute silent cryptographic token rotations, and replay requests without kicking students out of live tests.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Academic Registrars & High-Volume Bursars -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-indigo-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-indigo-950 border border-indigo-500/50 flex items-center justify-center text-indigo-300 font-mono text-lg font-bold">
+                🎓
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Colleges, Universities &amp; Technical Bursars</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Desktop administrative teams manage student records via Vaadin Flow reactive server-push interfaces. The two-table financial ledger (Payment + PaymentRecord) manages recurring subscription cycles, installment dues, and payment gateway audit records.
               </p>
             </div>
           </>
@@ -2423,6 +2485,69 @@ if (isPms) {
             </table>
           </div>
         </div>
+      ) : isEdugo ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-sky-400"></span>
+              Engineering Benchmark: EduGo (Dual Spring Security + PostgreSQL) vs. Traditional PHP School ERP
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured under concurrent multi-campus traffic with 50,000 mobile students and active desktop bursar sessions.
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-sky-300 bg-sky-950/40">EduGo Core (Spring Boot 3.3 + Dual Security)</th>
+                  <th class="py-3 px-4 font-semibold">Legacy Monolithic School Portals</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Engineering Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Dual-Client Security Routing</td>
+                  <td class="py-3.5 px-4 font-bold text-sky-300 bg-sky-950/20">Simultaneous @Order(0) JWT &amp; @Order(1) OAuth2</td>
+                  <td class="py-3.5 px-4 text-slate-400">Session cookies only; breaks mobile apps or cross-origin calls</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Native Dual Client Support</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Mobile Auth Round-Trip Latency</td>
+                  <td class="py-3.5 px-4 font-bold text-sky-300 bg-sky-950/20">11.4ms (Stateless In-Memory HMAC Verification)</td>
+                  <td class="py-3.5 px-4 text-slate-400">350ms – 650ms (Database session table query overhead)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">30x Faster Authentication</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Multi-Tenant Data Isolation</td>
+                  <td class="py-3.5 px-4 font-bold text-sky-300 bg-sky-950/20">Flyway V4-V7 Composite B-Tree Tenant Barriers</td>
+                  <td class="py-3.5 px-4 text-slate-400">Manual unindexed WHERE filters; frequent data leak bugs</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Cross-Tenant Leakage</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Student Token Refresh Experience</td>
+                  <td class="py-3.5 px-4 font-bold text-sky-300 bg-sky-950/20">Silent Flutter 401 Interception &amp; Request Replay</td>
+                  <td class="py-3.5 px-4 text-slate-400">Hard logout; students kicked out of exams on session expiry</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero User Disruption</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Desktop Admin Productivity</td>
+                  <td class="py-3.5 px-4 font-bold text-sky-300 bg-sky-950/20">Vaadin Flow Server-Push (Zero REST plumbing)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Full HTML page reloads; high server CPU per click</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Reactive Real-Time UI</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Database Migration Reliability</td>
+                  <td class="py-3.5 px-4 font-bold text-sky-300 bg-sky-950/20">8 Sequential Flyway Migrations (Zero Downtime)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Manual phpMyAdmin SQL dumps with downtime windows</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Enterprise Reliability</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <BenchmarkMatrix />
       )}
@@ -2476,6 +2601,8 @@ if (isPms) {
               ? "Engineered in Java 21 & Spring Boot 3.5 with PostgreSQL Flyway migrations, double-entry ledger journals, and Flutter."
               : isQuickbooks
               ? "Engineered in Java 21 & Spring Boot 4 with Vaadin 25 Flow, Apache Commons CSV, Intuit QBO REST Gateway, and AES-256-GCM Vault."
+              : isEdugo
+              ? "Engineered in Java 21 & Spring Boot 3.3 with Dual Security Filter Chains, Vaadin Flow, PostgreSQL 16 Flyway V1-V8, and Flutter."
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
@@ -4690,6 +4817,128 @@ if (isPms) {
                 </p>
               </button>
             </>
+          ) : isEdugo ? (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-sky-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-sky-400"
+                data-node-id="node-edugo-security"
+                data-node-title="Dual Security Filter Chain Dispatcher (SecurityConfig)"
+                data-node-badge="Phase 1: Dual Filter Chain Routing"
+                data-node-desc="Routes /api/** traffic to @Order(0) stateless JWT filter with disabled CSRF, while directing root web browser views to @Order(1) VaadinWebSecurity session chain."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // DUAL SECURITY</span>
+                  <span class="text-sky-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-sky-300 transition-colors">
+                  Dual Security Dispatcher
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Splits traffic between stateless mobile JWT and stateful Vaadin session chains.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-indigo-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                data-node-id="node-edugo-jwt"
+                data-node-title="JWT Token Lifecycle &amp; KeyStore Hardware Vault"
+                data-node-badge="Phase 2: Token Mint &amp; Silent Replay"
+                data-node-desc="Issues short-lived 15-minute access tokens and 7-day refresh tokens. The Flutter client intercepts 401 expiration events and silently re-auths via Keystore/Keychain."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // TOKEN LIFECYCLE</span>
+                  <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-indigo-300 transition-colors">
+                  JWT Mint &amp; Token Vault
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Manages HMAC-SHA256 tokens and hardware-backed storage with transparent refresh.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-amber-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-amber-400"
+                data-node-id="node-edugo-tenant"
+                data-node-title="Hierarchical Multi-Tenancy Boundary Guard"
+                data-node-badge="Phase 3: Tenant Boundary Isolation"
+                data-node-desc="Enforces strict tenant isolation across Institute, Division, and InstituteUser entities, mapping composite roles with zero risk of cross-campus leakage."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // TENANT BOUNDARY</span>
+                  <span class="text-amber-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-amber-300 transition-colors">
+                  Multi-Tenant Boundary Guard
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Isolates institutions, geographic divisions, and user rosters in composite tables.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-edugo-flyway"
+                data-node-title="Flyway V1-V8 PostgreSQL Schema Engine"
+                data-node-badge="Phase 4: Schema Evolution &amp; B-Tree Index"
+                data-node-desc="Executes 8 sequential Flyway database migrations establishing role-based auth, division trees, and compound B-Tree indexes for sub-45ms multi-tenant queries."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // FLYWAY SCHEMA</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Flyway Schema &amp; Indexing
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Applies 8 sequential database migrations with composite B-Tree query optimizations.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-purple-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-purple-400"
+                data-node-id="node-edugo-payment"
+                data-node-title="Two-Table Subscription Ledger (Payment &amp; PaymentRecord)"
+                data-node-badge="Phase 5: Financial Ledger &amp; Plan Engine"
+                data-node-desc="Maintains institute-level subscription state and immutable transaction history records, enforcing plan tier quotas across student capacities."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // PAYMENT LEDGER</span>
+                  <span class="text-purple-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-purple-300 transition-colors">
+                  Subscription &amp; Payment Ledger
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Tracks recurring subscription cycles and immutable payment records per institution.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-edugo-egress"
+                data-node-title="Dual-Client Egress: Vaadin Push &amp; Flutter Mobile"
+                data-node-badge="Phase 6: Multi-Device Client Egress"
+                data-node-desc="Powers reactive desktop administrative dashboards via Vaadin server push while serving cross-platform Flutter clients with Provider state streams."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // DUAL EGRESS</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Dual-Client Web &amp; Mobile
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Powers Vaadin server-push desktop portals and native Flutter mobile applications.
+                </p>
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -4858,6 +5107,8 @@ if (isPms) {
                 ? "Double-Entry Ledger Core: Multi-Currency Deal & Balanced Journal Posting"
                 : isQuickbooks
                 ? "QBO Payload Factory & Tiered Bank Reconciliation Engine"
+                : isEdugo
+                ? "Dual Security Architecture: Stateless JWT & Stateful Vaadin Chains"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
@@ -4897,6 +5148,8 @@ if (isPms) {
                 ? <span>Directly from <code class="text-cyan-300 font-mono">backend/src/main/java/.../TradingService.java</code> showing ACID deal creation &amp; balanced ledger posts.</span>
                 : isQuickbooks
                 ? <span>Directly from <code class="text-cyan-300 font-mono">QuickBooksInvoicePayloadFactory.java</code> and <code class="text-cyan-300 font-mono">ReconciliationService.java</code> showing Intuit REST serialization and multi-tier matching.</span>
+                : isEdugo
+                ? <span>Directly from <code class="text-cyan-300 font-mono">com/edugo/config/SecurityConfig.java</code> showing simultaneous @Order(0) API filter chain and VaadinWebSecurity.</span>
                 : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
@@ -4917,10 +5170,10 @@ if (isPms) {
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               <span class="ml-2 text-slate-200 font-medium">
-                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : isCampus ? "smart-academic-portal/src/App.vue" : isLandtrust ? "backend/src/main/java/.../LandRecordService.java" : isModernOs ? "kernel/src/proofs/capability_proofs.rs" : isYtStream ? "downloader.py" : isSniper ? "extension/content.js" : isGecko ? "app/src/main/java/com/example/browser/MainActivity.kt" : isDoller ? "backend/src/main/java/.../TradingService.java" : isQuickbooks ? "src/main/java/.../QuickBooksInvoicePayloadFactory.java" : "src/engine/enhancer.rs"}
+                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : isCampus ? "smart-academic-portal/src/App.vue" : isLandtrust ? "backend/src/main/java/.../LandRecordService.java" : isModernOs ? "kernel/src/proofs/capability_proofs.rs" : isYtStream ? "downloader.py" : isSniper ? "extension/content.js" : isGecko ? "app/src/main/java/com/example/browser/MainActivity.kt" : isDoller ? "backend/src/main/java/.../TradingService.java" : isQuickbooks ? "src/main/java/.../QuickBooksInvoicePayloadFactory.java" : isEdugo ? "backend/src/main/java/com/edugo/config/SecurityConfig.java" : "src/engine/enhancer.rs"}
               </span>
             </div>
-            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : isCampus ? "vue • 46 lines" : isLandtrust ? "java • 48 lines" : isModernOs ? "rust • 46 lines" : isYtStream ? "python • 45 lines" : isSniper ? "javascript • 52 lines" : isGecko ? "kotlin • 62 lines" : isDoller ? "java • 44 lines" : isQuickbooks ? "java • 56 lines" : "rust • 105 lines"}</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : isCampus ? "vue • 46 lines" : isLandtrust ? "java • 48 lines" : isModernOs ? "rust • 46 lines" : isYtStream ? "python • 45 lines" : isSniper ? "javascript • 52 lines" : isGecko ? "kotlin • 62 lines" : isDoller ? "java • 44 lines" : isQuickbooks ? "java • 56 lines" : isEdugo ? "java • 64 lines" : "rust • 105 lines"}</span>
           </div>
 
           {isPms ? (
@@ -5587,6 +5840,43 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
     &#125;
     <span class="text-rose-400">return new</span> <span class="text-amber-300">MatchDecision</span>(candidate, <span class="text-amber-300">ReconciliationTier</span>.NONE, 0, <span class="text-emerald-300">"No candidate match"</span>);
 &#125;</code></pre>
+          ) : isEdugo ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-slate-400">// SecurityConfig: Dual Security Filter Chains (Stateless Mobile JWT + Vaadin Web)</span>
+<span class="text-amber-300">@Configuration</span>
+<span class="text-amber-300">@EnableWebSecurity</span>
+<span class="text-rose-400">public class</span> <span class="text-cyan-300">SecurityConfig</span> <span class="text-rose-400">extends</span> <span class="text-amber-300">VaadinWebSecurity</span> &#123;
+
+    <span class="text-slate-400">// 1. Order 0: High-Throughput Stateless JWT Filter Chain for Flutter Mobile APIs</span>
+    <span class="text-amber-300">@Bean</span>
+    <span class="text-amber-300">@Order</span>(0)
+    <span class="text-rose-400">public</span> <span class="text-amber-300">SecurityFilterChain</span> <span class="text-cyan-300">apiSecurityFilterChain</span>(<span class="text-amber-300">HttpSecurity</span> http) <span class="text-rose-400">throws</span> <span class="text-amber-300">Exception</span> &#123;
+        <span class="text-rose-400">return</span> http
+            .<span class="text-cyan-300">securityMatcher</span>(<span class="text-emerald-300">"/api/**"</span>)
+            .<span class="text-cyan-300">csrf</span>(<span class="text-amber-300">AbstractHttpConfigurer</span>::disable)
+            .<span class="text-cyan-300">cors</span>(<span class="text-amber-300">Customizer</span>.withDefaults())
+            .<span class="text-cyan-300">sessionManagement</span>(s -&gt; s.<span class="text-cyan-300">sessionCreationPolicy</span>(<span class="text-amber-300">SessionCreationPolicy</span>.STATELESS))
+            .<span class="text-cyan-300">authenticationProvider</span>(authenticationProvider())
+            .<span class="text-cyan-300">authorizeHttpRequests</span>(auth -&gt; auth
+                .<span class="text-cyan-300">requestMatchers</span>(<span class="text-amber-300">HttpMethod</span>.POST, <span class="text-emerald-300">"/api/v1/auth/login"</span>, <span class="text-emerald-300">"/api/v1/auth/google"</span>, <span class="text-emerald-300">"/api/v1/auth/refresh"</span>).<span class="text-cyan-300">permitAll</span>()
+                .<span class="text-cyan-300">requestMatchers</span>(<span class="text-amber-300">HttpMethod</span>.GET, <span class="text-emerald-300">"/api/v1/health"</span>).<span class="text-cyan-300">permitAll</span>()
+                .<span class="text-cyan-300">requestMatchers</span>(<span class="text-emerald-300">"/api/v1/super-admin/**"</span>).<span class="text-cyan-300">hasRole</span>(<span class="text-emerald-300">"SUPER_ADMIN"</span>)
+                .<span class="text-cyan-300">anyRequest</span>().<span class="text-cyan-300">authenticated</span>()
+            )
+            .<span class="text-cyan-300">addFilterBefore</span>(jwtAuthenticationFilter, <span class="text-amber-300">UsernamePasswordAuthenticationFilter</span>.<span class="text-rose-400">class</span>)
+            .<span class="text-cyan-300">build</span>();
+    &#125;
+
+    <span class="text-slate-400">// 2. Order 1: Stateful Cookie &amp; Google OAuth2 Chain for Desktop Vaadin Admin UI</span>
+    <span class="text-amber-300">@Override</span>
+    <span class="text-rose-400">protected void</span> <span class="text-cyan-300">configure</span>(<span class="text-amber-300">HttpSecurity</span> http) <span class="text-rose-400">throws</span> <span class="text-amber-300">Exception</span> &#123;
+        http.<span class="text-cyan-300">authorizeHttpRequests</span>(auth -&gt; auth
+            .<span class="text-cyan-300">requestMatchers</span>(<span class="text-emerald-300">"/images/**"</span>, <span class="text-emerald-300">"/icons/**"</span>).<span class="text-cyan-300">permitAll</span>()
+            .<span class="text-cyan-300">requestMatchers</span>(<span class="text-emerald-300">"/login"</span>, <span class="text-emerald-300">"/register"</span>, <span class="text-emerald-300">"/forgot-password"</span>).<span class="text-cyan-300">permitAll</span>()
+        );
+        <span class="text-rose-400">super</span>.<span class="text-cyan-300">configure</span>(http); <span class="text-slate-400">// Establishes VaadinWebSecurity session management &amp; CSRF</span>
+        <span class="text-cyan-300">setLoginView</span>(http, <span class="text-amber-300">LoginView</span>.<span class="text-rose-400">class</span>);
+    &#125;
+&#125;</code></pre>
           ) : (
             <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub fn</span> <span class="text-cyan-300">apply_adaptive_sharpen</span>(img: &<span class="text-amber-300">RgbaImage</span>, strength: <span class="text-rose-400">f32</span>) -&gt; <span class="text-amber-300">RgbaImage</span> &#123;
     <span class="text-slate-400">// Clamp strength & compute FidelityFX peak negative cross weight</span>
@@ -5670,6 +5960,8 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
                 ? "Launch PostgreSQL and the Spring Boot backend, run Flyway migrations, and start the Flutter mobile app."
                 : isQuickbooks
                 ? "Run the Maven test suite for CSV normalization and reconciliation, or start the Spring Boot 4 + Vaadin application."
+                : isEdugo
+                ? "Launch PostgreSQL via Docker Compose, run backend JUnit tests, start the Spring Boot server, and run Flutter mobile app."
                 : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
@@ -5868,6 +6160,17 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
               <p class="text-emerald-400">mvn spring-boot:run</p>
               <p class="text-slate-400 mt-2"># 4. Open reactive browser dashboard at http://localhost:8080</p>
               <p class="text-emerald-400">curl -I http://localhost:8080</p>
+            </>
+          ) : isEdugo ? (
+            <>
+              <p class="text-slate-400"># 1. Clone EduGo Institute Core repository</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/Edugo.git &amp;&amp; cd Edugo</p>
+              <p class="text-slate-400 mt-2"># 2. Spin up PostgreSQL 16 database container via Docker Compose</p>
+              <p class="text-emerald-400">docker compose up -d</p>
+              <p class="text-slate-400 mt-2"># 3. Run backend unit tests and start Spring Boot 3.3 server with Vaadin</p>
+              <p class="text-emerald-400">cd backend &amp;&amp; ./mvnw test &amp;&amp; ./mvnw spring-boot:run</p>
+              <p class="text-slate-400 mt-2"># 4. Launch Flutter cross-platform mobile client</p>
+              <p class="text-emerald-400">cd ../mobile &amp;&amp; flutter pub get &amp;&amp; flutter run --dart-define=API_BASE_URL=http://localhost:8080</p>
             </>
           ) : (
             <>
