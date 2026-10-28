@@ -10,99 +10,109 @@ interface Props {
   stack?: string[];
 }
 
-const { metrics, stack = ['Rust 2021', 'AVX2/NEON SIMD', 'Rayon Threadpool', 'AMD FidelityFX CAS', 'egui/eframe GUI', 'SHA-256 DRM'] } = Astro.props;
+const {
+  metrics,
+  stack = [
+    '100% Offline & Private',
+    'Zero Cloud Uploads',
+    'Ultra-Lightweight',
+    'Natural Edge Sharpening',
+    'Free & Open Source',
+    'Rust Powered'
+  ]
+} = Astro.props;
 ---
 
 <div class="space-y-6">
-  <!-- Status Badge & Title Area -->
+  <!-- Status Badge & Guarantee Banner -->
   <div class="flex flex-wrap items-center gap-3">
-    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-      PRODUCTION CASE STUDY // SYSTEMS ENGINE v2.1-STABLE
+    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-emerald-950/90 text-emerald-300 border border-emerald-500/60 shadow-sm">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+      100% OFFLINE // ZERO DATA COLLECTION GUARANTEE
     </span>
-    <span class="text-xs font-mono text-slate-400">Arch: x86_64 / aarch64</span>
+    <span class="text-xs font-mono text-slate-300 bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">Works on Windows & Linux</span>
   </div>
 
-  <!-- 4 High-Impact Telemetry Stat Cards in Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" role="region" aria-label="High-Impact Engine Telemetry">
-    <!-- Card 1: Batch Throughput -->
-    <div class="relative overflow-hidden rounded-xl bg-slate-900/80 border border-slate-800 p-5 hover:border-cyan-500/40 transition-colors group">
+  <!-- 4 Human-Centric Value Cards in Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" role="region" aria-label="Key Benefits & Performance Metrics">
+    <!-- Card 1: Processing Speed -->
+    <div class="relative overflow-hidden rounded-xl bg-slate-900 border border-slate-700/80 p-5 hover:border-cyan-400 transition-colors group shadow-lg">
       <div class="flex items-center justify-between mb-3">
-        <span class="text-xs font-mono uppercase tracking-wider text-slate-400">Batch Throughput</span>
-        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400" title="Live Telemetry Verified"></span>
+        <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">Speed &amp; Capacity</span>
+        <span class="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" title="Verified Instant Speed"></span>
       </div>
-      <div class="text-3xl font-mono font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">
+      <div class="text-3xl font-mono font-bold text-white group-hover:text-cyan-300 transition-colors">
         {metrics.throughput}
       </div>
-      <p class="mt-2 text-xs font-sans text-slate-400 flex items-center gap-1">
-        <span class="text-emerald-400 font-mono font-medium">▲ 7.1x</span> vs OpenCV C++ Baseline
+      <p class="mt-2 text-xs font-sans text-slate-200 leading-snug">
+        Enlarges and sharpens hundreds of photos in less than a second.
       </p>
-      <div class="mt-3 pt-3 border-t border-slate-800/80 flex justify-between text-[11px] font-mono text-slate-500">
-        <span>Target: 720x480</span>
-        <span>16 Threads</span>
+      <div class="mt-3 pt-3 border-t border-slate-800 flex justify-between text-xs font-mono text-cyan-300">
+        <span>7x Faster</span>
+        <span>Zero Waiting</span>
       </div>
     </div>
 
-    <!-- Card 2: Latency Profile -->
-    <div class="relative overflow-hidden rounded-xl bg-slate-900/80 border border-slate-800 p-5 hover:border-cyan-500/40 transition-colors group">
+    <!-- Card 2: Instant Response -->
+    <div class="relative overflow-hidden rounded-xl bg-slate-900 border border-slate-700/80 p-5 hover:border-cyan-400 transition-colors group shadow-lg">
       <div class="flex items-center justify-between mb-3">
-        <span class="text-xs font-mono uppercase tracking-wider text-slate-400">Latency / Frame</span>
-        <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">p99</span>
+        <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">Time Per Photo</span>
+        <span class="text-xs font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/50 font-bold">Instant</span>
       </div>
-      <div class="text-3xl font-mono font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">
+      <div class="text-3xl font-mono font-bold text-white group-hover:text-cyan-300 transition-colors">
         {metrics.latency}
       </div>
-      <p class="mt-2 text-xs font-sans text-slate-400 flex items-center gap-1">
-        <span class="text-cyan-400 font-mono font-medium">Lanczos3</span> + CAS Filtering
+      <p class="mt-2 text-xs font-sans text-slate-200 leading-snug">
+        Faster than a human eye blink. Clean results appear immediately.
       </p>
-      <div class="mt-3 pt-3 border-t border-slate-800/80 flex justify-between text-[11px] font-mono text-slate-500">
-        <span>Kernel: SIMD AVX2</span>
-        <span>P50: 2.18ms</span>
+      <div class="mt-3 pt-3 border-t border-slate-800 flex justify-between text-xs font-mono text-cyan-300">
+        <span>Single-Click</span>
+        <span>Batch Mode</span>
       </div>
     </div>
 
-    <!-- Card 3: Memory Footprint -->
-    <div class="relative overflow-hidden rounded-xl bg-slate-900/80 border border-slate-800 p-5 hover:border-cyan-500/40 transition-colors group">
+    <!-- Card 3: PC Health & Memory -->
+    <div class="relative overflow-hidden rounded-xl bg-slate-900 border border-slate-700/80 p-5 hover:border-emerald-400 transition-colors group shadow-lg">
       <div class="flex items-center justify-between mb-3">
-        <span class="text-xs font-mono uppercase tracking-wider text-slate-400">Peak Memory RSS</span>
-        <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Zero-GC</span>
+        <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">Memory Usage</span>
+        <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/50 font-bold">Ultralight</span>
       </div>
-      <div class="text-3xl font-mono font-bold text-slate-100 group-hover:text-emerald-400 transition-colors">
+      <div class="text-3xl font-mono font-bold text-emerald-300">
         {metrics.memoryUsage}
       </div>
-      <p class="mt-2 text-xs font-sans text-slate-400 flex items-center gap-1">
-        <span class="text-emerald-400 font-mono font-medium">93% reduction</span> vs JVM/Python
+      <p class="mt-2 text-xs font-sans text-slate-200 leading-snug">
+        Uses less RAM than a single browser tab. Never slows down your PC.
       </p>
-      <div class="mt-3 pt-3 border-t border-slate-800/80 flex justify-between text-[11px] font-mono text-slate-500">
-        <span>Zero Heap Drift</span>
-        <span>Static 9.7MB Bin</span>
+      <div class="mt-3 pt-3 border-t border-slate-800 flex justify-between text-xs font-mono text-emerald-300">
+        <span>Runs on Any PC</span>
+        <span>Battery Friendly</span>
       </div>
     </div>
 
-    <!-- Card 4: Verification Status -->
-    <div class="relative overflow-hidden rounded-xl bg-slate-900/80 border border-slate-800 p-5 hover:border-cyan-500/40 transition-colors group">
+    <!-- Card 4: Complete Privacy -->
+    <div class="relative overflow-hidden rounded-xl bg-slate-900 border border-slate-700/80 p-5 hover:border-emerald-400 transition-colors group shadow-lg">
       <div class="flex items-center justify-between mb-3">
-        <span class="text-xs font-mono uppercase tracking-wider text-slate-400">Verification Suite</span>
-        <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">All Green</span>
+        <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">Data Privacy</span>
+        <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/50 font-bold">100% Offline</span>
       </div>
-      <div class="text-3xl font-mono font-bold text-emerald-400">
-        4/4 Tests
+      <div class="text-3xl font-mono font-bold text-emerald-300">
+        100% Safe
       </div>
-      <p class="mt-2 text-xs font-sans text-slate-400 flex items-center gap-1">
-        <span class="text-emerald-400 font-mono font-medium">100% Pass</span> • 0 Deadlocks
+      <p class="mt-2 text-xs font-sans text-slate-200 leading-snug">
+        Your family &amp; customer photos never leave your device. Zero cloud risk.
       </p>
-      <div class="mt-3 pt-3 border-t border-slate-800/80 flex justify-between text-[11px] font-mono text-slate-500">
-        <span>CI: Automated</span>
-        <span>Runtime: 0.27s</span>
+      <div class="mt-3 pt-3 border-t border-slate-800 flex justify-between text-xs font-mono text-emerald-300">
+        <span>No Internet Needed</span>
+        <span>No Account Required</span>
       </div>
     </div>
   </div>
 
-  <!-- Tech Badges Bar -->
+  <!-- Key Assurance Badges -->
   <div class="flex flex-wrap items-center gap-2 pt-2">
-    <span class="text-xs font-mono text-slate-500 mr-2">TECH_STACK //</span>
+    <span class="text-xs font-mono text-slate-300 font-bold mr-2 uppercase tracking-wide">GUARANTEES //</span>
     {stack.map((item) => (
-      <span class="inline-flex items-center px-2.5 py-1 rounded bg-slate-800/80 border border-slate-700 text-xs font-mono text-cyan-300 hover:border-cyan-400/50 transition-colors">
+      <span class="inline-flex items-center px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs font-mono text-slate-200 hover:border-cyan-400 transition-colors font-medium">
         {item}
       </span>
     ))}
