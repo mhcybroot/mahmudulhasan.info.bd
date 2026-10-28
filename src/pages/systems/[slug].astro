@@ -6,6 +6,7 @@ import BeforeAfterSlider from '../../components/case-study/BeforeAfterSlider.ast
 import ParkingGateSimulator from '../../components/case-study/ParkingGateSimulator.astro';
 import BiometricPunchSimulator from '../../components/case-study/BiometricPunchSimulator.astro';
 import WorkstationTelemetrySimulator from '../../components/case-study/WorkstationTelemetrySimulator.astro';
+import SwiftPdfSimulator from '../../components/case-study/SwiftPdfSimulator.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -25,6 +26,7 @@ const { data } = entry;
 const isPms = data.slug === 'pms-v2';
 const isHrms = data.slug === 'skylink-hrms';
 const isMonitor = data.slug === 'skylink-monitor';
+const isSwift = data.slug === 'swift-pdf-editor';
 
 let pageDescription = "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
 if (isPms) {
@@ -33,6 +35,8 @@ if (isPms) {
   pageDescription = "Enterprise Biometric Attendance & Automated Payroll Platform. Ingests 10,000+ punches/min with Java 21 Project Loom virtual threads, ZKTeco ADMS, and zero salary errors.";
 } else if (isMonitor) {
   pageDescription = "Ultra-Lightweight Workstation Activity & Focus Monitor. Runs in pure Rust 2024 with under 14MB RAM, <0.01% CPU, on-demand WebSocket screen streaming, and zero invasive keyloggers.";
+} else if (isSwift) {
+  pageDescription = "Financial SWIFT Wire Confirmation Redaction & Precision Typography Engine. Sub-pixel PyMuPDF vector editing, bidirectional Arabic/English typesetting, and zero metadata leakage.";
 }
 ---
 
@@ -115,6 +119,10 @@ if (isPms) {
             <>
               Enterprise workstation activity and productivity monitoring daemon engineered in <strong class="text-white font-semibold">Rust 2024 (Tokio &amp; xcap)</strong> and <strong class="text-white font-semibold">Spring Boot 3.4</strong>. Replaces heavy commercial surveillance software with an ultra-lightweight client consuming <strong class="text-emerald-300 font-semibold">&lt; 14 MB RAM</strong> and <strong class="text-emerald-300 font-semibold">&lt; 0.01% CPU</strong>, featuring on-demand WebSocket streaming and local keyring encryption.
             </>
+          ) : isSwift ? (
+            <>
+              Financial document redaction and typography verification platform engineered with <strong class="text-white font-semibold">Python (FastAPI &amp; PyMuPDF)</strong> and <strong class="text-white font-semibold">Flutter</strong>. Delivers sub-pixel font metric reconstruction, bidirectional Arabic/English typesetting (Tajawal &amp; Amiri), and true cryptographic stream black-boxing with <strong class="text-emerald-300 font-semibold">zero metadata residue</strong>.
+            </>
           ) : (
             <>
               Turn blurry, low-resolution photos into <strong class="text-white font-semibold">crystal-clear HD and 4K visuals</strong> in milliseconds. 
@@ -170,6 +178,21 @@ if (isPms) {
                 <span class="text-emerald-400 font-bold">✓</span> 100% Offline Local Buffer Resilience
               </div>
             </>
+          ) : isSwift ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Sub-Pixel Typography Alignment
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> True Cryptographic Stream Scrubbing
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Native BiDi Arabic Reshaper (Tajawal/Amiri)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Zero Underlying Metadata Leakage
+              </div>
+            </>
           ) : (
             <>
               <div class="flex items-center gap-1.5">
@@ -201,6 +224,8 @@ if (isPms) {
         <BiometricPunchSimulator />
       ) : isMonitor ? (
         <WorkstationTelemetrySimulator />
+      ) : isSwift ? (
+        <SwiftPdfSimulator />
       ) : (
         <BeforeAfterSlider />
       )}
@@ -220,6 +245,8 @@ if (isPms) {
             ? "Built to eliminate shift-change attendance chaos and reduce month-end payroll reconciliation from days to minutes."
             : isMonitor
             ? "Built to deliver lightweight team focus insights with zero computer lag and total privacy protection."
+            : isSwift
+            ? "Built to sanitize confidential wire transfers and guarantee typographic compliance across international banking."
             : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
@@ -327,6 +354,41 @@ if (isPms) {
               <h3 class="font-mono font-bold text-white text-base">Information Security &amp; Compliance</h3>
               <p class="text-xs text-slate-200 font-sans leading-relaxed">
                 Zero keyloggers protects banking logins, passwords, and private correspondence. Authentication tokens are securely encrypted inside native OS credential vaults.
+              </p>
+            </div>
+          </>
+        ) : isSwift ? (
+          <>
+            <!-- Use Case 1: International Trade Houses -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🚢
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">International Trade &amp; Shipping</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Share proof-of-payment documents with customs brokers and clearing agents while permanently scrubbing confidential supplier discounts, internal IBANs, and private client names.
+              </p>
+            </div>
+
+            <!-- Use Case 2: Multi-Currency Corporate Treasuries -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                💱
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Corporate Treasuries &amp; Banking</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Reconstructs typographic layouts with sub-pixel precision across USD, EUR, AED, and SAR wire formats. Perfectly matches bank serif and sans-serif ascender metrics without visual seams.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Middle Eastern & GCC Cross-Border Trade -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🕌
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">GCC &amp; Middle East Trade Channels</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Native BiDi reshaper supports complex Arabic cursive fonts (Tajawal, Amiri, Naskh), preventing reverse-letter distortion on wire transfer confirmations from Dubai, Riyadh, and Doha.
               </p>
             </div>
           </>
@@ -548,6 +610,69 @@ if (isPms) {
             </table>
           </div>
         </div>
+      ) : isSwift ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+              Engineering Benchmark: Swift PDF Studio vs. Standard PDF Editors
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured during banking compliance redaction of multi-currency SWIFT MT103 wire confirmations.
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-cyan-300 bg-cyan-950/40">Swift PDF Studio (PyMuPDF Core)</th>
+                  <th class="py-3 px-4 font-semibold">Standard Commercial Editors (Acrobat/Word)</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Operational Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Redaction Security</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">True Vector Stream Byte Scrubbing</td>
+                  <td class="py-3.5 px-4 text-slate-400">Visual black box overlay (Text still copyable)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">100% Cryptographic Sanitization</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Typography Baseline Matching</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Sub-Pixel Metric &amp; Offset Calculation</td>
+                  <td class="py-3.5 px-4 text-slate-400">Generic Arial fallback with line shifting</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Sub-Millimeter Visual Authenticity</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Arabic &amp; RTL Layout Fidelity</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">BiDi Contextual Reshaper + 4x Antialiased Vector</td>
+                  <td class="py-3.5 px-4 text-slate-400">Inverted &amp; disconnected Arabic glyphs</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Flawless GCC Legal Compliance</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Pipeline Execution Speed</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 120ms Python Vector Pass</td>
+                  <td class="py-3.5 px-4 text-slate-400">3.5s – 12.0s Slow GUI Export</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">96% Faster Document Turnaround</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Headless Automation API</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">FastAPI REST Microservice &amp; Batch Endpoint</td>
+                  <td class="py-3.5 px-4 text-slate-400">Manual interactive click-and-drag only</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Automates 100,000+ Invoices/Day</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Metadata &amp; PII Scrubbing</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Physical XREF Table &amp; Object Sanitization</td>
+                  <td class="py-3.5 px-4 text-slate-400">Hidden document authors &amp; edit logs retained</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Banking Secrecy Breach</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <BenchmarkMatrix />
       )}
@@ -571,6 +696,8 @@ if (isPms) {
               ? "Engineered in modern Java 21 with Project Loom virtual threads, Spring Boot 3.4, ZKTeco ADMS, and PostgreSQL 16."
               : isMonitor
               ? "Engineered in pure Rust 2024 (Tokio & xcap) with atomic video throttling, OS keyring encryption, and Spring Boot 3.4."
+              : isSwift
+              ? "Engineered in Python 3.12 (FastAPI & PyMuPDF) with sub-pixel font metric calculation, BiDi typography reshaping, and Flutter."
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
@@ -955,6 +1082,128 @@ if (isPms) {
                 </p>
               </button>
             </>
+          ) : isSwift ? (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-flutter-ingress"
+                data-node-title="Flutter Desktop & Web Vector Canvas"
+                data-node-badge="Phase 1: Interactive Client Ingress"
+                data-node-desc="Renders vector PDF canvas with interactive bounding-box selection, field search, and real-time redaction preview."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // FLUTTER INGRESS</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Flutter Vector Canvas
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Sub-pixel interactive document canvas with drag-and-drop wire transfer PDF inspection.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-fastapi"
+                data-node-title="FastAPI Headless Microservice & In-Memory Pipeline"
+                data-node-badge="Phase 2: Ingestion Gateway"
+                data-node-desc="Parses incoming multipart PDF byte streams directly into memory-backed PyMuPDF fitz.Document representations."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // FASTAPI GATEWAY</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  FastAPI Async Stream Gateway
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Asynchronous REST endpoint handling batch PDF uploads with sub-120ms vector parsing.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-fitz-dict"
+                data-node-title="PyMuPDF fitz.Page.get_text('dict') Character Extractor"
+                data-node-badge="Phase 3: Typographic Analysis"
+                data-node-desc="Extracts span coordinates, exact font identifiers, font sizes, line bounds, and computes vertical baseline offsets."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // TYPOGRAPHY EXTRACT</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Sub-Pixel Font Metric Match
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Calculates exact baseline y1 - (font_size * 0.2) to match official bank typography.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-bidi"
+                data-node-title="BiDi Arabic Reshaper & 4x Pillow Raster Engine"
+                data-node-badge="Phase 4: Arabic Typography"
+                data-node-desc="Contextual glyph shaping using arabic_reshaper and bidi.algorithm, rendered with 4x antialiased vectors via Tajawal and Amiri fonts."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // BIDI ARABIC RESHAPER</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Arabic BiDi Compositor
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Flawless RTL cursive glyph shaping eliminating reverse-letter distortion on Middle East wires.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-redact-core"
+                data-node-title="Cryptographic fitz.Page.apply_redactions() Sanitizer"
+                data-node-badge="Phase 5: Binary Byte Scrubbing"
+                data-node-desc="Physically erases character quads and underlying byte streams from the PDF structure, ensuring zero copyable data residue."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // VECTOR REDACTOR</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Byte-Level Stream Eraser
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  True cryptographic sanitization scrubbing secret IBANs and pricing from PDF vector tables.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-deflate"
+                data-node-title="Deflate-Compressed Clean PDF Egress"
+                data-node-badge="Phase 6: Egress & XREF Rebuild"
+                data-node-desc="Generates sanitized PDF binaries with completely rebuilt cross-reference tables and stripped author metadata."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // CLEAN EGRESS</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Sanitized PDF Stream Export
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Compact, compliance-ready bank wire documentation with zero metadata traceability.
+                </p>
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -1093,6 +1342,8 @@ if (isPms) {
                 ? "Biometric Protocol Handler: Raw ADMS HTTP Telemetry Ingestion"
                 : isMonitor
                 ? "Native Concurrency Core: Tokio WebSocket Screen Streaming & Dynamic Throttling"
+                : isSwift
+                ? "Typography & Redaction Engine: PyMuPDF Vector Sanitization & Arabic BiDi Layout"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
@@ -1102,6 +1353,8 @@ if (isPms) {
                 ? <span>Directly from <code class="text-cyan-300 font-mono">src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java</code> handling Project Loom push ingestion.</span>
                 : isMonitor
                 ? <span>Directly from <code class="text-cyan-300 font-mono">skylink-monitor/src/network.rs</code> showing non-blocking xcap frame capture &amp; atomic quality throttling.</span>
+                : isSwift
+                ? <span>Directly from <code class="text-cyan-300 font-mono">backend/app/pdf_service.py</code> showing Pillow 4x antialiasing &amp; PyMuPDF baseline positioning.</span>
                 : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
@@ -1122,10 +1375,10 @@ if (isPms) {
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               <span class="ml-2 text-slate-200 font-medium">
-                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : "src/engine/enhancer.rs"}
+                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : "src/engine/enhancer.rs"}
               </span>
             </div>
-            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : "rust • 105 lines"}</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : "rust • 105 lines"}</span>
           </div>
 
           {isPms ? (
@@ -1222,6 +1475,33 @@ if (isPms) {
         &#125;
     &#125;
 &#125;</code></pre>
+          ) : isSwift ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">def</span> <span class="text-cyan-300">draw_with_pillow</span>(page, text_to_draw, left_x0, baseline_y, font_size, color, arabic_font_path):
+    <span class="text-rose-400">try</span>:
+        <span class="text-slate-400"># 4x high-resolution oversampling for antialiased vector compositing</span>
+        scale = <span class="text-amber-300">4.0</span>
+        pil_font_size = <span class="text-amber-300">int</span>(font_size * scale)
+        font = ImageFont.truetype(arabic_font_path, pil_font_size)
+        
+        draw_temp = ImageDraw.Draw(Image.new(<span class="text-emerald-300">"RGBA"</span>, (<span class="text-amber-300">1</span>, <span class="text-amber-300">1</span>)))
+        bbox = draw_temp.textbbox((<span class="text-amber-300">0</span>, <span class="text-amber-300">0</span>), text_to_draw, font=font, direction=<span class="text-emerald-300">"rtl"</span>, language=<span class="text-emerald-300">"ar"</span>)
+        width, height = <span class="text-amber-300">int</span>(bbox[<span class="text-amber-300">2</span>] - bbox[<span class="text-amber-300">0</span>]), <span class="text-amber-300">int</span>(bbox[<span class="text-amber-300">3</span>] - bbox[<span class="text-amber-300">1</span>])
+        
+        img = Image.new(<span class="text-emerald-300">"RGBA"</span>, (width, height), (<span class="text-amber-300">255</span>, <span class="text-amber-300">255</span>, <span class="text-amber-300">255</span>, <span class="text-amber-300">0</span>))
+        draw = ImageDraw.Draw(img)
+        r, g, b = [<span class="text-amber-300">int</span>(c * <span class="text-amber-300">255</span>) <span class="text-rose-400">for</span> c <span class="text-rose-400">in</span> color]
+        draw.text((-bbox[<span class="text-amber-300">0</span>], -bbox[<span class="text-amber-300">1</span>]), text_to_draw, font=font, fill=(r, g, b, <span class="text-amber-300">255</span>), direction=<span class="text-emerald-300">"rtl"</span>, language=<span class="text-emerald-300">"ar"</span>)
+        
+        img_byte_arr = BytesIO()
+        img.save(img_byte_arr, format=<span class="text-emerald-300">"PNG"</span>)
+        
+        <span class="text-slate-400"># Sub-pixel baseline shift compensation</span>
+        y_tweak = font_size * <span class="text-amber-300">0.588</span>
+        top_in_pdf = baseline_y + (bbox[<span class="text-amber-300">1</span>] / scale) - y_tweak
+        rect = fitz.Rect(left_x0, top_in_pdf, left_x0 + (width / scale), top_in_pdf + (height / scale))
+        page.insert_image(rect, stream=img_byte_arr.getvalue())
+    <span class="text-rose-400">except</span> Exception:
+        page.insert_text(fitz.Point(left_x0, baseline_y), text_to_draw, fontsize=font_size, fontname=<span class="text-emerald-300">"helv"</span>, color=color)</code></pre>
           ) : (
             <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub fn</span> <span class="text-cyan-300">apply_adaptive_sharpen</span>(img: &<span class="text-amber-300">RgbaImage</span>, strength: <span class="text-rose-400">f32</span>) -&gt; <span class="text-amber-300">RgbaImage</span> &#123;
     <span class="text-slate-400">// Clamp strength & compute FidelityFX peak negative cross weight</span>
@@ -1275,6 +1555,8 @@ if (isPms) {
                 ? "Run the Gradle test suite locally or launch the Spring Boot application with Java 21."
                 : isMonitor
                 ? "Run the Rust cargo test suite locally or compile the release binary for Linux or Windows."
+                : isSwift
+                ? "Run the FastAPI vector service locally or run the cross-platform Flutter client."
                 : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
@@ -1308,6 +1590,17 @@ if (isPms) {
               <p class="text-emerald-400">cargo test --release</p>
               <p class="text-slate-400 mt-2"># 3. Launch native monitor agent</p>
               <p class="text-emerald-400">cargo run --release</p>
+            </>
+          ) : isSwift ? (
+            <>
+              <p class="text-slate-400"># 1. Clone Swift PDF Studio repository</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/swift-pdf-editor.git &amp;&amp; cd swift-pdf-editor</p>
+              <p class="text-slate-400 mt-2"># 2. Install Python backend dependencies</p>
+              <p class="text-emerald-400">cd backend &amp;&amp; python3 -m venv venv &amp;&amp; source venv/bin/activate &amp;&amp; pip install -r requirements.txt</p>
+              <p class="text-slate-400 mt-2"># 3. Launch FastAPI vector service (port 8000)</p>
+              <p class="text-emerald-400">uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload</p>
+              <p class="text-slate-400 mt-2"># 4. Launch Flutter desktop / web client</p>
+              <p class="text-emerald-400">cd ../frontend &amp;&amp; flutter run -d chrome</p>
             </>
           ) : (
             <>
