@@ -1,0 +1,566 @@
+---
+// Bhumi Setu (ভূমি সেতু) Land Record Ledger & Title Deed Verification Simulator
+---
+
+<div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-8 shadow-2xl">
+  <!-- Simulator Header -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+    <div>
+      <div class="flex items-center gap-2 text-cyan-300 font-mono text-xs uppercase tracking-wider mb-1 font-bold">
+        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        Interactive Land Registry &amp; Cadastral Sandbox
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-mono font-bold text-white flex items-center gap-3">
+        Bhumi Setu: Title Deed &amp; Boundary Audit
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-300 font-sans mt-1">
+        Experience Bangladeshi land record verification (CS → SA → RS → BS), unit conversion math, and PostGIS boundary checks.
+      </p>
+    </div>
+
+    <!-- Active Perspective Switcher -->
+    <div class="flex items-center p-1 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono overflow-x-auto">
+      <button
+        type="button"
+        id="land-tab-chain"
+        class="land-tab-btn px-3.5 py-1.5 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold transition-all shadow-sm"
+        data-view="chain"
+      >
+        📜 Deed Chain Audit
+      </button>
+      <button
+        type="button"
+        id="land-tab-calc"
+        class="land-tab-btn px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition-all font-semibold"
+        data-view="calc"
+      >
+        📐 Unit Calculator
+      </button>
+      <button
+        type="button"
+        id="land-tab-map"
+        class="land-tab-btn px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition-all font-semibold"
+        data-view="map"
+      >
+        🗺️ PostGIS Boundary Radar
+      </button>
+    </div>
+  </div>
+
+  <!-- View 1: Historical Chain-of-Title Audit (Default) -->
+  <div id="land-screen-chain" class="land-screen space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Input Search Parameters -->
+      <div class="lg:col-span-7 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              Cadastral Record Lookup
+            </span>
+            <span class="text-[10px] text-emerald-400 font-semibold">PostgreSQL 16 AC-Land Schema</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-slate-400 mb-1">Select Jurisdiction</label>
+              <select id="land-select-mouza" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-xs focus:border-cyan-400 outline-none">
+                <option value="dhanmondi" data-cs="142" data-sa="88" data-rs="204" data-bs="412" data-status="clean">Dhaka • Dhanmondi (Mouza: Dhanmondi-5)</option>
+                <option value="gazipur" data-cs="310" data-sa="190" data-rs="524" data-bs="802" data-status="broken">Gazipur • Joydebpur (Mouza: Bhawal-12)</option>
+                <option value="chattogram" data-cs="45" data-sa="28" data-rs="94" data-bs="180" data-status="clean">Chattogram • Panchlaish (Mouza: Nasirabad)</option>
+                <option value="sylhet" data-cs="215" data-sa="140" data-rs="320" data-bs="610" data-status="clean">Sylhet • Kotwali (Mouza: Kumarpara)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-slate-400 mb-1">Target Dag (Plot) Number</label>
+              <input
+                type="text"
+                id="land-input-dag"
+                value="Dag No: 412"
+                class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-xs focus:border-cyan-400 outline-none"
+              />
+            </div>
+          </div>
+
+          <div class="pt-2 flex items-center justify-between">
+            <button
+              type="button"
+              id="land-btn-run-audit"
+              class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 font-bold hover:scale-[1.02] transition-transform shadow-lg cursor-pointer flex items-center gap-2"
+            >
+              <span>🔍 Traverse Historical Survey Chain</span>
+            </button>
+            <span class="text-[10px] text-slate-400">Sub-30ms Chain Traversal</span>
+          </div>
+        </div>
+
+        <!-- Chain-of-Title Visual Timeline -->
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <span class="text-xs font-bold text-white uppercase tracking-wider">Historical Survey Continuity</span>
+            <span class="text-emerald-400 font-bold text-[10px]" id="land-chain-badge">100% VERIFIED CHAIN</span>
+          </div>
+
+          <!-- Timeline Steps -->
+          <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 text-[11px]">
+            <!-- Step 1: CS -->
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+              <div class="text-cyan-400 font-bold">1. CS Survey (1910)</div>
+              <div class="text-slate-300" id="chain-cs">Khatian: 142</div>
+              <div class="text-[10px] text-emerald-400">✓ Zamindari Record</div>
+            </div>
+
+            <!-- Step 2: SA -->
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1" id="card-sa">
+              <div class="text-cyan-400 font-bold">2. SA Survey (1956)</div>
+              <div class="text-slate-300" id="chain-sa">Khatian: 88</div>
+              <div class="text-[10px] text-emerald-400" id="status-sa">✓ State Acquired</div>
+            </div>
+
+            <!-- Step 3: RS -->
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+              <div class="text-cyan-400 font-bold">3. RS Survey (1972)</div>
+              <div class="text-slate-300" id="chain-rs">Khatian: 204</div>
+              <div class="text-[10px] text-emerald-400">✓ Revisional Pass</div>
+            </div>
+
+            <!-- Step 4: BS -->
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
+              <div class="text-cyan-400 font-bold">4. BS / City (2010)</div>
+              <div class="text-slate-300" id="chain-bs">Khatian: 412</div>
+              <div class="text-[10px] text-emerald-400">✓ Modern Cadastre</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Title Clearance Report -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <span class="text-xs font-bold text-white uppercase tracking-wider">Title Audit Clearance</span>
+            <span class="text-emerald-400 font-bold text-[10px]" id="audit-risk-badge">LOW RISK</span>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Recorded Legal Owner:</span>
+              <span class="text-white font-bold" id="audit-owner">Mahmudul Hasan</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Mutation (নামজারি) Status:</span>
+              <span class="text-emerald-400 font-bold" id="audit-mutation">Case # 2026-DH-402 (Approved)</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">DCR Government Fee:</span>
+              <span class="text-white font-bold">BDT 1,150 (Paid)</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Bank Mortgage / Encumbrance:</span>
+              <span class="text-emerald-400 font-bold" id="audit-encumbrance">None (Zero Lien)</span>
+            </div>
+            <div class="pt-3 border-t border-slate-800">
+              <button
+                type="button"
+                id="land-btn-cert"
+                class="w-full py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-cyan-400 text-white font-bold transition-all text-xs flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>📜 Preview Digital Title Clearance Pass</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="land-cert-preview" class="hidden p-4 rounded-2xl bg-white text-slate-950 font-serif text-[11px] space-y-2 shadow-2xl border border-slate-300">
+          <div class="text-center border-b border-slate-300 pb-2">
+            <div class="font-bold text-xs uppercase tracking-wide">Government of Bangladesh • Land Revenue Cadastre</div>
+            <div class="text-[9px] text-slate-600 font-sans">Digital Land Record &amp; Mutation Ledger (ভূমি সেতু)</div>
+            <div class="font-bold text-[10px] mt-1 font-sans text-emerald-800">TITLE CLEARANCE CERTIFICATE</div>
+          </div>
+          <div class="font-sans text-[10px] text-slate-700 space-y-1">
+            <div class="flex justify-between"><span>Certificate ID:</span><span class="font-mono font-bold">BS-2026-8849-DH</span></div>
+            <div class="flex justify-between"><span>Mouza &amp; Dag:</span><span>Dhanmondi, Dag # 412</span></div>
+            <div class="flex justify-between"><span>Total Land Area:</span><span>10.00 Decimal (6.05 Katha)</span></div>
+            <div class="flex justify-between"><span>Chain Authenticity:</span><span class="text-emerald-700 font-bold">Verified CS-SA-RS-BS Continuity</span></div>
+          </div>
+          <div class="pt-2 border-t border-slate-300 text-center font-sans text-[9px] text-slate-500">
+            Cryptographically stamped via PostgreSQL 16 PostGIS. Valid for property registration and bank mortgages.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View 2: Precision Land Unit Calculator -->
+  <div id="land-screen-calc" class="land-screen hidden space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Interactive Unit Slider -->
+      <div class="lg:col-span-7 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              Land Area Metric Slider
+            </span>
+            <span class="text-[10px] text-cyan-300">High-Precision Math Core</span>
+          </div>
+
+          <div class="space-y-4">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between text-slate-300">
+                <span>Land Area in Shotok / Decimal (শতক):</span>
+                <span class="text-cyan-300 font-bold text-base" id="calc-display-decimal">10.00 Decimal</span>
+              </div>
+              <input
+                type="range"
+                id="calc-slider-decimal"
+                min="1"
+                max="100"
+                value="10"
+                step="0.5"
+                class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+              />
+            </div>
+            <p class="text-[11px] text-slate-400 font-sans">
+              Drag the slider to immediately convert across traditional Bangladeshi municipal survey units and international standards.
+            </p>
+          </div>
+        </div>
+
+        <!-- Equivalent Units Matrix -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+            <span class="text-slate-400 text-[10px]">Katha (কাঠা)</span>
+            <div class="text-lg font-bold text-emerald-400" id="calc-val-katha">6.06</div>
+            <span class="text-[9px] text-slate-500">1 Katha = 1.65 Dec</span>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+            <span class="text-slate-400 text-[10px]">Square Feet (বর্গফুট)</span>
+            <div class="text-lg font-bold text-cyan-300" id="calc-val-sqft">4,356.0</div>
+            <span class="text-[9px] text-slate-500">1 Dec = 435.60 Sqft</span>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+            <span class="text-slate-400 text-[10px]">Bigha (বিঘা)</span>
+            <div class="text-lg font-bold text-amber-400" id="calc-val-bigha">0.30</div>
+            <span class="text-[9px] text-slate-500">1 Bigha = 33 Dec</span>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+            <span class="text-slate-400 text-[10px]">Acre (একর)</span>
+            <div class="text-lg font-bold text-purple-400" id="calc-val-acre">0.10</div>
+            <span class="text-[9px] text-slate-500">1 Acre = 100 Dec</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Bangladeshi Land Arithmetic Reference -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <span class="text-xs font-bold text-white uppercase tracking-wider">Official Conversion Constants</span>
+            <span class="text-cyan-300 font-bold text-[10px]">Municipal Cadastre</span>
+          </div>
+
+          <div class="space-y-2 text-[11px] text-slate-300">
+            <div class="flex justify-between p-2 rounded bg-slate-900 border border-slate-800">
+              <span>১ শতক (Decimal)</span>
+              <span class="text-cyan-300 font-bold">৪৩৫.৬০ বর্গফুট</span>
+            </div>
+            <div class="flex justify-between p-2 rounded bg-slate-900 border border-slate-800">
+              <span>১ কাঠা (Katha)</span>
+              <span class="text-emerald-300 font-bold">৭২০ বর্গফুট (১.৬৫ শতক)</span>
+            </div>
+            <div class="flex justify-between p-2 rounded bg-slate-900 border border-slate-800">
+              <span>১ বিঘা (Bigha)</span>
+              <span class="text-amber-300 font-bold">২০ কাঠা (৩৩ শতক)</span>
+            </div>
+            <div class="flex justify-between p-2 rounded bg-slate-900 border border-slate-800">
+              <span>১ একর (Acre)</span>
+              <span class="text-purple-300 font-bold">৩ বিঘা ৮ ছটাক (১০০ শতক)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View 3: PostGIS Boundary Radar & Overlap Detector -->
+  <div id="land-screen-map" class="land-screen hidden space-y-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Simulated Cadastral Map Viewport -->
+      <div class="lg:col-span-7 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              PostGIS Cadastral Spatial Polygon
+            </span>
+            <span class="text-[10px] text-cyan-300">WGS-84 / EPSG:3106 BD Grid</span>
+          </div>
+
+          <!-- SVG Cadastral Map Visualizer -->
+          <div class="relative bg-slate-900 rounded-xl border border-slate-800 p-4 flex items-center justify-center min-h-[260px]">
+            <svg class="w-full max-w-md h-56" viewBox="0 0 400 240" fill="none">
+              <!-- Grid lines -->
+              <line x1="20" y1="20" x2="380" y2="20" stroke="#334155" stroke-dasharray="4 4" />
+              <line x1="20" y1="120" x2="380" y2="120" stroke="#334155" stroke-dasharray="4 4" />
+              <line x1="20" y1="220" x2="380" y2="220" stroke="#334155" stroke-dasharray="4 4" />
+              <line x1="120" y1="20" x2="120" y2="220" stroke="#334155" stroke-dasharray="4 4" />
+              <line x1="260" y1="20" x2="260" y2="220" stroke="#334155" stroke-dasharray="4 4" />
+
+              <!-- Adjacent Plot: Dag 411 -->
+              <polygon points="30,30 110,30 110,110 30,110" fill="#1e293b" stroke="#475569" stroke-width="2" />
+              <text x="50" y="75" fill="#94a3b8" font-family="monospace" font-size="10">Dag 411</text>
+
+              <!-- Target Plot: Dag 412 -->
+              <polygon id="svg-plot-412" points="130,30 250,30 250,150 130,150" fill="rgba(6, 182, 212, 0.15)" stroke="#06b6d4" stroke-width="2" />
+              <text x="165" y="95" fill="#06b6d4" font-family="monospace" font-weight="bold" font-size="11">Dag 412</text>
+
+              <!-- Adjacent Plot: Dag 413 -->
+              <polygon points="270,30 370,30 370,180 270,180" fill="#1e293b" stroke="#475569" stroke-width="2" />
+              <text x="300" y="105" fill="#94a3b8" font-family="monospace" font-size="10">Dag 413</text>
+
+              <!-- Simulated Encroachment Layer (Hidden by default) -->
+              <polygon id="svg-encroachment" points="240,30 275,30 275,150 240,150" fill="rgba(244, 63, 94, 0.3)" stroke="#f43f5e" stroke-width="2" stroke-dasharray="3 3" class="hidden" />
+              <text id="svg-encroachment-text" x="235" y="170" fill="#f43f5e" font-family="monospace" font-size="9" font-weight="bold" class="hidden">Overlap: 1.4 Dec</text>
+            </svg>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <button
+              type="button"
+              id="land-btn-toggle-overlap"
+              class="px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 hover:border-rose-400 text-rose-300 font-bold transition-all text-xs cursor-pointer flex items-center gap-2"
+            >
+              <span>⚠️ Simulate Encroaching Boundary Claim</span>
+            </button>
+            <span class="text-[10px] text-slate-400">PostGIS ST_Intersects Check</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Boundary Overlap Diagnostics -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <span class="text-xs font-bold text-white uppercase tracking-wider">Spatial Boundary Analysis</span>
+            <span class="text-emerald-400 font-bold text-[10px]" id="map-status-badge">CLEAR (0 OVERLAPS)</span>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Parcel Perimeter:</span>
+              <span class="text-white font-bold">148.2 Meters</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">East Boundary Dag 413:</span>
+              <span class="text-emerald-400 font-bold" id="map-boundary-status">Safe (0.00m Encroachment)</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Spatial Index (R-Tree):</span>
+              <span class="text-cyan-300 font-bold">GIST (geom_parcel)</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Query Resolution Latency:</span>
+              <span class="text-emerald-400 font-bold">&lt; 28ms</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-cyan-950/30 border border-cyan-500/30 font-mono text-xs text-cyan-200 space-y-2">
+          <div class="font-bold text-cyan-300">🌐 Preventing Double-Sale Fraud</div>
+          <p class="text-[11px] text-slate-300 leading-relaxed font-sans">
+            PostGIS spatial polygons prevent crooked sellers from selling the same land twice to different parties by validating that the spatial bounding box does not intersect previously registered deed polygons.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initLandTrustSimulator() {
+    // Tab switching
+    const tabBtns = document.querySelectorAll('.land-tab-btn');
+    const screens = {
+      chain: document.getElementById('land-screen-chain'),
+      calc: document.getElementById('land-screen-calc'),
+      map: document.getElementById('land-screen-map'),
+    };
+
+    tabBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetView = btn.getAttribute('data-view');
+        tabBtns.forEach((b) => {
+          b.className = 'land-tab-btn px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition-all font-semibold';
+        });
+        btn.className = 'land-tab-btn px-3.5 py-1.5 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold transition-all shadow-sm';
+
+        Object.keys(screens).forEach((key) => {
+          if (screens[key as keyof typeof screens]) {
+            if (key === targetView) {
+              screens[key as keyof typeof screens]!.classList.remove('hidden');
+            } else {
+              screens[key as keyof typeof screens]!.classList.add('hidden');
+            }
+          }
+        });
+      });
+    });
+
+    // Deed Chain Audit simulation
+    const mouzaSelect = document.getElementById('land-select-mouza') as HTMLSelectElement | null;
+    const runAuditBtn = document.getElementById('land-btn-run-audit');
+    const chainCs = document.getElementById('chain-cs');
+    const chainSa = document.getElementById('chain-sa');
+    const chainRs = document.getElementById('chain-rs');
+    const chainBs = document.getElementById('chain-bs');
+    const chainBadge = document.getElementById('land-chain-badge');
+    const cardSa = document.getElementById('card-sa');
+    const statusSa = document.getElementById('status-sa');
+    const riskBadge = document.getElementById('audit-risk-badge');
+    const mutationEl = document.getElementById('audit-mutation');
+    const encumbranceEl = document.getElementById('audit-encumbrance');
+
+    runAuditBtn?.addEventListener('click', () => {
+      if (!mouzaSelect) return;
+      const selected = mouzaSelect.options[mouzaSelect.selectedIndex];
+      const cs = selected.getAttribute('data-cs') || '142';
+      const sa = selected.getAttribute('data-sa') || '88';
+      const rs = selected.getAttribute('data-rs') || '204';
+      const bs = selected.getAttribute('data-bs') || '412';
+      const status = selected.getAttribute('data-status') || 'clean';
+
+      if (chainCs) chainCs.textContent = `Khatian: ${cs}`;
+      if (chainSa) chainSa.textContent = `Khatian: ${sa}`;
+      if (chainRs) chainRs.textContent = `Khatian: ${rs}`;
+      if (chainBs) chainBs.textContent = `Khatian: ${bs}`;
+
+      if (status === 'broken') {
+        if (chainBadge) {
+          chainBadge.textContent = 'BROKEN CHAIN GAP (RISK)';
+          chainBadge.className = 'text-rose-400 font-bold text-[10px]';
+        }
+        if (cardSa) cardSa.className = 'p-3 rounded-xl bg-rose-950/40 border border-rose-500/50 space-y-1';
+        if (statusSa) {
+          statusSa.textContent = '❌ Unrecorded Transfer';
+          statusSa.className = 'text-[10px] text-rose-400 font-bold';
+        }
+        if (riskBadge) {
+          riskBadge.textContent = 'HIGH RISK (DISPUTED)';
+          riskBadge.className = 'text-rose-400 font-bold text-[10px]';
+        }
+        if (mutationEl) {
+          mutationEl.textContent = 'Rejected (Missing Deed Link)';
+          mutationEl.className = 'text-rose-400 font-bold';
+        }
+        if (encumbranceEl) {
+          encumbranceEl.textContent = 'Warning: Pending Civil Lawsuit';
+          encumbranceEl.className = 'text-rose-400 font-bold';
+        }
+      } else {
+        if (chainBadge) {
+          chainBadge.textContent = '100% VERIFIED CHAIN';
+          chainBadge.className = 'text-emerald-400 font-bold text-[10px]';
+        }
+        if (cardSa) cardSa.className = 'p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1';
+        if (statusSa) {
+          statusSa.textContent = '✓ State Acquired';
+          statusSa.className = 'text-[10px] text-emerald-400';
+        }
+        if (riskBadge) {
+          riskBadge.textContent = 'LOW RISK';
+          riskBadge.className = 'text-emerald-400 font-bold text-[10px]';
+        }
+        if (mutationEl) {
+          mutationEl.textContent = 'Case # 2026-DH-402 (Approved)';
+          mutationEl.className = 'text-emerald-400 font-bold';
+        }
+        if (encumbranceEl) {
+          encumbranceEl.textContent = 'None (Zero Lien)';
+          encumbranceEl.className = 'text-emerald-400 font-bold';
+        }
+      }
+    });
+
+    // Certificate preview toggle
+    const certBtn = document.getElementById('land-btn-cert');
+    const certBox = document.getElementById('land-cert-preview');
+    certBtn?.addEventListener('click', () => {
+      certBox?.classList.toggle('hidden');
+    });
+
+    // Unit Converter logic
+    const sliderDec = document.getElementById('calc-slider-decimal') as HTMLInputElement | null;
+    const dispDec = document.getElementById('calc-display-decimal');
+    const valKatha = document.getElementById('calc-val-katha');
+    const valSqft = document.getElementById('calc-val-sqft');
+    const valBigha = document.getElementById('calc-val-bigha');
+    const valAcre = document.getElementById('calc-val-acre');
+
+    function updateLandUnits() {
+      if (!sliderDec) return;
+      const dec = parseFloat(sliderDec.value) || 10;
+      if (dispDec) dispDec.textContent = `${dec.toFixed(2)} Decimal`;
+
+      // 1 Decimal = 435.60 sqft
+      const sqft = dec * 435.60;
+      // 1 Katha = 720 sqft = 1.65 decimal
+      const katha = sqft / 720.0;
+      // 1 Bigha = 33 decimal = 20 katha = 14400 sqft
+      const bigha = dec / 33.0;
+      // 1 Acre = 100 decimal
+      const acre = dec / 100.0;
+
+      if (valSqft) valSqft.textContent = sqft.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+      if (valKatha) valKatha.textContent = katha.toFixed(2);
+      if (valBigha) valBigha.textContent = bigha.toFixed(2);
+      if (valAcre) valAcre.textContent = acre.toFixed(2);
+    }
+
+    sliderDec?.addEventListener('input', updateLandUnits);
+
+    // PostGIS Overlap toggle
+    const overlapBtn = document.getElementById('land-btn-toggle-overlap');
+    const encroachmentSvg = document.getElementById('svg-encroachment');
+    const encroachmentText = document.getElementById('svg-encroachment-text');
+    const mapBadge = document.getElementById('map-status-badge');
+    const mapBoundary = document.getElementById('map-boundary-status');
+    let isOverlapping = false;
+
+    overlapBtn?.addEventListener('click', () => {
+      isOverlapping = !isOverlapping;
+      if (isOverlapping) {
+        encroachmentSvg?.classList.remove('hidden');
+        encroachmentText?.classList.remove('hidden');
+        if (mapBadge) {
+          mapBadge.textContent = 'BOUNDARY OVERLAP DETECTED';
+          mapBadge.className = 'text-rose-400 font-bold text-[10px]';
+        }
+        if (mapBoundary) {
+          mapBoundary.textContent = 'Overlap: 1.4 Decimal on East';
+          mapBoundary.className = 'text-rose-400 font-bold';
+        }
+        overlapBtn.textContent = '✓ Clear Simulated Encroachment';
+      } else {
+        encroachmentSvg?.classList.add('hidden');
+        encroachmentText?.classList.add('hidden');
+        if (mapBadge) {
+          mapBadge.textContent = 'CLEAR (0 OVERLAPS)';
+          mapBadge.className = 'text-emerald-400 font-bold text-[10px]';
+        }
+        if (mapBoundary) {
+          mapBoundary.textContent = 'Safe (0.00m Encroachment)';
+          mapBoundary.className = 'text-emerald-400 font-bold';
+        }
+        overlapBtn.textContent = '⚠️ Simulate Encroaching Boundary Claim';
+      }
+    });
+  }
+
+  initLandTrustSimulator();
+  document.addEventListener('astro:page-load', initLandTrustSimulator);
+</script>

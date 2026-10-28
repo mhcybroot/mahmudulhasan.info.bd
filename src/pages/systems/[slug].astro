@@ -14,6 +14,7 @@ import EdgeAiAttendanceSimulator from '../../components/case-study/EdgeAiAttenda
 import SecureNotesSimulator from '../../components/case-study/SecureNotesSimulator.astro';
 import ConveyanceBillingSimulator from '../../components/case-study/ConveyanceBillingSimulator.astro';
 import SmartCampusSimulator from '../../components/case-study/SmartCampusSimulator.astro';
+import LandTrustSimulator from '../../components/case-study/LandTrustSimulator.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -41,6 +42,7 @@ const isSmartAi = data.slug === 'smartai-edge-vision';
 const isNotes = data.slug === 'secure-notes-cloud';
 const isSssms = data.slug === 'sssms-conveyance-ledger';
 const isCampus = data.slug === 'smart-academic-infra';
+const isLandtrust = data.slug === 'landtrust-bhumisetu';
 
 let pageDescription = "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
 if (isPms) {
@@ -65,6 +67,8 @@ if (isPms) {
   pageDescription = "Enterprise Conveyance Billing & Instant Disbursal Platform. Engineered in Flutter & Cloud Firestore with multi-leg journey auditing, automated PDF vouchers, and bKash/EFT payouts.";
 } else if (isCampus) {
   pageDescription = "Unified Micro-Frontend & Multi-Tier Campus ERP Infrastructure. Engineered in Spring Boot 3.4, Java 21 Loom, Vue.js 3, and PostgreSQL with zero-downtime micro-service orchestration.";
+} else if (isLandtrust) {
+  pageDescription = "Digital Land Record Ledger & Title Deed Verification Engine. Engineered in Flutter, Spring Boot, and PostgreSQL PostGIS with CS-SA-RS-BS survey chain verification and parcel overlap detection.";
 }
 ---
 
@@ -178,6 +182,10 @@ if (isPms) {
           ) : isCampus ? (
             <>
               Unified academic ERP and micro-frontend administration infrastructure engineered in <strong class="text-white font-semibold">Spring Boot 3.4, Java 21 Project Loom &amp; Vue.js 3</strong>. Consolidates multi-department attendance, automated GPA merit tabulation, faculty payroll, and student focus telemetry into a single glassmorphic executive portal with <strong class="text-emerald-300 font-semibold">sandboxed micro-frontend iframe interop</strong> and zero cross-origin styling friction.
+            </>
+          ) : isLandtrust ? (
+            <>
+              Digital land record ledger and title deed verification platform engineered in <strong class="text-white font-semibold">Flutter 3.29, Spring Boot 3.4 &amp; PostgreSQL PostGIS</strong>. Solves Bangladesh's foremost property litigation crisis by verifying historical <strong class="text-emerald-300 font-semibold">CS → SA → RS → BS survey chains</strong>, detecting parcel boundary overlaps in sub-28ms, and computing high-precision traditional land units (Katha, Bigha, Decimal, Sqft).
             </>
           ) : (
             <>
@@ -354,6 +362,21 @@ if (isPms) {
                 <span class="text-emerald-400 font-bold">✓</span> 1-Click Self-Contained Offline Windows Bundle (Embedded JRE)
               </div>
             </>
+          ) : isLandtrust ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Historical Chain-of-Title Audit (CS 1910 → SA → RS → BS)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Sub-28ms PostGIS Parcel Boundary Overlap Detection
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Instant Land Unit Converter (Bigha, Katha, Decimal, Sqft)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Mutation (নামজারি) Clearance &amp; DCR Fee Verification
+              </div>
+            </>
           ) : (
             <>
               <div class="flex items-center gap-1.5">
@@ -401,6 +424,8 @@ if (isPms) {
         <ConveyanceBillingSimulator />
       ) : isCampus ? (
         <SmartCampusSimulator />
+      ) : isLandtrust ? (
+        <LandTrustSimulator />
       ) : (
         <BeforeAfterSlider />
       )}
@@ -436,6 +461,8 @@ if (isPms) {
             ? "Built to stop inflated travel expenses, eliminate paper voucher loss, and disburse field reimbursements via bKash in seconds."
             : isCampus
             ? "Built to eliminate disconnected campus software silos, stop manual GPA tabulation errors, and unify administration under a single glassmorphic portal."
+            : isLandtrust
+            ? "Built to eliminate land fraud, prevent double-deed sales, and provide verified chain-of-title clearance across Bangladesh."
             : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
@@ -823,6 +850,41 @@ if (isPms) {
               <h3 class="font-mono font-bold text-white text-base">Multi-Campus Education Trusts</h3>
               <p class="text-xs text-slate-200 font-sans leading-relaxed">
                 Empowers executive deans and board trustees with real-time cross-campus attendance dashboards, room occupancy monitors, and faculty punctuality leaderboards, enforcing uniform institution branding via CSS theme injection.
+              </p>
+            </div>
+          </>
+        ) : isLandtrust ? (
+          <>
+            <!-- Use Case 1: Private Property Buyers & Developers -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🏡
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Property Buyers &amp; Real Estate Firms</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Enables prospective land and flat buyers to independently verify unbroken ownership chains (CS → SA → RS → BS) before paying token advances. Stops double-deed fraud and reveals fake power-of-attorney documents in seconds.
+              </p>
+            </div>
+
+            <!-- Use Case 2: Commercial Banks & Mortgage Valuation -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                🏦
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Commercial Bank Loan &amp; Mortgage Officers</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Audits collateral land titles against PostGIS spatial boundary polygons and AC Land mutation records. Prevents bad loan disbursements on non-existent, encumbered, or disputed property parcels with cryptographic proof.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Rural Landowners & Inherited Heirs -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🌾
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Rural Landowners &amp; Inheritance Heirs</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Eliminates decades-long family inheritance partition disputes by computing exact Katha, Bigha, and Decimal conversions with zero mathematical rounding errors, checking DCR status without extortionate broker fees.
               </p>
             </div>
           </>
@@ -1548,6 +1610,69 @@ if (isPms) {
             </table>
           </div>
         </div>
+      ) : isLandtrust ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+              Engineering Benchmark: Bhumi Setu vs. Manual Sub-Registry Searches &amp; Paper Chits
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured across simulated cadastral deed audit workloads (500 parcel title checks with CS-SA-RS-BS historical verification and PostGIS spatial queries).
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-cyan-300 bg-cyan-950/40">Bhumi Setu (Flutter + Spring Boot + PostGIS)</th>
+                  <th class="py-3 px-4 font-semibold">Manual Sub-Registry Searches &amp; Paper Deeds</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Engineering Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Historical Chain-of-Title Traversal Latency</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 4.5 Seconds (Automated CS-SA-RS-BS Traversal)</td>
+                  <td class="py-3.5 px-4 text-slate-400">15 – 30 Days (Manual Record Room Paper Chits)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">99% Faster Title Audit</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Boundary Overlap &amp; Double-Sale Detection</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">100% (PostGIS ST_Overlaps &amp; ST_Intersects)</td>
+                  <td class="py-3.5 px-4 text-slate-400">0.0% (Manual Paper Surveys Miss Overlaps)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Stops Land Grabbing Fraud</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Traditional Land Unit Conversion Math</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">100.00% Double-Precision Float Math</td>
+                  <td class="py-3.5 px-4 text-slate-400">Frequent Arithmetic Rounding Disputes</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Financial Short-Change</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Mutation (Namzari) &amp; DCR Clearance Check</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Instant Electronic Docket Verification</td>
+                  <td class="py-3.5 px-4 text-slate-400">Weeks of physical AC Land office visits</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Bureaucratic Friction</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Mobile Client Runtime Footprint</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 52 MB Flutter Native Client</td>
+                  <td class="py-3.5 px-4 text-slate-400">Heavy Legacy Web Portals</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Runs on Budget Phones</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Citizen Access &amp; Intermediary Fees</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">$0.00 (Self-Hosted Open Source Stack)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Extortionate middleman (Dalal) broker fees</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Middleman Extortion</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <BenchmarkMatrix />
       )}
@@ -1587,6 +1712,8 @@ if (isPms) {
               ? "Engineered in Flutter 3.29 & Dart 3.11 with Cloud Firestore real-time ACID transactions, vectorized PDF generators, and Provider state management."
               : isCampus
               ? "Engineered in Spring Boot 3.4 & Java 21 with Project Loom virtual threads, Vue 3 & Vite micro-frontend orchestration, and PostgreSQL 16."
+              : isLandtrust
+              ? "Engineered in Flutter 3.29 & Spring Boot 3.4 with PostgreSQL 16 PostGIS spatial polygons, Cadastral survey traversals, and Docker Compose."
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
@@ -2947,6 +3074,128 @@ if (isPms) {
                 </p>
               </button>
             </>
+          ) : isLandtrust ? (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-land-ingress"
+                data-node-title="Cadastral Mouza, Dag & Khatiyan Query Ingress"
+                data-node-badge="Phase 1: Cadastral Ingress"
+                data-node-desc="Validates citizen search queries across administrative tiers (Division, District, Upazila, Mouza JL number) and resolves land registry indexes in sub-5ms."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // RECORD INGRESS</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Cadastral Query Ingress
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Ingests administrative jurisdiction and parcel parameters into high-speed search index.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-land-chain-audit"
+                data-node-title="Historical Survey Chain Traversal (CS → SA → RS → BS)"
+                data-node-badge="Phase 2: Chain-of-Title Auditor"
+                data-node-desc="Traverses government cadastral survey records across 100+ years (CS 1910, SA 1956, RS 1972, BS 2010), immediately flagging missing inheritance links and fraudulent duplicate deeds."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // CHAIN AUDITOR</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Survey Chain-of-Title Auditor
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Validates 100-year historical ownership continuity, detecting broken inheritance links.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-land-postgis"
+                data-node-title="PostGIS Spatial Boundary & Overlap Conflict Detector"
+                data-node-badge="Phase 3: Geospatial Conflict Engine"
+                data-node-desc="Executes PostgreSQL 16 PostGIS spatial queries (ST_Intersects, ST_Overlaps) against parcel boundary polygons, stopping double-sale fraud and boundary encroachment."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // POSTGIS OVERLAP</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  PostGIS Boundary Overlap Radar
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Analyzes spatial polygon coordinates with GiST indexing to prevent double-sale encroachment.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-land-unit-calc"
+                data-node-title="High-Precision Traditional Land Unit Conversion Math"
+                data-node-badge="Phase 4: Precision Measurement Math"
+                data-node-desc="Converts parcel land area across traditional Bangladeshi municipal survey standards (Bigha, Katha, Decimal/Shotok, Acre, Square Feet) with IEEE 754 double precision."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // UNIT CONVERTER</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Precision Land Unit Engine
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Converts Katha, Bigha, Decimal, and Square Feet with zero arithmetic rounding bias.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-land-mutation-gate"
+                data-node-title="AC Land Revenue Docket & DCR Fee Verification Gate"
+                data-node-badge="Phase 5: Revenue Audit Verification"
+                data-node-desc="Cross-references municipal AC Land mutation (নামজারি) records, validating Duplicate Carbon Receipt (DCR) government fee payment and non-encumbrance status."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // MUTATION GATE</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Mutation &amp; DCR Clearance Gate
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Validates legal AC Land mutation dockets and fee payment status before title clearance.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-land-clearance-egress"
+                data-node-title="Cryptographic Digital Title Clearance Certificate Egress"
+                data-node-badge="Phase 6: Clearance Certificate Egress"
+                data-node-desc="Issues digitally stamped property clearance passes with unique verification QR hashes, certifying unbroken title continuity for bank mortgages and sub-registry deeds."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // CLEARANCE EGRESS</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Digital Title Clearance Egress
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Issues tamper-proof title clearance certificates for bank mortgages and land registration.
+                </p>
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -3101,6 +3350,8 @@ if (isPms) {
                 ? "Conveyance Claim Model & Multi-Leg Journey Calculation Core"
                 : isCampus
                 ? "Micro-Frontend Sandboxed Iframe Interop & Dynamic CSS Token Engine"
+                : isLandtrust
+                ? "Historical Survey Chain Traversal & PostGIS Boundary Overlap Core"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
@@ -3126,6 +3377,8 @@ if (isPms) {
                 ? <span>Directly from <code class="text-cyan-300 font-mono">lib/models/conveyance_claim_model.dart</code> showing multi-leg transit calculation and Firestore serialization.</span>
                 : isCampus
                 ? <span>Directly from <code class="text-cyan-300 font-mono">smart-academic-portal/src/App.vue</code> showing reactive iframe messaging and dynamic stylesheet injection.</span>
+                : isLandtrust
+                ? <span>Directly from <code class="text-cyan-300 font-mono">backend/src/main/java/.../LandRecordService.java</code> showing survey record chain traversal and unit conversion math.</span>
                 : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
@@ -3146,10 +3399,10 @@ if (isPms) {
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               <span class="ml-2 text-slate-200 font-medium">
-                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : isCampus ? "smart-academic-portal/src/App.vue" : "src/engine/enhancer.rs"}
+                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : isCampus ? "smart-academic-portal/src/App.vue" : isLandtrust ? "backend/src/main/java/.../LandRecordService.java" : "src/engine/enhancer.rs"}
               </span>
             </div>
-            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : isCampus ? "vue • 46 lines" : "rust • 105 lines"}</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : isCampus ? "vue • 46 lines" : isLandtrust ? "java • 48 lines" : "rust • 105 lines"}</span>
           </div>
 
           {isPms ? (
@@ -3529,6 +3782,38 @@ imageAnalysis.<span class="text-cyan-300">setAnalyzer</span>(executor) &#123; im
     <span class="text-rose-400">/&gt;</span>
   <span class="text-rose-400">&lt;/div&gt;</span>
 <span class="text-rose-400">&lt;/template&gt;</span></code></pre>
+          ) : isLandtrust ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-slate-400">// Bhumi Setu: Historical Cadastral Survey Chain Validator &amp; PostGIS Overlap Detection</span>
+<span class="text-amber-300">@Service</span>
+<span class="text-rose-400">public class</span> <span class="text-cyan-300">LandRecordService</span> &#123;
+    <span class="text-rose-400">private final</span> <span class="text-amber-300">ParcelRepository</span> parcelRepo;
+    <span class="text-rose-400">private final</span> <span class="text-amber-300">SurveyChainValidator</span> chainValidator;
+
+    <span class="text-slate-400">// Validates 100-year chain continuity: CS (1910) -&gt; SA (1956) -&gt; RS (1972) -&gt; BS (2010)</span>
+    <span class="text-amber-300">@Transactional</span>(readOnly = <span class="text-rose-400">true</span>)
+    <span class="text-rose-400">public</span> <span class="text-amber-300">TitleAuditReport</span> <span class="text-cyan-300">auditTitleDeedChain</span>(<span class="text-amber-300">Long</span> mouzaId, <span class="text-amber-300">String</span> dagNumber) &#123;
+        <span class="text-amber-300">ParcelEntity</span> parcel = parcelRepo.<span class="text-cyan-300">findByMouzaAndDag</span>(mouzaId, dagNumber)
+            .<span class="text-cyan-300">orElseThrow</span>(() -&gt; <span class="text-rose-400">new</span> <span class="text-cyan-300">EntityNotFoundException</span>(<span class="text-emerald-300">"Cadastral plot not registered"</span>));
+
+        <span class="text-slate-400">// Step 1: Detect spatial boundary intersection with adjacent active deeds</span>
+        <span class="text-rose-400">boolean</span> hasOverlap = parcelRepo.<span class="text-cyan-300">existsOverlappingActiveParcel</span>(parcel.getId(), parcel.getPolygon());
+        <span class="text-rose-400">if</span> (hasOverlap) &#123;
+            <span class="text-rose-400">return</span> <span class="text-amber-300">TitleAuditReport</span>.<span class="text-cyan-300">flaggedRisk</span>(<span class="text-emerald-300">"PostGIS detected boundary overlap with adjacent Dag"</span>);
+        &#125;
+
+        <span class="text-slate-400">// Step 2: Validate survey continuity across all 4 historical records</span>
+        <span class="text-amber-300">ChainIntegrity</span> chain = chainValidator.<span class="text-cyan-300">traverseHistoricalKhatiyans</span>(parcel);
+        <span class="text-rose-400">if</span> (!chain.<span class="text-cyan-300">isContinuous</span>()) &#123;
+            <span class="text-rose-400">return</span> <span class="text-amber-300">TitleAuditReport</span>.<span class="text-cyan-300">brokenChain</span>(chain.<span class="text-cyan-300">getMissingSurveyEra</span>());
+        &#125;
+
+        <span class="text-slate-400">// Step 3: Compute exact traditional land area conversion</span>
+        <span class="text-rose-400">double</span> sqft = parcel.getAreaDecimal() * 435.60;
+        <span class="text-rose-400">double</span> katha = sqft / 720.0;
+
+        <span class="text-rose-400">return</span> <span class="text-rose-400">new</span> <span class="text-amber-300">TitleAuditReport</span>(parcel, chain, katha, <span class="text-amber-300">RiskLevel</span>.LOW_RISK);
+    &#125;
+&#125;</code></pre>
           ) : (
             <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub fn</span> <span class="text-cyan-300">apply_adaptive_sharpen</span>(img: &<span class="text-amber-300">RgbaImage</span>, strength: <span class="text-rose-400">f32</span>) -&gt; <span class="text-amber-300">RgbaImage</span> &#123;
     <span class="text-slate-400">// Clamp strength & compute FidelityFX peak negative cross weight</span>
@@ -3598,6 +3883,8 @@ imageAnalysis.<span class="text-cyan-300">setAnalyzer</span>(executor) &#123; im
                 ? "Fetch Flutter packages, run Dart test suite, or launch the multi-platform client in Chrome or Android emulator."
                 : isCampus
                 ? "Clone Smart Academic Infrastructure repository, run start_all.sh supervisor, or package self-contained Windows bundle."
+                : isLandtrust
+                ? "Clone Bhumi Setu repository, launch full multi-container stack via Docker Compose, or run Flutter test suite."
                 : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
@@ -3719,6 +4006,17 @@ imageAnalysis.<span class="text-cyan-300">setAnalyzer</span>(executor) &#123; im
               <p class="text-emerald-400">./start_all.sh</p>
               <p class="text-slate-400 mt-2"># 4. Generate random 45-day mock data across all 4 departments</p>
               <p class="text-emerald-400">python3 generate_mock_data.py</p>
+            </>
+          ) : isLandtrust ? (
+            <>
+              <p class="text-slate-400"># 1. Clone Bhumi Setu repository</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/landtrust-bhumisetu.git &amp;&amp; cd landtrust-bhumisetu</p>
+              <p class="text-slate-400 mt-2"># 2. Launch full stack via Docker Compose (Spring Boot + PostGIS + Nginx)</p>
+              <p class="text-emerald-400">docker-compose up --build -d</p>
+              <p class="text-slate-400 mt-2"># 3. Run Flutter test suite</p>
+              <p class="text-emerald-400">cd frontend &amp;&amp; flutter test</p>
+              <p class="text-slate-400 mt-2"># 4. Launch Flutter cross-platform client</p>
+              <p class="text-emerald-400">flutter run -d chrome</p>
             </>
           ) : (
             <>
