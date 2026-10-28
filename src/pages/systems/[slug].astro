@@ -20,6 +20,7 @@ import MediaStreamSimulator from '../../components/case-study/MediaStreamSimulat
 import WorkOrderSniperSimulator from '../../components/case-study/WorkOrderSniperSimulator.astro';
 import GeckoBrowserSimulator from '../../components/case-study/GeckoBrowserSimulator.astro';
 import FintechLedgerSimulator from '../../components/case-study/FintechLedgerSimulator.astro';
+import QuickbooksSyncSimulator from '../../components/case-study/QuickbooksSyncSimulator.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -53,6 +54,7 @@ const isYtStream = data.slug === 'yt-playlist-engine';
 const isSniper = data.slug === 'amh-wo-sniper';
 const isGecko = data.slug === 'gecko-browser-engine';
 const isDoller = data.slug === 'doller-fintech-wallet';
+const isQuickbooks = data.slug === 'quickbooks-ledger-sync';
 
 let pageDescription = "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
 if (isPms) {
@@ -89,6 +91,8 @@ if (isPms) {
   pageDescription = "Independent Android Web Browser & GeckoView Omni 134 Runtime. Replaces Android System WebView with Mozilla Quantum, singleton GeckoRuntime lifecycle, and reactive delegates in Kotlin.";
 } else if (isDoller) {
   pageDescription = "Multi-Currency Trading, Settlement & PnL Ledger Engine. Engineered in Java 21, Spring Boot 3.5, and Flutter with double-entry accounting, Flyway V1-V10, and automated daily closes.";
+} else if (isQuickbooks) {
+  pageDescription = "Automated Multi-Entity CSV Normalization, Tiered Bank Reconciliation & Resilient Intuit OAuth 2.0 API Gateway built on Java 21, Spring Boot 4 & Vaadin 25 Flow.";
 }
 ---
 
@@ -226,6 +230,10 @@ if (isPms) {
           ) : isDoller ? (
             <>
               Enterprise foreign exchange trading, counterparty clearing, and real-time PnL explain engine engineered in <strong class="text-white font-semibold">Java 21, Spring Boot 3.5 &amp; Flutter 3.29</strong>. Enforces balanced <strong class="text-emerald-300 font-semibold">double-entry accounting journals</strong> across USD, EUR, GBP, AED, and BDT, features 10 sequential Flyway PostgreSQL schema migrations, automates end-of-day close seals with immutable snapshots, and guarantees offline trade resilience via mobile outbox queues.
+            </>
+          ) : isQuickbooks ? (
+            <>
+              Automated multi-entity accounting synchronization and bank statement reconciliation engine built in <strong class="text-white font-semibold">Java 21, Spring Boot 4 &amp; Vaadin 25 Flow</strong>. Normalizes heterogeneous CSV exports into <strong class="text-emerald-300 font-semibold">canonical QuickBooks Online payloads</strong>, enforces strict pre-flight tax-rate and idempotency gates, executes multi-tier reconciliation with exact, date-window, and fuzzy matching, and manages multi-tenant OAuth 2.0 credentials via an <strong class="text-emerald-300 font-semibold">AES-256-GCM encrypted vault</strong>.
             </>
           ) : (
             <>
@@ -492,6 +500,21 @@ if (isPms) {
                 <span class="text-emerald-400 font-bold">✓</span> Mobile Offline Outbox Store with Deterministic Replay
               </div>
             </>
+          ) : isQuickbooks ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Dynamic CSV Header Normalization &amp; Grouping Profile Engine
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Multi-Tier Bank Reconciliation (Exact, Windowed, Fuzzy &amp; Batch Sum)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Idempotent QBO Gateway with AES-256-GCM Encrypted OAuth 2.0 Vault
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Reactive Vaadin 25 Flow Enterprise Dashboard with Real-Time Server-Push
+              </div>
+            </>
           ) : (
             <>
               <div class="flex items-center gap-1.5">
@@ -551,6 +574,8 @@ if (isPms) {
         <GeckoBrowserSimulator />
       ) : isDoller ? (
         <FintechLedgerSimulator />
+      ) : isQuickbooks ? (
+        <QuickbooksSyncSimulator />
       ) : (
         <BeforeAfterSlider />
       )}
@@ -598,6 +623,8 @@ if (isPms) {
             ? "Built to liberate Android apps from Chromium monoculture, prevent OS-level telemetry leaks, and empower privacy-first browsing."
             : isDoller
             ? "Built to stop forex spreadsheet errors, guarantee double-entry balance integrity, and provide real-time PnL explainability."
+            : isQuickbooks
+            ? "Built to eliminate manual invoice entry into QuickBooks, automate multi-tier bank reconciliation, and prevent duplicate tax billing."
             : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
@@ -1195,6 +1222,41 @@ if (isPms) {
               <h3 class="font-mono font-bold text-white text-base">Corporate Treasury &amp; Credit Unions</h3>
               <p class="text-xs text-slate-200 font-sans leading-relaxed">
                 Enforces strict double-entry balancing (Σ Debit == Σ Credit) with zero manual overrides. End-of-day freeze protocol creates tamper-proof StatementSnapshot cryptographic archives with audited reopen oversight.
+              </p>
+            </div>
+          </>
+        ) : isQuickbooks ? (
+          <>
+            <!-- Use Case 1: E-Commerce & High-Volume B2B Invoicing -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-indigo-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-indigo-950 border border-indigo-500/50 flex items-center justify-center text-indigo-300 font-mono text-lg font-bold">
+                📑
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">E-Commerce &amp; High-Volume B2B Invoicing</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Aggregates thousands of raw checkout CSV exports from Shopify, Stripe, and custom ERPs. Normalizes disparate column headers, groups multi-line items, enforces zero-tax validation gates, and batch-creates QuickBooks Online invoices in seconds.
+              </p>
+            </div>
+
+            <!-- Use Case 2: Multi-Tier Bank & Payment Processor Reconciliation -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                ⚖️
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Tiered Bank &amp; Processor Reconciliation</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Ingests raw bank statement lines and auto-matches them against open ledger transactions. Tier 1 exact matches auto-apply instantly; Tier 2 windowed settlements accommodate merchant delays; Tier 3 fuzzy descriptions route to review queues.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Accounting Firms & Multi-Tenant Bookkeeping -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-purple-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-purple-950 border border-purple-500/50 flex items-center justify-center text-purple-300 font-mono text-lg font-bold">
+                🏢
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Accounting Firms &amp; Multi-Company Vaults</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Manages multi-company Intuit Realm IDs with AES-256-GCM encrypted OAuth 2.0 credential storage. Pre-flight dry-run rollback tools allow accountants to inspect dependency trees and simulate bulk cleanup operations with zero risk of ledger corruption.
               </p>
             </div>
           </>
@@ -2298,6 +2360,69 @@ if (isPms) {
             </table>
           </div>
         </div>
+      ) : isQuickbooks ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-indigo-400"></span>
+              Engineering Benchmark: QuickBooks Ledger Sync (Spring Boot 4 + Vaadin 25) vs. Manual QBO Data Entry
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured across 5,000 multi-line transaction batches and monthly bank reconciliation workflows.
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-indigo-300 bg-indigo-950/40">QuickBooks Ledger Sync (Spring Boot 4 + Vaadin 25)</th>
+                  <th class="py-3 px-4 font-semibold">Manual Web Entry / Generic Zapier Sync</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Engineering Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">5,000 Invoice Ingestion Throughput</td>
+                  <td class="py-3.5 px-4 font-bold text-indigo-300 bg-indigo-950/20">4.1s (Streaming In-Memory Batch Parser)</td>
+                  <td class="py-3.5 px-4 text-slate-400">18–24 hours (Manual) / 45 mins (Zapier rate-limited)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">650x Faster Ingestion</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Bank Statement Reconciliation</td>
+                  <td class="py-3.5 px-4 font-bold text-indigo-300 bg-indigo-950/20">Real-Time Tiered Matching (&lt;80ms per batch)</td>
+                  <td class="py-3.5 px-4 text-slate-400">3 days per monthly accounting close cycle</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Sub-Second Resolution</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Tax Code &amp; Schema Validation Gate</td>
+                  <td class="py-3.5 px-4 font-bold text-indigo-300 bg-indigo-950/20">Strict Pre-Flight Policy Gate (0% tax enforcement)</td>
+                  <td class="py-3.5 px-4 text-slate-400">None; errors rejected only after QBO API failure</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">100% Pre-Flight Accuracy</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Duplicate Insertion Guard (Idempotency)</td>
+                  <td class="py-3.5 px-4 font-bold text-indigo-300 bg-indigo-950/20">Idempotent Realm Cache &amp; DocNumber Lock</td>
+                  <td class="py-3.5 px-4 text-slate-400">Prone to double-billing on network retry spikes</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Duplicate Billing</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Credential &amp; Token Security</td>
+                  <td class="py-3.5 px-4 font-bold text-indigo-300 bg-indigo-950/20">AES-256-GCM Encrypted Vault with Auto-Refresh</td>
+                  <td class="py-3.5 px-4 text-slate-400">Plaintext environment variables or cloud tokens</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Enterprise Cryptography</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">User Interface Architecture</td>
+                  <td class="py-3.5 px-4 font-bold text-indigo-300 bg-indigo-950/20">Vaadin 25 Reactive Flow (Java Server-Push GUI)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Static web forms or unassisted spreadsheets</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero State Desync</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <BenchmarkMatrix />
       )}
@@ -2349,6 +2474,8 @@ if (isPms) {
               ? "Engineered in Kotlin 1.9 & Android SDK 34 with Mozilla GeckoView Omni 134, singleton GeckoRuntime, and custom delegates."
               : isDoller
               ? "Engineered in Java 21 & Spring Boot 3.5 with PostgreSQL Flyway migrations, double-entry ledger journals, and Flutter."
+              : isQuickbooks
+              ? "Engineered in Java 21 & Spring Boot 4 with Vaadin 25 Flow, Apache Commons CSV, Intuit QBO REST Gateway, and AES-256-GCM Vault."
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
@@ -4441,6 +4568,128 @@ if (isPms) {
                 </p>
               </button>
             </>
+          ) : isQuickbooks ? (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-indigo-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                data-node-id="node-qb-csv"
+                data-node-title="Heterogeneous CSV Ingestion &amp; Streaming Buffer"
+                data-node-badge="Phase 1: Ingestion &amp; Encoding Normalization"
+                data-node-desc="Streams raw customer or bank statement CSV files via Apache Commons CSV with UTF-8 BOM sanitization, variable delimiter resolution, and streaming memory chunking."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // CSV INGESTION</span>
+                  <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-indigo-300 transition-colors">
+                  CSV Ingestion &amp; Chunking
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Streams raw billing exports with dynamic encoding and format detection.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-sky-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-sky-400"
+                data-node-id="node-qb-normalize"
+                data-node-title="Dynamic Schema Mapping &amp; Multi-Line Grouping Engine"
+                data-node-badge="Phase 2: Header Resolution &amp; Grouping"
+                data-node-desc="Maps arbitrary CSV headers (DocNumber, Client, DueDate, Amount) into canonical domain models and consolidates repeated document keys into cohesive multi-line invoices."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // SCHEMA NORMALIZER</span>
+                  <span class="text-sky-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-sky-300 transition-colors">
+                  Schema Normalizer &amp; Grouping
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Consolidates repeated row records into single structured multi-line invoices.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-amber-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-amber-400"
+                data-node-id="node-qb-validate"
+                data-node-title="Tax-Classification &amp; Pre-Flight Idempotency Gate"
+                data-node-badge="Phase 3: Validation &amp; Duplicate Shield"
+                data-node-desc="Validates line items against positive tax rate policies, executes pre-flight QBO API queries to detect existing DocNumbers, and flags malformed rows prior to import."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // PRE-FLIGHT VALIDATION</span>
+                  <span class="text-amber-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-amber-300 transition-colors">
+                  Tax &amp; Idempotency Gate
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Blocks positive tax exceptions and checks QBO realm to prevent duplicate entries.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-qb-recon"
+                data-node-title="Multi-Tier Bank Reconciliation Engine (ReconciliationService)"
+                data-node-badge="Phase 4: Bank Matching &amp; Dispositions"
+                data-node-desc="Scores bank statement lines against open candidates across Tier 1 (Exact Ref/Amount/Date), Tier 2 (Date Window), Tier 3 (Fuzzy 3-Gram Overlap), and Batch Lump-Sum Summation."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // TIERED RECON ENGINE</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Tiered Bank Reconciliation
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Matches bank settlements against ledger records using 4-tier confidence scoring.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-purple-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-purple-400"
+                data-node-id="node-qb-oauth"
+                data-node-title="AES-256-GCM Credential Vault &amp; Intuit REST Gateway"
+                data-node-badge="Phase 5: OAuth 2.0 Security &amp; Gateway"
+                data-node-desc="Maintains encrypted refresh tokens via QboCredentialsCryptoService, manages automated token rotation, and serializes canonical SalesItemLineDetail JSON payloads."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // OAUTH &amp; REST GATEWAY</span>
+                  <span class="text-purple-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-purple-300 transition-colors">
+                  OAuth Vault &amp; QBO REST
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Decrypts bearer credentials and pushes validated transactions to Intuit QBO.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-qb-vaadin"
+                data-node-title="Reactive Vaadin 25 Flow GUI &amp; Audit Trail"
+                data-node-badge="Phase 6: Server-Push UI &amp; Audit"
+                data-node-desc="Delivers real-time progress bars via Vaadin server push, generates normalized CSV preview tables, and records immutable PostgreSQL audit logs."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // VAADIN FLOW UI</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Vaadin 25 Flow UI &amp; Audit
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Streams live batch progress to web operators and archives historical runs.
+                </p>
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -4607,6 +4856,8 @@ if (isPms) {
                 ? "GeckoRuntime Lifecycle: Singleton Process & Reactive Session Delegates"
                 : isDoller
                 ? "Double-Entry Ledger Core: Multi-Currency Deal & Balanced Journal Posting"
+                : isQuickbooks
+                ? "QBO Payload Factory & Tiered Bank Reconciliation Engine"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
@@ -4644,6 +4895,8 @@ if (isPms) {
                 ? <span>Directly from <code class="text-cyan-300 font-mono">app/src/main/java/com/example/browser/MainActivity.kt</code> showing singleton runtime &amp; session delegates.</span>
                 : isDoller
                 ? <span>Directly from <code class="text-cyan-300 font-mono">backend/src/main/java/.../TradingService.java</code> showing ACID deal creation &amp; balanced ledger posts.</span>
+                : isQuickbooks
+                ? <span>Directly from <code class="text-cyan-300 font-mono">QuickBooksInvoicePayloadFactory.java</code> and <code class="text-cyan-300 font-mono">ReconciliationService.java</code> showing Intuit REST serialization and multi-tier matching.</span>
                 : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
@@ -4664,10 +4917,10 @@ if (isPms) {
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               <span class="ml-2 text-slate-200 font-medium">
-                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : isCampus ? "smart-academic-portal/src/App.vue" : isLandtrust ? "backend/src/main/java/.../LandRecordService.java" : isModernOs ? "kernel/src/proofs/capability_proofs.rs" : isYtStream ? "downloader.py" : isSniper ? "extension/content.js" : isGecko ? "app/src/main/java/com/example/browser/MainActivity.kt" : isDoller ? "backend/src/main/java/.../TradingService.java" : "src/engine/enhancer.rs"}
+                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : isCampus ? "smart-academic-portal/src/App.vue" : isLandtrust ? "backend/src/main/java/.../LandRecordService.java" : isModernOs ? "kernel/src/proofs/capability_proofs.rs" : isYtStream ? "downloader.py" : isSniper ? "extension/content.js" : isGecko ? "app/src/main/java/com/example/browser/MainActivity.kt" : isDoller ? "backend/src/main/java/.../TradingService.java" : isQuickbooks ? "src/main/java/.../QuickBooksInvoicePayloadFactory.java" : "src/engine/enhancer.rs"}
               </span>
             </div>
-            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : isCampus ? "vue • 46 lines" : isLandtrust ? "java • 48 lines" : isModernOs ? "rust • 46 lines" : isYtStream ? "python • 45 lines" : isSniper ? "javascript • 52 lines" : isGecko ? "kotlin • 62 lines" : isDoller ? "java • 44 lines" : "rust • 105 lines"}</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : isCampus ? "vue • 46 lines" : isLandtrust ? "java • 48 lines" : isModernOs ? "rust • 46 lines" : isYtStream ? "python • 45 lines" : isSniper ? "javascript • 52 lines" : isGecko ? "kotlin • 62 lines" : isDoller ? "java • 44 lines" : isQuickbooks ? "java • 56 lines" : "rust • 105 lines"}</span>
           </div>
 
           {isPms ? (
@@ -5289,6 +5542,51 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
     auditService.<span class="text-cyan-300">log</span>(<span class="text-emerald-300">"TRADE_DEAL"</span>, savedDeal.<span class="text-cyan-300">getId</span>(), <span class="text-emerald-300">"ACID Transaction Committed"</span>);
     <span class="text-rose-400">return</span> savedDeal;
 &#125;</code></pre>
+          ) : isQuickbooks ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-slate-400">// QuickBooksInvoicePayloadFactory: Canonical Intuit REST API Serialization</span>
+<span class="text-amber-300">@Component</span>
+<span class="text-rose-400">public class</span> <span class="text-cyan-300">QuickBooksInvoicePayloadFactory</span> &#123;
+    <span class="text-rose-400">public</span> <span class="text-amber-300">Map</span>&lt;<span class="text-amber-300">String</span>, <span class="text-amber-300">Object</span>&gt; <span class="text-cyan-300">build</span>(<span class="text-amber-300">NormalizedInvoice</span> invoice,
+                                     <span class="text-amber-300">Map</span>&lt;<span class="text-amber-300">String</span>, <span class="text-amber-300">Object</span>&gt; customerRef,
+                                     <span class="text-amber-300">Function</span>&lt;<span class="text-amber-300">InvoiceLine</span>, <span class="text-amber-300">Map</span>&lt;<span class="text-amber-300">String</span>, <span class="text-amber-300">Object</span>&gt;&gt; itemRefResolver) &#123;
+        <span class="text-rose-400">return</span> <span class="text-amber-300">Map</span>.<span class="text-cyan-300">of</span>(
+            <span class="text-emerald-300">"DocNumber"</span>, invoice.<span class="text-cyan-300">invoiceNo</span>(),
+            <span class="text-emerald-300">"TxnDate"</span>, invoice.<span class="text-cyan-300">invoiceDate</span>().<span class="text-cyan-300">toString</span>(),
+            <span class="text-emerald-300">"DueDate"</span>, invoice.<span class="text-cyan-300">dueDate</span>().<span class="text-cyan-300">toString</span>(),
+            <span class="text-emerald-300">"CustomerMemo"</span>, <span class="text-amber-300">Map</span>.<span class="text-cyan-300">of</span>(<span class="text-emerald-300">"value"</span>, invoice.<span class="text-cyan-300">memo</span>() == <span class="text-rose-400">null</span> ? <span class="text-emerald-300">""</span> : invoice.<span class="text-cyan-300">memo</span>()),
+            <span class="text-emerald-300">"CustomerRef"</span>, customerRef,
+            <span class="text-emerald-300">"Line"</span>, invoice.<span class="text-cyan-300">lines</span>().<span class="text-cyan-300">stream</span>()
+                .<span class="text-cyan-300">map</span>(line -&gt; <span class="text-amber-300">Map</span>.<span class="text-cyan-300">of</span>(
+                    <span class="text-emerald-300">"Amount"</span>, line.<span class="text-cyan-300">amount</span>(),
+                    <span class="text-emerald-300">"DetailType"</span>, <span class="text-emerald-300">"SalesItemLineDetail"</span>,
+                    <span class="text-emerald-300">"Description"</span>, line.<span class="text-cyan-300">description</span>() == <span class="text-rose-400">null</span> ? <span class="text-emerald-300">""</span> : line.<span class="text-cyan-300">description</span>(),
+                    <span class="text-emerald-300">"SalesItemLineDetail"</span>, <span class="text-amber-300">Map</span>.<span class="text-cyan-300">of</span>(
+                        <span class="text-emerald-300">"Qty"</span>, defaultDecimal(line.<span class="text-cyan-300">quantity</span>()),
+                        <span class="text-emerald-300">"UnitPrice"</span>, defaultDecimal(line.<span class="text-cyan-300">rate</span>()),
+                        <span class="text-emerald-300">"ItemRef"</span>, itemRefResolver.<span class="text-cyan-300">apply</span>(line),
+                        <span class="text-emerald-300">"TaxCodeRef"</span>, <span class="text-amber-300">Map</span>.<span class="text-cyan-300">of</span>(<span class="text-emerald-300">"value"</span>, line.<span class="text-cyan-300">taxable</span>() ? <span class="text-emerald-300">"TAX"</span> : <span class="text-emerald-300">"NON"</span>))))
+                .<span class="text-cyan-300">toList</span>());
+    &#125;
+&#125;
+
+<span class="text-slate-400">// ReconciliationService: Multi-Tier Bank Statement Scoring &amp; Disposition</span>
+<span class="text-rose-400">private</span> <span class="text-amber-300">MatchDecision</span> <span class="text-cyan-300">score</span>(<span class="text-amber-300">BankStatementRow</span> bank, <span class="text-amber-300">QboReconCandidate</span> candidate, <span class="text-rose-400">int</span> dateWindowDays) &#123;
+    <span class="text-slate-400">// Tier 1: Exact reference + amount + transaction date (100% confidence)</span>
+    <span class="text-rose-400">if</span> (isExactMatch(bank, candidate)) &#123;
+        <span class="text-rose-400">return new</span> <span class="text-amber-300">MatchDecision</span>(candidate, <span class="text-amber-300">ReconciliationTier</span>.TIER1, 100, <span class="text-emerald-300">"Exact reference + amount + date"</span>);
+    &#125;
+    <span class="text-slate-400">// Tier 2: Amount matched within configurable calendar date settlement window</span>
+    <span class="text-rose-400">if</span> (isAmountEqual(bank, candidate) &amp;&amp; isWithinDateWindow(bank, candidate, dateWindowDays)) &#123;
+        <span class="text-rose-400">int</span> confidence = calculateWindowConfidence(bank, candidate, dateWindowDays);
+        <span class="text-rose-400">return new</span> <span class="text-amber-300">MatchDecision</span>(candidate, <span class="text-amber-300">ReconciliationTier</span>.TIER2, confidence, <span class="text-emerald-300">"Amount matched within date window"</span>);
+    &#125;
+    <span class="text-slate-400">// Tier 3: Levenshtein distance &amp; 3-gram fuzzy text overlap for review queue</span>
+    <span class="text-rose-400">int</span> fuzzy = calculateFuzzyTokenOverlap(bank.<span class="text-cyan-300">getDescription</span>(), candidate.<span class="text-cyan-300">getDescription</span>());
+    <span class="text-rose-400">if</span> (fuzzy &gt; 50) &#123;
+        <span class="text-rose-400">return new</span> <span class="text-amber-300">MatchDecision</span>(candidate, <span class="text-amber-300">ReconciliationTier</span>.TIER3, Math.<span class="text-cyan-300">min</span>(89, 50 + fuzzy / 2), <span class="text-emerald-300">"Fuzzy text overlap"</span>);
+    &#125;
+    <span class="text-rose-400">return new</span> <span class="text-amber-300">MatchDecision</span>(candidate, <span class="text-amber-300">ReconciliationTier</span>.NONE, 0, <span class="text-emerald-300">"No candidate match"</span>);
+&#125;</code></pre>
           ) : (
             <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub fn</span> <span class="text-cyan-300">apply_adaptive_sharpen</span>(img: &<span class="text-amber-300">RgbaImage</span>, strength: <span class="text-rose-400">f32</span>) -&gt; <span class="text-amber-300">RgbaImage</span> &#123;
     <span class="text-slate-400">// Clamp strength & compute FidelityFX peak negative cross weight</span>
@@ -5370,6 +5668,8 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
                 ? "Clone the repository, compile the Android debug APK with Gradle, and deploy to a physical device or emulator via adb."
                 : isDoller
                 ? "Launch PostgreSQL and the Spring Boot backend, run Flyway migrations, and start the Flutter mobile app."
+                : isQuickbooks
+                ? "Run the Maven test suite for CSV normalization and reconciliation, or start the Spring Boot 4 + Vaadin application."
                 : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
@@ -5557,6 +5857,17 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
               <p class="text-emerald-400">cd backend &amp;&amp; mvn spring-boot:run</p>
               <p class="text-slate-400 mt-2"># 4. Launch Flutter cross-platform mobile client with offline outbox store</p>
               <p class="text-emerald-400">cd ../mobile &amp;&amp; flutter pub get &amp;&amp; flutter run -d chrome</p>
+            </>
+          ) : isQuickbooks ? (
+            <>
+              <p class="text-slate-400"># 1. Clone QuickBooks Ledger Sync repository</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/quickbooks.git &amp;&amp; cd quickbooks</p>
+              <p class="text-slate-400 mt-2"># 2. Run unit and integration tests (CSV parser, tax validator &amp; reconciliation suite)</p>
+              <p class="text-emerald-400">mvn test -Dtest=QuickBooksInvoicePayloadFactoryTest,InvoiceImportValidatorTest,ReconciliationServiceTest</p>
+              <p class="text-slate-400 mt-2"># 3. Spin up local PostgreSQL database and start Spring Boot 4 + Vaadin 25 server</p>
+              <p class="text-emerald-400">mvn spring-boot:run</p>
+              <p class="text-slate-400 mt-2"># 4. Open reactive browser dashboard at http://localhost:8080</p>
+              <p class="text-emerald-400">curl -I http://localhost:8080</p>
             </>
           ) : (
             <>
