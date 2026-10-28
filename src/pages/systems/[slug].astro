@@ -13,6 +13,7 @@ import VirtualClassroomSimulator from '../../components/case-study/VirtualClassr
 import EdgeAiAttendanceSimulator from '../../components/case-study/EdgeAiAttendanceSimulator.astro';
 import SecureNotesSimulator from '../../components/case-study/SecureNotesSimulator.astro';
 import ConveyanceBillingSimulator from '../../components/case-study/ConveyanceBillingSimulator.astro';
+import SmartCampusSimulator from '../../components/case-study/SmartCampusSimulator.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -39,6 +40,7 @@ const isEdumeet = data.slug === 'edumeet-webrtc';
 const isSmartAi = data.slug === 'smartai-edge-vision';
 const isNotes = data.slug === 'secure-notes-cloud';
 const isSssms = data.slug === 'sssms-conveyance-ledger';
+const isCampus = data.slug === 'smart-academic-infra';
 
 let pageDescription = "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
 if (isPms) {
@@ -61,6 +63,8 @@ if (isPms) {
   pageDescription = "Enterprise Encrypted Knowledge Base & RBAC Engine. Clean Layered Architecture in NestJS & MongoDB with compound B-Tree indexing, JWT authentication, and sub-5ms lookups across millions of notes.";
 } else if (isSssms) {
   pageDescription = "Enterprise Conveyance Billing & Instant Disbursal Platform. Engineered in Flutter & Cloud Firestore with multi-leg journey auditing, automated PDF vouchers, and bKash/EFT payouts.";
+} else if (isCampus) {
+  pageDescription = "Unified Micro-Frontend & Multi-Tier Campus ERP Infrastructure. Engineered in Spring Boot 3.4, Java 21 Loom, Vue.js 3, and PostgreSQL with zero-downtime micro-service orchestration.";
 }
 ---
 
@@ -170,6 +174,10 @@ if (isPms) {
           ) : isSssms ? (
             <>
               Enterprise employee conveyance billing and instant payout disbursal platform engineered in <strong class="text-white font-semibold">Flutter 3.29 &amp; Cloud Firestore</strong>. Replaces chaotic paper travel slips with an auditable <strong class="text-emerald-300 font-semibold">multi-leg journey tracker</strong> (Rickshaw, CNG, Bus, Bike Fuel), automated fare audit boundaries, print-ready PDF vouchers, and 1-click <strong class="text-emerald-300 font-semibold">bKash, Nagad &amp; EFT mobile banking settlement</strong>.
+            </>
+          ) : isCampus ? (
+            <>
+              Unified academic ERP and micro-frontend administration infrastructure engineered in <strong class="text-white font-semibold">Spring Boot 3.4, Java 21 Project Loom &amp; Vue.js 3</strong>. Consolidates multi-department attendance, automated GPA merit tabulation, faculty payroll, and student focus telemetry into a single glassmorphic executive portal with <strong class="text-emerald-300 font-semibold">sandboxed micro-frontend iframe interop</strong> and zero cross-origin styling friction.
             </>
           ) : (
             <>
@@ -331,6 +339,21 @@ if (isPms) {
                 <span class="text-emerald-400 font-bold">✓</span> Cloud Firestore Real-Time ACID Ledger (&lt; 18ms Sync)
               </div>
             </>
+          ) : isCampus ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Micro-Frontend Vue 3 Dashboard with Dynamic CSS Theme Interop
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Java 21 Project Loom Virtual Threads (&gt; 5,000 req/sec)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Automated UGC Grade Point &amp; Credit-Weighted GPA Tabulation
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> 1-Click Self-Contained Offline Windows Bundle (Embedded JRE)
+              </div>
+            </>
           ) : (
             <>
               <div class="flex items-center gap-1.5">
@@ -376,6 +399,8 @@ if (isPms) {
         <SecureNotesSimulator />
       ) : isSssms ? (
         <ConveyanceBillingSimulator />
+      ) : isCampus ? (
+        <SmartCampusSimulator />
       ) : (
         <BeforeAfterSlider />
       )}
@@ -409,6 +434,8 @@ if (isPms) {
             ? "Built to stop multi-tenant documentation leaks and eliminate slow unindexed table scans with strict RBAC guards."
             : isSssms
             ? "Built to stop inflated travel expenses, eliminate paper voucher loss, and disburse field reimbursements via bKash in seconds."
+            : isCampus
+            ? "Built to eliminate disconnected campus software silos, stop manual GPA tabulation errors, and unify administration under a single glassmorphic portal."
             : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
@@ -761,6 +788,41 @@ if (isPms) {
               <h3 class="font-mono font-bold text-white text-base">Civil Construction &amp; Inspection Crews</h3>
               <p class="text-xs text-slate-200 font-sans leading-relaxed">
                 Project engineers traveling across bridge, flyover, and housing development projects submit itemized travel legs. Generates signed, print-ready A4 PDF vouchers for external audit compliance with zero cash envelope handling.
+              </p>
+            </div>
+          </>
+        ) : isCampus ? (
+          <>
+            <!-- Use Case 1: Comprehensive Universities & Higher Ed -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🎓
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Universities &amp; Higher Ed Institutes</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Unifies 4+ academic faculties (Engineering, Science, Business, Arts) under one central portal. Processes semester examination marks, credit-weighted GPA tabulations, and official transcripts for thousands of students without spreadsheet errors.
+              </p>
+            </div>
+
+            <!-- Use Case 2: Polytechnic & Technical Colleges -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                ⚙️
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Polytechnic &amp; Technical Colleges</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Manages morning and afternoon shift rotations, lab workshop attendance, and instructor payroll reconciliation. Project Loom virtual threads absorb thousands of simultaneous student class punches without server lag.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Distributed Multi-Branch Educational Groups -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-cyan-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-500/50 flex items-center justify-center text-cyan-300 font-mono text-lg font-bold">
+                🏫
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Multi-Campus Education Trusts</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Empowers executive deans and board trustees with real-time cross-campus attendance dashboards, room occupancy monitors, and faculty punctuality leaderboards, enforcing uniform institution branding via CSS theme injection.
               </p>
             </div>
           </>
@@ -1423,6 +1485,69 @@ if (isPms) {
             </table>
           </div>
         </div>
+      ) : isCampus ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+              Engineering Benchmark: Smart Academic vs. Fragmented Legacy Scripts &amp; Spreadsheets
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured under peak semester workload (1,500 active campus members, 5,000 concurrent student portal queries, and automated batch GPA tabulations).
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-cyan-300 bg-cyan-950/40">Smart Academic (Vue 3 + Spring Boot 3.4 Loom + Postgres)</th>
+                  <th class="py-3 px-4 font-semibold">Legacy Fragmented PHP Scripts &amp; Spreadsheets</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Engineering Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Multi-Service Concurrency &amp; Punch Ingress</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">5,000+ req/sec (Java 21 Loom Virtual Threads)</td>
+                  <td class="py-3.5 px-4 text-slate-400">120 req/sec (Apache PHP CGI / Tomcat blocking threads)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">40x Higher Concurrency</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Semester Examination GPA Tabulation</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 0.8s for 2,000 Students (PostgreSQL ACID Batch)</td>
+                  <td class="py-3.5 px-4 text-slate-400">2 – 3 Weeks (Manual Excel Spreadsheet copy-pasting)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">99% Faster Tabulation</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Architectural Cohesion &amp; User Interface</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">Unified Micro-Frontend (Dynamic CSS Token Interop)</td>
+                  <td class="py-3.5 px-4 text-slate-400">5 Disconnected Portals with conflicting logins &amp; styles</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Context Switching</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">On-Premises Installation &amp; Deployment</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">1-Click Self-Contained Bundle (Embedded OpenJDK JRE)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Days of manual database configuration &amp; dependency hell</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Setup Friction</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Multi-Service Memory Footprint</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">&lt; 140 MB Total Combined JVM Heap</td>
+                  <td class="py-3.5 px-4 text-slate-400">1.2+ GB Heavy Legacy Enterprise Suites</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">88% Lower RAM Footprint</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Recurring Licensing &amp; SaaS Fees</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-cyan-950/20">$0.00 (Self-Hosted Monorepo • Open Source Stack)</td>
+                  <td class="py-3.5 px-4 text-slate-400">$12,000+ / year proprietary campus ERP licenses</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Recurring Cost</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <BenchmarkMatrix />
       )}
@@ -1460,6 +1585,8 @@ if (isPms) {
               ? "Engineered in NestJS 10 & TypeScript with Clean Layered Repository Pattern, MongoDB compound indexing, and Docker Compose."
               : isSssms
               ? "Engineered in Flutter 3.29 & Dart 3.11 with Cloud Firestore real-time ACID transactions, vectorized PDF generators, and Provider state management."
+              : isCampus
+              ? "Engineered in Spring Boot 3.4 & Java 21 with Project Loom virtual threads, Vue 3 & Vite micro-frontend orchestration, and PostgreSQL 16."
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
@@ -2698,6 +2825,128 @@ if (isPms) {
                 </p>
               </button>
             </>
+          ) : isCampus ? (
+            <>
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-campus-portal-ingress"
+                data-node-title="Vue 3 Micro-Frontend & JWT Session Dispatch"
+                data-node-badge="Phase 1: Micro-Frontend Ingress"
+                data-node-desc="Routes administrative deans and academic faculty via Vue Router with sandboxed iframe embedding (?embedded=true), passing JWT bearer sessions seamlessly across sub-apps."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // PORTAL INGRESS</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Micro-Frontend Ingress
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Routes administrative sessions to embedded Spring Boot backends with zero layout jump.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-campus-theme-engine"
+                data-node-title="Sandboxed Dynamic CSS Token & Theme Interop Engine"
+                data-node-badge="Phase 2: Theme Injection Pipeline"
+                data-node-desc="Injects smart-academic-theme.css dynamically into backend Thymeleaf layouts, suppressing native sidebars and enforcing emerald-gold design tokens across origins."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // THEME INTEROP</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  CSS Token Interop Engine
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Injects unified design tokens into iframe templates, suppressing native app sidebars.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-campus-attendance-loom"
+                data-node-title="Spring Boot 3.4 & Project Loom Virtual Thread Pool"
+                data-node-badge="Phase 3: High-Throughput Concurrency"
+                data-node-desc="Dispatches 10,000+ incoming biometric check-ins onto lightweight Java 21 virtual threads, calculating grace periods and late salary penalties without thread-pool starvation."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // PROJECT LOOM</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Project Loom Shift Ingress
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Ingests shift punches across virtual threads with automated payroll reconciliation.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-campus-result-engine"
+                data-node-title="ACID Credit-Weighted GPA & Transcript Compilation Core"
+                data-node-badge="Phase 4: ACID Academic Tabulation"
+                data-node-desc="Executes PostgreSQL 16 atomic transactions aggregating continuous assessments (30%), midterms (20%), and semester finals (50%), compiling UGC GPA 4.00 rankings in sub-50ms."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // GPA TABULATION</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Credit-Weighted GPA Tabulator
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Computes course grade points, semester credits, and honors standing atomically.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                data-node-id="node-campus-focus-watch"
+                data-node-title="Native Student Focus & Background Watch Telemetry Daemon"
+                data-node-badge="Phase 5: Integrity Monitoring Core"
+                data-node-desc="Runs an ultra-lightweight Rust native daemon monitoring exam hall focus, process integrity, and browser agent telemetry with zero CPU overhead."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // FOCUS DAEMON</span>
+                  <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
+                  Focus &amp; Integrity Telemetry
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Lightweight native daemon providing live student engagement and exam hall telemetry.
+                </p>
+              </button>
+
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-campus-orchestrator"
+                data-node-title="Monorepo Multi-Process Supervisor & Offline Windows JRE Bundle"
+                data-node-badge="Phase 6: Monorepo Orchestration"
+                data-node-desc="Bundles an embedded OpenJDK JRE, precompiled Spring Boot JARs, and Vite assets via package_windows.sh, supervised by start_all.sh with automated health checks."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // ORCHESTRATION</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Multi-Process Cluster Supervisor
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Supervised cluster orchestrator with self-contained offline distribution bundles.
+                </p>
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -2850,6 +3099,8 @@ if (isPms) {
                 ? "Enterprise Repository Core: Compound B-Tree Indexing & Ownership Guard"
                 : isSssms
                 ? "Conveyance Claim Model & Multi-Leg Journey Calculation Core"
+                : isCampus
+                ? "Micro-Frontend Sandboxed Iframe Interop & Dynamic CSS Token Engine"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
@@ -2873,6 +3124,8 @@ if (isPms) {
                 ? <span>Directly from <code class="text-cyan-300 font-mono">src/notes/repositories/notes.repository.ts</code> showing compound index lookups and tenant ownership isolation.</span>
                 : isSssms
                 ? <span>Directly from <code class="text-cyan-300 font-mono">lib/models/conveyance_claim_model.dart</code> showing multi-leg transit calculation and Firestore serialization.</span>
+                : isCampus
+                ? <span>Directly from <code class="text-cyan-300 font-mono">smart-academic-portal/src/App.vue</code> showing reactive iframe messaging and dynamic stylesheet injection.</span>
                 : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
@@ -2893,10 +3146,10 @@ if (isPms) {
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               <span class="ml-2 text-slate-200 font-medium">
-                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : "src/engine/enhancer.rs"}
+                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : isCampus ? "smart-academic-portal/src/App.vue" : "src/engine/enhancer.rs"}
               </span>
             </div>
-            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : "rust • 105 lines"}</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : isCampus ? "vue • 46 lines" : "rust • 105 lines"}</span>
           </div>
 
           {isPms ? (
@@ -3236,6 +3489,46 @@ imageAnalysis.<span class="text-cyan-300">setAnalyzer</span>(executor) &#123; im
     <span class="text-rose-400">return</span> sum + leg.fareAmount;
   &#125;);
 &#125;</code></pre>
+          ) : isCampus ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-slate-400">&lt;!-- Micro-Frontend Executive Portal: Reactive Iframe &amp; Theme Injection --&gt;</span>
+<span class="text-rose-400">&lt;script</span> <span class="text-cyan-300">setup</span> <span class="text-rose-400">lang</span>=<span class="text-emerald-300">"ts"</span><span class="text-rose-400">&gt;</span>
+<span class="text-rose-400">import</span> &#123; ref, onMounted &#125; <span class="text-rose-400">from</span> <span class="text-emerald-300">'vue'</span>;
+
+<span class="text-rose-400">const</span> activeModule = <span class="text-cyan-300">ref</span>(<span class="text-emerald-300">'attendance'</span>);
+<span class="text-rose-400">const</span> iframeRef = <span class="text-cyan-300">ref</span>&lt;<span class="text-amber-300">HTMLIFrameElement</span> | <span class="text-amber-300">null</span>&gt;(<span class="text-amber-300">null</span>);
+
+<span class="text-slate-400">// Micro-service endpoints mapped in monorepo cluster</span>
+<span class="text-rose-400">const</span> serviceMap: <span class="text-amber-300">Record</span>&lt;<span class="text-amber-300">string</span>, <span class="text-amber-300">string</span>&gt; = &#123;
+  attendance: <span class="text-emerald-300">'http://localhost:8083/attendance?embedded=true'</span>,
+  results: <span class="text-emerald-300">'http://localhost:8080/results?embedded=true'</span>,
+  monitor: <span class="text-emerald-300">'http://localhost:9090/telemetry'</span>,
+&#125;;
+
+<span class="text-slate-400">// Dynamic theme injection listener: guarantees zero visual friction</span>
+<span class="text-cyan-300">onMounted</span>(() =&gt; &#123;
+  window.<span class="text-cyan-300">addEventListener</span>(<span class="text-emerald-300">'message'</span>, (event) =&gt; &#123;
+    <span class="text-rose-400">if</span> (event.data?.type === <span class="text-emerald-300">'MICRO_APP_LOADED'</span> &amp;&amp; iframeRef.value?.contentWindow) &#123;
+      <span class="text-slate-400">// Broadcast parent theme tokens into child iframe context</span>
+      iframeRef.value.contentWindow.<span class="text-cyan-300">postMessage</span>(&#123;
+        type: <span class="text-emerald-300">'THEME_SYNC'</span>,
+        theme: <span class="text-emerald-300">'smart-academic-emerald'</span>,
+        cssHref: <span class="text-emerald-300">'/smart-academic-theme.css'</span>,
+      &#125;, <span class="text-emerald-300">'*'</span>);
+    &#125;
+  &#125;);
+&#125;);
+<span class="text-rose-400">&lt;/script&gt;</span>
+
+<span class="text-rose-400">&lt;template&gt;</span>
+  <span class="text-rose-400">&lt;div</span> <span class="text-cyan-300">class</span>=<span class="text-emerald-300">"portal-container flex h-screen bg-slate-950 font-outfit"</span><span class="text-rose-400">&gt;</span>
+    <span class="text-rose-400">&lt;iframe</span>
+      <span class="text-rose-400">ref</span>=<span class="text-emerald-300">"iframeRef"</span>
+      <span class="text-rose-400">:src</span>=<span class="text-emerald-300">"serviceMap[activeModule]"</span>
+      <span class="text-cyan-300">class</span>=<span class="text-emerald-300">"w-full h-full border-none transition-opacity duration-300"</span>
+      <span class="text-rose-400">sandbox</span>=<span class="text-emerald-300">"allow-scripts allow-same-origin allow-forms"</span>
+    <span class="text-rose-400">/&gt;</span>
+  <span class="text-rose-400">&lt;/div&gt;</span>
+<span class="text-rose-400">&lt;/template&gt;</span></code></pre>
           ) : (
             <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub fn</span> <span class="text-cyan-300">apply_adaptive_sharpen</span>(img: &<span class="text-amber-300">RgbaImage</span>, strength: <span class="text-rose-400">f32</span>) -&gt; <span class="text-amber-300">RgbaImage</span> &#123;
     <span class="text-slate-400">// Clamp strength & compute FidelityFX peak negative cross weight</span>
@@ -3303,6 +3596,8 @@ imageAnalysis.<span class="text-cyan-300">setAnalyzer</span>(executor) &#123; im
                 ? "Run Jest unit and Supertest E2E integration test suites or launch full multi-container Docker Compose stack."
                 : isSssms
                 ? "Fetch Flutter packages, run Dart test suite, or launch the multi-platform client in Chrome or Android emulator."
+                : isCampus
+                ? "Clone Smart Academic Infrastructure repository, run start_all.sh supervisor, or package self-contained Windows bundle."
                 : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
@@ -3413,6 +3708,17 @@ imageAnalysis.<span class="text-cyan-300">setAnalyzer</span>(executor) &#123; im
               <p class="text-emerald-400">flutter test</p>
               <p class="text-slate-400 mt-2"># 4. Launch web or mobile client</p>
               <p class="text-emerald-400">flutter run -d chrome</p>
+            </>
+          ) : isCampus ? (
+            <>
+              <p class="text-slate-400"># 1. Clone Smart Academic Infrastructure monorepo</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/SmartAcamedicInfra-all.git &amp;&amp; cd SmartAcamedicInfra-all</p>
+              <p class="text-slate-400 mt-2"># 2. Grant execution permissions to launch orchestrator</p>
+              <p class="text-emerald-400">chmod +x start_all.sh package_windows.sh</p>
+              <p class="text-slate-400 mt-2"># 3. Boot all micro-services concurrently (Vue Portal + Spring Boot + Rust Monitor)</p>
+              <p class="text-emerald-400">./start_all.sh</p>
+              <p class="text-slate-400 mt-2"># 4. Generate random 45-day mock data across all 4 departments</p>
+              <p class="text-emerald-400">python3 generate_mock_data.py</p>
             </>
           ) : (
             <>
