@@ -1,0 +1,575 @@
+---
+// Edge AI Attendance Simulator: Kotlin CameraX, ML Kit Face Detection, FusedLocation Geofence, Room & Firestore
+---
+
+<div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-8 shadow-2xl">
+  <!-- Simulator Header -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+    <div>
+      <div class="flex items-center gap-2 text-cyan-300 font-mono text-xs uppercase tracking-wider mb-1 font-bold">
+        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        Interactive Edge-AI Hardware Simulator
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-mono font-bold text-white flex items-center gap-3">
+        SmartAI: On-Device Vision &amp; Geofence Verification
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-300 font-sans mt-1">
+        Experience sub-350ms on-device face landmark tracking with Google ML Kit and FusedLocation perimeter bounding.
+      </p>
+    </div>
+
+    <!-- Active Mode Selector -->
+    <div class="flex items-center p-1 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono">
+      <button
+        type="button"
+        id="mode-student-btn"
+        class="px-4 py-2 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold transition-all shadow-sm"
+      >
+        📱 Student Check-In
+      </button>
+      <button
+        type="button"
+        id="mode-admin-btn"
+        class="px-4 py-2 rounded-lg text-slate-400 hover:text-slate-200 transition-all font-semibold"
+      >
+        📊 Class Roster &amp; Radar
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Simulator Viewport -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <!-- Left Column: Mobile App Frame (Jetpack Compose View) -->
+    <div class="lg:col-span-6 flex justify-center">
+      <div class="w-full max-w-[380px] rounded-[38px] border-4 border-slate-700 bg-slate-950 shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col">
+        <!-- Phone Speaker & Camera Notch -->
+        <div class="h-6 bg-slate-950 flex items-center justify-center relative">
+          <div class="w-24 h-4 bg-slate-900 rounded-b-xl flex items-center justify-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-slate-800"></span>
+            <span class="w-8 h-1 rounded-full bg-slate-800"></span>
+          </div>
+        </div>
+
+        <!-- Phone Top Bar (Jetpack Compose Scaffold) -->
+        <div class="px-5 py-2.5 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-300">
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-white">09:42 AM</span>
+            <span class="text-slate-500">•</span>
+            <span class="text-cyan-300 font-semibold">SmartAI v2.4</span>
+          </div>
+          <div class="flex items-center gap-2" id="phone-status-icons">
+            <span id="network-status-badge" class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+              4G Online
+            </span>
+            <span>🔋 89%</span>
+          </div>
+        </div>
+
+        <!-- View 1: Student Camera & Biometric Screen -->
+        <div id="student-screen" class="p-5 space-y-4">
+          <!-- CameraX Live Viewfinder Box -->
+          <div class="relative w-full aspect-[4/3] rounded-2xl bg-slate-900 border-2 border-slate-800 overflow-hidden flex items-center justify-center group">
+            <!-- Simulated Camera Grid -->
+            <div class="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#06b6d4_1px,transparent_1px),linear-gradient(to_bottom,#06b6d4_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+
+            <!-- Animated Face Graphic & Mesh -->
+            <div id="face-container" class="relative z-10 w-36 h-44 flex flex-col items-center justify-center transition-all duration-300">
+              <!-- Face Outline SVG -->
+              <svg class="w-full h-full text-cyan-400 drop-shadow-[0_0_12px_rgba(6,182,212,0.5)] transition-transform duration-300" id="face-mesh-svg" viewBox="0 0 100 120" fill="none" stroke="currentColor">
+                <!-- Head Oval -->
+                <ellipse cx="50" cy="55" rx="35" ry="45" stroke-width="1.8" stroke-dasharray="4 2" />
+                <!-- Eyes -->
+                <circle id="mesh-left-eye" cx="38" cy="45" r="4" fill="currentColor" fill-opacity="0.3" stroke-width="1.5" />
+                <circle id="mesh-right-eye" cx="62" cy="45" r="4" fill="currentColor" fill-opacity="0.3" stroke-width="1.5" />
+                <!-- Nose Bridge -->
+                <path d="M50 48v16l-3 4h6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <!-- Mouth / Smile -->
+                <path id="mesh-mouth" d="M38 78 Q50 88 62 78" stroke-width="2" stroke-linecap="round" />
+              </svg>
+
+              <!-- Dynamic ML Kit Bounding Box -->
+              <div id="ml-bounding-box" class="absolute inset-0 border-2 border-emerald-400 rounded-xl pointer-events-none transition-all duration-200">
+                <span class="absolute -top-3 left-2 px-1.5 py-0.5 bg-emerald-950 text-emerald-300 border border-emerald-500 font-mono text-[9px] rounded font-bold">
+                  ML Kit: Face #1 (98.4%)
+                </span>
+                <!-- Corner Reticles -->
+                <span class="absolute -top-1 -left-1 w-2.5 h-2.5 border-t-2 border-l-2 border-cyan-300"></span>
+                <span class="absolute -top-1 -right-1 w-2.5 h-2.5 border-t-2 border-r-2 border-cyan-300"></span>
+                <span class="absolute -bottom-1 -left-1 w-2.5 h-2.5 border-b-2 border-l-2 border-cyan-300"></span>
+                <span class="absolute -bottom-1 -right-1 w-2.5 h-2.5 border-b-2 border-r-2 border-cyan-300"></span>
+              </div>
+            </div>
+
+            <!-- Viewfinder Telemetry Overlay -->
+            <div class="absolute bottom-2 left-2 right-2 px-2.5 py-1.5 rounded-lg bg-slate-950/80 backdrop-blur-md border border-slate-800 text-[10px] font-mono text-slate-300 flex items-center justify-between">
+              <span class="flex items-center gap-1.5 text-cyan-300 font-bold">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                CameraX: 30 FPS
+              </span>
+              <span id="telemetry-pose" class="text-slate-400">Pitch: 1.2° • Yaw: -0.8°</span>
+            </div>
+          </div>
+
+          <!-- Student Profile Card in Compose -->
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2 font-mono text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">STUDENT PROFILE</span>
+              <span class="text-cyan-300 font-bold">#2024-CSE-042</span>
+            </div>
+            <div class="text-sm font-bold text-white">Mahmudul Hasan</div>
+            <div class="text-[11px] text-slate-300">Dhaka Polytechnic • Computer Technology (6th Sem)</div>
+          </div>
+
+          <!-- Live Verification Status Bar -->
+          <div id="verification-banner" class="p-3 rounded-xl bg-slate-900/90 border border-slate-700 text-xs font-mono space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400 font-semibold">GATE CHECK</span>
+              <span id="banner-status-tag" class="px-2 py-0.5 rounded text-[10px] bg-cyan-950 text-cyan-300 border border-cyan-500/40 font-bold">
+                READY FOR SCAN
+              </span>
+            </div>
+            <p id="banner-status-desc" class="text-[11px] text-slate-300 leading-tight">
+              Position face in camera and verify classroom GPS boundary to record attendance.
+            </p>
+          </div>
+
+          <!-- Trigger Verification Button -->
+          <button
+            type="button"
+            id="scan-attendance-btn"
+            class="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 active:scale-[0.98] text-slate-950 font-mono font-bold text-sm tracking-wide transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] flex items-center justify-center gap-2"
+          >
+            <svg class="w-4 h-4 text-slate-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16z"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            <span>Verify &amp; Punch Attendance</span>
+          </button>
+        </div>
+
+        <!-- View 2: Teacher Roster & Geofence Radar Screen (Hidden by default) -->
+        <div id="admin-screen" class="p-5 space-y-4 hidden">
+          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2 font-mono text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">ACTIVE LECTURE SESSION</span>
+              <span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold">LIVE</span>
+            </div>
+            <div class="text-sm font-bold text-white">CSE-601: Operating Systems &amp; Concurrency</div>
+            <div class="text-[11px] text-slate-300">Room 402 • Total Registered: 64 Students</div>
+          </div>
+
+          <!-- Class Presence Counter -->
+          <div class="grid grid-cols-2 gap-3 font-mono">
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+              <span class="text-[10px] text-slate-400 block uppercase">Present Today</span>
+              <span id="counter-present" class="text-2xl font-bold text-emerald-400">58</span>
+              <span class="text-[10px] text-slate-500 block">90.6% Rate</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
+              <span class="text-[10px] text-slate-400 block uppercase">Proxies Blocked</span>
+              <span id="counter-blocked" class="text-2xl font-bold text-rose-400">6</span>
+              <span class="text-[10px] text-slate-500 block">Spoof / Geofence</span>
+            </div>
+          </div>
+
+          <!-- Radar Mini Visualizer -->
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center space-y-2">
+            <span class="text-xs font-mono text-cyan-300 font-bold block">Classroom GPS Anchor (Dhaka Polytechnic)</span>
+            <div class="text-[11px] font-mono text-slate-400">Lat: 23.7628° N • Lng: 90.3789° E</div>
+            <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden mt-2">
+              <div class="h-full bg-gradient-to-r from-emerald-500 via-cyan-400 to-rose-500 w-3/4"></div>
+            </div>
+            <span class="text-[10px] font-mono text-slate-500 block">Radius Enforced: &lt; 50.0 Meters Radius</span>
+          </div>
+
+          <button
+            type="button"
+            id="reset-ledger-btn"
+            class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs font-semibold transition-colors border border-slate-700"
+          >
+            Clear Session &amp; Reset Demo
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive Parameter Tuning & Environmental Controls -->
+    <div class="lg:col-span-6 space-y-6">
+      <div class="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-5">
+        <h3 class="font-mono font-bold text-white text-base flex items-center justify-between border-b border-slate-800 pb-3">
+          <span>Environment &amp; Hardware Controls</span>
+          <span class="text-xs font-normal text-cyan-300 font-mono">SIMULATION PANEL</span>
+        </h3>
+
+        <!-- Control 1: Student GPS Distance from Classroom Slider -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <label for="gps-distance-slider" class="text-slate-200 font-semibold flex items-center gap-1.5">
+              <span>📍 Physical Distance from Classroom:</span>
+              <span id="gps-distance-label" class="text-cyan-300 font-bold">14 meters</span>
+            </label>
+            <span id="geofence-pill" class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+              INSIDE 50M PERIMETER
+            </span>
+          </div>
+          <input
+            type="range"
+            id="gps-distance-slider"
+            min="5"
+            max="160"
+            value="14"
+            step="1"
+            class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+          />
+          <div class="flex justify-between text-[10px] font-mono text-slate-500">
+            <span>5m (Front Row)</span>
+            <span class="text-emerald-400 font-semibold">50m (Class Door Boundary)</span>
+            <span class="text-rose-400 font-semibold">160m (Tea Stall / Outside)</span>
+          </div>
+        </div>
+
+        <!-- Control 2: Face Liveness & Landmark Visibility -->
+        <div class="space-y-2">
+          <label class="text-xs font-mono text-slate-200 font-semibold block">
+            👤 Camera Face Simulation Scenario:
+          </label>
+          <div class="grid grid-cols-3 gap-2">
+            <button
+              type="button"
+              class="face-scenario-btn px-3 py-2 rounded-xl text-xs font-mono bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold"
+              data-scenario="valid"
+            >
+              ✅ Valid Face
+            </button>
+            <button
+              type="button"
+              class="face-scenario-btn px-3 py-2 rounded-xl text-xs font-mono bg-slate-900 text-slate-400 border border-slate-800 font-semibold hover:border-slate-700"
+              data-scenario="noface"
+            >
+              🚫 No Face
+            </button>
+            <button
+              type="button"
+              class="face-scenario-btn px-3 py-2 rounded-xl text-xs font-mono bg-slate-900 text-slate-400 border border-slate-800 font-semibold hover:border-slate-700"
+              data-scenario="spoof"
+            >
+              ⚠️ Photo Spoof
+            </button>
+          </div>
+        </div>
+
+        <!-- Control 3: Network Connectivity State (Room DB vs Cloud Firestore) -->
+        <div class="space-y-2">
+          <label class="text-xs font-mono text-slate-200 font-semibold block">
+            📶 Campus Connectivity Mode:
+          </label>
+          <div class="grid grid-cols-2 gap-3">
+            <button
+              type="button"
+              id="network-online-btn"
+              class="px-3.5 py-2.5 rounded-xl text-xs font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold flex items-center justify-center gap-2"
+            >
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Online (Sync to Cloud)
+            </button>
+            <button
+              type="button"
+              id="network-offline-btn"
+              class="px-3.5 py-2.5 rounded-xl text-xs font-mono bg-slate-900 text-slate-400 border border-slate-800 font-bold flex items-center justify-center gap-2 hover:border-slate-700"
+            >
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              Offline (Room SQLite Cache)
+            </button>
+          </div>
+          <p class="text-[11px] text-slate-400 font-sans mt-1">
+            Offline mode demonstrates how Android Room stores un-synced punches locally during power blackouts with zero data loss.
+          </p>
+        </div>
+      </div>
+
+      <!-- Live Verification Ledger / Audit Log -->
+      <div class="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h4 class="font-mono font-bold text-white text-sm flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            Verified Attendance Ledger (Local &amp; Cloud)
+          </h4>
+          <span class="text-[10px] font-mono text-slate-400" id="ledger-count">3 Entries Recorded</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left font-mono text-xs border-collapse">
+            <thead>
+              <tr class="text-slate-400 border-b border-slate-800 text-[10px] uppercase">
+                <th class="pb-2">Timestamp</th>
+                <th class="pb-2">Student ID</th>
+                <th class="pb-2">Distance</th>
+                <th class="pb-2">Face Verification</th>
+                <th class="pb-2">Sync State</th>
+              </tr>
+            </thead>
+            <tbody id="ledger-table-body" class="divide-y divide-slate-900 text-slate-300">
+              <tr>
+                <td class="py-2.5 text-slate-400">09:38:12</td>
+                <td class="py-2.5 text-white font-semibold">#2024-CSE-014</td>
+                <td class="py-2.5 text-emerald-400">8.2 m</td>
+                <td class="py-2.5 text-cyan-300">ML Kit (99.1%)</td>
+                <td class="py-2.5"><span class="px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/40 text-[10px]">Firestore Cloud</span></td>
+              </tr>
+              <tr>
+                <td class="py-2.5 text-slate-400">09:39:45</td>
+                <td class="py-2.5 text-white font-semibold">#2024-CSE-028</td>
+                <td class="py-2.5 text-emerald-400">22.4 m</td>
+                <td class="py-2.5 text-cyan-300">ML Kit (97.8%)</td>
+                <td class="py-2.5"><span class="px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/40 text-[10px]">Firestore Cloud</span></td>
+              </tr>
+              <tr>
+                <td class="py-2.5 text-slate-400">09:41:03</td>
+                <td class="py-2.5 text-rose-300 font-semibold">#2024-CSE-091</td>
+                <td class="py-2.5 text-rose-400 font-bold">135.0 m</td>
+                <td class="py-2.5 text-slate-400">ML Kit (98.0%)</td>
+                <td class="py-2.5"><span class="px-1.5 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-500/40 text-[10px]">BLOCKED (Geo-Fence)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initSmartAiSimulator() {
+    // DOM Elements
+    const modeStudentBtn = document.getElementById('mode-student-btn');
+    const modeAdminBtn = document.getElementById('mode-admin-btn');
+    const studentScreen = document.getElementById('student-screen');
+    const adminScreen = document.getElementById('admin-screen');
+
+    const gpsSlider = document.getElementById('gps-distance-slider') as HTMLInputElement | null;
+    const gpsDistanceLabel = document.getElementById('gps-distance-label');
+    const geofencePill = document.getElementById('geofence-pill');
+
+    const scenarioBtns = document.querySelectorAll('.face-scenario-btn');
+    const networkOnlineBtn = document.getElementById('network-online-btn');
+    const networkOfflineBtn = document.getElementById('network-offline-btn');
+    const networkBadge = document.getElementById('network-status-badge');
+
+    const scanBtn = document.getElementById('scan-attendance-btn');
+    const bannerStatusTag = document.getElementById('banner-status-tag');
+    const bannerStatusDesc = document.getElementById('banner-status-desc');
+    const faceMeshSvg = document.getElementById('face-mesh-svg');
+    const mlBoundingBox = document.getElementById('ml-bounding-box');
+    const ledgerTableBody = document.getElementById('ledger-table-body');
+    const ledgerCount = document.getElementById('ledger-count');
+    const resetLedgerBtn = document.getElementById('reset-ledger-btn');
+    const counterPresent = document.getElementById('counter-present');
+    const counterBlocked = document.getElementById('counter-blocked');
+
+    // State Variables
+    let currentDistance = 14;
+    let currentScenario = 'valid'; // 'valid' | 'noface' | 'spoof'
+    let isOnline = true;
+    let presentCount = 58;
+    let blockedCount = 6;
+    let totalLogs = 3;
+
+    // Toggle Mode Screens
+    modeStudentBtn?.addEventListener('click', () => {
+      modeStudentBtn.className = 'px-4 py-2 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold transition-all shadow-sm';
+      modeAdminBtn!.className = 'px-4 py-2 rounded-lg text-slate-400 hover:text-slate-200 transition-all font-semibold';
+      studentScreen?.classList.remove('hidden');
+      adminScreen?.classList.add('hidden');
+    });
+
+    modeAdminBtn?.addEventListener('click', () => {
+      modeAdminBtn.className = 'px-4 py-2 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold transition-all shadow-sm';
+      modeStudentBtn!.className = 'px-4 py-2 rounded-lg text-slate-400 hover:text-slate-200 transition-all font-semibold';
+      adminScreen?.classList.remove('hidden');
+      studentScreen?.classList.add('hidden');
+    });
+
+    // Distance Slider Event
+    gpsSlider?.addEventListener('input', (e) => {
+      const val = parseInt((e.target as HTMLInputElement).value, 10);
+      currentDistance = val;
+      if (gpsDistanceLabel) gpsDistanceLabel.textContent = `${val} meters`;
+
+      if (val <= 50) {
+        if (geofencePill) {
+          geofencePill.className = 'px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40';
+          geofencePill.textContent = 'INSIDE 50M PERIMETER';
+        }
+      } else {
+        if (geofencePill) {
+          geofencePill.className = 'px-2 py-0.5 rounded text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40';
+          geofencePill.textContent = 'OUT OF BOUNDS (>50M)';
+        }
+      }
+    });
+
+    // Face Scenario Buttons
+    scenarioBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        scenarioBtns.forEach((b) => {
+          b.className = 'face-scenario-btn px-3 py-2 rounded-xl text-xs font-mono bg-slate-900 text-slate-400 border border-slate-800 font-semibold hover:border-slate-700';
+        });
+        btn.className = 'face-scenario-btn px-3 py-2 rounded-xl text-xs font-mono bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold';
+
+        const scenario = btn.getAttribute('data-scenario') || 'valid';
+        currentScenario = scenario;
+
+        if (scenario === 'valid') {
+          if (faceMeshSvg) faceMeshSvg.style.opacity = '1';
+          if (mlBoundingBox) {
+            mlBoundingBox.style.display = 'block';
+            mlBoundingBox.className = 'absolute inset-0 border-2 border-emerald-400 rounded-xl pointer-events-none transition-all duration-200';
+          }
+        } else if (scenario === 'noface') {
+          if (faceMeshSvg) faceMeshSvg.style.opacity = '0.15';
+          if (mlBoundingBox) mlBoundingBox.style.display = 'none';
+        } else if (scenario === 'spoof') {
+          if (faceMeshSvg) faceMeshSvg.style.opacity = '0.8';
+          if (mlBoundingBox) {
+            mlBoundingBox.style.display = 'block';
+            mlBoundingBox.className = 'absolute inset-0 border-2 border-amber-400 rounded-xl pointer-events-none transition-all duration-200';
+          }
+        }
+      });
+    });
+
+    // Network Toggle
+    networkOnlineBtn?.addEventListener('click', () => {
+      isOnline = true;
+      networkOnlineBtn.className = 'px-3.5 py-2.5 rounded-xl text-xs font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold flex items-center justify-center gap-2';
+      networkOfflineBtn!.className = 'px-3.5 py-2.5 rounded-xl text-xs font-mono bg-slate-900 text-slate-400 border border-slate-800 font-bold flex items-center justify-center gap-2 hover:border-slate-700';
+      if (networkBadge) {
+        networkBadge.className = 'px-2 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/40';
+        networkBadge.textContent = '4G Online';
+      }
+    });
+
+    networkOfflineBtn?.addEventListener('click', () => {
+      isOnline = false;
+      networkOfflineBtn.className = 'px-3.5 py-2.5 rounded-xl text-xs font-mono bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold flex items-center justify-center gap-2';
+      networkOnlineBtn!.className = 'px-3.5 py-2.5 rounded-xl text-xs font-mono bg-slate-900 text-slate-400 border border-slate-800 font-bold flex items-center justify-center gap-2 hover:border-slate-700';
+      if (networkBadge) {
+        networkBadge.className = 'px-2 py-0.5 rounded text-[10px] bg-amber-500/20 text-amber-300 border border-amber-500/40';
+        networkBadge.textContent = 'Offline (Room Cache)';
+      }
+    });
+
+    // Scan & Punch Attendance Trigger
+    scanBtn?.addEventListener('click', () => {
+      const now = new Date();
+      const timeStr = now.toTimeString().split(' ')[0];
+
+      // Evaluation Logic
+      if (currentScenario === 'noface') {
+        if (bannerStatusTag) {
+          bannerStatusTag.className = 'px-2 py-0.5 rounded text-[10px] bg-rose-950 text-rose-300 border border-rose-500/40 font-bold';
+          bannerStatusTag.textContent = 'NO FACE DETECTED';
+        }
+        if (bannerStatusDesc) {
+          bannerStatusDesc.textContent = 'CameraX ImageAnalysis found 0 facial landmarks. Look directly at camera.';
+        }
+        return;
+      }
+
+      if (currentScenario === 'spoof') {
+        if (bannerStatusTag) {
+          bannerStatusTag.className = 'px-2 py-0.5 rounded text-[10px] bg-amber-950 text-amber-300 border border-amber-500/40 font-bold';
+          bannerStatusTag.textContent = 'LIVENESS FAILED';
+        }
+        if (bannerStatusDesc) {
+          bannerStatusDesc.textContent = 'Static photo detected. Please blink or smile to prove live presence.';
+        }
+        return;
+      }
+
+      if (currentDistance > 50) {
+        // Geofence Violation
+        blockedCount++;
+        if (counterBlocked) counterBlocked.textContent = String(blockedCount);
+        if (bannerStatusTag) {
+          bannerStatusTag.className = 'px-2 py-0.5 rounded text-[10px] bg-rose-950 text-rose-300 border border-rose-500/40 font-bold';
+          bannerStatusTag.textContent = 'GEOFENCE REJECTED';
+        }
+        if (bannerStatusDesc) {
+          bannerStatusDesc.textContent = `Location violation: Device is ${currentDistance}m away (max 50m). Proxy attempt logged.`;
+        }
+
+        // Add to Ledger as Blocked
+        addLedgerEntry(timeStr, '#2024-CSE-042', `${currentDistance} m`, 'ML Kit (98.6%)', 'BLOCKED (Geofence)', 'rose');
+        return;
+      }
+
+      // Successful Attendance!
+      presentCount++;
+      if (counterPresent) counterPresent.textContent = String(presentCount);
+
+      if (isOnline) {
+        if (bannerStatusTag) {
+          bannerStatusTag.className = 'px-2 py-0.5 rounded text-[10px] bg-emerald-950 text-emerald-300 border border-emerald-500/40 font-bold';
+          bannerStatusTag.textContent = 'VERIFIED & SYNCED (312ms)';
+        }
+        if (bannerStatusDesc) {
+          bannerStatusDesc.textContent = `Attendance recorded! Face matched and GPS verified at ${currentDistance}m. Uploaded to Firestore.`;
+        }
+        addLedgerEntry(timeStr, '#2024-CSE-042', `${currentDistance} m`, 'ML Kit (99.4%)', 'Firestore Cloud', 'emerald');
+      } else {
+        if (bannerStatusTag) {
+          bannerStatusTag.className = 'px-2 py-0.5 rounded text-[10px] bg-amber-950 text-amber-300 border border-amber-500/40 font-bold';
+          bannerStatusTag.textContent = 'SAVED TO OFFLINE ROOM DB';
+        }
+        if (bannerStatusDesc) {
+          bannerStatusDesc.textContent = `Verified offline in 180ms. Stored in encrypted SQLite cache; will auto-sync on reconnect.`;
+        }
+        addLedgerEntry(timeStr, '#2024-CSE-042', `${currentDistance} m`, 'ML Kit (99.4%)', 'Room DB (Queued)', 'amber');
+      }
+    });
+
+    function addLedgerEntry(time: string, id: string, dist: string, face: string, status: string, color: string) {
+      if (!ledgerTableBody) return;
+      totalLogs++;
+      if (ledgerCount) ledgerCount.textContent = `${totalLogs} Entries Recorded`;
+
+      const tr = document.createElement('tr');
+      const badgeClass = color === 'emerald'
+        ? 'px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/40 text-[10px]'
+        : color === 'rose'
+        ? 'px-1.5 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-500/40 text-[10px]'
+        : 'px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-500/40 text-[10px]';
+
+      tr.innerHTML = `
+        <td class="py-2.5 text-slate-400">${time}</td>
+        <td class="py-2.5 text-white font-semibold">${id}</td>
+        <td class="py-2.5 text-${color === 'rose' ? 'rose-400 font-bold' : 'emerald-400'}">${dist}</td>
+        <td class="py-2.5 text-cyan-300">${face}</td>
+        <td class="py-2.5"><span class="${badgeClass}">${status}</span></td>
+      `;
+
+      ledgerTableBody.prepend(tr);
+    }
+
+    resetLedgerBtn?.addEventListener('click', () => {
+      presentCount = 58;
+      blockedCount = 6;
+      totalLogs = 0;
+      if (counterPresent) counterPresent.textContent = '58';
+      if (counterBlocked) counterBlocked.textContent = '6';
+      if (ledgerCount) ledgerCount.textContent = '0 Entries Recorded';
+      if (ledgerTableBody) ledgerTableBody.innerHTML = '';
+      if (bannerStatusTag) {
+        bannerStatusTag.className = 'px-2 py-0.5 rounded text-[10px] bg-cyan-950 text-cyan-300 border border-cyan-500/40 font-bold';
+        bannerStatusTag.textContent = 'READY FOR SCAN';
+      }
+      if (bannerStatusDesc) {
+        bannerStatusDesc.textContent = 'Session reset. Ready for new student attendance scans.';
+      }
+    });
+  }
+
+  initSmartAiSimulator();
+  document.addEventListener('astro:page-load', initSmartAiSimulator);
+</script>
