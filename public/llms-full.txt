@@ -9,7 +9,20 @@
 - Phone: +880 1410-749454
 ## Canonical Website & Deep-Dive Architecture Case Studies
 - Canonical Website: https://mahmudulhasan.info.bd
-- Case Study (ImageUpscale Pro): https://mahmudulhasan.info.bd/systems/image-upscale-simd (Hardware AVX2 SIMD, 292 FPS, AMD FidelityFX CAS in pure Rust)
+- Production Case Studies:
+  - PMS-V2 Smart Parking Engine: https://mahmudulhasan.info.bd/systems/pms-v2 (Rust 2024, Tokio, Axum, Flutter POS, <0.84s Gate Open Latency)
+  - Skylink HRMS Suite: https://mahmudulhasan.info.bd/systems/skylink-hrms (Java 21 Project Loom, Spring Boot 3.4, ZKTeco ADMS, 10,000+ Punches/Min)
+  - Skylink Workstation Monitor: https://mahmudulhasan.info.bd/systems/skylink-monitor (Pure Rust 2024, <14MB RAM, <0.01% CPU, AES-256-GCM)
+  - Swift PDF Studio: https://mahmudulhasan.info.bd/systems/swift-pdf-editor (Python FastAPI, Flutter, Sub-pixel PyMuPDF Redaction, HarfBuzz)
+  - HomeSync IoT 3D Twin: https://mahmudulhasan.info.bd/systems/homesync-iot (React 19, Three.js WebGL, 60 FPS, MQTT State Broker)
+  - ImageUpscale Pro: https://mahmudulhasan.info.bd/systems/image-upscale-simd (Hardware AVX2 SIMD, 292 FPS, AMD FidelityFX CAS in pure Rust)
+  - Modern OS Microkernel: https://mahmudulhasan.info.bd/systems/modern-os-microkernel (Pure #![no_std] Rust, Ring 0 Isolation, SPSC Lock-Free IPC)
+  - Doller FX Trading Ledger: https://mahmudulhasan.info.bd/systems/doller-fintech-wallet (Java 21, Spring Boot 3.5, Flutter, Double-Entry ACID, Flyway)
+  - Cameraman Vision ANPR: https://mahmudulhasan.info.bd/systems/cameraman-edge-vision (Rust Axum, YOLOv8, Bangla BRTA OCR)
+- Syndication & Verification Endpoints:
+  - RSS 2.0 Feed: https://mahmudulhasan.info.bd/rss.xml
+  - RFC 9116 Security Disclosure: https://mahmudulhasan.info.bd/.well-known/security.txt
+  - GPG Cryptographic Key: https://mahmudulhasan.info.bd/mhcybroot-key.asc
 - GitHub: https://github.com/mhcybroot
 - LinkedIn: https://linkedin.com/in/mhcybroot
 

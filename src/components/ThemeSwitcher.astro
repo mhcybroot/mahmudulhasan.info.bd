@@ -102,10 +102,12 @@ const themes = [
         if (themeId === currentTheme) {
           check?.classList.remove('hidden');
           opt.classList.add('bg-theme-surface');
+          opt.setAttribute('aria-current', 'true');
           if (label) label.textContent = opt.getAttribute('data-theme-name') || 'Theme';
         } else {
           check?.classList.add('hidden');
           opt.classList.remove('bg-theme-surface');
+          opt.setAttribute('aria-current', 'false');
         }
       });
     }
@@ -115,15 +117,18 @@ const themes = [
       if (isHidden) {
         menu?.classList.remove('hidden');
         chevron?.classList.add('rotate-180');
+        btn?.setAttribute('aria-expanded', 'true');
       } else {
         menu?.classList.add('hidden');
         chevron?.classList.remove('rotate-180');
+        btn?.setAttribute('aria-expanded', 'false');
       }
     }
 
     function closeMenu() {
       menu?.classList.add('hidden');
       chevron?.classList.remove('rotate-180');
+      btn?.setAttribute('aria-expanded', 'false');
     }
 
     btn?.addEventListener('click', (e) => {

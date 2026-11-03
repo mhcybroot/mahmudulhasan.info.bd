@@ -12,9 +12,10 @@ interface Props {
   description?: string;
   canonicalURL?: string;
   image?: string;
+  type?: string;
 }
 
-const { title, description, canonicalURL, image } = Astro.props;
+const { title, description, canonicalURL, image, type = 'website' } = Astro.props;
 const envDefaultTheme = import.meta.env.PUBLIC_DEFAULT_THEME || 'swiss';
 const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amber' || envDefaultTheme === 'synthwave' || envDefaultTheme === 'emerald';
 ---
@@ -30,7 +31,7 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-    <MetaTags title={title} description={description} canonicalURL={canonicalURL} image={image} />
+    <MetaTags title={title} description={description} canonicalURL={canonicalURL} image={image} type={type} />
     <JsonLd />
     <link rel="alternate" type="application/rss+xml" title="Mahmudul Hasan Projects RSS Feed" href="/rss.xml" />
     <link rel="ai-catalog" type="application/json" href="/.well-known/ai-catalog.json" />
