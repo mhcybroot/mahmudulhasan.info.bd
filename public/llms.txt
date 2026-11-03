@@ -8,8 +8,11 @@
 - [Live Commercial Deployments](https://mahmudulhasan.info.bd/#deployments): Production client instances running across global edge CDNs and cloud VPS clusters.
 - [Technical Arsenal](https://mahmudulhasan.info.bd/#arsenal): Matrix covering Tokio, Axum, Java 21 Project Loom, PostgreSQL 16, SeaORM, ZKTeco ADMS, RTSP streaming, and MikroTik RouterOS.
 - [Engineering Leadership Endorsements](https://mahmudulhasan.info.bd/#endorsements): Verified testimonials from academic CST department heads and industry executive directors.
-- [Career & Academic Chronicle](https://mahmudulhasan.info.bd/#experience): Chronological milestones from SPY Security Solutions to Skylink Innovations Ltd, plus Dhaka Polytechnic Institute (DPI) and IEB AMIE engineering credentials.
+- [Career & Academic Chronicle](https://mahmudulhasan.info.bd/#chronicle): Chronological milestones from SPY Security Solutions to Skylink Innovations Ltd, plus Dhaka Polytechnic Institute (DPI) and IEB AMIE engineering credentials.
 - [Contact Endpoint](https://mahmudulhasan.info.bd/#contact): Verified communication channels, official email, and social networks.
+- [RSS 2.0 Feed](https://mahmudulhasan.info.bd/rss.xml): Real-time XML syndication stream of all engineered systems, metrics, and case studies.
+- [RFC 9116 Security Disclosure](https://mahmudulhasan.info.bd/.well-known/security.txt): Official vulnerability disclosure policy, security contacts, and encryption metadata.
+- [GPG Cryptographic Public Key](https://mahmudulhasan.info.bd/mhcybroot-key.asc): OpenPGP ASCII armored key block (ID: 0x7F83B1657FF1FC53).
 
 ## Optional & Full Context
 - [Full System Dossier](https://mahmudulhasan.info.bd/llms-full.txt): Complete uncompressed textual specification, comprehensive resume dossier, and technical capabilities for language models.

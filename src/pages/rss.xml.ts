@@ -10,9 +10,10 @@ export const GET: APIRoute = async (context) => {
     .map((project) => `
     <item>
       <title><![CDATA[${project.data.title}]]></title>
-      <link>${siteUrl}/systems/${project.data.slug}/</link>
-      <guid isPermaLink="true">${siteUrl}/systems/${project.data.slug}/</guid>
-      <description><![CDATA[${project.data.tagline || ''} — Stack: ${project.data.technologies?.join(', ') || ''}]]></description>
+      <link>${siteUrl}/systems/${project.data.slug}</link>
+      <guid isPermaLink="true">${siteUrl}/systems/${project.data.slug}</guid>
+      <description><![CDATA[${project.data.seo?.focusKeyword || project.data.title} — Stack: ${project.data.stack?.join(', ') || project.data.primaryLanguage} | Latency: ${project.data.metrics?.latency || 'Sub-second'} | Throughput: ${project.data.metrics?.throughput || 'High-Throughput'}]]></description>
+      <category>${project.data.primaryLanguage}</category>
       <pubDate>${new Date(project.data.date).toUTCString()}</pubDate>
     </item>`).join('');
 
