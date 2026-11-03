@@ -109,16 +109,43 @@
   const copyBtnText = document.getElementById('copy-btn-text');
 
   copyBtn?.addEventListener('click', async () => {
+    const email = 'info@mahmudulhasan.info.bd';
     try {
-      await navigator.clipboard.writeText('info@mahmudulhasan.info.bd');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(email);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = email;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
       if (copyBtnText) copyBtnText.textContent = 'COPIED TO BUFFER [OK]';
       copyBtn?.classList.add('bg-theme-accent', 'border-theme-accent');
       setTimeout(() => {
         if (copyBtnText) copyBtnText.textContent = 'Copy Email';
         copyBtn?.classList.remove('bg-theme-accent', 'border-theme-accent');
       }, 2000);
-    } catch (err) {
-      console.error('Failed to copy email: ', err);
+    } catch {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = email;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        if (copyBtnText) copyBtnText.textContent = 'COPIED TO BUFFER [OK]';
+        setTimeout(() => {
+          if (copyBtnText) copyBtnText.textContent = 'Copy Email';
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy email: ', err);
+      }
     }
   });
 </script>

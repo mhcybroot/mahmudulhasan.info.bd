@@ -228,9 +228,9 @@
         const gpgBtn = document.querySelector('[data-trigger-gpg="true"]') as HTMLElement;
         gpgBtn?.click();
       } else if (action === 'flip') {
-        const nextBtn = document.getElementById('btn-next-system') as HTMLAnchorElement;
-        if (nextBtn) {
-          nextBtn.click();
+        const nextBtn = (document.getElementById('nav-next-project') || document.getElementById('btn-next-system')) as HTMLAnchorElement;
+        if (nextBtn?.href) {
+          window.location.href = nextBtn.href;
         } else {
           window.location.href = '/#systems';
         }

@@ -30,6 +30,30 @@
       ]
     },
     {
+      "identifier": "urn:air:mahmudulhasan.info.bd:system:pms-v2",
+      "displayName": "PMS-V2 Smart Parking Engine Architecture",
+      "type": "text/html",
+      "url": "https://mahmudulhasan.info.bd/systems/pms-v2",
+      "description": "Autonomous smart parking and barrier gate automation engine engineered with Rust 2024, Tokio async concurrency, and ZKTeco ADMS relays with <0.84s barrier open latency.",
+      "representativeQueries": [
+        "PMS-V2 smart parking automation",
+        "rust barrier gate automation",
+        "tokio zkteco adms parking engine"
+      ]
+    },
+    {
+      "identifier": "urn:air:mahmudulhasan.info.bd:system:skylink-hrms",
+      "displayName": "Skylink HRMS Biometric Attendance Platform",
+      "type": "text/html",
+      "url": "https://mahmudulhasan.info.bd/systems/skylink-hrms",
+      "description": "Enterprise biometric attendance and automated payroll platform powered by Java 21 Project Loom virtual threads, ZKTeco HTTP push protocol, and PostgreSQL SeaORM.",
+      "representativeQueries": [
+        "skylink hrms biometric attendance",
+        "java 21 project loom zkteco attendance",
+        "enterprise biometric payroll bangladesh"
+      ]
+    },
+    {
       "identifier": "urn:air:mahmudulhasan.info.bd:system:image-upscale-simd",
       "displayName": "ImageUpscale Pro Architecture Case Study",
       "type": "text/html",
