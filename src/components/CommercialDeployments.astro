@@ -1,7 +1,8 @@
 ---
-// Live Commercial Deployments Component
+// Live Commercial Deployments Component — Swiss Field Operations
 const deployments = [
   {
+    nodeId: "NODE_01: CORP_PORTAL",
     title: "Skylink Innovations Ltd",
     url: "https://skylinkltd.ai",
     domain: "skylinkltd.ai",
@@ -9,6 +10,7 @@ const deployments = [
     tags: ["React 19", "Three.js 3D", "Tailwind CSS", "Fast Edge CDN"]
   },
   {
+    nodeId: "NODE_02: REAL_ESTATE",
     title: "Finara Property Solutions LLC",
     url: "https://finaraprosolutions.com",
     domain: "finaraprosolutions.com",
@@ -16,6 +18,7 @@ const deployments = [
     tags: ["React 19", "Interactive 3D", "Tailwind CSS", "PostgreSQL"]
   },
   {
+    nodeId: "NODE_03: IOT_ECOSYSTEM",
     title: "HomeSync Smart Automation",
     url: "https://homesyncllc.org",
     domain: "homesyncllc.org",
@@ -24,6 +27,7 @@ const deployments = [
     tags: ["React Three Fiber", "Interactive 3D", "Tailwind CSS", "Zero-Lag"]
   },
   {
+    nodeId: "NODE_04: BLUEPRINT_GALLERY",
     title: "DreamZone Builders Inc",
     url: "https://dreamzonebuilders.com",
     domain: "dreamzonebuilders.com",
@@ -34,37 +38,32 @@ const deployments = [
 ---
 
 <section id="deployments" class="space-y-8 scroll-mt-24 pt-8">
-  <!-- Section Heading -->
-  <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-theme-border pb-4 gap-4">
+  <!-- Section Heading — Swiss Division 02 -->
+  <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-theme-border pb-3 gap-3">
     <div>
-      <div class="flex items-center gap-2 text-theme-accent font-mono text-xs tracking-wider uppercase mb-1">
-        <svg class="w-4 h-4 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-        </svg>
-        <span>Proven Track Record</span>
-      </div>
-      <h2 class="text-2xl sm:text-3xl font-bold text-theme-primary">Live Commercial Projects</h2>
+      <span class="font-mono text-xs text-theme-accent font-semibold tracking-wider uppercase block">
+        // FIELD OPERATIONS :: DIVISION 02
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-theme-primary mt-1">Live Commercial Deployments</h2>
     </div>
-    <p class="text-sm text-theme-muted max-w-md">
-      Production websites and web applications built for real clients, running with 99.9% uptime and zero maintenance headaches.
-    </p>
+    <div class="font-mono text-xs text-theme-muted">
+      AUDIT_STATE: PRODUCTION HARDENED
+    </div>
   </div>
 
-  <!-- 2x2 Browser Mockup Grid -->
+  <!-- 2x2 Architectural Drafting Grid -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     {deployments.map((d) => (
-      <div class="rounded-2xl border border-theme-border bg-theme-card backdrop-blur-md overflow-hidden group hover:border-theme-accent/60 hover:shadow-[0_10px_30px_var(--accent-glow)] hover:-translate-y-1 transition-all duration-300">
-        <!-- Browser Window Header Bar -->
-        <div class="px-4 py-3 bg-theme-bar border-b border-theme-border flex items-center justify-between">
+      <div class="rounded-sm border border-theme-border bg-theme-surface overflow-hidden group hover:border-theme-accent hover:shadow-md transition-all duration-300 relative">
+        <!-- Drafting Header Bar -->
+        <div class="px-4 py-2.5 bg-theme-lowest border-b border-theme-border flex items-center justify-between">
           <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-slate-500/40 group-hover:bg-[#EF4444] transition-colors"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-slate-500/40 group-hover:bg-[#F59E0B] transition-colors"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-slate-500/40 group-hover:bg-[#10B981] transition-colors"></span>
+            <span class="font-mono text-[10px] text-theme-accent font-bold uppercase tracking-wider">[{d.nodeId}]</span>
           </div>
 
           <!-- URL Bar -->
-          <div class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-theme-surface text-theme-secondary font-mono text-xs border border-theme-border group-hover:border-theme-accent/40 transition-colors">
-            <svg class="w-3.5 h-3.5 text-theme-secondaryAccent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded-sm bg-theme-surface text-theme-primary font-mono text-xs border border-theme-border group-hover:border-theme-accent transition-colors">
+            <svg class="w-3.5 h-3.5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
             <span>https://{d.domain}</span>
@@ -85,16 +84,13 @@ const deployments = [
         </div>
 
         <!-- Body Content -->
-        <div class="p-6 space-y-4">
+        <div class="p-5 sm:p-6 space-y-4">
           <div class="flex items-center justify-between flex-wrap gap-2">
             <h3 class="text-lg font-bold text-theme-primary group-hover:text-theme-accent transition-colors">
               {d.title}
             </h3>
-            <span class="inline-flex items-center gap-1.5 font-mono text-xs text-theme-secondaryAccent">
-              <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-theme-secondaryAccent opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-theme-secondaryAccent"></span>
-              </span>
+            <span class="inline-flex items-center gap-1.5 font-mono text-xs text-theme-secondary font-semibold">
+              <span class="w-2 h-2 bg-theme-accent"></span>
               <span>Live in Production</span>
             </span>
           </div>
@@ -104,10 +100,10 @@ const deployments = [
           </p>
 
           <!-- Badges & Links -->
-          <div class="flex items-center justify-between flex-wrap gap-2 pt-2 border-t border-theme-border">
-            <div class="flex flex-wrap gap-2">
+          <div class="flex items-center justify-between flex-wrap gap-2 pt-3 border-t border-theme-border">
+            <div class="flex flex-wrap gap-1.5">
               {d.tags.map((tag) => (
-                <span class="px-2.5 py-0.5 rounded bg-theme-base border border-theme-border font-mono text-xs text-theme-secondary">
+                <span class="px-2 py-0.5 rounded-sm bg-theme-lowest border border-theme-border font-mono text-[11px] text-theme-secondary">
                   {tag}
                 </span>
               ))}
@@ -115,7 +111,7 @@ const deployments = [
             {d.caseStudyUrl && (
               <a
                 href={d.caseStudyUrl}
-                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 border border-theme-accent/30 text-xs font-mono font-semibold text-theme-accent hover:bg-theme-accent hover:text-slate-950 transition-colors ml-auto"
+                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-secondary text-white border border-theme-secondary text-xs font-mono font-semibold hover:brightness-110 transition-colors ml-auto"
               >
                 <span>Read 3D Case Study</span>
                 <span>→</span>
