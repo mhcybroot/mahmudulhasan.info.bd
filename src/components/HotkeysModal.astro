@@ -181,6 +181,14 @@
       }
     }
 
+    if (e.key === '/' && !e.ctrlKey && !e.altKey && !e.metaKey) {
+      const searchInput = document.getElementById('system-search-input');
+      if (!searchInput && window.location.pathname !== '/') {
+        e.preventDefault();
+        window.location.href = '/?focusSearch=1#systems';
+      }
+    }
+
     if (e.key === '?') {
       e.preventDefault();
       if (hotkeysModal?.classList.contains('hidden')) {

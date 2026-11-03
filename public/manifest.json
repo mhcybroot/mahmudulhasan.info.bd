@@ -44,7 +44,7 @@
     },
     {
       "name": "Systems Dossier",
-      "url": "/#dossier",
+      "url": "/?dossier=1",
       "description": "Executive Engineering Resume & Architecture Dossier"
     },
     {

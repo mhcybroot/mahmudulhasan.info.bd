@@ -64,6 +64,7 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
         }
       })();
     </script>
+    <slot name="head" />
   </head>
   <body class="bg-theme-base text-theme-secondary font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-theme-accent selection:text-white">
     <!-- Accessible Skip to Content Link -->

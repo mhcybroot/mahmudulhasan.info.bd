@@ -238,6 +238,13 @@
   closeBtn?.addEventListener('click', closeModal);
   backdrop?.addEventListener('click', closeModal);
 
+  // Auto-open dossier on deep-link / PWA shortcut launcher
+  try {
+    if (window.location.search.includes('dossier=1') || window.location.hash === '#dossier') {
+      openModal();
+    }
+  } catch (e) {}
+
   printBtn?.addEventListener('click', () => {
     window.print();
   });

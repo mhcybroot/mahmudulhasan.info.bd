@@ -128,6 +128,9 @@ if (isPms) {
 } else if (isSelfMt) {
   pageDescription = "Envelope Budgeting, Zero-Based Accounting & Offline-First Financial Ledger. Engineered in Flutter 3.29, Dart 3.11, BLoC Architecture, Freezed Immutability, and Firebase.";
 }
+
+const specWords = entry.body ? entry.body.trim().split(/\s+/).length : 850;
+const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
 ---
 
 <Layout
@@ -135,6 +138,10 @@ if (isPms) {
   description={pageDescription}
   canonicalURL={`https://mahmudulhasan.info.bd/systems/${data.slug}`}
 >
+  <Fragment slot="head">
+    <link rel="prev" href={`https://mahmudulhasan.info.bd/systems/${prevProject.slug}`} />
+    <link rel="next" href={`https://mahmudulhasan.info.bd/systems/${nextProject.slug}`} />
+  </Fragment>
   <CaseStudyJsonLd
     title={data.title}
     description={pageDescription}
@@ -222,7 +229,7 @@ if (isPms) {
             AUDITED {data.date}
           </span>
           <span class="px-2.5 py-1 bg-theme-lowest border border-theme-border rounded-sm text-theme-secondary font-medium">
-            ⏱ ~4 MIN SPEC READ
+            ⏱ ~{readingMinutes} MIN SPEC READ
           </span>
           <span class="px-2.5 py-1 bg-theme-lowest border border-theme-border rounded-sm text-emerald-400 font-semibold">
             ● ZERO FAULT VERIFIED

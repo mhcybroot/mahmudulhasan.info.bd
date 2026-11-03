@@ -1,5 +1,5 @@
 // Ultra-Lightweight Service Worker — Stale-While-Revalidate & Offline Resilience
-const CACHE_NAME = 'mhcybroot-telemetry-v1';
+const CACHE_NAME = 'mhcybroot-telemetry-v2';
 
 const PRECACHE_ASSETS = [
   '/',

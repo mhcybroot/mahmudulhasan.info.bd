@@ -492,7 +492,41 @@ const modularSystems = [
   window.addEventListener('keydown', (e) => {
     if (e.key === '/' && document.activeElement !== searchInput && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName || '')) {
       e.preventDefault();
+      document.getElementById('systems')?.scrollIntoView({ behavior: 'smooth' });
       searchInput?.focus();
     }
   });
+
+  // URL query & hash parameter auto-synchronization on load
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const qParam = urlParams.get('q') || urlParams.get('search');
+    const filterParam = urlParams.get('filter');
+    const autoFocus = urlParams.get('focusSearch') === '1';
+
+    if (qParam && searchInput) {
+      searchInput.value = qParam;
+      searchQuery = qParam;
+    }
+    if (filterParam) {
+      const targetPill = document.querySelector(`.sys-filter-pill[data-filter="${filterParam}"]`) as HTMLElement;
+      if (targetPill) {
+        filterPills.forEach(p => {
+          p.classList.remove('bg-theme-accent', 'text-white', 'font-semibold');
+          p.classList.add('bg-theme-surface', 'text-theme-secondary', 'border', 'border-theme-border');
+        });
+        targetPill.classList.remove('bg-theme-surface', 'text-theme-secondary', 'border', 'border-theme-border');
+        targetPill.classList.add('bg-theme-accent', 'text-white', 'font-semibold');
+        activeDomain = filterParam;
+      }
+    }
+    applyFilters();
+
+    if (autoFocus && searchInput) {
+      setTimeout(() => {
+        searchInput.focus();
+        document.getElementById('systems')?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  } catch (e) {}
 </script>
