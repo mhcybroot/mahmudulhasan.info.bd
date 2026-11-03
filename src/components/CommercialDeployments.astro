@@ -2,37 +2,37 @@
 // Live Commercial Deployments Component — Swiss Field Operations
 const deployments = [
   {
-    nodeId: "NODE_01: CORP_PORTAL",
+    nodeId: "NODE // 01",
     title: "Skylink Innovations Ltd",
     url: "https://skylinkltd.ai",
     domain: "skylinkltd.ai",
-    desc: "Corporate technology platform showcasing interactive 3D hardware models, automated security systems, and biometric attendance solutions for enterprise clients.",
-    tags: ["React 19", "Three.js 3D", "Tailwind CSS", "Fast Edge CDN"]
+    desc: "Enterprise biometric attendance, facial recognition terminals & security operations portal handling live workforce authentication with zero missing punches.",
+    stack: "Java 21 • ZKTeco ADMS • Spring Boot • WebSockets"
   },
   {
-    nodeId: "NODE_02: REAL_ESTATE",
+    nodeId: "NODE // 02",
     title: "Finara Property Solutions LLC",
     url: "https://finaraprosolutions.com",
     domain: "finaraprosolutions.com",
-    desc: "Commercial real estate & investment portal featuring interactive mortgage calculators, property risk models, and transparent financial auditing tools.",
-    tags: ["React 19", "Interactive 3D", "Tailwind CSS", "PostgreSQL"]
+    desc: "US Real Estate investment acquisition analysis & valuation portal with multi-parameter automated deal pipelines, mortgage modeling, and audit security.",
+    stack: "React 19 • Node.js • Tailwind CSS • Cloudflare Edge"
   },
   {
-    nodeId: "NODE_03: IOT_ECOSYSTEM",
+    nodeId: "NODE // 03",
     title: "HomeSync Smart Automation",
     url: "https://homesyncllc.org",
     domain: "homesyncllc.org",
     caseStudyUrl: "/systems/homesync-iot",
-    desc: "Interactive 3D smart home configurator allowing homeowners and builders to preview smart lighting, security cameras, and automated locks in real time.",
-    tags: ["React Three Fiber", "Interactive 3D", "Tailwind CSS", "Zero-Lag"]
+    desc: "Interactive 3D IoT Smart Home Configurator with live hardware telemetry, lighting presets, perimeter sensors, and sub-second control response.",
+    stack: "Three.js WebGL • MQTT • TypeScript • Zero-Lag"
   },
   {
-    nodeId: "NODE_04: BLUEPRINT_GALLERY",
+    nodeId: "NODE // 04",
     title: "DreamZone Builders Inc",
     url: "https://dreamzonebuilders.com",
     domain: "dreamzonebuilders.com",
-    desc: "Engineering and structural design portfolio platform built for lightning-fast loading of high-resolution blueprints, floorplans, and project galleries.",
-    tags: ["Fast Vite", "Tailwind CSS", "Smooth Animations", "Cloudflare"]
+    desc: "Commercial architectural & structural engineering milestone tracking portfolio with high-fidelity asset rendering, blueprints, and floorplans.",
+    stack: "Astro • Tailwind CSS • High-DPI Engine • Edge CDN"
   }
 ];
 ---
@@ -54,70 +54,54 @@ const deployments = [
   <!-- 2x2 Architectural Drafting Grid -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     {deployments.map((d) => (
-      <div class="rounded-sm border border-theme-border bg-theme-surface overflow-hidden group hover:border-theme-accent hover:shadow-md transition-all duration-300 relative">
-        <!-- Drafting Header Bar -->
-        <div class="px-4 py-2.5 bg-theme-lowest border-b border-theme-border flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <span class="font-mono text-[10px] text-theme-accent font-bold uppercase tracking-wider">[{d.nodeId}]</span>
+      <div class="bg-theme-lowest border border-theme-border p-5 rounded-sm relative flex flex-col justify-between hover:border-theme-secondary transition-colors space-y-4">
+        <div>
+          <!-- Node Header Bar -->
+          <div class="flex items-center justify-between border-b border-theme-border pb-2.5 mb-3 font-mono text-xs">
+            <span class="text-theme-accent font-bold tracking-wider">{d.nodeId}</span>
+            <a
+              href={d.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-theme-secondary hover:text-theme-accent flex items-center gap-1 font-mono transition-colors"
+            >
+              <span>{d.domain}</span>
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
           </div>
 
-          <!-- URL Bar -->
-          <div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded-sm bg-theme-surface text-theme-primary font-mono text-xs border border-theme-border group-hover:border-theme-accent transition-colors">
-            <svg class="w-3.5 h-3.5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
-            <span>https://{d.domain}</span>
-          </div>
+          <h3 class="text-lg font-bold text-theme-primary mb-2">
+            {d.title}
+          </h3>
 
-          <!-- Outbound Link Button -->
-          <a
-            href={d.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-theme-muted hover:text-theme-accent transition-colors p-1"
-            aria-label={`Visit ${d.title}`}
-          >
-            <svg class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
+          <p class="text-sm text-theme-secondary leading-relaxed mb-4">
+            {d.desc}
+          </p>
         </div>
 
-        <!-- Body Content -->
-        <div class="p-5 sm:p-6 space-y-4">
-          <div class="flex items-center justify-between flex-wrap gap-2">
-            <h3 class="text-lg font-bold text-theme-primary group-hover:text-theme-accent transition-colors">
-              {d.title}
-            </h3>
-            <span class="inline-flex items-center gap-1.5 font-mono text-xs text-theme-secondary font-semibold">
-              <span class="w-2 h-2 bg-theme-accent"></span>
-              <span>Live in Production</span>
+        <div>
+          <!-- Stack & Active Status Plate -->
+          <div class="bg-[#eff4ff] dark:bg-theme-surface p-2.5 border border-theme-border font-mono text-xs text-theme-secondary flex justify-between items-center rounded-sm">
+            <span>Stack: {d.stack}</span>
+            <span class="text-theme-accent font-semibold flex items-center gap-1.5 shrink-0">
+              <span class="w-1.5 h-1.5 rounded-full bg-theme-accent animate-pulse"></span>
+              ACTIVE
             </span>
           </div>
 
-          <p class="text-sm text-theme-secondary leading-relaxed">
-            {d.desc}
-          </p>
-
-          <!-- Badges & Links -->
-          <div class="flex items-center justify-between flex-wrap gap-2 pt-3 border-t border-theme-border">
-            <div class="flex flex-wrap gap-1.5">
-              {d.tags.map((tag) => (
-                <span class="px-2 py-0.5 rounded-sm bg-theme-lowest border border-theme-border font-mono text-[11px] text-theme-secondary">
-                  {tag}
-                </span>
-              ))}
-            </div>
-            {d.caseStudyUrl && (
+          {d.caseStudyUrl && (
+            <div class="pt-2 text-right">
               <a
                 href={d.caseStudyUrl}
-                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-secondary text-white border border-theme-secondary text-xs font-mono font-semibold hover:brightness-110 transition-colors ml-auto"
+                class="inline-flex items-center gap-1 text-xs font-mono font-semibold text-theme-secondary hover:text-theme-accent transition-colors"
               >
-                <span>Read 3D Case Study</span>
-                <span>→</span>
+                <span>Explore 3D Case Study</span>
+                <span class="text-theme-accent">→</span>
               </a>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     ))}
