@@ -4,8 +4,8 @@
   "description": "High-Throughput Concurrent Backends, Edge Daemons & Bare-Metal Hardware Protocols Portfolio of Mahmudul Hasan (@mhcybroot).",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#090e1c",
-  "theme_color": "#38bdf8",
+  "background_color": "#F8F9FF",
+  "theme_color": "#FD761A",
   "orientation": "portrait-primary",
   "categories": [
     "portfolio",

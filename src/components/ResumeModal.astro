@@ -246,5 +246,47 @@
     if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
       closeModal();
     }
+    if ((e.key === 'd' || e.key === 'D') && modal?.classList.contains('hidden') && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName || '')) {
+      e.preventDefault();
+      openModal();
+    }
   });
 </script>
+
+<style>
+  @media print {
+    :global(body) {
+      background: #ffffff !important;
+      color: #000000 !important;
+    }
+    :global(header),
+    :global(footer),
+    :global(main),
+    :global(aside),
+    #resume-modal-backdrop,
+    #resume-modal-close,
+    #btn-print-dossier {
+      display: none !important;
+    }
+    #resume-modal {
+      position: static !important;
+      display: block !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      max-height: none !important;
+      overflow: visible !important;
+      box-shadow: none !important;
+      border: none !important;
+      background: #ffffff !important;
+    }
+    #resume-modal > div {
+      border: none !important;
+      box-shadow: none !important;
+      max-height: none !important;
+      overflow: visible !important;
+      background: #ffffff !important;
+    }
+  }
+</style>

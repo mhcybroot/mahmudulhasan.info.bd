@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="404: Route Not Found | Mahmudul Hasan (@mhcybroot)"
+  description="The requested system route does not exist. Return to root node or explore Mahmudul Hasan's engineered systems."
+>
+  <Navbar />
+
+  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 min-h-[70vh] flex flex-col justify-center">
+    <div class="max-w-3xl mx-auto w-full bg-theme-lowest border-2 border-theme-secondary p-6 sm:p-10 rounded-sm relative shadow-sm space-y-6">
+      <!-- Rubric Header -->
+      <div class="flex items-center justify-between border-b border-theme-border pb-3">
+        <span class="font-mono text-xs text-theme-accent font-semibold uppercase tracking-wider block">
+          // EXCEPTION C104 :: ROUTE NOT FOUND // INVALID SPECIFICATION
+        </span>
+        <span class="font-mono text-[10px] text-theme-secondary bg-theme-surface px-2 py-0.5 border border-theme-border rounded-sm">
+          FAULT_RECOVERY: ACTIVE
+        </span>
+      </div>
+
+      <!-- Main 404 Display -->
+      <div class="space-y-3">
+        <div class="font-mono text-5xl sm:text-7xl font-extrabold text-theme-accent tracking-tighter">
+          404<span class="text-theme-primary">_FAULT</span>
+        </div>
+        <h1 class="text-xl sm:text-2xl font-bold text-theme-primary tracking-tight">
+          Requested System Coordinate Does Not Exist
+        </h1>
+        <p class="text-sm sm:text-base text-theme-secondary leading-relaxed">
+          The node or case study endpoint you attempted to reach has either been refactored, relocated, or does not exist on the current production bus.
+        </p>
+      </div>
+
+      <!-- Diagnostic Telemetry Plate -->
+      <div class="bg-[#eff4ff] dark:bg-theme-surface p-4 border border-theme-border font-mono text-xs space-y-2 rounded-sm text-theme-secondary">
+        <div class="flex justify-between py-1 border-b border-theme-border/60">
+          <span class="text-theme-muted">HTTP STATUS:</span>
+          <span class="text-theme-accent font-bold">404 NOT FOUND</span>
+        </div>
+        <div class="flex justify-between py-1 border-b border-theme-border/60">
+          <span class="text-theme-muted">DIAGNOSTIC:</span>
+          <span class="text-theme-primary font-bold">ZERO_FAULT HANDLER ENGAGED</span>
+        </div>
+        <div class="flex justify-between py-1">
+          <span class="text-theme-muted">RECOVERY PATH:</span>
+          <span class="text-theme-primary font-bold">REDIRECT TO PRIMARY BUS (/)</span>
+        </div>
+      </div>
+
+      <!-- Recovery Actions -->
+      <div class="flex flex-wrap items-center gap-3 pt-2">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 bg-theme-accent text-white font-mono text-xs font-bold px-5 py-3 hover:brightness-110 transition-all border border-theme-accent rounded-sm shadow-sm active:scale-95"
+        >
+          <span>Return to Root Node [Home] →</span>
+        </a>
+        <a
+          href="/#systems"
+          class="inline-flex items-center gap-2 bg-theme-lowest text-theme-primary font-mono text-xs px-5 py-3 border border-theme-border hover:border-theme-secondary transition-all rounded-sm shadow-sm active:scale-95"
+        >
+          <span>Explore 24 Flagship Systems</span>
+        </a>
+        <a
+          href="/#contact"
+          class="inline-flex items-center gap-1.5 px-4 py-3 text-theme-muted hover:text-theme-primary font-mono text-xs transition-colors"
+        >
+          <span>Direct Channel</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
