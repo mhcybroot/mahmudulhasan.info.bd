@@ -346,7 +346,16 @@ const modularSystems = [
           class="w-full pl-9 pr-12 py-2 bg-theme-surface border border-theme-border rounded-sm font-mono text-xs text-theme-primary placeholder-theme-muted focus:outline-none focus:border-theme-accent transition-colors"
           aria-label="Filter 25 engineered systems"
         />
-        <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none font-mono text-[10px] text-theme-muted">
+        <button
+          type="button"
+          id="btn-clear-search"
+          class="hidden absolute inset-y-0 right-0 pr-3 flex items-center font-mono text-xs text-theme-muted hover:text-theme-primary transition-colors cursor-pointer"
+          title="Clear search query"
+          aria-label="Clear search input"
+        >
+          ✕
+        </button>
+        <span id="search-hotkey-badge" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none font-mono text-[10px] text-theme-muted">
           [/]
         </span>
       </div>
@@ -420,6 +429,8 @@ const modularSystems = [
 
 <script>
   const searchInput = document.getElementById('system-search-input') as HTMLInputElement | null;
+  const clearSearchBtn = document.getElementById('btn-clear-search');
+  const hotkeyBadge = document.getElementById('search-hotkey-badge');
   const filterPills = document.querySelectorAll('.sys-filter-pill');
   const cards = document.querySelectorAll('.sys-mod-card') as NodeListOf<HTMLElement>;
   const spotlightCard = document.getElementById('spotlight-pms');
@@ -472,6 +483,14 @@ const modularSystems = [
       }
     }
 
+    if (searchQuery.trim().length > 0) {
+      clearSearchBtn?.classList.remove('hidden');
+      hotkeyBadge?.classList.add('hidden');
+    } else {
+      clearSearchBtn?.classList.add('hidden');
+      hotkeyBadge?.classList.remove('hidden');
+    }
+
     try {
       const url = new URL(window.location.href);
       if (searchQuery.trim()) url.searchParams.set('q', searchQuery.trim());
@@ -516,6 +535,15 @@ const modularSystems = [
     searchQuery = '';
     const allPill = document.querySelector('.sys-filter-pill[data-filter="all"]') as HTMLElement;
     allPill?.click();
+  });
+
+  clearSearchBtn?.addEventListener('click', () => {
+    if (searchInput) {
+      searchInput.value = '';
+      searchQuery = '';
+      applyFilters();
+      searchInput.focus();
+    }
   });
 
   window.addEventListener('keydown', (e) => {

@@ -1,5 +1,5 @@
 // Ultra-Lightweight Service Worker — Stale-While-Revalidate & Offline Resilience
-const CACHE_NAME = 'mhcybroot-telemetry-v3';
+const CACHE_NAME = 'mhcybroot-telemetry-v4';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -11,6 +11,8 @@ const PRECACHE_ASSETS = [
   '/fonts/inter-latin.woff2',
   '/fonts/jetbrains-mono-latin.woff2',
   '/assets/images/avatar.jpg',
+  '/mhcybroot-key.asc',
+  '/.well-known/security.txt',
 ];
 
 self.addEventListener('install', (event) => {
@@ -62,7 +64,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Static assets (fonts, icons, styles, scripts): Stale-while-revalidate
+  // Static assets (fonts, icons, styles, scripts, asc, txt, json): Stale-while-revalidate
   if (
     url.pathname.startsWith('/fonts/') ||
     url.pathname.startsWith('/icons/') ||
@@ -70,7 +72,10 @@ self.addEventListener('fetch', (event) => {
     url.pathname.endsWith('.png') ||
     url.pathname.endsWith('.ico') ||
     url.pathname.endsWith('.css') ||
-    url.pathname.endsWith('.js')
+    url.pathname.endsWith('.js') ||
+    url.pathname.endsWith('.asc') ||
+    url.pathname.endsWith('.txt') ||
+    url.pathname.endsWith('.json')
   ) {
     event.respondWith(
       caches.match(request).then((cachedResponse) => {
