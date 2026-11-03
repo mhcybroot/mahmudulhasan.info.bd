@@ -728,7 +728,7 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
       </div>
 
       <!-- Human-Centric Telemetry HUD Cards -->
-      <TelemetryHud metrics={data.metrics} stack={data.stack} />
+      <TelemetryHud metrics={data.metrics} stack={data.stack} slug={data.slug} primaryLanguage={data.primaryLanguage} />
     </section>
 
     <!-- Interactive Viewport -->

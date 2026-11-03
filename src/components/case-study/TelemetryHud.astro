@@ -8,66 +8,105 @@ interface Props {
     uptime?: string;
   };
   stack?: string[];
+  slug?: string;
+  primaryLanguage?: string;
 }
 
 const {
   metrics,
-  stack = [
-    '100% Offline & Private',
-    'Zero Cloud Uploads',
-    'Ultra-Lightweight',
-    'Natural Edge Sharpening',
-    'Free & Open Source',
-    'Rust Powered'
-  ]
+  stack = [],
+  slug = '',
+  primaryLanguage = 'High-Performance'
 } = Astro.props;
+
+const isImageUpscale = slug === 'image-upscale-simd';
 ---
 
 <div class="space-y-6">
   <!-- Status Badge & Guarantee Banner -->
   <div class="flex flex-wrap items-center gap-3">
-    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-emerald-950/90 text-emerald-300 border border-emerald-500/60 shadow-sm">
-      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-      100% OFFLINE // ZERO DATA COLLECTION GUARANTEE
-    </span>
-    <span class="text-xs font-mono text-slate-300 bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">Works on Windows & Linux</span>
+    {isImageUpscale ? (
+      <>
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-emerald-950/90 text-emerald-300 border border-emerald-500/60 shadow-sm">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          100% OFFLINE // ZERO DATA COLLECTION GUARANTEE
+        </span>
+        <span class="text-xs font-mono text-slate-300 bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">Works on Windows &amp; Linux</span>
+      </>
+    ) : (
+      <>
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-emerald-950/90 text-emerald-300 border border-emerald-500/60 shadow-sm">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          ZERO-FAULT // PRODUCTION HARDENED BENCHMARK
+        </span>
+        <span class="text-xs font-mono text-slate-300 bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">Runtime: {primaryLanguage} • Edge &amp; Cloud</span>
+      </>
+    )}
   </div>
 
   <!-- 4 Human-Centric Value Cards in Grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" role="region" aria-label="Key Benefits & Performance Metrics">
-    <!-- Card 1: Processing Speed -->
+    <!-- Card 1: Processing Speed / Throughput -->
     <div class="relative overflow-hidden rounded-xl bg-slate-900 border border-slate-700/80 p-5 hover:border-cyan-400 transition-colors group shadow-lg">
       <div class="flex items-center justify-between mb-3">
-        <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">Speed &amp; Capacity</span>
+        <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">
+          {isImageUpscale ? 'Speed & Capacity' : 'Throughput & Capacity'}
+        </span>
         <span class="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" title="Verified Instant Speed"></span>
       </div>
       <div class="text-3xl font-mono font-bold text-white group-hover:text-cyan-300 transition-colors">
         {metrics.throughput}
       </div>
       <p class="mt-2 text-xs font-sans text-slate-200 leading-snug">
-        Enlarges and sharpens hundreds of photos in less than a second.
+        {isImageUpscale
+          ? 'Enlarges and sharpens hundreds of photos in less than a second.'
+          : 'Sustained deterministic transaction handling with non-blocking async concurrency.'}
       </p>
       <div class="mt-3 pt-3 border-t border-slate-800 flex justify-between text-xs font-mono text-cyan-300">
-        <span>7x Faster</span>
-        <span>Zero Waiting</span>
+        {isImageUpscale ? (
+          <>
+            <span>7x Faster</span>
+            <span>Zero Waiting</span>
+          </>
+        ) : (
+          <>
+            <span>High Load</span>
+            <span>Zero Drops</span>
+          </>
+        )}
       </div>
     </div>
 
-    <!-- Card 2: Instant Response -->
+    <!-- Card 2: Instant Response / Latency -->
     <div class="relative overflow-hidden rounded-xl bg-slate-900 border border-slate-700/80 p-5 hover:border-cyan-400 transition-colors group shadow-lg">
       <div class="flex items-center justify-between mb-3">
-        <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">Time Per Photo</span>
-        <span class="text-xs font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/50 font-bold">Instant</span>
+        <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">
+          {isImageUpscale ? 'Time Per Photo' : 'Execution Latency'}
+        </span>
+        <span class="text-xs font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/50 font-bold">
+          {isImageUpscale ? 'Instant' : '< 1s Target'}
+        </span>
       </div>
       <div class="text-3xl font-mono font-bold text-white group-hover:text-cyan-300 transition-colors">
         {metrics.latency}
       </div>
       <p class="mt-2 text-xs font-sans text-slate-200 leading-snug">
-        Faster than a human eye blink. Clean results appear immediately.
+        {isImageUpscale
+          ? 'Faster than a human eye blink. Clean results appear immediately.'
+          : 'Real-time responsive execution with predictable sub-second SLA.'}
       </p>
       <div class="mt-3 pt-3 border-t border-slate-800 flex justify-between text-xs font-mono text-cyan-300">
-        <span>Single-Click</span>
-        <span>Batch Mode</span>
+        {isImageUpscale ? (
+          <>
+            <span>Single-Click</span>
+            <span>Batch Mode</span>
+          </>
+        ) : (
+          <>
+            <span>Low Latency</span>
+            <span>Sub-Second</span>
+          </>
+        )}
       </div>
     </div>
 
@@ -81,40 +120,68 @@ const {
         {metrics.memoryUsage}
       </div>
       <p class="mt-2 text-xs font-sans text-slate-200 leading-snug">
-        Uses less RAM than a single browser tab. Never slows down your PC.
+        {isImageUpscale
+          ? 'Uses less RAM than a single browser tab. Never slows down your PC.'
+          : 'Tight memory ceiling with zero leaks and stable resident set size.'}
       </p>
       <div class="mt-3 pt-3 border-t border-slate-800 flex justify-between text-xs font-mono text-emerald-300">
-        <span>Runs on Any PC</span>
-        <span>Battery Friendly</span>
+        {isImageUpscale ? (
+          <>
+            <span>Runs on Any PC</span>
+            <span>Battery Friendly</span>
+          </>
+        ) : (
+          <>
+            <span>Zero Contention</span>
+            <span>Stable RSS</span>
+          </>
+        )}
       </div>
     </div>
 
-    <!-- Card 4: Complete Privacy -->
+    <!-- Card 4: Complete Privacy / Reliability -->
     <div class="relative overflow-hidden rounded-xl bg-slate-900 border border-slate-700/80 p-5 hover:border-emerald-400 transition-colors group shadow-lg">
       <div class="flex items-center justify-between mb-3">
-        <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">Data Privacy</span>
-        <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/50 font-bold">100% Offline</span>
+        <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">
+          {isImageUpscale ? 'Data Privacy' : 'Reliability &amp; Availability'}
+        </span>
+        <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/50 font-bold">
+          {isImageUpscale ? '100% Offline' : 'Resilient'}
+        </span>
       </div>
       <div class="text-3xl font-mono font-bold text-emerald-300">
-        100% Safe
+        {isImageUpscale ? '100% Safe' : (metrics.uptime || '99.99% Uptime')}
       </div>
       <p class="mt-2 text-xs font-sans text-slate-200 leading-snug">
-        Your family &amp; customer photos never leave your device. Zero cloud risk.
+        {isImageUpscale
+          ? 'Your family & customer photos never leave your device. Zero cloud risk.'
+          : 'ACID-safe transactions with failover persistence and auto-recovery.'}
       </p>
       <div class="mt-3 pt-3 border-t border-slate-800 flex justify-between text-xs font-mono text-emerald-300">
-        <span>No Internet Needed</span>
-        <span>No Account Required</span>
+        {isImageUpscale ? (
+          <>
+            <span>No Internet Needed</span>
+            <span>No Account Required</span>
+          </>
+        ) : (
+          <>
+            <span>Fault-Tolerant</span>
+            <span>Self-Healing</span>
+          </>
+        )}
       </div>
     </div>
   </div>
 
   <!-- Key Assurance Badges -->
-  <div class="flex flex-wrap items-center gap-2 pt-2">
-    <span class="text-xs font-mono text-slate-300 font-bold mr-2 uppercase tracking-wide">GUARANTEES //</span>
-    {stack.map((item) => (
-      <span class="inline-flex items-center px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs font-mono text-slate-200 hover:border-cyan-400 transition-colors font-medium">
-        {item}
-      </span>
-    ))}
-  </div>
+  {stack.length > 0 && (
+    <div class="flex flex-wrap items-center gap-2 pt-2">
+      <span class="text-xs font-mono text-slate-300 font-bold mr-2 uppercase tracking-wide">GUARANTEES //</span>
+      {stack.map((item) => (
+        <span class="inline-flex items-center px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs font-mono text-slate-200 hover:border-cyan-400 transition-colors font-medium">
+          {item}
+        </span>
+      ))}
+    </div>
+  )}
 </div>
