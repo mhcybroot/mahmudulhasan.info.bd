@@ -75,6 +75,14 @@
 
       <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
         <div class="flex items-center gap-2">
+          <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">G</kbd>
+          <span>GPG Key &amp; Fingerprint</span>
+        </div>
+        <span class="text-[11px] text-theme-muted">Cryptographic Proof</span>
+      </div>
+
+      <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
+        <div class="flex items-center gap-2">
           <div class="flex items-center gap-1">
             <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">[</kbd>
             <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">]</kbd>
@@ -186,6 +194,28 @@
       if (!searchInput && window.location.pathname !== '/') {
         e.preventDefault();
         window.location.href = '/?focusSearch=1#systems';
+      }
+    }
+
+    if ((e.key === 's' || e.key === 'S') && !e.ctrlKey && !e.altKey && !e.metaKey) {
+      const specShareBtn = document.getElementById('btn-share-spec');
+      if (specShareBtn) {
+        specShareBtn.click();
+      } else {
+        e.preventDefault();
+        const shareData = { title: document.title, url: window.location.href };
+        if (navigator.share) {
+          navigator.share(shareData).catch(() => {});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            const hudAlt = document.getElementById('telemetry-alt');
+            if (hudAlt) {
+              const prev = hudAlt.textContent;
+              hudAlt.textContent = 'COPIED!';
+              setTimeout(() => { if (hudAlt) hudAlt.textContent = prev; }, 2000);
+            }
+          }).catch(() => {});
+        }
       }
     }
 

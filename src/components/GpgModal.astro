@@ -161,9 +161,20 @@
     }
   });
 
+  // Auto-open on deep-link / hash
+  try {
+    if (window.location.search.includes('gpg=1') || window.location.hash === '#gpg') {
+      openGpgModal();
+    }
+  } catch (e) {}
+
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !gpgModal?.classList.contains('hidden')) {
       closeGpgModal();
+    }
+    if ((e.key === 'g' || e.key === 'G') && gpgModal?.classList.contains('hidden') && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName || '')) {
+      e.preventDefault();
+      openGpgModal();
     }
   });
 </script>
