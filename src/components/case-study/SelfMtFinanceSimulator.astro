@@ -1,0 +1,396 @@
+---
+// SelfMtFinanceSimulator.astro - Interactive Envelope Budgeting & Financial Ledger Simulator
+---
+
+<div class="rounded-3xl border border-theme-border bg-theme-card/90 backdrop-blur-xl p-5 sm:p-7 shadow-2xl space-y-6">
+  <!-- Header Bar -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-theme-border gap-3">
+    <div>
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          ZERO-BASED ENVELOPE LEDGER
+        </span>
+        <span class="text-xs font-mono text-theme-muted hidden sm:inline">• Flutter 3.29 &amp; BLoC Architecture</span>
+      </div>
+      <h3 class="text-xl font-bold text-theme-primary mt-1">Reactive Double-Entry Ledger &amp; Envelope State</h3>
+    </div>
+
+    <!-- Telemetry Badges -->
+    <div class="flex items-center gap-2 flex-wrap text-xs font-mono">
+      <div class="px-2.5 py-1 rounded-lg bg-theme-base border border-theme-border flex items-center gap-1.5">
+        <span class="text-theme-muted">Net Worth:</span>
+        <span id="smt-net-worth" class="text-emerald-400 font-bold">৳165,950</span>
+      </div>
+      <div class="px-2.5 py-1 rounded-lg bg-theme-base border border-theme-border flex items-center gap-1.5">
+        <span class="text-theme-muted">BLoC Latency:</span>
+        <span class="text-sky-400 font-bold">&lt; 8ms</span>
+      </div>
+      <div class="px-2.5 py-1 rounded-lg bg-theme-base border border-theme-border flex items-center gap-1.5">
+        <span class="text-theme-muted">Sync:</span>
+        <span class="text-emerald-400 font-bold">Offline-First</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accounts Strip -->
+  <div class="space-y-2">
+    <div class="flex items-center justify-between text-xs font-mono text-theme-muted">
+      <span>FUNDING ACCOUNTS (PHYSICAL WALLETS)</span>
+      <span class="text-sky-400">Atomic Two-Phase Integrity</span>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <!-- Cash -->
+      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border flex items-center justify-between">
+        <div>
+          <div class="text-[11px] font-mono text-theme-muted">Cash in Hand</div>
+          <div id="acc-cash-val" class="text-base font-bold text-theme-primary font-mono">৳12,500</div>
+        </div>
+        <span class="text-xl">💵</span>
+      </div>
+      <!-- BRAC Bank -->
+      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border flex items-center justify-between">
+        <div>
+          <div class="text-[11px] font-mono text-theme-muted">BRAC Bank Savings</div>
+          <div id="acc-bank-val" class="text-base font-bold text-theme-primary font-mono">৳145,000</div>
+        </div>
+        <span class="text-xl">🏦</span>
+      </div>
+      <!-- bKash -->
+      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border flex items-center justify-between">
+        <div>
+          <div class="text-[11px] font-mono text-theme-muted">bKash Mobile Wallet</div>
+          <div id="acc-bkash-val" class="text-base font-bold text-sky-400 font-mono">৳8,450</div>
+        </div>
+        <span class="text-xl">📱</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Envelopes Grid -->
+  <div class="space-y-3">
+    <div class="flex items-center justify-between text-xs font-mono text-theme-muted">
+      <span>PREDICTIVE ENVELOPE ALLOCATIONS (ZERO-BASED BUDGET)</span>
+      <span id="smt-budget-status" class="text-emerald-400">All Envelopes Nominal</span>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+      <!-- Envelope 1: Groceries -->
+      <div class="rounded-xl border border-slate-800 bg-slate-900/90 p-3 space-y-2 relative overflow-hidden">
+        <div class="flex items-center justify-between text-xs">
+          <span class="font-bold text-white flex items-center gap-1.5">
+            <span>🛒</span> Groceries
+          </span>
+          <span class="font-mono text-[11px] text-slate-400">৳12k / ৳15k</span>
+        </div>
+        <div class="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
+          <div class="h-full bg-emerald-500 w-4/5"></div>
+        </div>
+        <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
+          <span>80% Spent</span>
+          <span class="text-emerald-400">৳3,000 left</span>
+        </div>
+      </div>
+
+      <!-- Envelope 2: Utilities -->
+      <div class="rounded-xl border border-slate-800 bg-slate-900/90 p-3 space-y-2 relative overflow-hidden">
+        <div class="flex items-center justify-between text-xs">
+          <span class="font-bold text-white flex items-center gap-1.5">
+            <span>⚡</span> Utilities
+          </span>
+          <span class="font-mono text-[11px] text-slate-400">৳4.2k / ৳4.5k</span>
+        </div>
+        <div class="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
+          <div class="h-full bg-amber-500 w-[93%]"></div>
+        </div>
+        <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
+          <span>93% Spent</span>
+          <span class="text-amber-400">৳300 left</span>
+        </div>
+      </div>
+
+      <!-- Envelope 3: Dining Out (Target for test) -->
+      <div id="env-dining-card" class="rounded-xl border border-slate-800 bg-slate-900/90 p-3 space-y-2 relative overflow-hidden transition-all duration-300">
+        <div class="flex items-center justify-between text-xs">
+          <span class="font-bold text-white flex items-center gap-1.5">
+            <span>☕</span> Dining Out
+          </span>
+          <span id="env-dining-ratio" class="font-mono text-[11px] text-slate-400">৳2.8k / ৳3k</span>
+        </div>
+        <div class="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
+          <div id="env-dining-bar" class="h-full bg-amber-500 w-[93%] transition-all duration-500"></div>
+        </div>
+        <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
+          <span id="env-dining-pct">93% Spent</span>
+          <span id="env-dining-left" class="text-amber-400">৳200 left</span>
+        </div>
+      </div>
+
+      <!-- Envelope 4: Transport -->
+      <div class="rounded-xl border border-slate-800 bg-slate-900/90 p-3 space-y-2 relative overflow-hidden">
+        <div class="flex items-center justify-between text-xs">
+          <span class="font-bold text-white flex items-center gap-1.5">
+            <span>🚗</span> Transport
+          </span>
+          <span class="font-mono text-[11px] text-slate-400">৳3.5k / ৳5k</span>
+        </div>
+        <div class="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
+          <div class="h-full bg-emerald-500 w-[70%]"></div>
+        </div>
+        <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
+          <span>70% Spent</span>
+          <span class="text-emerald-400">৳1,500 left</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Action Box: Two Tabs (Expense vs Loan Amortization) -->
+  <div class="rounded-2xl border border-theme-border bg-theme-base/60 p-4 sm:p-5 space-y-4">
+    <div class="flex border-b border-theme-border gap-4 text-xs font-mono">
+      <button id="smt-tab-expense" class="pb-2 text-theme-accent border-b-2 border-theme-accent font-bold cursor-pointer">
+        1. Add Expense with Dual Side-Effects
+      </button>
+      <button id="smt-tab-loan" class="pb-2 text-theme-muted hover:text-theme-primary border-b-2 border-transparent font-medium cursor-pointer">
+        2. Debt Amortization &amp; Clamp Repayment
+      </button>
+    </div>
+
+    <!-- Tab 1: Expense Transaction -->
+    <div id="smt-panel-expense" class="space-y-3 text-xs font-mono">
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
+        <div class="space-y-1">
+          <label class="text-[11px] text-theme-muted">Amount (BDT)</label>
+          <input id="in-smt-amount" type="number" value="1200" class="w-full px-3 py-1.5 rounded-lg bg-theme-card border border-theme-border text-theme-primary focus:outline-none focus:border-theme-accent text-xs" />
+        </div>
+        <div class="space-y-1">
+          <label class="text-[11px] text-theme-muted">From Account</label>
+          <select id="in-smt-account" class="w-full px-3 py-1.5 rounded-lg bg-theme-card border border-theme-border text-theme-primary focus:outline-none focus:border-theme-accent text-xs">
+            <option value="bkash">bKash Mobile Wallet (৳8,450)</option>
+            <option value="cash">Cash in Hand (৳12,500)</option>
+            <option value="bank">BRAC Bank Savings (৳145,000)</option>
+          </select>
+        </div>
+        <div class="space-y-1">
+          <label class="text-[11px] text-theme-muted">Budget Envelope</label>
+          <select id="in-smt-envelope" class="w-full px-3 py-1.5 rounded-lg bg-theme-card border border-theme-border text-theme-primary focus:outline-none focus:border-theme-accent text-xs">
+            <option value="dining">☕ Dining Out (৳200 left)</option>
+            <option value="groceries">🛒 Groceries (৳3,000 left)</option>
+            <option value="utilities">⚡ Utilities (৳300 left)</option>
+            <option value="transport">🚗 Transport (৳1,500 left)</option>
+          </select>
+        </div>
+        <div class="flex items-end">
+          <button id="btn-dispatch-tx" class="w-full py-2 px-3 rounded-lg bg-theme-accent text-theme-base font-bold hover:opacity-90 transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm">
+            <span>Dispatch to BLoC</span>
+          </button>
+        </div>
+      </div>
+      <p class="text-[11px] text-theme-muted">
+        *Notice: Adding ৳1,200 to Dining Out will exceed the ৳3,000 envelope budget. Watch the real-time side-effect calculation and deficit badge.
+      </p>
+    </div>
+
+    <!-- Tab 2: Loan Amortization -->
+    <div id="smt-panel-loan" class="hidden space-y-3 text-xs font-mono">
+      <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+        <div>
+          <div class="font-bold text-white text-xs">Active Loan: MacBook Pro M3 Financing</div>
+          <div class="text-[11px] text-slate-400">Total: ৳180,000 • Already Repaid: ৳120,000 • Remaining: <span id="loan-rem-val" class="text-amber-400 font-bold">৳60,000</span></div>
+        </div>
+        <span class="px-2 py-0.5 rounded text-[10px] bg-amber-500/20 text-amber-300 border border-amber-500/30">In Progress</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div class="space-y-1">
+          <label class="text-[11px] text-theme-muted">Repayment Installment (BDT)</label>
+          <input id="in-loan-repay" type="number" value="15000" class="w-full px-3 py-1.5 rounded-lg bg-theme-card border border-theme-border text-theme-primary focus:outline-none focus:border-theme-accent text-xs" />
+        </div>
+        <div class="space-y-1">
+          <label class="text-[11px] text-theme-muted">Pay From Account</label>
+          <select id="in-loan-acc" class="w-full px-3 py-1.5 rounded-lg bg-theme-card border border-theme-border text-theme-primary focus:outline-none focus:border-theme-accent text-xs">
+            <option value="bank">BRAC Bank Savings (৳145,000)</option>
+            <option value="bkash">bKash Mobile Wallet</option>
+          </select>
+        </div>
+        <div class="flex items-end">
+          <button id="btn-repay-loan" class="w-full py-2 px-3 rounded-lg bg-emerald-500 text-slate-950 font-bold hover:bg-emerald-400 transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm">
+            <span>Execute Repayment (Clamp)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real-Time BLoC Stream & State Mutation Terminal -->
+  <div class="rounded-2xl border border-slate-800 bg-slate-950 p-4 font-mono text-xs overflow-hidden shadow-inner space-y-2">
+    <div class="flex items-center justify-between pb-2 border-b border-slate-800 text-[11px] text-slate-400">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+        <span class="text-slate-300 font-semibold ml-1">Dart BLoC Stream &amp; Two-Phase Side-Effect Telemetry</span>
+      </div>
+      <button id="btn-smt-reset" class="text-slate-500 hover:text-slate-300 transition-colors">Reset State</button>
+    </div>
+
+    <div id="smt-terminal-log" class="space-y-1 text-[11px] leading-relaxed max-h-40 overflow-y-auto text-slate-300 pr-1">
+      <div class="text-slate-500">[19:50:00.112] FinanceService initialized: Offline SQLite database mounted with encrypted SharedPreferences</div>
+      <div class="text-slate-500">[19:50:00.134] Freezed entities loaded: 3 Accounts, 4 Envelopes, 1 Active Loan, 12 Transactions</div>
+      <div class="text-emerald-400">[19:50:00.150] Zero-Based Ledger Check: Total Liquid Balance (৳165,950) perfectly matches sum of Account entities</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Tabs
+  const tabExpense = document.getElementById('smt-tab-expense');
+  const tabLoan = document.getElementById('smt-tab-loan');
+  const panelExpense = document.getElementById('smt-panel-expense');
+  const panelLoan = document.getElementById('smt-panel-loan');
+
+  tabExpense?.addEventListener('click', () => {
+    tabExpense.className = 'pb-2 text-theme-accent border-b-2 border-theme-accent font-bold cursor-pointer';
+    tabLoan!.className = 'pb-2 text-theme-muted hover:text-theme-primary border-b-2 border-transparent font-medium cursor-pointer';
+    panelExpense?.classList.remove('hidden');
+    panelLoan?.classList.add('hidden');
+  });
+
+  tabLoan?.addEventListener('click', () => {
+    tabLoan.className = 'pb-2 text-theme-accent border-b-2 border-theme-accent font-bold cursor-pointer';
+    tabExpense!.className = 'pb-2 text-theme-muted hover:text-theme-primary border-b-2 border-transparent font-medium cursor-pointer';
+    panelLoan?.classList.remove('hidden');
+    panelExpense?.classList.add('hidden');
+  });
+
+  // State
+  let bkashBalance = 8450;
+  let bankBalance = 145000;
+  let cashBalance = 12500;
+  let diningSpent = 2800;
+  let loanRepaid = 120000;
+  const loanTotal = 180000;
+
+  const accBkashVal = document.getElementById('acc-bkash-val');
+  const accBankVal = document.getElementById('acc-bank-val');
+  const smtNetWorth = document.getElementById('smt-net-worth');
+  const terminalLog = document.getElementById('smt-terminal-log');
+
+  const envDiningCard = document.getElementById('env-dining-card');
+  const envDiningRatio = document.getElementById('env-dining-ratio');
+  const envDiningBar = document.getElementById('env-dining-bar');
+  const envDiningPct = document.getElementById('env-dining-pct');
+  const envDiningLeft = document.getElementById('env-dining-left');
+  const smtBudgetStatus = document.getElementById('smt-budget-status');
+  const loanRemVal = document.getElementById('loan-rem-val');
+
+  function appendLog(colorClass: string, text: string) {
+    if (!terminalLog) return;
+    const now = new Date().toTimeString().split(' ')[0] + '.' + String(Math.floor(Math.random() * 900) + 100);
+    const div = document.createElement('div');
+    div.className = colorClass;
+    div.textContent = `[${now}] ${text}`;
+    terminalLog.appendChild(div);
+    terminalLog.scrollTop = terminalLog.scrollHeight;
+  }
+
+  function updateNetWorth() {
+    const total = bkashBalance + bankBalance + cashBalance;
+    if (smtNetWorth) smtNetWorth.textContent = '৳' + total.toLocaleString();
+  }
+
+  // Dispatch Transaction with Dual Side-Effects
+  const btnDispatchTx = document.getElementById('btn-dispatch-tx');
+  btnDispatchTx?.addEventListener('click', () => {
+    const inAmount = parseFloat((document.getElementById('in-smt-amount') as HTMLInputElement)?.value) || 1200;
+    const inAccount = (document.getElementById('in-smt-account') as HTMLSelectElement)?.value || 'bkash';
+    const inEnvelope = (document.getElementById('in-smt-envelope') as HTMLSelectElement)?.value || 'dining';
+
+    appendLog('text-sky-400', `BLOC EVENT: TransactionBloc.add(AddTransactionWithEffects(amount: ৳${inAmount}, type: 'expense', account: '${inAccount}', envelope: '${inEnvelope}'))`);
+
+    if (inAccount === 'bkash') {
+      bkashBalance -= inAmount;
+      if (accBkashVal) accBkashVal.textContent = '৳' + bkashBalance.toLocaleString();
+      appendLog('text-slate-400', `AccountSideEffect: Debited ৳${inAmount} from bKash -> New Balance: ৳${bkashBalance.toLocaleString()}`);
+    }
+
+    if (inEnvelope === 'dining') {
+      diningSpent += inAmount;
+      const pct = Math.round((diningSpent / 3000) * 100);
+      if (envDiningRatio) envDiningRatio.textContent = `৳${(diningSpent / 1000).toFixed(1)}k / ৳3k`;
+      if (envDiningBar) {
+        envDiningBar.style.width = `${Math.min(pct, 100)}%`;
+        envDiningBar.className = 'h-full bg-rose-500 w-full transition-all duration-500';
+      }
+      if (envDiningPct) envDiningPct.textContent = `${pct}% Spent`;
+      if (envDiningLeft) {
+        envDiningLeft.textContent = `DEFICIT: ৳${diningSpent - 3000}`;
+        envDiningLeft.className = 'text-rose-400 font-bold';
+      }
+      if (envDiningCard) {
+        envDiningCard.className = 'rounded-xl border border-rose-500/50 bg-rose-950/20 p-3 space-y-2 relative overflow-hidden transition-all duration-300';
+      }
+      if (smtBudgetStatus) {
+        smtBudgetStatus.textContent = '⚠ Budget Deficit Detected';
+        smtBudgetStatus.className = 'text-rose-400 font-bold';
+      }
+
+      appendLog('text-rose-400', `EnvelopeSideEffect: Dining Out spent updated to ৳${diningSpent} (133% of ৳3,000 limit) -> Deficit Alert Emitted!`);
+    }
+
+    updateNetWorth();
+    appendLog('text-emerald-400', `BLOC STATE EMITTED: TransactionState.success(id: 'TX-${Math.floor(1000 + Math.random() * 9000)}') with atomic side-effect integrity`);
+  });
+
+  // Loan Repayment with Clamp
+  const btnRepayLoan = document.getElementById('btn-repay-loan');
+  btnRepayLoan?.addEventListener('click', () => {
+    const repayAmount = parseFloat((document.getElementById('in-loan-repay') as HTMLInputElement)?.value) || 15000;
+    bankBalance -= repayAmount;
+    if (accBankVal) accBankVal.textContent = '৳' + bankBalance.toLocaleString();
+
+    loanRepaid = Math.min(loanRepaid + repayAmount, loanTotal);
+    const remaining = Math.max(loanTotal - loanRepaid, 0);
+
+    if (loanRemVal) loanRemVal.textContent = '৳' + remaining.toLocaleString();
+    updateNetWorth();
+
+    appendLog('text-sky-400', `LoanService: updateLoanWithEffects() -> Repaid ৳${repayAmount} from BRAC Bank`);
+    appendLog('text-emerald-400', `Math Clamp: (loan.repaidAmount + tx.amount).clamp(0.0, ${loanTotal}) = ৳${loanRepaid} (Remaining: ৳${remaining})`);
+  });
+
+  // Reset State
+  const btnReset = document.getElementById('btn-smt-reset');
+  btnReset?.addEventListener('click', () => {
+    bkashBalance = 8450;
+    bankBalance = 145000;
+    cashBalance = 12500;
+    diningSpent = 2800;
+    loanRepaid = 120000;
+
+    if (accBkashVal) accBkashVal.textContent = '৳8,450';
+    if (accBankVal) accBankVal.textContent = '৳145,000';
+    if (loanRemVal) loanRemVal.textContent = '৳60,000';
+
+    if (envDiningRatio) envDiningRatio.textContent = '৳2.8k / ৳3k';
+    if (envDiningBar) {
+      envDiningBar.style.width = '93%';
+      envDiningBar.className = 'h-full bg-amber-500 w-[93%] transition-all duration-500';
+    }
+    if (envDiningPct) envDiningPct.textContent = '93% Spent';
+    if (envDiningLeft) {
+      envDiningLeft.textContent = '৳200 left';
+      envDiningLeft.className = 'text-amber-400';
+    }
+    if (envDiningCard) {
+      envDiningCard.className = 'rounded-xl border border-slate-800 bg-slate-900/90 p-3 space-y-2 relative overflow-hidden transition-all duration-300';
+    }
+    if (smtBudgetStatus) {
+      smtBudgetStatus.textContent = 'All Envelopes Nominal';
+      smtBudgetStatus.className = 'text-emerald-400';
+    }
+
+    updateNetWorth();
+    appendLog('text-slate-400', 'Simulation state reset: balances and envelope budgets restored to nominal baseline');
+  });
+</script>

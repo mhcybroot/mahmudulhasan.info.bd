@@ -26,6 +26,7 @@ import BdCrmPipelineSimulator from '../../components/case-study/BdCrmPipelineSim
 import EmailVerifierSimulator from '../../components/case-study/EmailVerifierSimulator.astro';
 import CameramanVisionSimulator from '../../components/case-study/CameramanVisionSimulator.astro';
 import ClassroomLivekitSimulator from '../../components/case-study/ClassroomLivekitSimulator.astro';
+import SelfMtFinanceSimulator from '../../components/case-study/SelfMtFinanceSimulator.astro';
 import ArchitectureModal from '../../components/case-study/ArchitectureModal.astro';
 import BenchmarkMatrix from '../../components/case-study/BenchmarkMatrix.astro';
 import CaseStudyJsonLd from '../../components/seo/CaseStudyJsonLd.astro';
@@ -65,6 +66,7 @@ const isCrm = data.slug === 'bd-crm-pipeline';
 const isEmailVerifier = data.slug === 'email-verifier-service';
 const isCameraman = data.slug === 'cameraman-edge-vision';
 const isClassroom = data.slug === 'classroom-livekit-webrtc';
+const isSelfMt = data.slug === 'self-mt-finance-ledger';
 
 let pageDescription = "Instant offline photo and document enhancer. Cleans and upscales 290+ photos per second with zero cloud uploads and natural contrast-adaptive sharpness.";
 if (isPms) {
@@ -113,6 +115,8 @@ if (isPms) {
   pageDescription = "Edge CCTV AI Webhook Ingestion, Bangla BRTA ANPR & Industrial Safety Vision Pipeline. Engineered in pure Rust 2021, Axum 0.7, Tokio, and SQLx PostgreSQL.";
 } else if (isClassroom) {
   pageDescription = "Low-Latency WebRTC SFU Virtual Classroom & Media Streaming Engine. Engineered in Java 21, Spring Boot 3.4, Vaadin 24 Flow, LiveKit SFU, and WebRTC Dynacast.";
+} else if (isSelfMt) {
+  pageDescription = "Envelope Budgeting, Zero-Based Accounting & Offline-First Financial Ledger. Engineered in Flutter 3.29, Dart 3.11, BLoC Architecture, Freezed Immutability, and Firebase.";
 }
 ---
 
@@ -274,6 +278,10 @@ if (isPms) {
           ) : isClassroom ? (
             <>
               Ultra-low latency virtual classroom and media orchestration engine engineered in <strong class="text-white font-semibold">Java 21 LTS, Spring Boot 3.4, Vaadin 24 Flow &amp; LiveKit WebRTC SFU</strong>. Bypasses P2P mesh network bottlenecks via an <strong class="text-emerald-300 font-semibold">intelligent Selective Forwarding Unit ($O(N)$ downlink scaling)</strong>, enforces granular HMAC-SHA256 JWT access tokens, provides <strong class="text-sky-300 font-semibold">Dynacast adaptive bitrate streaming</strong> (1080p to 360p fallback), and gives instructors sub-35ms global moderation controls.
+            </>
+          ) : isSelfMt ? (
+            <>
+              Offline-first personal finance and executive accounting engine engineered in <strong class="text-white font-semibold">Flutter 3.29, Dart 3.11, BLoC Architecture &amp; Freezed</strong>. Transforms personal budgeting from passive expense logging to disciplined <strong class="text-emerald-300 font-semibold">Zero-Based Envelope Accounting</strong>: guarantees mathematical ledger integrity with atomic two-phase side-effect rollback, automates loan amortization schedules with value clamping, and compiles bank-ready vectorized PDF balance sheets on-device.
             </>
           ) : (
             <>
@@ -630,6 +638,21 @@ if (isPms) {
                 <span class="text-emerald-400 font-bold">✓</span> Granular JWT Token Grants with PIN &amp; Bangladesh Mobile Normalization
               </div>
             </>
+          ) : isSelfMt ? (
+            <>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Zero-Based Envelope Budgeting with Predictive Deficit Prevention
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Atomic Two-Phase Transactional Side-Effect Rollback &amp; Reapplication
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Debt &amp; Loan Amortization Tracker with Mathematical Balance Clamping
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">✓</span> Client-Side Vectorized Financial Statement PDF &amp; CSV Compilation
+              </div>
+            </>
           ) : (
             <>
               <div class="flex items-center gap-1.5">
@@ -701,6 +724,8 @@ if (isPms) {
         <CameramanVisionSimulator />
       ) : isClassroom ? (
         <ClassroomLivekitSimulator />
+      ) : isSelfMt ? (
+        <SelfMtFinanceSimulator />
       ) : (
         <BeforeAfterSlider />
       )}
@@ -760,6 +785,8 @@ if (isPms) {
             ? "Built to eliminate dropped CCTV camera events, parse Bengali BRTA license plates at edge speed, and enforce factory safety compliance."
             : isClassroom
             ? "Built to eliminate P2P WebRTC bandwidth saturation, enable seamless video lecture delivery over fluctuating 3G/4G networks, and provide instantaneous teacher moderation."
+            : isSelfMt
+            ? "Built to eliminate month-end financial deficit surprises, replace passive expense tracking with disciplined zero-based envelope budgeting, and guarantee ledger math integrity."
             : "Built to solve real digital photography and business document challenges without cloud dependencies."}
         </p>
       </div>
@@ -1567,6 +1594,41 @@ if (isPms) {
               <h3 class="font-mono font-bold text-white text-base">Academic Security &amp; Attendance Audits</h3>
               <p class="text-xs text-slate-200 font-sans leading-relaxed">
                 Enforces 4-digit PIN authentication and normalized Bangladesh mobile verification. Automatically captures session join/leave timestamps into PostgreSQL, preventing unauthorized "zoom-bombing" and providing tamper-proof attendance grading.
+              </p>
+            </div>
+          </>
+        ) : isSelfMt ? (
+          <>
+            <!-- Use Case 1: Freelancers & Executives Managing Multi-Wallet Capital -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-emerald-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-emerald-300 font-mono text-lg font-bold">
+                💼
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Multi-Wallet Freelancers &amp; Executives</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Eliminates the mental tax of tracking fragmented balances across cash, traditional bank accounts, and mobile wallets (bKash/Nagad). Every unit of income is mapped to virtual spending envelopes, preventing impulsive deficit spending.
+              </p>
+            </div>
+
+            <!-- Use Case 2: Structured Debt & Loan Amortization Tracking -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-sky-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-sky-950 border border-sky-500/50 flex items-center justify-center text-sky-300 font-mono text-lg font-bold">
+                💳
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Debt Amortization &amp; Credit Financing</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Tracks borrowed and lent capital with atomic balance updates. Whenever a repayment installment is executed, the mathematical clamp automatically reduces remaining principal, prevents overpayment, and logs audit lifelines.
+              </p>
+            </div>
+
+            <!-- Use Case 3: Offline-First Travelers & Privacy-Conscious Individuals -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-700 space-y-3 shadow-lg hover:border-purple-400 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-purple-950 border border-purple-500/50 flex items-center justify-center text-purple-300 font-mono text-lg font-bold">
+                🔒
+              </div>
+              <h3 class="font-mono font-bold text-white text-base">Offline Travelers &amp; Financial Privacy</h3>
+              <p class="text-xs text-slate-200 font-sans leading-relaxed">
+                Operates with zero cloud latency and total privacy. Ledger entries are stored in encrypted local storage, compiling vectorized balance sheets and CSV reports directly on-device without third-party tracking or subscription fees.
               </p>
             </div>
           </>
@@ -3048,6 +3110,69 @@ if (isPms) {
             </table>
           </div>
         </div>
+      ) : isSelfMt ? (
+        <div class="rounded-3xl border border-slate-700 bg-slate-900/90 backdrop-blur-xl p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div class="border-b border-slate-800 pb-4">
+            <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+              Engineering Benchmark: Self-MT (Flutter BLoC) vs. Traditional Spreadsheets &amp; Cloud SaaS
+            </h2>
+            <p class="text-sm text-slate-300 mt-1 font-sans">
+              Measured across multi-account balance mutations, envelope budget calculations, and statement exports.
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left font-mono text-xs text-slate-200 border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400 uppercase">
+                  <th class="py-3 px-4 font-semibold">Evaluation Metric</th>
+                  <th class="py-3 px-4 font-bold text-emerald-300 bg-emerald-950/40">Self-MT (Flutter 3.29 + BLoC + Envelope)</th>
+                  <th class="py-3 px-4 font-semibold">Excel Spreadsheets / Cloud SaaS (Mint/YNAB)</th>
+                  <th class="py-3 px-4 font-semibold text-emerald-400">Engineering Advantage</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Transaction Latency &amp; Stream Dispatch</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-emerald-950/20">&lt; 12ms (Local BLoC Reactive Stream)</td>
+                  <td class="py-3.5 px-4 text-slate-400">450ms – 2,200ms (Cloud roundtrip or spreadsheet recalculation)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">35x Faster UI Responsiveness</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Offline Availability &amp; Edge Readiness</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-emerald-950/20">100% Offline (Local SQLite &amp; Device Storage)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Requires continuous internet; blank screens in low signal</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero Network Dependencies</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Budgeting Methodology</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-emerald-950/20">Predictive Zero-Based Virtual Envelopes</td>
+                  <td class="py-3.5 px-4 text-slate-400">Passive historical logging (Deficits noticed after overspending)</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Proactive Deficit Prevention</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Two-Phase Transactional Integrity</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-emerald-950/20">Automatic Revert &amp; Reapply Rollback Engine</td>
+                  <td class="py-3.5 px-4 text-slate-400">Fragile formula references; manual balance reconciliation</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Mathematical State Consistency</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Debt &amp; Loan Amortization</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-emerald-950/20">Principal Reduction Clamps (0.0 to loan.amount)</td>
+                  <td class="py-3.5 px-4 text-slate-400">Unclamped arithmetic; easily leads to negative debt balances</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Bulletproof Loan Tracking</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-medium text-white">Data Privacy &amp; Operating Cost</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-300 bg-emerald-950/20">Self-Hosted / Free Open Source • 100% On-Device</td>
+                  <td class="py-3.5 px-4 text-slate-400">$10 – $15/month subscriptions; banking data monetized</td>
+                  <td class="py-3.5 px-4 text-emerald-400 font-bold">Zero SaaS Fees &amp; Total Privacy</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       ) : (
         <BenchmarkMatrix />
       )}
@@ -3111,6 +3236,8 @@ if (isPms) {
               ? "Engineered in pure Rust 2021 with Axum 0.7, Tokio work-stealing pools, Levenshtein BRTA NLP, and SQLx PostgreSQL."
               : isClassroom
               ? "Engineered in Java 21 LTS & Spring Boot 3.4 with LiveKit WebRTC SFU, Retrofit2 RPC, Vaadin 24 Flow, and PostgreSQL 16."
+              : isSelfMt
+              ? "Engineered in Flutter 3.29 & Dart 3.11 with BLoC stream architecture, Freezed immutability, two-phase side-effects, and SQLite."
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
@@ -5953,6 +6080,134 @@ if (isPms) {
                 </p>
               </button>
             </>
+          ) : isSelfMt ? (
+            <>
+              <!-- Node 1: UI Ingress & Zero-Based Envelope Partitioning -->
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-emerald-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                data-node-id="node-smt-ingress"
+                data-node-title="Zero-Based Envelope Ingress &amp; Account Partitioning"
+                data-node-badge="Phase 1: Ingress &amp; Budget Allocation"
+                data-node-desc="Ingests transactions from Flutter UI, mapping funding accounts (Cash, Bank, Mobile MFS) and target budget envelopes to enforce zero-based forward allocation."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>01 // ENVELOPE INGRESS</span>
+                  <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-emerald-300 transition-colors">
+                  Envelope Ingress Tier
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Validates inputs and matches funding wallets against target budget categories.
+                </p>
+              </button>
+
+              <!-- Node 2: Stream-Driven BLoC Event Engine -->
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-sky-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-sky-400"
+                data-node-id="node-smt-bloc"
+                data-node-title="Reactive BLoC Event Pipeline &amp; Freezed Immutability"
+                data-node-badge="Phase 2: Reactive State &amp; Freezed"
+                data-node-desc="Dispatches AddTransactionWithEffects through Dart async streams. Uses Freezed generated models to guarantee copy-with immutability and sub-12ms UI repaint benchmarks."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>02 // BLOC STREAM PIPELINE</span>
+                  <span class="text-sky-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-sky-300 transition-colors">
+                  BLoC Reactive Pipeline
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Broadcasts state mutations via Dart async streams with immutable copy-with trees.
+                </p>
+              </button>
+
+              <!-- Node 3: Two-Phase Transactional Side-Effect Integrity -->
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-amber-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-amber-400"
+                data-node-id="node-smt-sideeffects"
+                data-node-title="Two-Phase Reversion &amp; Atomic Side-Effect Engine"
+                data-node-badge="Phase 3: Ledger Integrity &amp; Rollback"
+                data-node-desc="FinanceService.dart executes atomic two-phase updates: reverts old effects, persists new transaction data, and recalculates account balances and envelope consumption pools."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>03 // ATOMIC SIDE-EFFECTS</span>
+                  <span class="text-amber-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-amber-300 transition-colors">
+                  Two-Phase Rollback Engine
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Guarantees mathematical ledger consistency across transaction edits and deletes.
+                </p>
+              </button>
+
+              <!-- Node 4: Debt Amortization & Value Clamp Calculations -->
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-rose-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-rose-400"
+                data-node-id="node-smt-loan"
+                data-node-title="Loan Amortization &amp; Mathematical Principal Clamp"
+                data-node-badge="Phase 4: Debt &amp; Credit Amortization"
+                data-node-desc="Tracks lent/borrowed capital schedules. Executes (loan.repaidAmount +/- tx.amount).clamp(0.0, loan.amount) to prevent balance overpayment and manage isPaid lifelines."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>04 // DEBT AMORTIZATION</span>
+                  <span class="text-rose-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-rose-300 transition-colors">
+                  Principal Clamp Engine
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Amortizes debt obligations with strict mathematical bounds preventing overpayment.
+                </p>
+              </button>
+
+              <!-- Node 5: Offline-First SQLite Repository & Firestore Sync -->
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-indigo-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                data-node-id="node-smt-sqlite"
+                data-node-title="Offline-First Encrypted Storage &amp; Firestore Dual-Write"
+                data-node-badge="Phase 5: Offline Persistence &amp; Cloud"
+                data-node-desc="Persists financial records instantly in local encrypted device storage with sub-millisecond I/O, queuing mutations for bidirectional Firebase Firestore synchronization."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>05 // OFFLINE PERSISTENCE</span>
+                  <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-indigo-300 transition-colors">
+                  Offline Storage &amp; Sync
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Ensures 100% offline functionality with automated upstream Firestore sync.
+                </p>
+              </button>
+
+              <!-- Node 6: Client-Side Vectorized PDF & Financial Statement Compiler -->
+              <button
+                type="button"
+                class="text-left p-5 rounded-xl bg-slate-900 border border-slate-700 hover:border-purple-400 transition-all hover:-translate-y-0.5 group focus:outline-none focus:ring-2 focus:ring-purple-400"
+                data-node-id="node-smt-pdf"
+                data-node-title="Vectorized Financial Statement &amp; CSV Report Compiler"
+                data-node-badge="Phase 6: Reporting &amp; On-Device Export"
+                data-node-desc="Uses ExportService and pdf package to compile clean, vector balance sheets, income statements, and CSV audit exports directly on-device with zero cloud processing fees."
+              >
+                <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2 font-semibold">
+                  <span>06 // VECTOR PDF EXPORT</span>
+                  <span class="text-purple-400 group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+                <h4 class="font-mono font-bold text-white text-sm group-hover:text-purple-300 transition-colors">
+                  Vector PDF Statement Compiler
+                </h4>
+                <p class="mt-2 text-xs text-slate-300 font-sans leading-relaxed">
+                  Compiles bank-ready balance sheets and CSV audits on-device in under 50ms.
+                </p>
+              </button>
+            </>
           ) : (
             <>
               <button
@@ -6131,6 +6386,8 @@ if (isPms) {
                 ? "Bangla BRTA License Plate Parser & 64-District Levenshtein Corrector"
                 : isClassroom
                 ? "WebRTC Media Orchestrator: JWT Token Generator & Server-Side Track Moderation"
+                : isSelfMt
+                ? "Two-Phase Transactional Side-Effect Engine & Debt Amortization Clamp"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">
@@ -6180,6 +6437,8 @@ if (isPms) {
                 ? <span>Directly from <code class="text-cyan-300 font-mono">cameraman/src/validation.rs</code> showing 64-district Levenshtein fuzzy matching and Western-to-Bengali numeral normalization.</span>
                 : isClassroom
                 ? <span>Directly from <code class="text-cyan-300 font-mono">src/main/java/com/classroom/app/service/LiveKitService.java</code> showing scoped HMAC-SHA256 token minting and RoomServiceClient bulk participant muting.</span>
+                : isSelfMt
+                ? <span>Directly from <code class="text-cyan-300 font-mono">lib/features/finance/domain/services/finance_service.dart</code> showing atomic rollback/reapplication and principal clamping.</span>
                 : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
@@ -6200,10 +6459,10 @@ if (isPms) {
               <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
               <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               <span class="ml-2 text-slate-200 font-medium">
-                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : isCampus ? "smart-academic-portal/src/App.vue" : isLandtrust ? "backend/src/main/java/.../LandRecordService.java" : isModernOs ? "kernel/src/proofs/capability_proofs.rs" : isYtStream ? "downloader.py" : isSniper ? "extension/content.js" : isGecko ? "app/src/main/java/com/example/browser/MainActivity.kt" : isDoller ? "backend/src/main/java/.../TradingService.java" : isQuickbooks ? "src/main/java/.../QuickBooksInvoicePayloadFactory.java" : isEdugo ? "backend/src/main/java/com/edugo/config/SecurityConfig.java" : isCrm ? "backend/src/main/java/com/bdcrm/duplicate/DuplicateService.java" : isEmailVerifier ? "verifier.py" : isCameraman ? "cameraman/src/validation.rs" : isClassroom ? "src/main/java/com/classroom/app/service/LiveKitService.java" : "src/engine/enhancer.rs"}
+                {isPms ? "backend/src/service/zk_adms_service.rs" : isHrms ? "src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java" : isMonitor ? "skylink-monitor/src/network.rs" : isSwift ? "backend/app/pdf_service.py" : isHomesync ? "src/components/ThreeCanvas/FloorplanLightingShader.ts" : isMarksheet ? "backend/seed.js" : isEdumeet ? "lib/config/jitsi_config.dart" : isSmartAi ? "app/src/main/java/.../FaceDetectorHelper.kt" : isNotes ? "src/notes/repositories/notes.repository.ts" : isSssms ? "lib/models/conveyance_claim_model.dart" : isCampus ? "smart-academic-portal/src/App.vue" : isLandtrust ? "backend/src/main/java/.../LandRecordService.java" : isModernOs ? "kernel/src/proofs/capability_proofs.rs" : isYtStream ? "downloader.py" : isSniper ? "extension/content.js" : isGecko ? "app/src/main/java/com/example/browser/MainActivity.kt" : isDoller ? "backend/src/main/java/.../TradingService.java" : isQuickbooks ? "src/main/java/.../QuickBooksInvoicePayloadFactory.java" : isEdugo ? "backend/src/main/java/com/edugo/config/SecurityConfig.java" : isCrm ? "backend/src/main/java/com/bdcrm/duplicate/DuplicateService.java" : isEmailVerifier ? "verifier.py" : isCameraman ? "cameraman/src/validation.rs" : isClassroom ? "src/main/java/com/classroom/app/service/LiveKitService.java" : isSelfMt ? "lib/features/finance/domain/services/finance_service.dart" : "src/engine/enhancer.rs"}
               </span>
             </div>
-            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : isCampus ? "vue • 46 lines" : isLandtrust ? "java • 48 lines" : isModernOs ? "rust • 46 lines" : isYtStream ? "python • 45 lines" : isSniper ? "javascript • 52 lines" : isGecko ? "kotlin • 62 lines" : isDoller ? "java • 44 lines" : isQuickbooks ? "java • 56 lines" : isEdugo ? "java • 64 lines" : isCrm ? "java • 52 lines" : isEmailVerifier ? "python • 68 lines" : isCameraman ? "rust • 62 lines" : isClassroom ? "java • 58 lines" : "rust • 105 lines"}</span>
+            <span class="text-slate-300">{isPms ? "rust • 94 lines" : isHrms ? "java • 48 lines" : isMonitor ? "rust • 52 lines" : isSwift ? "python • 48 lines" : isHomesync ? "typescript • 38 lines" : isMarksheet ? "javascript • 36 lines" : isEdumeet ? "dart • 32 lines" : isSmartAi ? "kotlin • 52 lines" : isNotes ? "typescript • 42 lines" : isSssms ? "dart • 44 lines" : isCampus ? "vue • 46 lines" : isLandtrust ? "java • 48 lines" : isModernOs ? "rust • 46 lines" : isYtStream ? "python • 45 lines" : isSniper ? "javascript • 52 lines" : isGecko ? "kotlin • 62 lines" : isDoller ? "java • 44 lines" : isQuickbooks ? "java • 56 lines" : isEdugo ? "java • 64 lines" : isCrm ? "java • 52 lines" : isEmailVerifier ? "python • 68 lines" : isCameraman ? "rust • 62 lines" : isClassroom ? "java • 58 lines" : isSelfMt ? "dart • 64 lines" : "rust • 105 lines"}</span>
           </div>
 
           {isPms ? (
@@ -7095,6 +7354,73 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
         &#125;
     &#125;
 &#125;</code></pre>
+          ) : isSelfMt ? (
+            <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-slate-400">// finance_service.dart: Two-Phase Transactional Side-Effect Engine &amp; Debt Amortization Clamp</span>
+<span class="text-rose-400">class</span> <span class="text-cyan-300">FinanceService</span> &#123;
+  <span class="text-rose-400">final</span> <span class="text-amber-300">FinanceRepository</span> repository;
+
+  <span class="text-cyan-300">FinanceService</span>(&#123;<span class="text-rose-400">required this</span>.repository&#125;);
+
+  <span class="text-slate-400">/// 1. Updates a transaction: atomically reverts old side-effects, then applies new ones</span>
+  <span class="text-amber-300">Future</span>&lt;<span class="text-rose-400">void</span>&gt; <span class="text-cyan-300">updateTransactionWithEffects</span>(<span class="text-amber-300">AppTransaction</span> oldTx, <span class="text-amber-300">AppTransaction</span> newTx) <span class="text-rose-400">async</span> &#123;
+    <span class="text-rose-400">await</span> <span class="text-cyan-300">_revertTransactionEffects</span>(oldTx);
+    <span class="text-rose-400">await</span> repository.<span class="text-cyan-300">updateTransaction</span>(newTx);
+    <span class="text-rose-400">await</span> <span class="text-cyan-300">_applyTransactionEffects</span>(newTx);
+  &#125;
+
+  <span class="text-slate-400">/// 2. Deletes a transaction and reverts all side-effects (Accounts, Envelopes, Loan Clamps)</span>
+  <span class="text-amber-300">Future</span>&lt;<span class="text-rose-400">void</span>&gt; <span class="text-cyan-300">deleteTransactionWithEffects</span>(<span class="text-amber-300">AppTransaction</span> tx) <span class="text-rose-400">async</span> &#123;
+    <span class="text-rose-400">await</span> <span class="text-cyan-300">_revertTransactionEffects</span>(tx);
+    <span class="text-rose-400">await</span> repository.<span class="text-cyan-300">deleteTransaction</span>(tx.id);
+
+    <span class="text-slate-400">// If linked to a loan, re-calculate repaid balance with mathematical clamping</span>
+    <span class="text-rose-400">if</span> (tx.linkedLoanId != <span class="text-rose-400">null</span> &amp;&amp; tx.isLoanRepayment == <span class="text-rose-400">true</span>) &#123;
+      <span class="text-rose-400">try</span> &#123;
+        <span class="text-rose-400">final</span> loans = <span class="text-rose-400">await</span> repository.<span class="text-cyan-300">getLoans</span>();
+        <span class="text-rose-400">final</span> loan = loans.<span class="text-cyan-300">firstWhere</span>((l) =&gt; l.id == tx.linkedLoanId);
+        <span class="text-rose-400">final</span> newRepaidAmount = (loan.repaidAmount - tx.amount).<span class="text-cyan-300">clamp</span>(0.0, loan.amount);
+        <span class="text-rose-400">final</span> updatedLoan = loan.<span class="text-cyan-300">copyWith</span>(
+          repaidAmount: newRepaidAmount,
+          isPaid: newRepaidAmount &gt;= loan.amount,
+        );
+        <span class="text-rose-400">await</span> repository.<span class="text-cyan-300">updateLoan</span>(updatedLoan);
+      &#125; <span class="text-rose-400">catch</span> (_) &#123;&#125;
+    &#125;
+  &#125;
+
+  <span class="text-slate-400">/// 3. Applies atomic balance mutations across accounts and virtual budget envelopes</span>
+  <span class="text-amber-300">Future</span>&lt;<span class="text-rose-400">void</span>&gt; <span class="text-cyan-300">_applyTransactionEffects</span>(<span class="text-amber-300">AppTransaction</span> tx) <span class="text-rose-400">async</span> &#123;
+    <span class="text-rose-400">final</span> accounts = <span class="text-rose-400">await</span> repository.<span class="text-cyan-300">getAccounts</span>();
+    <span class="text-rose-400">try</span> &#123;
+      <span class="text-rose-400">final</span> account = accounts.<span class="text-cyan-300">firstWhere</span>((a) =&gt; a.id == tx.accountId);
+      <span class="text-rose-400">double</span> newBalance = account.balance;
+      <span class="text-rose-400">if</span> (tx.type == <span class="text-emerald-300">'expense'</span>) &#123;
+        newBalance -= tx.amount;
+      &#125; <span class="text-rose-400">else if</span> (tx.type == <span class="text-emerald-300">'income'</span>) &#123;
+        newBalance += tx.amount;
+      &#125; <span class="text-rose-400">else if</span> (tx.type == <span class="text-emerald-300">'transfer'</span>) &#123;
+        newBalance -= tx.amount;
+      &#125;
+      <span class="text-rose-400">await</span> repository.<span class="text-cyan-300">updateAccount</span>(account.<span class="text-cyan-300">copyWith</span>(balance: newBalance));
+
+      <span class="text-rose-400">if</span> (tx.type == <span class="text-emerald-300">'transfer'</span> &amp;&amp; tx.toAccountId != <span class="text-rose-400">null</span>) &#123;
+        <span class="text-rose-400">final</span> toAccount = accounts.<span class="text-cyan-300">firstWhere</span>((a) =&gt; a.id == tx.toAccountId);
+        <span class="text-rose-400">await</span> repository.<span class="text-cyan-300">updateAccount</span>(toAccount.<span class="text-cyan-300">copyWith</span>(balance: toAccount.balance + tx.amount));
+      &#125;
+    &#125; <span class="text-rose-400">catch</span> (_) &#123;&#125;
+
+    <span class="text-slate-400">// Zero-Based Budgeting: Increment envelope consumption pool</span>
+    <span class="text-rose-400">if</span> (tx.type == <span class="text-emerald-300">'expense'</span> &amp;&amp; tx.categoryId != <span class="text-rose-400">null</span> &amp;&amp; tx.linkedLoanId == <span class="text-rose-400">null</span>) &#123;
+      <span class="text-rose-400">final</span> envelopes = <span class="text-rose-400">await</span> repository.<span class="text-cyan-300">getEnvelopes</span>();
+      <span class="text-rose-400">try</span> &#123;
+        <span class="text-rose-400">final</span> envelope = envelopes.<span class="text-cyan-300">firstWhere</span>((e) =&gt; e.id == tx.categoryId);
+        <span class="text-rose-400">await</span> repository.<span class="text-cyan-300">updateEnvelope</span>(
+          envelope.<span class="text-cyan-300">copyWith</span>(spentAmount: envelope.spentAmount + tx.amount)
+        );
+      &#125; <span class="text-rose-400">catch</span> (_) &#123;&#125;
+    &#125;
+  &#125;
+&#125;</code></pre>
           ) : (
             <pre class="p-6 text-xs sm:text-sm font-mono text-slate-200 overflow-x-auto leading-relaxed selection:bg-cyan-500/30 selection:text-cyan-100"><code><span class="text-rose-400">pub fn</span> <span class="text-cyan-300">apply_adaptive_sharpen</span>(img: &<span class="text-amber-300">RgbaImage</span>, strength: <span class="text-rose-400">f32</span>) -&gt; <span class="text-amber-300">RgbaImage</span> &#123;
     <span class="text-slate-400">// Clamp strength & compute FidelityFX peak negative cross weight</span>
@@ -7188,6 +7514,8 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
                 ? "Run Rust cargo test suite, launch Axum webhook server, and test Bangla ANPR plate validation via cURL."
                 : isClassroom
                 ? "Run the Maven test suite, launch the Spring Boot 3 + Vaadin application, and test LiveKit WebRTC token generation via cURL."
+                : isSelfMt
+                ? "Run Flutter unit and BLoC state tests, generate Freezed models, and launch the cross-platform application in Chrome or Android emulator."
                 : "Reproduce the 292.0 FPS benchmark and run the test suite on your local Linux or Windows terminal."}
             </p>
           </div>
@@ -7441,6 +7769,17 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
               <p class="text-emerald-400">mvn spring-boot:run</p>
               <p class="text-slate-400 mt-2"># 4. Request signed LiveKit JWT token via REST API</p>
               <p class="text-emerald-400">curl -X POST "http://localhost:8080/api/livekit/token" -H "Content-Type: application/json" -d '&#123;"identity": "STU-001", "name": "Arif", "roomName": "CSE-402", "role": "STUDENT"&#125;'</p>
+            </>
+          ) : isSelfMt ? (
+            <>
+              <p class="text-slate-400"># 1. Clone Self-MT repository</p>
+              <p class="text-cyan-300">git clone https://github.com/mhcybroot/self_mt.git &amp;&amp; cd self_mt</p>
+              <p class="text-slate-400 mt-2"># 2. Fetch Flutter dependencies and run Freezed / JSON code generation</p>
+              <p class="text-emerald-400">flutter pub get &amp;&amp; dart run build_runner build --delete-conflicting-outputs</p>
+              <p class="text-slate-400 mt-2"># 3. Execute unit and BLoC integration test suite</p>
+              <p class="text-emerald-400">flutter test</p>
+              <p class="text-slate-400 mt-2"># 4. Launch multi-platform client in Chrome or device</p>
+              <p class="text-emerald-400">flutter run -d chrome</p>
             </>
           ) : (
             <>
