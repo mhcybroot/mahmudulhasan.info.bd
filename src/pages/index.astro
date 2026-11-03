@@ -8,7 +8,8 @@ import CommercialDeployments from '../components/CommercialDeployments.astro';
 import TechnicalArsenal from '../components/TechnicalArsenal.astro';
 import CareerTimeline from '../components/CareerTimeline.astro';
 import Endorsements from '../components/Endorsements.astro';
-import ContactFooter from '../components/ContactFooter.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 import ResumeModal from '../components/ResumeModal.astro';
 ---
 
@@ -21,15 +22,18 @@ import ResumeModal from '../components/ResumeModal.astro';
   <MobileDrawer />
 
   <!-- Main Container — Continuous Swiss Architectural Drafting Sheet -->
-  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+  <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <Hero />
     <FlagshipSystems />
     <CommercialDeployments />
     <TechnicalArsenal />
     <CareerTimeline />
     <Endorsements />
-    <ContactFooter />
+    <Contact />
   </main>
+
+  <!-- Master Swiss Architectural Blueprint Footer (Full-Bleed 100vw) -->
+  <Footer />
 
   <!-- Interactive Resume Dossier Modal -->
   <ResumeModal />
