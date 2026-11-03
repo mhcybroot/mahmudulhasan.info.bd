@@ -4,6 +4,7 @@ import JsonLd from '../components/seo/JsonLd.astro';
 import ResumeModal from '../components/ResumeModal.astro';
 import HotkeysModal from '../components/HotkeysModal.astro';
 import GpgModal from '../components/GpgModal.astro';
+import ScrollTelemetryHUD from '../components/ScrollTelemetryHUD.astro';
 import '../styles/themes.css';
 
 interface Props {
@@ -95,6 +96,9 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
 
     <!-- GPG Cryptographic Verification Modal (Global Scope) -->
     <GpgModal />
+
+    <!-- Floating Telemetry & Scroll HUD (Global Scope) -->
+    <ScrollTelemetryHUD />
 
     <style is:global>
       /* Custom modern scrollbar */

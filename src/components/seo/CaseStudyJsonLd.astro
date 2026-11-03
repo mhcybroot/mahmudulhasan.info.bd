@@ -60,6 +60,30 @@ const caseStudySchema = {
       "dateModified": date,
       "mainEntityOfPage": url,
       "keywords": keywords.join(', ')
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${url}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://mahmudulhasan.info.bd"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Flagship Systems",
+          "item": "https://mahmudulhasan.info.bd/#systems"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": title,
+          "item": url
+        }
+      ]
     }
   ]
 };

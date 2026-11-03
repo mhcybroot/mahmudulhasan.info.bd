@@ -139,9 +139,9 @@
   --terminal-bar: #F1F5F9;
 }
 
-/* Global Transition for Theme Switching */
-body, header, aside, section, div, button, a {
-  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease, box-shadow 0.25s ease;
+/* Optimized Transitions for Theme Switching without Layout Thrashing */
+body, header, footer, aside, nav, dialog, button, input, .bg-theme-surface, .bg-theme-lowest, .border-theme-border {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.15s ease;
 }
 
 /* WCAG AA Accessible Keyboard Focus Rings */
