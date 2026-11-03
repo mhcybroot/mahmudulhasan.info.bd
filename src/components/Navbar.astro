@@ -7,7 +7,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
   <div class="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 h-16 w-full">
     <!-- Brand Anchor & Coordinates -->
     <div class="flex items-center gap-3">
-      <a href="#hero" class="flex items-center gap-2 group transition-transform active:scale-[0.98]">
+      <a href="/#hero" class="flex items-center gap-2 group transition-transform active:scale-[0.98]">
         <span class="inline-block w-2.5 h-2.5 bg-theme-accent shrink-0"></span>
         <span class="font-mono text-sm sm:text-base font-bold tracking-wider uppercase text-theme-primary group-hover:text-theme-accent transition-colors">
           MH // SYS-ARCH
@@ -20,12 +20,12 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 
     <!-- Desktop Navigation Links (Uppercase Monospace) -->
     <nav class="hidden md:flex items-center space-x-6 lg:space-x-8 font-mono text-xs uppercase tracking-wider text-theme-muted">
-      <a href="#systems" class="nav-desktop-link text-theme-accent border-b-2 border-theme-accent py-4 font-semibold hover:text-theme-accent transition-colors">Flagship Systems</a>
-      <a href="#deployments" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Deployments</a>
-      <a href="#arsenal" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Arsenal</a>
-      <a href="#chronicle" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Chronicle</a>
-      <a href="#endorsements" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Endorsements</a>
-      <a href="#contact" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Contact</a>
+      <a href="/#systems" class="nav-desktop-link text-theme-accent border-b-2 border-theme-accent py-4 font-semibold hover:text-theme-accent transition-colors">Flagship Systems</a>
+      <a href="/#deployments" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Deployments</a>
+      <a href="/#arsenal" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Arsenal</a>
+      <a href="/#chronicle" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Chronicle</a>
+      <a href="/#endorsements" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Endorsements</a>
+      <a href="/#contact" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Contact</a>
     </nav>
 
     <!-- Trailing Actions -->
@@ -84,7 +84,7 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
           const id = entry.target.id;
           navLinks.forEach(link => {
             const href = link.getAttribute('href');
-            if (href === `#${id}`) {
+            if (href === `#${id}` || href === `/#${id}`) {
               link.classList.add('text-theme-accent', 'border-b-2', 'border-theme-accent', 'font-semibold');
               link.classList.remove('text-theme-muted', 'font-medium');
             } else {

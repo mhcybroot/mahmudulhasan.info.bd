@@ -190,6 +190,13 @@
   hotkeysBackdrop?.addEventListener('click', closeHotkeys);
   footerTrigger?.addEventListener('click', openHotkeys);
 
+  // Auto-open Command Matrix on deep-link / PWA shortcut launcher
+  try {
+    if (window.location.search.includes('cmd=1') || window.location.hash === '#cmd' || window.location.hash === '#hotkeys') {
+      openHotkeys();
+    }
+  } catch (e) {}
+
   document.querySelectorAll('.cmd-matrix-row').forEach((row) => {
     row.addEventListener('click', () => {
       const action = row.getAttribute('data-action');
@@ -204,13 +211,13 @@
           window.location.href = '/?focusSearch=1#systems';
         }
       } else if (action === 'dossier') {
-        const resumeBtn = document.getElementById('nav-resume-btn') || document.getElementById('hero-resume-btn');
+        const resumeBtn = (document.querySelector('[data-trigger-dossier="true"]') || document.getElementById('nav-resume-btn') || document.getElementById('hero-resume-btn')) as HTMLElement;
         resumeBtn?.click();
       } else if (action === 'theme') {
         const themes = ['swiss', 'obsidian', 'amber', 'synthwave', 'emerald', 'cleanroom'];
         const currentTheme = document.documentElement.getAttribute('data-theme') || 'swiss';
         const nextTheme = themes[(themes.indexOf(currentTheme) + 1) % themes.length];
-        const switcherBtn = document.querySelector(`.theme-dropdown-btn[data-theme="${nextTheme}"]`) as HTMLElement;
+        const switcherBtn = (document.querySelector(`.theme-option-btn[data-theme-id="${nextTheme}"]`) || document.querySelector(`.theme-dropdown-btn[data-theme="${nextTheme}"]`)) as HTMLElement;
         if (switcherBtn) switcherBtn.click();
       } else if (action === 'share') {
         const specShareBtn = document.getElementById('btn-share-spec');

@@ -10,6 +10,7 @@ const PRECACHE_ASSETS = [
   '/apple-touch-icon.png',
   '/fonts/inter-latin.woff2',
   '/fonts/jetbrains-mono-latin.woff2',
+  '/assets/images/avatar.jpg',
 ];
 
 self.addEventListener('install', (event) => {
