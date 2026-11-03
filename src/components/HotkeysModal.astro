@@ -190,6 +190,14 @@
   hotkeysBackdrop?.addEventListener('click', closeHotkeys);
   footerTrigger?.addEventListener('click', openHotkeys);
 
+  // Bind to any element with data-trigger-hotkeys="true"
+  document.querySelectorAll('[data-trigger-hotkeys="true"]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openHotkeys();
+    });
+  });
+
   // Auto-open Command Matrix on deep-link / PWA shortcut launcher
   try {
     if (window.location.search.includes('cmd=1') || window.location.hash === '#cmd' || window.location.hash === '#hotkeys') {

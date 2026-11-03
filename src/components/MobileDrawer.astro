@@ -47,6 +47,27 @@
   </div>
 
   <div class="mt-auto pt-6 border-t border-theme-border flex flex-col gap-3">
+    <div class="grid grid-cols-2 gap-2">
+      <button
+        id="mobile-drawer-hotkeys-btn"
+        data-trigger-hotkeys="true"
+        type="button"
+        class="py-2 px-3 rounded-sm bg-theme-surface border border-theme-border text-xs font-mono text-theme-secondary hover:text-theme-accent hover:border-theme-accent transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+        title="Open Command Matrix"
+      >
+        <span>Hotkeys [?]</span>
+      </button>
+      <button
+        id="mobile-drawer-gpg-btn"
+        data-trigger-gpg="true"
+        type="button"
+        class="py-2 px-3 rounded-sm bg-theme-surface border border-theme-border text-xs font-mono text-theme-secondary hover:text-theme-accent hover:border-theme-accent transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+        title="View GPG Key"
+      >
+        <span>GPG Key [G]</span>
+      </button>
+    </div>
+
     <button
       id="mobile-drawer-resume-btn"
       data-trigger-dossier="true"
@@ -99,6 +120,8 @@
   closeBtn?.addEventListener('click', closeDrawer);
   overlay?.addEventListener('click', closeDrawer);
   document.getElementById('mobile-drawer-resume-btn')?.addEventListener('click', closeDrawer);
+  document.getElementById('mobile-drawer-hotkeys-btn')?.addEventListener('click', closeDrawer);
+  document.getElementById('mobile-drawer-gpg-btn')?.addEventListener('click', closeDrawer);
   navLinks.forEach(link => link.addEventListener('click', closeDrawer));
 
   themePills.forEach(pill => {
