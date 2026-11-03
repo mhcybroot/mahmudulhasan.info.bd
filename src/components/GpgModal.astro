@@ -165,6 +165,7 @@
         document.body.removeChild(ta);
       }
       if (copyGpgBtnText) copyGpgBtnText.textContent = 'COPIED TO BUFFER [OK]';
+      (window as any).__showTelemetryToast?.('FINGERPRINT COPIED!');
       setTimeout(() => {
         if (copyGpgBtnText) copyGpgBtnText.textContent = 'Copy Fingerprint';
       }, 2000);
@@ -193,6 +194,7 @@
         document.body.removeChild(ta);
       }
       if (copyKeyBtnText) copyKeyBtnText.textContent = 'KEY COPIED [OK]';
+      (window as any).__showTelemetryToast?.('KEY COPIED!');
       setTimeout(() => {
         if (copyKeyBtnText) copyKeyBtnText.textContent = 'Copy Key Block';
       }, 2000);

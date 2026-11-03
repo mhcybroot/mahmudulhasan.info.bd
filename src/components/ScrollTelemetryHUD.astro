@@ -38,11 +38,30 @@
   const topBtn = document.getElementById('btn-scroll-top');
 
   let ticking = false;
+  let toastTimer: ReturnType<typeof setTimeout> | null = null;
+
+  (window as any).__showTelemetryToast = (msg: string) => {
+    if (!hud || !altText) return;
+    if (toastTimer) clearTimeout(toastTimer);
+
+    altText.textContent = msg;
+    hud.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+    hud.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+
+    toastTimer = setTimeout(() => {
+      altText.textContent = `${Math.round(window.scrollY)}PX`;
+      if (window.scrollY <= 250) {
+        hud.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+        hud.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      }
+      toastTimer = null;
+    }, 2000);
+  };
 
   function updateScroll() {
     const scrollY = Math.round(window.scrollY);
 
-    if (scrollY > 250) {
+    if (scrollY > 250 || toastTimer) {
       hud?.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
       hud?.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
     } else {
@@ -50,7 +69,7 @@
       hud?.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
     }
 
-    if (altText) {
+    if (altText && !toastTimer) {
       altText.textContent = `${scrollY}PX`;
     }
 

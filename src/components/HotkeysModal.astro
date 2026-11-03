@@ -228,7 +228,9 @@
           if (navigator.share) {
             navigator.share(shareData).catch(() => {});
           } else if (navigator.clipboard) {
-            navigator.clipboard.writeText(window.location.href);
+            navigator.clipboard.writeText(window.location.href).then(() => {
+              (window as any).__showTelemetryToast?.('URL COPIED!');
+            }).catch(() => {});
           }
         }
       } else if (action === 'gpg') {
@@ -299,21 +301,7 @@
           navigator.share(shareData).catch(() => {});
         } else if (navigator.clipboard) {
           navigator.clipboard.writeText(window.location.href).then(() => {
-            const hud = document.getElementById('telemetry-hud');
-            const hudAlt = document.getElementById('telemetry-alt');
-            if (hud && hudAlt) {
-              const prev = hudAlt.textContent;
-              hudAlt.textContent = 'COPIED!';
-              hud.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
-              hud.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
-              setTimeout(() => {
-                if (hudAlt) hudAlt.textContent = prev;
-                if (window.scrollY <= 250) {
-                  hud.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
-                  hud.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-                }
-              }, 2000);
-            }
+            (window as any).__showTelemetryToast?.('URL COPIED!');
           }).catch(() => {});
         }
       }

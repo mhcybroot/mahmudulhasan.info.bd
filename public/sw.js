@@ -1,10 +1,11 @@
 // Ultra-Lightweight Service Worker — Stale-While-Revalidate & Offline Resilience
-const CACHE_NAME = 'mhcybroot-telemetry-v4';
+const CACHE_NAME = 'mhcybroot-telemetry-v5';
 
 const PRECACHE_ASSETS = [
   '/',
   '/404.html',
   '/manifest.json',
+  '/robots.txt',
   '/favicon.ico',
   '/favicon.png',
   '/apple-touch-icon.png',
@@ -13,6 +14,7 @@ const PRECACHE_ASSETS = [
   '/assets/images/avatar.jpg',
   '/mhcybroot-key.asc',
   '/.well-known/security.txt',
+  '/.well-known/ai-catalog.json',
 ];
 
 self.addEventListener('install', (event) => {

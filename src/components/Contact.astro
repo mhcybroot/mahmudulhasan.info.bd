@@ -147,6 +147,7 @@
         document.body.removeChild(ta);
       }
       if (copyBtnText) copyBtnText.textContent = 'COPIED TO BUFFER [OK]';
+      (window as any).__showTelemetryToast?.('EMAIL COPIED!');
       copyBtn?.classList.add('bg-theme-accent', 'border-theme-accent');
       setTimeout(() => {
         if (copyBtnText) copyBtnText.textContent = 'Copy Email';

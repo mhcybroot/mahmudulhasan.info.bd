@@ -7935,6 +7935,7 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
             document.body.removeChild(ta);
           }
           copyCodeBtn.textContent = 'COPIED TO BUFFER [OK]';
+          (window as any).__showTelemetryToast?.('SNIPPET COPIED!');
           setTimeout(() => {
             copyCodeBtn.textContent = 'Copy Snippet';
           }, 2000);
@@ -7972,6 +7973,7 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
             document.body.removeChild(ta);
           }
           if (shareBtnText) shareBtnText.textContent = 'URL COPIED [OK]';
+          (window as any).__showTelemetryToast?.('SPEC URL COPIED!');
           setTimeout(() => {
             if (shareBtnText) shareBtnText.textContent = 'Share Spec';
           }, 2000);
