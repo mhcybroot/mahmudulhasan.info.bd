@@ -215,6 +215,13 @@
     document.getElementById('mobile-drawer-resume-btn'),
   ];
 
+  document.querySelectorAll('[data-trigger-dossier]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
   let lastActiveElement: HTMLElement | null = null;
 
   function openModal() {

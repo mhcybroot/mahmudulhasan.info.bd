@@ -196,6 +196,18 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
 
         <button
           type="button"
+          data-trigger-dossier="true"
+          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-theme-lowest border border-theme-border hover:border-theme-accent text-xs font-mono text-theme-secondary hover:text-theme-primary transition-all font-semibold cursor-pointer"
+          title="View Engineering Resume Dossier (Hotkey: D)"
+        >
+          <svg class="w-3.5 h-3.5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <span>Dossier [D]</span>
+        </button>
+
+        <button
+          type="button"
           id="btn-share-spec"
           class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-theme-lowest border border-theme-border hover:border-theme-accent text-xs font-mono text-theme-secondary hover:text-theme-primary transition-all font-semibold cursor-pointer"
           title="Share Specification (Hotkey: S)"
