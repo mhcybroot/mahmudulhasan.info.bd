@@ -1,8 +1,9 @@
 // Ultra-Lightweight Service Worker — Stale-While-Revalidate & Offline Resilience
-const CACHE_NAME = 'mhcybroot-telemetry-v2';
+const CACHE_NAME = 'mhcybroot-telemetry-v3';
 
 const PRECACHE_ASSETS = [
   '/',
+  '/404.html',
   '/manifest.json',
   '/favicon.ico',
   '/favicon.png',
@@ -52,6 +53,8 @@ self.addEventListener('fetch', (event) => {
         .catch(async () => {
           const cached = await caches.match(request);
           if (cached) return cached;
+          const notFound = await caches.match('/404.html');
+          if (notFound) return notFound;
           return caches.match('/');
         })
     );

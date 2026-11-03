@@ -238,7 +238,12 @@ const modularSystems = [
   </div>
 
   <!-- Spotlight Card: PMS-V2 -->
-  <div class="rounded-sm border-2 border-theme-secondary bg-theme-lowest relative p-5 sm:p-8">
+  <div
+    id="spotlight-pms"
+    data-domain="hardware backend"
+    data-search="mod-00 mod-01 pms-v2 pms autonomous smart parking barrier gate automation engine rust 2024 flutter zkteco adms frigate rtsp modbus postgresql embedded relay"
+    class="rounded-sm border-2 border-theme-secondary bg-theme-lowest relative p-5 sm:p-8"
+  >
     <div class="absolute top-0 right-0 bg-theme-accent text-white px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider">
       DEPLOYED &amp; OPERATIONAL // MOD_ID: PMS-V2.84
     </div>
@@ -337,9 +342,9 @@ const modularSystems = [
         <input
           type="text"
           id="system-search-input"
-          placeholder="Filter 24 systems by stack, protocol or keyword (e.g. Rust, ZKTeco, Three.js)..."
+          placeholder="Filter 25 systems by stack, protocol or keyword (e.g. Rust, ZKTeco, Three.js)..."
           class="w-full pl-9 pr-12 py-2 bg-theme-surface border border-theme-border rounded-sm font-mono text-xs text-theme-primary placeholder-theme-muted focus:outline-none focus:border-theme-accent transition-colors"
-          aria-label="Filter 24 engineered systems"
+          aria-label="Filter 25 engineered systems"
         />
         <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none font-mono text-[10px] text-theme-muted">
           [/]
@@ -349,14 +354,14 @@ const modularSystems = [
       <!-- Live Telemetry Counter -->
       <div class="font-mono text-xs text-theme-muted flex items-center gap-2 shrink-0">
         <span class="inline-block w-2 h-2 rounded-full bg-theme-accent animate-pulse"></span>
-        <span>SHOWING: <strong id="module-counter" class="text-theme-primary">24</strong> / 24 MODULES ACTIVE</span>
+        <span>SHOWING: <strong id="module-counter" class="text-theme-primary">25</strong> / 25 MODULES ACTIVE</span>
       </div>
     </div>
 
     <!-- Category Pills -->
     <div class="flex flex-wrap items-center gap-2 font-mono text-xs pt-2.5 border-t border-theme-border">
       <span class="text-theme-muted text-[10px] uppercase mr-1">Filter Domain:</span>
-      <button type="button" class="sys-filter-pill active px-3 py-1 bg-theme-accent text-white font-semibold rounded-sm transition-all cursor-pointer" data-filter="all">ALL [24]</button>
+      <button type="button" class="sys-filter-pill active px-3 py-1 bg-theme-accent text-white font-semibold rounded-sm transition-all cursor-pointer" data-filter="all">ALL [25]</button>
       <button type="button" class="sys-filter-pill px-3 py-1 bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme-border rounded-sm transition-all cursor-pointer" data-filter="hardware">HARDWARE &amp; IOT</button>
       <button type="button" class="sys-filter-pill px-3 py-1 bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme-border rounded-sm transition-all cursor-pointer" data-filter="backend">BACKEND &amp; RUST/JAVA</button>
       <button type="button" class="sys-filter-pill px-3 py-1 bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme-border rounded-sm transition-all cursor-pointer" data-filter="fintech">FINTECH &amp; COMPLIANCE</button>
@@ -373,7 +378,7 @@ const modularSystems = [
       id="btn-reset-sys-filter"
       class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-theme-accent text-white font-mono text-xs font-bold rounded-sm hover:brightness-110 transition-all cursor-pointer shadow-sm active:scale-95"
     >
-      <span>Reset Filter Criteria [All 24 Systems]</span>
+      <span>Reset Filter Criteria [All 25 Systems]</span>
     </button>
   </div>
 
@@ -417,6 +422,7 @@ const modularSystems = [
   const searchInput = document.getElementById('system-search-input') as HTMLInputElement | null;
   const filterPills = document.querySelectorAll('.sys-filter-pill');
   const cards = document.querySelectorAll('.sys-mod-card') as NodeListOf<HTMLElement>;
+  const spotlightCard = document.getElementById('spotlight-pms');
   const counter = document.getElementById('module-counter');
   const emptyState = document.getElementById('no-systems-found');
   const resetBtn = document.getElementById('btn-reset-sys-filter');
@@ -427,6 +433,20 @@ const modularSystems = [
   function applyFilters() {
     let visibleCount = 0;
     const query = searchQuery.trim().toLowerCase();
+
+    if (spotlightCard) {
+      const spotlightDomains = (spotlightCard.getAttribute('data-domain') || '').split(' ');
+      const spotlightCorpus = spotlightCard.getAttribute('data-search') || '';
+      const matchesSpotlightDomain = activeDomain === 'all' || spotlightDomains.includes(activeDomain);
+      const matchesSpotlightSearch = !query || spotlightCorpus.includes(query);
+
+      if (matchesSpotlightDomain && matchesSpotlightSearch) {
+        spotlightCard.style.display = 'block';
+        visibleCount++;
+      } else {
+        spotlightCard.style.display = 'none';
+      }
+    }
 
     cards.forEach(card => {
       const domain = card.getAttribute('data-domain') || '';
