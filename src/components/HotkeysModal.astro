@@ -40,70 +40,98 @@
     </div>
 
     <!-- Shortcuts List -->
-    <div class="space-y-3 font-mono text-xs text-theme-secondary">
-      <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
+    <div class="space-y-2.5 font-mono text-xs text-theme-secondary">
+      <button
+        type="button"
+        data-action="search"
+        class="cmd-matrix-row w-full flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm hover:border-theme-secondary hover:bg-theme-lowest transition-all text-left cursor-pointer group"
+      >
         <div class="flex items-center gap-2">
-          <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">/</kbd>
-          <span>Instant Filter &amp; Search</span>
+          <kbd class="px-2 py-1 bg-theme-lowest group-hover:bg-theme-surface border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">/</kbd>
+          <span class="text-theme-primary group-hover:text-theme-accent transition-colors font-medium">Instant Filter &amp; Search</span>
         </div>
-        <span class="text-[11px] text-theme-muted">Filters 24 Flagship Modules</span>
-      </div>
+        <span class="text-[11px] text-theme-muted">Filters 25 Flagship Modules</span>
+      </button>
 
-      <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
+      <button
+        type="button"
+        data-action="dossier"
+        class="cmd-matrix-row w-full flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm hover:border-theme-secondary hover:bg-theme-lowest transition-all text-left cursor-pointer group"
+      >
         <div class="flex items-center gap-2">
-          <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">D</kbd>
-          <span>Resume Dossier</span>
+          <kbd class="px-2 py-1 bg-theme-lowest group-hover:bg-theme-surface border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">D</kbd>
+          <span class="text-theme-primary group-hover:text-theme-accent transition-colors font-medium">Resume Dossier</span>
         </div>
         <span class="text-[11px] text-theme-muted">Printable Systems CV</span>
-      </div>
+      </button>
 
-      <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
+      <button
+        type="button"
+        data-action="theme"
+        class="cmd-matrix-row w-full flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm hover:border-theme-secondary hover:bg-theme-lowest transition-all text-left cursor-pointer group"
+      >
         <div class="flex items-center gap-2">
-          <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">T</kbd>
-          <span>Cycle Visual Theme</span>
+          <kbd class="px-2 py-1 bg-theme-lowest group-hover:bg-theme-surface border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">T</kbd>
+          <span class="text-theme-primary group-hover:text-theme-accent transition-colors font-medium">Cycle Visual Theme</span>
         </div>
         <span class="text-[11px] text-theme-muted">6 System Editions</span>
-      </div>
+      </button>
 
-      <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
+      <button
+        type="button"
+        data-action="share"
+        class="cmd-matrix-row w-full flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm hover:border-theme-secondary hover:bg-theme-lowest transition-all text-left cursor-pointer group"
+      >
         <div class="flex items-center gap-2">
-          <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">S</kbd>
-          <span>Share System Spec</span>
+          <kbd class="px-2 py-1 bg-theme-lowest group-hover:bg-theme-surface border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">S</kbd>
+          <span class="text-theme-primary group-hover:text-theme-accent transition-colors font-medium">Share System Spec</span>
         </div>
         <span class="text-[11px] text-theme-muted">Web Share / Copy URL</span>
-      </div>
+      </button>
 
-      <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
+      <button
+        type="button"
+        data-action="gpg"
+        class="cmd-matrix-row w-full flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm hover:border-theme-secondary hover:bg-theme-lowest transition-all text-left cursor-pointer group"
+      >
         <div class="flex items-center gap-2">
-          <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">G</kbd>
-          <span>GPG Key &amp; Fingerprint</span>
+          <kbd class="px-2 py-1 bg-theme-lowest group-hover:bg-theme-surface border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">G</kbd>
+          <span class="text-theme-primary group-hover:text-theme-accent transition-colors font-medium">GPG Key &amp; Fingerprint</span>
         </div>
         <span class="text-[11px] text-theme-muted">Cryptographic Proof</span>
-      </div>
+      </button>
 
-      <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
+      <button
+        type="button"
+        data-action="flip"
+        class="cmd-matrix-row w-full flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm hover:border-theme-secondary hover:bg-theme-lowest transition-all text-left cursor-pointer group"
+      >
         <div class="flex items-center gap-2">
           <div class="flex items-center gap-1">
-            <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">[</kbd>
-            <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">]</kbd>
+            <kbd class="px-2 py-1 bg-theme-lowest group-hover:bg-theme-surface border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">[</kbd>
+            <kbd class="px-2 py-1 bg-theme-lowest group-hover:bg-theme-surface border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">]</kbd>
           </div>
-          <span>Prev / Next System</span>
+          <span class="text-theme-primary group-hover:text-theme-accent transition-colors font-medium">Prev / Next System</span>
         </div>
         <span class="text-[11px] text-theme-muted">Case Study Terminal Flip</span>
-      </div>
+      </button>
 
-      <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
+      <button
+        type="button"
+        data-action="jump"
+        class="cmd-matrix-row w-full flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm hover:border-theme-secondary hover:bg-theme-lowest transition-all text-left cursor-pointer group"
+      >
         <div class="flex items-center gap-2">
-          <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">1-6</kbd>
-          <span>Jump to Division</span>
+          <kbd class="px-2 py-1 bg-theme-lowest group-hover:bg-theme-surface border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">1-6</kbd>
+          <span class="text-theme-primary group-hover:text-theme-accent transition-colors font-medium">Jump to Division</span>
         </div>
         <span class="text-[11px] text-theme-muted">Direct Section Teleport</span>
-      </div>
+      </button>
 
       <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
         <div class="flex items-center gap-2">
           <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">?</kbd>
-          <span>Toggle This Matrix</span>
+          <span class="text-theme-primary font-medium">Toggle This Matrix</span>
         </div>
         <span class="text-[11px] text-theme-muted">Command Palette</span>
       </div>
@@ -111,7 +139,7 @@
       <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
         <div class="flex items-center gap-2">
           <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">Esc</kbd>
-          <span>Dismiss Dialog</span>
+          <span class="text-theme-primary font-medium">Dismiss Dialog</span>
         </div>
         <span class="text-[11px] text-theme-muted">Closes Active Modal</span>
       </div>
@@ -161,6 +189,62 @@
   dismissHotkeysBtn?.addEventListener('click', closeHotkeys);
   hotkeysBackdrop?.addEventListener('click', closeHotkeys);
   footerTrigger?.addEventListener('click', openHotkeys);
+
+  document.querySelectorAll('.cmd-matrix-row').forEach((row) => {
+    row.addEventListener('click', () => {
+      const action = row.getAttribute('data-action');
+      closeHotkeys();
+
+      if (action === 'search') {
+        const searchInput = document.getElementById('system-search-input');
+        if (searchInput) {
+          document.getElementById('systems')?.scrollIntoView({ behavior: 'smooth' });
+          searchInput.focus();
+        } else {
+          window.location.href = '/?focusSearch=1#systems';
+        }
+      } else if (action === 'dossier') {
+        const resumeBtn = document.getElementById('nav-resume-btn') || document.getElementById('hero-resume-btn');
+        resumeBtn?.click();
+      } else if (action === 'theme') {
+        const themes = ['swiss', 'obsidian', 'amber', 'synthwave', 'emerald', 'cleanroom'];
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'swiss';
+        const nextTheme = themes[(themes.indexOf(currentTheme) + 1) % themes.length];
+        const switcherBtn = document.querySelector(`.theme-dropdown-btn[data-theme="${nextTheme}"]`) as HTMLElement;
+        if (switcherBtn) switcherBtn.click();
+      } else if (action === 'share') {
+        const specShareBtn = document.getElementById('btn-share-spec');
+        if (specShareBtn) {
+          specShareBtn.click();
+        } else {
+          const shareData = { title: document.title, url: window.location.href };
+          if (navigator.share) {
+            navigator.share(shareData).catch(() => {});
+          } else if (navigator.clipboard) {
+            navigator.clipboard.writeText(window.location.href);
+          }
+        }
+      } else if (action === 'gpg') {
+        const gpgBtn = document.querySelector('[data-trigger-gpg="true"]') as HTMLElement;
+        gpgBtn?.click();
+      } else if (action === 'flip') {
+        const nextBtn = document.getElementById('btn-next-system') as HTMLAnchorElement;
+        if (nextBtn) {
+          nextBtn.click();
+        } else {
+          window.location.href = '/#systems';
+        }
+      } else if (action === 'jump') {
+        const systemsEl = document.getElementById('systems');
+        if (systemsEl) {
+          systemsEl.scrollIntoView({ behavior: 'smooth' });
+          history.pushState(null, '', '#systems');
+        } else {
+          window.location.href = '/#systems';
+        }
+      }
+    });
+  });
 
   const sectionKeyMap: Record<string, string> = {
     '1': 'systems',

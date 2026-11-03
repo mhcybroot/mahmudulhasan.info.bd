@@ -48,6 +48,11 @@
       "description": "Executive Engineering Resume & Architecture Dossier"
     },
     {
+      "name": "Search 25 Systems",
+      "url": "/?focusSearch=1#systems",
+      "description": "Instant filter and search 25 engineered modules"
+    },
+    {
       "name": "Direct Transmission",
       "url": "/#contact",
       "description": "Initiate direct engineering connection"
