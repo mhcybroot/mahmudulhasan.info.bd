@@ -138,6 +138,7 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
   description={pageDescription}
   canonicalURL={`https://mahmudulhasan.info.bd/systems/${data.slug}`}
   type="article"
+  date={data.date}
 >
   <Fragment slot="head">
     <link rel="prev" href={`https://mahmudulhasan.info.bd/systems/${prevProject.slug}`} />

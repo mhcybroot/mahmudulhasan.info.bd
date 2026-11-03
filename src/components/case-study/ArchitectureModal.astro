@@ -83,10 +83,10 @@ const { id = 'arch-node-modal' } = Astro.props;
         if (badgeEl) badgeEl.textContent = nodeBadge;
         if (bodyEl) {
           bodyEl.innerHTML = `
-            <p class="font-mono text-slate-200">${nodeDesc}</p>
-            <div class="mt-3 p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-emerald-400">
+            <p class="font-mono text-theme-secondary text-sm leading-relaxed">${nodeDesc}</p>
+            <div class="mt-3 p-3 rounded-sm bg-theme-lowest border border-theme-border font-mono text-xs text-emerald-600 dark:text-emerald-400">
               $ cat /proc/sys/kernel/sched_latency_ns
-              <br/><span class="text-slate-400">Hardware Allocation: Bounded memory slice without heap reallocation.</span>
+              <br/><span class="text-theme-muted">Hardware Allocation: Bounded memory slice without heap reallocation.</span>
             </div>
           `;
         }

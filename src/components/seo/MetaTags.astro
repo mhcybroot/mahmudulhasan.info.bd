@@ -5,6 +5,7 @@ interface Props {
   image?: string;
   canonicalURL?: string;
   type?: string;
+  date?: string;
 }
 
 const {
@@ -13,6 +14,7 @@ const {
   image = "https://mahmudulhasan.info.bd/og-image.png",
   canonicalURL = "https://mahmudulhasan.info.bd",
   type = "website",
+  date,
 } = Astro.props;
 ---
 
@@ -31,6 +33,12 @@ const {
 <meta property="og:description" content={description} />
 <meta property="og:image" content={image} />
 <meta property="og:site_name" content="Mahmudul Hasan (@mhcybroot)" />
+{type === 'article' && date && (
+  <meta property="article:published_time" content={new Date(date).toISOString()} />
+)}
+{type === 'article' && (
+  <meta property="article:author" content="https://mahmudulhasan.info.bd/#person" />
+)}
 
 <!-- Twitter / X -->
 <meta property="twitter:card" content="summary_large_image" />
