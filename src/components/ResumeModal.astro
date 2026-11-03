@@ -262,20 +262,28 @@
 
 <style>
   @media print {
-    :global(body) {
-      background: #ffffff !important;
-      color: #000000 !important;
+    /* When modal is hidden, do NOT display it in print */
+    #resume-modal.hidden {
+      display: none !important;
     }
-    :global(header),
-    :global(footer),
-    :global(main),
-    :global(aside),
+
+    /* When modal is open (active print of dossier), hide background app elements */
+    body:has(#resume-modal:not(.hidden)) :global(header),
+    body:has(#resume-modal:not(.hidden)) :global(footer),
+    body:has(#resume-modal:not(.hidden)) :global(main),
+    body:has(#resume-modal:not(.hidden)) :global(aside),
     #resume-modal-backdrop,
     #resume-modal-close,
     #btn-print-dossier {
       display: none !important;
     }
-    #resume-modal {
+
+    body:has(#resume-modal:not(.hidden)) {
+      background: #ffffff !important;
+      color: #000000 !important;
+    }
+
+    body:has(#resume-modal:not(.hidden)) #resume-modal {
       position: static !important;
       display: block !important;
       padding: 0 !important;
@@ -288,7 +296,8 @@
       border: none !important;
       background: #ffffff !important;
     }
-    #resume-modal > div {
+
+    body:has(#resume-modal:not(.hidden)) #resume-modal > div {
       border: none !important;
       box-shadow: none !important;
       max-height: none !important;

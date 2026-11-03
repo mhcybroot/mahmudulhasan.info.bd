@@ -116,6 +116,20 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
       ::-webkit-scrollbar-thumb:hover {
         background: var(--border-strong);
       }
+
+      @media print {
+        #theme-switcher-container,
+        #theme-dropdown-menu,
+        #mobile-menu-toggle,
+        #mobile-drawer,
+        #mobile-drawer-overlay,
+        #hotkeys-modal,
+        #gpg-modal,
+        #reading-progress-bar,
+        .theme-glow-sphere {
+          display: none !important;
+        }
+      }
     </style>
 
     <!-- Telemetry Service Worker Registration (Offline Resilience) -->
