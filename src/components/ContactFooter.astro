@@ -19,7 +19,7 @@
 
     <!-- Primary Contact Route Box -->
     <!--email_off-->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center bg-theme-lowest border border-theme-border p-4 sm:p-5 rounded-sm">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center bg-[#eff4ff] dark:bg-theme-lowest border border-theme-border p-4 sm:p-5 rounded-sm">
       <div class="md:col-span-8 flex flex-col">
         <span class="font-mono text-[10px] text-theme-muted uppercase mb-1">PRIMARY INBOX (ENCRYPTED ROUTE):</span>
         <span id="footer-contact-email" class="font-mono text-sm sm:text-lg font-bold text-theme-primary select-all">
@@ -103,27 +103,27 @@
   </div>
 
   <!-- Swiss Architectural Blueprint Footer -->
-  <footer class="mt-12 pt-6 border-t border-theme-border flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono">
+  <footer class="mt-12 rounded-sm border-t-2 border-theme-secondary bg-theme-secondary text-white p-6 sm:p-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs font-mono shadow-sm">
     <div class="flex flex-col items-center md:items-start">
-      <span class="font-bold uppercase tracking-wider text-theme-primary">
+      <span class="font-bold uppercase tracking-wider text-white text-sm">
         MH // SYS-ARCH
       </span>
-      <div class="text-[10px] text-theme-muted mt-0.5">
+      <div class="text-[11px] text-slate-300 mt-1">
         [SPEC-V4.2] MH // CYBROOT • ZERO-FAULT TOLERANCE
       </div>
     </div>
 
-    <div class="flex flex-wrap items-center justify-center gap-4 text-[11px] uppercase tracking-wider text-theme-muted">
-      <a class="hover:text-theme-accent transition-colors" href="#systems">Flagship Specs</a>
-      <span>•</span>
-      <a class="hover:text-theme-accent transition-colors" href="#deployments">Root Deployments</a>
-      <span>•</span>
-      <a class="hover:text-theme-accent transition-colors" href="#arsenal">IoT Schematics</a>
-      <span>•</span>
-      <a class="hover:text-theme-accent transition-colors" href="#chronicle">Audit Chronicle</a>
+    <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-[11px] uppercase tracking-wider text-slate-300">
+      <a class="hover:text-theme-accent hover:underline transition-colors" href="#systems">Flagship Specs</a>
+      <span class="text-slate-500">•</span>
+      <a class="hover:text-theme-accent hover:underline transition-colors" href="#deployments">Root Deployments</a>
+      <span class="text-slate-500">•</span>
+      <a class="hover:text-theme-accent hover:underline transition-colors" href="#arsenal">IoT Schematics</a>
+      <span class="text-slate-500">•</span>
+      <a class="hover:text-theme-accent hover:underline transition-colors" href="#chronicle">Audit Chronicle</a>
     </div>
 
-    <div class="text-theme-muted text-[11px] text-center md:text-right">
+    <div class="text-slate-300 text-[11px] text-center md:text-right">
       © {new Date().getFullYear()} Mahmudul Hasan (@mhcybroot)
     </div>
   </footer>
@@ -141,43 +141,6 @@
       setTimeout(() => {
         if (copyBtnText) copyBtnText.textContent = 'Copy Email';
         copyBtn?.classList.remove('bg-theme-accent', 'border-theme-accent');
-      }, 2000);
-    } catch (err) {
-      console.error('Failed to copy email: ', err);
-    }
-  });
-</script>
-        <span>Based in Dhaka (UTC+6) • Available Worldwide</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bottom Copyright & Architecture Notice -->
-  <footer class="mt-12 pt-6 border-t border-theme-border/60 flex flex-col sm:flex-row items-center justify-between text-xs text-theme-muted font-mono gap-4">
-    <div>
-      <span class="text-theme-secondary font-semibold">~/mhcybroot</span> © {new Date().getFullYear()} Mahmudul Hasan. Systems Architecture & Infrastructure.
-    </div>
-    <div class="flex items-center gap-4 text-theme-muted">
-      <span>Built with Astro & Tailwind</span>
-      <span>•</span>
-      <span>Cloudflare Edge Network</span>
-    </div>
-  </footer>
-</section>
-
-<script>
-  const copyBtn = document.getElementById('btn-copy-email');
-  const copyBtnText = document.getElementById('copy-btn-text');
-  const copyIcon = document.getElementById('copy-icon');
-
-  copyBtn?.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText('info@mahmudulhasan.info.bd');
-      if (copyBtnText) copyBtnText.textContent = 'Copied!';
-      copyBtn?.classList.add('text-theme-secondaryAccent', 'border-theme-secondaryAccent');
-      setTimeout(() => {
-        if (copyBtnText) copyBtnText.textContent = 'Copy Email';
-        copyBtn?.classList.remove('text-theme-secondaryAccent', 'border-theme-secondaryAccent');
       }, 2000);
     } catch (err) {
       console.error('Failed to copy email: ', err);

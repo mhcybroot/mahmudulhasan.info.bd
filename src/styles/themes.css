@@ -37,6 +37,10 @@
   --terminal-bar: #131B2E;
 }
 
+[data-theme="swiss"] .theme-glow-sphere, :root:not([data-theme]) .theme-glow-sphere {
+  display: none !important;
+}
+
 /* Obsidian Telemetry (Deep Slate & Cyan HUD) */
 [data-theme="obsidian"] {
   --bg-base: #090D16;

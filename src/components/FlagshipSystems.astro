@@ -16,164 +16,98 @@
     </div>
   </div>
 
-  <!-- Spotlight Hero Card: PMS-V2 (Smart Parking Engine) -->
-  <div class="rounded-sm border-2 border-theme-secondary bg-theme-surface overflow-hidden transition-all duration-300 hover:border-theme-accent relative shadow-sm">
-    <!-- Spotlight Top Bar -->
-    <div class="p-5 sm:p-6 border-b border-theme-border flex flex-wrap items-center justify-between gap-4 bg-theme-lowest">
-      <div class="space-y-1">
-        <div class="flex items-center gap-3 flex-wrap">
-          <span class="font-mono text-[11px] text-theme-muted block">SYSTEM SCHEMATIC 001</span>
-          <h3 class="text-xl sm:text-2xl font-bold text-theme-primary">PMS-V2: Autonomous Smart Parking &amp; Barrier Gate Engine</h3>
-          <span class="px-2 py-0.5 rounded-sm text-white bg-theme-accent font-mono text-xs font-bold uppercase tracking-wider">
-            DEPLOYED &amp; OPERATIONAL // MOD_ID: PMS-V2.84
-          </span>
-        </div>
-        <p class="text-xs sm:text-sm text-theme-muted">High-throughput embedded barrier gate automation platform engineered to eliminate parking fee leakage and manual ticket delays 100% via instant Bangla BRTA ANPR.</p>
-      </div>
-
-      <!-- Low-Latency Badges & Case Study Link -->
-      <div class="flex items-center gap-2.5 flex-wrap">
-        <span class="px-2.5 py-1 rounded-sm bg-theme-surface border border-theme-border font-mono text-xs text-theme-accent font-semibold">&lt;0.84s Instant Gate Open</span>
-        <span class="px-2.5 py-1 rounded-sm bg-theme-surface border border-theme-border font-mono text-xs text-theme-secondary font-semibold">100% Leak-Proof Billing</span>
-        <a
-          href="/systems/pms-v2"
-          class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-sm bg-theme-secondary text-white border border-theme-secondary text-xs font-mono font-semibold transition-all hover:brightness-110 shadow-sm"
-        >
-          <span>Read Full Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
+  <!-- Spotlight Card: PMS-V2 -->
+  <div class="rounded-sm border-2 border-theme-secondary bg-theme-lowest relative p-5 sm:p-8">
+    <div class="absolute top-0 right-0 bg-theme-accent text-white px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider">
+      DEPLOYED &amp; OPERATIONAL // MOD_ID: PMS-V2.84
     </div>
-
-    <!-- Interactive Two-Tab Spec View -->
-    <div class="p-5 sm:p-6 space-y-6">
-      <!-- Tab Controls -->
-      <div class="flex border-b border-theme-border gap-6 text-sm">
-        <button
-          type="button"
-          id="btn-tab-arch"
-          class="pb-2.5 text-theme-accent border-b-2 border-theme-accent font-medium flex items-center gap-2 transition-all cursor-pointer"
-        >
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-          </svg>
-          <span>How It Works (System Flow)</span>
-        </button>
-        <button
-          type="button"
-          id="btn-tab-telemetry"
-          class="pb-2.5 text-theme-muted hover:text-theme-primary border-b-2 border-transparent font-medium flex items-center gap-2 transition-all cursor-pointer"
-        >
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          <span>Live Production Activity Feed</span>
-          <span class="w-2 h-2 rounded-full bg-theme-secondaryAccent animate-pulse"></span>
-        </button>
-      </div>
-
-      <!-- Tab Content 1: Topology Microservices Node Map -->
-      <div id="content-tab-arch" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 transition-all">
-        <!-- Stage 01 -->
-        <div class="p-4 rounded-2xl bg-theme-base border border-theme-border space-y-2 hover:border-theme-accent/50 hover:-translate-y-1 transition-all group">
-          <div class="flex items-center justify-between text-theme-accent font-mono text-[10px] uppercase tracking-wider">
-            <span>STAGE 01: SMART DETECTION</span>
-            <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-            </svg>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-3 sm:mt-0">
+      <div class="lg:col-span-7 flex flex-col justify-between space-y-4">
+        <div>
+          <span class="font-mono text-xs text-theme-muted block mb-1">SYSTEM SCHEMATIC 001</span>
+          <h3 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-theme-primary mb-3">
+            PMS-V2: Autonomous Smart Parking &amp; Barrier Gate Automation Engine
+          </h3>
+          <p class="text-sm sm:text-base text-theme-secondary leading-relaxed mb-4">
+            High-throughput embedded barrier gate automation platform engineered to eliminate parking fee leakage and manual ticket theft 100%. Orchestrates ZKTeco ADMS hardware relays, Bangla BRTA-compliant automatic license plate recognition (Frigate RTSP), and local edge fallback storage.
+          </p>
+          <!-- Key Specs Badges -->
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="font-mono text-xs px-2.5 py-1 bg-theme-surface border border-theme-border text-theme-primary">● Stops Fee Leakage 100%</span>
+            <span class="font-mono text-xs px-2.5 py-1 bg-theme-surface border border-theme-border text-theme-primary">● Anti-Tailgating RFID Relays</span>
+            <span class="font-mono text-xs px-2.5 py-1 bg-theme-surface border border-theme-border text-theme-primary">● Zero Cloud Dependency (Dual Local DB)</span>
+            <span class="font-mono text-xs px-2.5 py-1 bg-theme-accent text-white font-bold border border-theme-accent">● &lt;0.84s Barrier Response</span>
           </div>
-          <div class="font-mono text-sm text-theme-primary font-semibold">Frigate AI Camera OCR</div>
-          <p class="text-xs text-theme-muted leading-relaxed">Identifies Bangladeshi and international license plates in milliseconds, even in rain or low night light.</p>
         </div>
 
-        <!-- Stage 02 -->
-        <div class="p-4 rounded-2xl bg-theme-base border border-theme-border space-y-2 hover:border-theme-secondaryAccent/50 hover:-translate-y-1 transition-all group">
-          <div class="flex items-center justify-between text-theme-secondaryAccent font-mono text-[10px] uppercase tracking-wider">
-            <span>STAGE 02: INSTANT DECISION</span>
-            <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-            </svg>
+        <!-- Technology Tags & Case Study Link -->
+        <div class="pt-4 border-t border-theme-border flex flex-wrap items-center justify-between gap-3">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="font-mono text-xs text-theme-muted uppercase">Stack:</span>
+            <span class="font-mono text-xs px-2 py-0.5 bg-theme-surface text-theme-primary border border-theme-border">Rust 2024</span>
+            <span class="font-mono text-xs px-2 py-0.5 bg-theme-surface text-theme-primary border border-theme-border">Flutter Desktop</span>
+            <span class="font-mono text-xs px-2 py-0.5 bg-theme-surface text-theme-primary border border-theme-border">ZKTeco ADMS</span>
+            <span class="font-mono text-xs px-2 py-0.5 bg-theme-surface text-theme-primary border border-theme-border">Frigate AI RTSP</span>
+            <span class="font-mono text-xs px-2 py-0.5 bg-theme-surface text-theme-primary border border-theme-border">RS485 Modbus</span>
+            <span class="font-mono text-xs px-2 py-0.5 bg-theme-surface text-theme-primary border border-theme-border">PostgreSQL</span>
           </div>
-          <div class="font-mono text-sm text-theme-primary font-semibold">Rust Concurrency Core</div>
-          <p class="text-xs text-theme-muted leading-relaxed">Checks subscriptions, tariffs, and parking slot availability in under 50ms without server slowdowns.</p>
-        </div>
-
-        <!-- Stage 03 -->
-        <div class="p-4 rounded-2xl bg-theme-base border border-theme-border space-y-2 hover:border-theme-accent/50 hover:-translate-y-1 transition-all group">
-          <div class="flex items-center justify-between text-theme-accent font-mono text-[10px] uppercase tracking-wider">
-            <span>STAGE 03: GATE AUTOMATION</span>
-            <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+          <a
+            href="/systems/pms-v2"
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-theme-secondary text-white border border-theme-secondary text-xs font-mono font-semibold transition-all hover:brightness-110 shadow-sm"
+          >
+            <span>Read Case Study</span>
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
-          </div>
-          <div class="font-mono text-sm text-theme-primary font-semibold">Relay & Safety Sensors</div>
-          <p class="text-xs text-theme-muted leading-relaxed">Signals physical barrier gates to lift immediately, with ground loop safety sensors that never hit a car or person.</p>
-        </div>
-
-        <!-- Stage 04 -->
-        <div class="p-4 rounded-2xl bg-theme-base border border-theme-border space-y-2 hover:border-theme-primary/50 hover:-translate-y-1 transition-all group">
-          <div class="flex items-center justify-between text-theme-muted font-mono text-[10px] uppercase tracking-wider">
-            <span>STAGE 04: ZERO LEAKAGE</span>
-            <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7M4 7c0-2 1.5-3 3.5-3h9c2 0 3.5 1 3.5 3M4 7h16m-16 5h16" />
-            </svg>
-          </div>
-          <div class="font-mono text-sm text-theme-primary font-semibold">PostgreSQL Audit Ledger</div>
-          <p class="text-xs text-theme-muted leading-relaxed">Every vehicle entry, exit, payment, and discount is permanently recorded, stopping cash theft or employee manipulation.</p>
+          </a>
         </div>
       </div>
 
-      <!-- Tab Content 2: Live Telemetry Stream Terminal -->
-      <div id="content-tab-telemetry" class="hidden rounded-2xl bg-theme-base border border-theme-border p-4 font-mono text-xs space-y-2 overflow-x-auto shadow-inner">
-        <div class="text-theme-muted border-b border-theme-border pb-2 mb-2 flex justify-between items-center text-[11px]">
-          <span class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-theme-secondaryAccent animate-ping"></span>
-            <span>[PARKING-CONTROLLER-LOG: lane01.commercial.prod]</span>
-          </span>
-          <span class="text-theme-secondaryAccent flex items-center gap-1.5">
-            <span>HARDWARE STATUS: HEALTHY</span>
-            <span class="text-theme-border">|</span>
-            <span class="text-theme-accent">TOKIO REACTOR 16 CORES</span>
-          </span>
+      <!-- Embedded Telemetry Diagram Box -->
+      <div class="lg:col-span-5 bg-[#eff4ff] dark:bg-theme-surface border border-theme-border p-5 flex flex-col justify-between font-mono text-xs rounded-sm">
+        <div>
+          <div class="flex items-center justify-between border-b border-theme-border pb-2 mb-3">
+            <span class="font-bold text-theme-primary uppercase">Hardware Bus Telemetry</span>
+            <span class="text-theme-accent font-semibold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-theme-accent animate-pulse"></span>
+              ACTIVE REALTIME
+            </span>
+          </div>
+          <div class="space-y-2 text-theme-secondary font-mono">
+            <div class="flex justify-between py-1.5 border-b border-theme-border/60">
+              <span class="text-theme-muted">ACTUATOR BUS:</span>
+              <span class="text-theme-primary font-bold">Modbus RTU / RS485 [PORT COM3]</span>
+            </div>
+            <div class="flex justify-between py-1.5 border-b border-theme-border/60">
+              <span class="text-theme-muted">ANPR RECOGNITION:</span>
+              <span class="text-theme-primary font-bold">Bangla BRTA OCR / RTSP 30 FPS</span>
+            </div>
+            <div class="flex justify-between py-1.5 border-b border-theme-border/60">
+              <span class="text-theme-muted">BARRIER RESPONSE:</span>
+              <span class="text-theme-accent font-bold">0.824s [TARGET: &lt;1.0s]</span>
+            </div>
+            <div class="flex justify-between py-1.5 border-b border-theme-border/60">
+              <span class="text-theme-muted">VEHICLES LOGGED:</span>
+              <span class="text-theme-primary font-bold">1,420,000+ AUDITED</span>
+            </div>
+          </div>
         </div>
-        <div class="space-y-1.5 text-xs text-theme-secondary">
-          <div><span class="text-theme-muted">14:02:18.004</span> [SMART-CAMERA] Inbound vehicle detected in Lane 01 (Confidence: 0.984)</div>
-          <div class="text-theme-accent"><span class="text-theme-muted">14:02:18.012</span> [PLATE-READER] Plate identified: <span class="text-theme-secondaryAccent font-bold">DHK-METRO-GA-44-2190</span> (Speed: 0.048ms)</div>
-          <div><span class="text-theme-muted">14:02:18.018</span> [SECURITY-CHECK] Anti-passback verification: <span class="text-theme-secondaryAccent">PASSED</span> (Valid entry authorization)</div>
-          <div class="text-theme-secondaryAccent"><span class="text-theme-muted">14:02:18.022</span> [BILLING-ENGINE] Tariff calculated: Commercial Standard Hourly Rate</div>
-          <div class="text-theme-accent"><span class="text-theme-muted">14:02:18.029</span> [GATE-CONTROLLER] Dispatching pulse: OPEN barrier gate 01</div>
-          <div class="text-theme-secondaryAccent font-medium"><span class="text-theme-muted">14:02:18.079</span> [SYSTEM-AUDIT] Barrier fully raised. Lane entry event committed to financial database tx-1049221.</div>
-        </div>
-        <div class="pt-2 text-theme-accent text-[11px] flex items-center gap-1">
-          <span>&gt; listening on /dev/ttyUSB0 (9600-8-N-1)</span>
-          <span class="inline-block w-2 h-3.5 bg-theme-accent animate-pulse"></span>
-        </div>
-      </div>
-
-      <!-- Tech Stack Badges & Metrics -->
-      <div class="flex flex-wrap items-center justify-between pt-4 border-t border-theme-border gap-3">
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="px-2.5 py-1 rounded-lg bg-theme-base border border-theme-border font-mono text-xs text-theme-primary">Rust 2024</span>
-          <span class="px-2.5 py-1 rounded-lg bg-theme-base border border-theme-border font-mono text-xs text-theme-primary">Axum 0.8</span>
-          <span class="px-2.5 py-1 rounded-lg bg-theme-base border border-theme-border font-mono text-xs text-theme-primary">Tokio Async</span>
-          <span class="px-2.5 py-1 rounded-lg bg-theme-base border border-theme-border font-mono text-xs text-theme-primary">SeaORM</span>
-          <span class="px-2.5 py-1 rounded-lg bg-theme-base border border-theme-border font-mono text-xs text-theme-primary">PostgreSQL 16</span>
-          <span class="px-2.5 py-1 rounded-lg bg-theme-base border border-theme-border font-mono text-xs text-theme-primary">Flutter POS</span>
-        </div>
-        <div class="flex items-center gap-4 font-mono text-xs text-theme-muted">
-          <span class="flex items-center gap-1.5"><span class="text-theme-accent">⚡</span> 12 Sub-daemons</span>
-          <span class="flex items-center gap-1.5 text-theme-secondaryAccent"><span class="w-1.5 h-1.5 rounded-full bg-theme-secondaryAccent"></span> 0 Drops Under 10k RPS</span>
+        <div class="mt-4 pt-3 border-t border-theme-border bg-theme-lowest p-2.5 border border-theme-border">
+          <span class="text-theme-muted block text-[9px] uppercase font-mono">Cryptographic Integrity Stamp:</span>
+          <span class="text-theme-primary font-mono text-[10px] break-all">SHA256: 7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069</span>
+          <div class="mt-1.5 flex items-center justify-between text-[10px] font-mono">
+            <span class="text-theme-accent font-bold">STATUS: ZERO FAULT VERIFIED</span>
+            <span class="text-theme-muted">CLK: 120MHz</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Split Row Below: Card A (Enterprise HRMS) & Card B (Activity Monitor) -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Split Row Below: Card A (Enterprise HRMS) & Card B (Activity Monitor) -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <!-- Card A: Enterprise Skylink HRMS Suite -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -192,7 +126,7 @@
       </p>
 
       <!-- Packet Trace Preview Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>HIGH-VOLUME WORKER RUSH INGESTION</span>
           <span class="text-theme-secondaryAccent font-bold">ZERO LOST PUNCHES</span>
@@ -204,14 +138,14 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Java 21 LTS</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">ZKTeco ADMS</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Payroll</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21 LTS</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">ZKTeco ADMS</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Payroll</span>
         </div>
         <a
           href="/systems/skylink-hrms"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -222,7 +156,7 @@
     </div>
 
     <!-- Card B: Workstation Activity Monitor -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -241,7 +175,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>EFFICIENCY & DATA PRIVACY</span>
           <span class="text-theme-secondaryAccent font-bold">&lt;0.01% CPU IMPACT</span>
@@ -253,14 +187,14 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Rust 2024</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">WebSockets</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">&lt; 14MB RAM</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Rust 2024</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">WebSockets</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">&lt; 14MB RAM</span>
         </div>
         <a
           href="/systems/skylink-monitor"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -271,7 +205,7 @@
     </div>
 
     <!-- Card C: Swift PDF Studio (Financial Wire Redaction & Typography Engine) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -290,7 +224,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>PRECISION &amp; SECURITY</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 120ms PIPELINE</span>
@@ -302,14 +236,14 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Python 3.12</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">PyMuPDF fitz</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Flutter</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">BiDi RTL</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Python 3.12</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PyMuPDF fitz</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">BiDi RTL</span>
         </div>
         <a
           href="/systems/swift-pdf-editor"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -320,7 +254,7 @@
     </div>
 
     <!-- Card D: ImageUpscale Pro (Photo & Document Quality Enhancer) -->
-    <div class="p-6 rounded-3xl border border-cyan-500/40 bg-theme-card backdrop-blur-md space-y-4 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -338,7 +272,7 @@
       </p>
 
       <!-- Human-Centric Value Highlights Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>HARDWARE SIMD ACCELERATION</span>
           <span class="text-emerald-400 font-bold">292 PHOTOS / SEC</span>
@@ -350,9 +284,9 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Rust 2021</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">SIMD AVX2</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Rayon Concurrency</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Rust 2021</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">SIMD AVX2</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Rayon Concurrency</span>
         </div>
         <a
           href="/systems/image-upscale-simd"
@@ -367,7 +301,7 @@
     </div>
 
     <!-- Card: HomeSync IoT (Interactive 3D Smart Home Floorplan & Digital Twin) -->
-    <div class="p-6 rounded-3xl border border-cyan-500/40 bg-theme-card backdrop-blur-md space-y-4 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -386,7 +320,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>REAL-TIME 3D LIGHTING &amp; SENSORS</span>
           <span class="text-emerald-400 font-bold">60 FPS LOCKED</span>
@@ -398,10 +332,10 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">React 19</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Three.js</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">React Three Fiber</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Matter 3.0</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">React 19</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Three.js</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">React Three Fiber</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Matter 3.0</span>
         </div>
         <a
           href="/systems/homesync-iot"
@@ -416,7 +350,7 @@
     </div>
 
     <!-- Card E: Marksheet Automation Engine (Academic Tabulation & Merit Order Compiler) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -435,7 +369,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>HIGH-THROUGHPUT COMPILATION</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 42ms BATCH PASS</span>
@@ -447,14 +381,14 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Node.js 22</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Prisma ORM</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">SheetJS (xlsx)</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">PDFKit Vector</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Node.js 22</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Prisma ORM</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">SheetJS (xlsx)</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PDFKit Vector</span>
         </div>
         <a
           href="/systems/marksheets-automation"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -465,7 +399,7 @@
     </div>
 
     <!-- Card F: EduMeet WebRTC (Virtual Classroom & Live Lecture Platform) -->
-    <div class="p-6 rounded-3xl border border-cyan-500/40 bg-theme-card backdrop-blur-md space-y-4 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -484,7 +418,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>LOW-BANDWIDTH OPTIMIZATION</span>
           <span class="text-emerald-400 font-bold">&lt; 95ms LATENCY</span>
@@ -496,10 +430,10 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">WebRTC</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Jitsi Core</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Firestore</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">WebRTC</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Jitsi Core</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Firestore</span>
         </div>
         <a
           href="/systems/edumeet-webrtc"
@@ -514,7 +448,7 @@
     </div>
 
     <!-- Card G: SmartAI (Mobile Edge Vision & Geofenced Attendance) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -533,7 +467,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>ZERO CLOUD DATA CONSUMPTION</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 340ms SCAN</span>
@@ -545,15 +479,15 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Kotlin 2.0</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Jetpack Compose</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">CameraX</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">ML Kit</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Room DB</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Kotlin 2.0</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Jetpack Compose</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">CameraX</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">ML Kit</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Room DB</span>
         </div>
         <a
           href="/systems/smartai-edge-vision"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -564,7 +498,7 @@
     </div>
 
     <!-- Card H: SecureNotes (Encrypted Knowledge Base & RBAC Engine) -->
-    <div class="p-6 rounded-3xl border border-cyan-500/40 bg-theme-card backdrop-blur-md space-y-4 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -583,7 +517,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>HIGH-THROUGHPUT COMPOUND INDEX</span>
           <span class="text-emerald-400 font-bold">&lt; 4.8ms QUERY</span>
@@ -595,11 +529,11 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">NestJS 10</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">TypeScript</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Mongoose</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">JWT RBAC</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Docker Compose</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">NestJS 10</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">TypeScript</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Mongoose</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">JWT RBAC</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Docker Compose</span>
         </div>
         <a
           href="/systems/secure-notes-cloud"
@@ -614,7 +548,7 @@
     </div>
 
     <!-- Card I: SSSMS (Conveyance Billing Ledger & bKash Disbursal Engine) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -633,7 +567,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>INSTANT MOBILE BANKING PAYOUT</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 18ms SYNC</span>
@@ -645,15 +579,15 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Dart 3.11</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Firestore</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Vector PDF</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">bKash Disbursal</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Dart 3.11</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Firestore</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Vector PDF</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">bKash Disbursal</span>
         </div>
         <a
           href="/systems/sssms-conveyance-ledger"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -664,15 +598,15 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Dart 3.11</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Firestore</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Vector PDF</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">bKash Disbursal</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Dart 3.11</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Firestore</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Vector PDF</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">bKash Disbursal</span>
         </div>
         <a
           href="/systems/sssms-conveyance-ledger"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -683,7 +617,7 @@
     </div>
 
     <!-- Card J: Smart Academic (Unified Micro-Frontend & Campus ERP Monorepo) -->
-    <div class="p-6 rounded-3xl border border-cyan-500/40 bg-theme-card backdrop-blur-md space-y-4 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -702,7 +636,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>ALL-IN-ONE CAMPUS OPERATIONS</span>
           <span class="text-emerald-400 font-bold">&lt; 14ms INTEROP</span>
@@ -714,11 +648,11 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Java 21 Loom</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Vue.js 3</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Orchestrator</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21 Loom</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Vue.js 3</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Orchestrator</span>
         </div>
         <a
           href="/systems/smart-academic-infra"
@@ -733,7 +667,7 @@
     </div>
 
     <!-- Card K: Bhumi Setu (Land Record Ledger & Title Deed Verification Engine) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -752,7 +686,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>GEOMETRIC BOUNDARY VALIDATION</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 28ms PostGIS</span>
@@ -764,15 +698,15 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">PostGIS 16</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Docker</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostGIS 16</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Docker</span>
         </div>
         <a
           href="/systems/landtrust-bhumisetu"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -783,7 +717,7 @@
     </div>
 
     <!-- Card L: Mordern OS (Capability-Secure #![no_std] Rust Microkernel) -->
-    <div class="p-6 rounded-3xl border border-cyan-500/40 bg-theme-card backdrop-blur-md space-y-4 hover:border-cyan-400 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -802,7 +736,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>LOCK-FREE SPSC IPC QUEUE</span>
           <span class="text-emerald-400 font-bold">&lt; 38ns ROUNDTRIP</span>
@@ -814,12 +748,12 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Rust 2024</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">#![no_std]</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">x86_64</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">AArch64</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Lock-Free SPSC</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">QEMU</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Rust 2024</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">#![no_std]</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">x86_64</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">AArch64</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Lock-Free SPSC</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">QEMU</span>
         </div>
         <a
           href="/systems/modern-os-microkernel"
@@ -834,7 +768,7 @@
     </div>
 
     <!-- Card M: YT-Stream (High-Concurrency Media Ingestion & Multi-ISP Caching Engine) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -854,7 +788,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>SEGMENTED TCP ACCELERATION</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 180ms QUEUE</span>
@@ -866,15 +800,15 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Python 3.12</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">yt-dlp</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">aria2c</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">FFmpeg</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Jellyfin / Plex</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Python 3.12</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">yt-dlp</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">aria2c</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">FFmpeg</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Jellyfin / Plex</span>
         </div>
         <a
           href="/systems/yt-playlist-engine"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -885,7 +819,7 @@
     </div>
 
     <!-- Card N: AMH Sniper (In-Memory Work Order Auto-Acceptor & Chrome MV3 Engine) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -904,7 +838,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>IN-MEMORY API INTERCEPTION</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 80ms SOFT TAB</span>
@@ -916,15 +850,15 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Chrome MV3</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">MAIN World</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Memory Hook</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">MutationObserver</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Web Audio API</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Chrome MV3</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">MAIN World</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Memory Hook</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">MutationObserver</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Web Audio API</span>
         </div>
         <a
           href="/systems/amh-wo-sniper"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -935,7 +869,7 @@
     </div>
 
     <!-- Card O: GeckoEngine (Independent Android Web Browser & GeckoView Omni 134 Runtime) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -954,7 +888,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>TRUE BROWSER INDEPENDENCE</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 24ms DISPATCH</span>
@@ -966,15 +900,15 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Kotlin</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Android SDK 34</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">GeckoView 134</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">GeckoRuntime</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">WebRender</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Kotlin</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Android SDK 34</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">GeckoView 134</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">GeckoRuntime</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">WebRender</span>
         </div>
         <a
           href="/systems/gecko-browser-engine"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -985,7 +919,7 @@
     </div>
 
     <!-- Card P: Doller (Multi-Currency Trading, Settlement & PnL Ledger Engine) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1004,7 +938,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>BALANCED DOUBLE-ENTRY LEDGER</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 14ms COMMIT</span>
@@ -1016,15 +950,15 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.5</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Flyway V1-V10</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.5</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flyway V1-V10</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
         </div>
         <a
           href="/systems/doller-fintech-wallet"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1035,7 +969,7 @@
     </div>
 
     <!-- Card Q: QuickBooks Ledger Sync (Automated Invoicing, Tiered Bank Reconciliation & QBO API Engine) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1054,7 +988,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>SMART BANK RECONCILIATION</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 14ms VALIDATION</span>
@@ -1066,16 +1000,16 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 4.0</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Vaadin 25</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">QuickBooks API</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">OAuth 2.0</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 4.0</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Vaadin 25</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">QuickBooks API</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">OAuth 2.0</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
         </div>
         <a
           href="/systems/quickbooks-ledger-sync"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1086,7 +1020,7 @@
     </div>
 
     <!-- Card R: EduGo (Multi-Tenant Academic ERP & Dual-Security Microservice Architecture) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1107,7 +1041,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>DUAL-ROLE SECURITY &amp; MULTI-TENANCY</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 12ms JWT AUTH</span>
@@ -1119,16 +1053,16 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.3</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Vaadin Flow</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Flyway V1-V8</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.3</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Vaadin Flow</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flyway V1-V8</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
         </div>
         <a
           href="/systems/edugo-institute-core"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1139,7 +1073,7 @@
     </div>
 
     <!-- Card S: BD CRM (Multi-Tenant B2B Sales Pipeline, Fuzzy Duplicate Rescan & SLA Escalation) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1158,7 +1092,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>PIPELINE VELOCITY &amp; DEDUPLICATION</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 1.8ms RESCAN</span>
@@ -1170,16 +1104,16 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.3</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Flyway V1-V5</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">React 18</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">TypeScript</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.3</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flyway V1-V5</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">React 18</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">TypeScript</span>
         </div>
         <a
           href="/systems/bd-crm-pipeline"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1190,7 +1124,7 @@
     </div>
 
     <!-- Card T: Email Verifier Service (High-Throughput SMTP Handshake & Mailbox Deliverability Engine) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1209,7 +1143,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>PORT 25 SMTP &amp; CATCH-ALL PROBE</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 1.2s HANDSHAKE</span>
@@ -1221,16 +1155,16 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Python 3.12</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">FastAPI</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Asyncio</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Port 25 SMTP</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Docker</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Dokploy</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Python 3.12</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">FastAPI</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Asyncio</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Port 25 SMTP</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Docker</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Dokploy</span>
         </div>
         <a
           href="/systems/email-verifier-service"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1241,7 +1175,7 @@
     </div>
 
     <!-- Card U: Cameraman (Edge CCTV AI Webhook Ingestion, Bangla ANPR & Multi-Model Vision Pipeline) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1260,7 +1194,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>EDGE CCTV INGESTION &amp; BANGLA ANPR</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 24ms ACK</span>
@@ -1272,16 +1206,16 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Rust 2021</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Axum 0.7</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Tokio</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">SQLx</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Bangla ANPR</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Rust 2021</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Axum 0.7</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Tokio</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">SQLx</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Bangla ANPR</span>
         </div>
         <a
           href="/systems/cameraman-edge-vision"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1292,7 +1226,7 @@
     </div>
 
     <!-- Card V: ClassRoom Live (WebRTC SFU Virtual Classroom Engine) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1311,7 +1245,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>WEBRTC SFU &amp; ADAPTIVE DYNACAST</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 65ms LATENCY</span>
@@ -1323,16 +1257,16 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Vaadin 24</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">LiveKit SFU</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">WebRTC</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Vaadin 24</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">LiveKit SFU</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">WebRTC</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
         </div>
         <a
           href="/systems/classroom-livekit-webrtc"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1343,7 +1277,7 @@
     </div>
 
     <!-- Card W: Self-MT (Envelope Budgeting & Financial Ledger Engine) -->
-    <div class="p-6 rounded-3xl border border-theme-border bg-theme-card backdrop-blur-md space-y-4 hover:border-theme-accent/50 hover:-translate-y-1 transition-all duration-300">
+    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2.5">
           <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1362,7 +1296,7 @@
       </p>
 
       <!-- Metrics Box -->
-      <div class="p-3.5 rounded-2xl bg-theme-base border border-theme-border font-mono text-xs space-y-1.5">
+      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
         <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
           <span>ENVELOPE BUDGETING &amp; ATOMIC ROLLBACK</span>
           <span class="text-theme-secondaryAccent font-bold">&lt; 12ms UI BLOC</span>
@@ -1374,16 +1308,16 @@
       <!-- Tech Badges & CTA -->
       <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
         <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Dart 3.11</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">BLoC</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Freezed</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">Firestore</span>
-          <span class="px-2 py-0.5 rounded-lg bg-theme-base border border-theme-border font-mono text-[11px] text-theme-muted">PDFKit</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Dart 3.11</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">BLoC</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Freezed</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Firestore</span>
+          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PDFKit</span>
         </div>
         <a
           href="/systems/self-mt-finance-ledger"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-theme-accent/10 hover:bg-theme-accent/20 text-theme-accent border border-theme-accent/30 text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
         >
           <span>Explore Case Study</span>
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1394,24 +1328,3 @@
     </div>
   </div>
 </section>
-
-<script>
-  const btnArch = document.getElementById('btn-tab-arch');
-  const btnTelemetry = document.getElementById('btn-tab-telemetry');
-  const contentArch = document.getElementById('content-tab-arch');
-  const contentTelemetry = document.getElementById('content-tab-telemetry');
-
-  btnArch?.addEventListener('click', () => {
-    btnArch.className = 'pb-2.5 text-theme-accent border-b-2 border-theme-accent font-medium flex items-center gap-2 transition-all cursor-pointer';
-    btnTelemetry!.className = 'pb-2.5 text-theme-muted hover:text-theme-primary border-b-2 border-transparent font-medium flex items-center gap-2 transition-all cursor-pointer';
-    contentArch?.classList.remove('hidden');
-    contentTelemetry?.classList.add('hidden');
-  });
-
-  btnTelemetry?.addEventListener('click', () => {
-    btnTelemetry.className = 'pb-2.5 text-theme-accent border-b-2 border-theme-accent font-medium flex items-center gap-2 transition-all cursor-pointer';
-    btnArch!.className = 'pb-2.5 text-theme-muted hover:text-theme-primary border-b-2 border-transparent font-medium flex items-center gap-2 transition-all cursor-pointer';
-    contentTelemetry?.classList.remove('hidden');
-    contentArch?.classList.add('hidden');
-  });
-</script>

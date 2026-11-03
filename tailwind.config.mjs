@@ -46,7 +46,7 @@ export default {
         }
       },
       fontFamily: {
-        sans: ["'Inter Variable'", 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ["'Plus Jakarta Sans'", "'Inter Variable'", 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       animation: {
