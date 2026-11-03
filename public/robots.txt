@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /404
+Disallow: /404.html
 
 Sitemap: https://mahmudulhasan.info.bd/sitemap-index.xml
 Host: https://mahmudulhasan.info.bd
