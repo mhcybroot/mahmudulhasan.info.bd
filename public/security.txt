@@ -1,0 +1,8 @@
+Contact: mailto:info@mahmudulhasan.info.bd
+Contact: https://mahmudulhasan.info.bd/#contact
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, bn
+Canonical: https://mahmudulhasan.info.bd/.well-known/security.txt
+Policy: https://mahmudulhasan.info.bd/
+Hiring: https://mahmudulhasan.info.bd/#contact
+Encryption: https://mahmudulhasan.info.bd/mhcybroot-key.asc

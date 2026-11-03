@@ -168,7 +168,7 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
           Portfolio Root
         </a>
         <span class="text-theme-muted">/</span>
-        <span class="text-theme-secondary font-medium">Projects</span>
+        <a href="/#systems" class="text-theme-secondary hover:text-theme-accent transition-colors font-medium">Projects</a>
         <span class="text-theme-muted">/</span>
         <span class="text-theme-accent font-bold truncate max-w-[160px] sm:max-w-none">{data.slug}</span>
       </nav>
@@ -8020,6 +8020,7 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
     @media print {
       header,
       #reading-progress-bar,
+      nav[aria-label="Sequential System Navigation"],
       nav[aria-label="Sequential Project Navigation"],
       #copy-code-btn,
       #btn-share-spec,
