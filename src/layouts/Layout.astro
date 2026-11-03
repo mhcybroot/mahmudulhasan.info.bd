@@ -46,11 +46,11 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
       })();
     </script>
   </head>
-  <body class="bg-theme-base text-theme-secondary font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-theme-accent/25 selection:text-theme-accent">
+  <body class="bg-theme-base text-theme-secondary font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-theme-accent selection:text-white">
     <!-- Accessible Skip to Content Link -->
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:rounded-xl focus:bg-theme-accent focus:text-theme-lowest focus:font-mono focus:text-xs focus:font-bold focus:shadow-2xl focus:outline-none"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:rounded-sm focus:bg-theme-accent focus:text-white focus:font-mono focus:text-xs focus:font-bold focus:shadow-2xl focus:outline-none"
     >
       Skip to main content
     </a>
@@ -79,7 +79,7 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
       }
       ::-webkit-scrollbar-thumb {
         background: var(--border-subtle);
-        border-radius: 4px;
+        border-radius: 2px;
       }
       ::-webkit-scrollbar-thumb:hover {
         background: var(--border-strong);
