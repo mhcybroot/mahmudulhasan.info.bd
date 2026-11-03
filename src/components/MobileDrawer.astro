@@ -97,6 +97,7 @@
   toggleBtn?.addEventListener('click', openDrawer);
   closeBtn?.addEventListener('click', closeDrawer);
   overlay?.addEventListener('click', closeDrawer);
+  document.getElementById('mobile-drawer-resume-btn')?.addEventListener('click', closeDrawer);
   navLinks.forEach(link => link.addEventListener('click', closeDrawer));
 
   themePills.forEach(pill => {

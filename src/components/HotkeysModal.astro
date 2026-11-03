@@ -111,7 +111,10 @@
   const dismissHotkeysBtn = document.getElementById('btn-dismiss-hotkeys');
   const footerTrigger = document.getElementById('footer-hotkeys-btn');
 
+  let lastActiveElement: HTMLElement | null = null;
+
   function openHotkeys() {
+    lastActiveElement = document.activeElement as HTMLElement;
     hotkeysModal?.classList.remove('hidden');
     hotkeysModal?.removeAttribute('aria-hidden');
     hotkeysModal?.removeAttribute('inert');
@@ -124,6 +127,7 @@
     hotkeysModal?.setAttribute('aria-hidden', 'true');
     hotkeysModal?.setAttribute('inert', '');
     document.body.style.overflow = '';
+    lastActiveElement?.focus();
   }
 
   closeHotkeysBtn?.addEventListener('click', closeHotkeys);

@@ -94,6 +94,21 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
           navigator.serviceWorker.register('/sw.js').catch(() => {});
         });
       }
+
+      // DevTools Systems Engineering Telemetry Console Banner
+      try {
+        console.log(
+          '%c MH // SYS-ARCH :: ZERO-FAULT TOLERANCE %c\n' +
+          'Engineer: Mahmudul Hasan (@mhcybroot)\n' +
+          'Discipline: Software & Smart Hardware Systems Engineer\n' +
+          'Coordinates: [23.8103° N, 90.4125° E] (Dhaka, Bangladesh)\n' +
+          'Core Stack: Rust 2024 (Axum, Tokio), Java 21 (Loom, Spring Boot), ZKTeco ADMS, RTSP, Astro\n' +
+          'Direct Route: info@mahmudulhasan.info.bd\n' +
+          'Hotkeys: Press [?] anywhere to launch Command Matrix.\n',
+          'background: #FD761A; color: #FFFFFF; font-weight: bold; font-family: monospace; font-size: 12px; padding: 3px 6px; border-radius: 2px;',
+          'color: inherit; font-family: monospace; font-size: 11px; line-height: 1.5;'
+        );
+      } catch (e) {}
     </script>
   </body>
 </html>

@@ -6,6 +6,8 @@ const deployments = [
     title: "Skylink Innovations Ltd",
     url: "https://skylinkltd.ai",
     domain: "skylinkltd.ai",
+    caseStudyUrl: "/systems/skylink-hrms",
+    caseStudyLabel: "Explore Biometric Case Study",
     desc: "Enterprise biometric attendance, facial recognition terminals & security operations portal handling live workforce authentication with zero missing punches.",
     stack: "Java 21 • ZKTeco ADMS • Spring Boot • WebSockets"
   },
@@ -97,7 +99,7 @@ const deployments = [
                 href={d.caseStudyUrl}
                 class="inline-flex items-center gap-1 text-xs font-mono font-semibold text-theme-secondary hover:text-theme-accent transition-colors"
               >
-                <span>Explore 3D Case Study</span>
+                <span>{d.caseStudyLabel || 'Explore Case Study'}</span>
                 <span class="text-theme-accent">→</span>
               </a>
             </div>
