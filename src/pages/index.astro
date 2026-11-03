@@ -10,14 +10,13 @@ import CareerTimeline from '../components/CareerTimeline.astro';
 import Endorsements from '../components/Endorsements.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
-import ResumeModal from '../components/ResumeModal.astro';
-import HotkeysModal from '../components/HotkeysModal.astro';
 import ScrollTelemetryHUD from '../components/ScrollTelemetryHUD.astro';
 ---
 
 <Layout
   title="Mahmudul Hasan (@mhcybroot) | Software & Smart Hardware Systems Engineer"
   description="Software & Smart Hardware Systems Engineer. I build automated parking systems, factory biometric attendance, and high-speed web apps that never crash and never slow down."
+  canonicalURL="https://mahmudulhasan.info.bd"
 >
   <!-- Fixed Navbar & Mobile Drawer -->
   <Navbar />
@@ -36,12 +35,6 @@ import ScrollTelemetryHUD from '../components/ScrollTelemetryHUD.astro';
 
   <!-- Master Swiss Architectural Blueprint Footer (Full-Bleed 100vw) -->
   <Footer />
-
-  <!-- Interactive Resume Dossier Modal -->
-  <ResumeModal />
-
-  <!-- Hotkeys Command Palette Matrix -->
-  <HotkeysModal />
 
   <!-- Floating Telemetry & Scroll HUD -->
   <ScrollTelemetryHUD />

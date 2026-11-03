@@ -1,14 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import MobileDrawer from '../components/MobileDrawer.astro';
 import Footer from '../components/Footer.astro';
 ---
 
 <Layout
   title="404: Route Not Found | Mahmudul Hasan (@mhcybroot)"
   description="The requested system route does not exist. Return to root node or explore Mahmudul Hasan's engineered systems."
+  canonicalURL="https://mahmudulhasan.info.bd/404"
 >
   <Navbar />
+  <MobileDrawer />
 
   <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 min-h-[70vh] flex flex-col justify-center">
     <div class="max-w-3xl mx-auto w-full bg-theme-lowest border-2 border-theme-secondary p-6 sm:p-10 rounded-sm relative shadow-sm space-y-6">

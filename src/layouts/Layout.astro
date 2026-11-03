@@ -1,14 +1,18 @@
 ---
 import MetaTags from '../components/seo/MetaTags.astro';
 import JsonLd from '../components/seo/JsonLd.astro';
+import ResumeModal from '../components/ResumeModal.astro';
+import HotkeysModal from '../components/HotkeysModal.astro';
 import '../styles/themes.css';
 
 interface Props {
   title?: string;
   description?: string;
+  canonicalURL?: string;
+  image?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, canonicalURL, image } = Astro.props;
 const envDefaultTheme = import.meta.env.PUBLIC_DEFAULT_THEME || 'swiss';
 const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amber' || envDefaultTheme === 'synthwave' || envDefaultTheme === 'emerald';
 ---
@@ -24,7 +28,7 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-    <MetaTags title={title} description={description} />
+    <MetaTags title={title} description={description} canonicalURL={canonicalURL} image={image} />
     <JsonLd />
     <link rel="alternate" type="application/rss+xml" title="Mahmudul Hasan Projects RSS Feed" href="/rss.xml" />
     <link rel="ai-catalog" type="application/json" href="/.well-known/ai-catalog.json" />
@@ -69,6 +73,12 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
     <div class="relative z-10 flex flex-col min-h-screen">
       <slot />
     </div>
+
+    <!-- Interactive Resume Dossier Modal (Global Scope) -->
+    <ResumeModal />
+
+    <!-- Hotkeys Command Palette Matrix (Global Scope) -->
+    <HotkeysModal />
 
     <style is:global>
       /* Custom modern scrollbar */
