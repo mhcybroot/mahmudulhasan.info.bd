@@ -12,6 +12,14 @@ const graphSchema = {
       "publisher": {
         "@id": "https://mahmudulhasan.info.bd/#person"
       },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://mahmudulhasan.info.bd/?q={search_term_string}#systems"
+        },
+        "query-input": "required name=search_term_string"
+      },
       "inLanguage": "en"
     },
     {
@@ -75,7 +83,12 @@ const graphSchema = {
         "React 19",
         "Three.js",
         "Tailwind CSS",
-        "Flutter BLoC"
+        "Flutter BLoC",
+        "SIMD AVX-512 & NEON Hardware Acceleration",
+        "Android GeckoView Omni Runtime",
+        "LiveKit WebRTC SFU Streaming",
+        "PostGIS Cadastral Spatial Analysis",
+        "Chrome Extension MV3 DOM Ingestion"
       ]
     }
   ]
