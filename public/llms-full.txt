@@ -9,7 +9,7 @@
 - Phone: +880 1410-749454
 ## Canonical Website & Deep-Dive Architecture Case Studies
 - Canonical Website: https://mahmudulhasan.info.bd
-- Production Case Studies:
+- Production Case Studies (All 25 Flagship Systems):
   - PMS-V2 Smart Parking Engine: https://mahmudulhasan.info.bd/systems/pms-v2 (Rust 2024, Tokio, Axum, Flutter POS, <0.84s Gate Open Latency)
   - Skylink HRMS Suite: https://mahmudulhasan.info.bd/systems/skylink-hrms (Java 21 Project Loom, Spring Boot 3.4, ZKTeco ADMS, 10,000+ Punches/Min)
   - Skylink Workstation Monitor: https://mahmudulhasan.info.bd/systems/skylink-monitor (Pure Rust 2024, <14MB RAM, <0.01% CPU, AES-256-GCM)
@@ -19,6 +19,22 @@
   - Modern OS Microkernel: https://mahmudulhasan.info.bd/systems/modern-os-microkernel (Pure #![no_std] Rust, Ring 0 Isolation, SPSC Lock-Free IPC)
   - Doller FX Trading Ledger: https://mahmudulhasan.info.bd/systems/doller-fintech-wallet (Java 21, Spring Boot 3.5, Flutter, Double-Entry ACID, Flyway)
   - Cameraman Vision ANPR: https://mahmudulhasan.info.bd/systems/cameraman-edge-vision (Rust Axum, YOLOv8, Bangla BRTA OCR)
+  - Classroom LiveKit WebRTC: https://mahmudulhasan.info.bd/systems/classroom-livekit-webrtc (Java 21 Spring Boot, LiveKit SFU, Vaadin 24 Flow, Sub-35ms Moderation)
+  - QuickBooks Ledger Sync: https://mahmudulhasan.info.bd/systems/quickbooks-ledger-sync (Java 21 Loom, Spring Batch, Intuit OAuth2, In-Memory Streaming)
+  - BD CRM Pipeline: https://mahmudulhasan.info.bd/systems/bd-crm-pipeline (Java 21, Spring Boot, Jaro-Winkler Lead Deduplication, PostgreSQL)
+  - Email Verifier Service: https://mahmudulhasan.info.bd/systems/email-verifier-service (Python FastAPI, DNS MX Probing, Port 25 SMTP Mailbox Verification)
+  - Self-MT Finance Ledger: https://mahmudulhasan.info.bd/systems/self-mt-finance-ledger (Flutter, SQLite, Zero-Based Virtual Envelopes, Two-Phase Rollback)
+  - EduGo Institute Core: https://mahmudulhasan.info.bd/systems/edugo-institute-core (Java 21, Spring Boot 3.4, React, RBAC & Multi-Tenant Academic Portal)
+  - SSSMS Conveyance Ledger: https://mahmudulhasan.info.bd/systems/sssms-conveyance-ledger (Flutter, Firebase, GPS Distance Matrix, Transport Reimbursement)
+  - Smart AI Edge Vision: https://mahmudulhasan.info.bd/systems/smartai-edge-vision (Kotlin, Jetpack Compose, Google ML Kit Face Tracking, Geofencing)
+  - Smart Academic Infra: https://mahmudulhasan.info.bd/systems/smart-academic-infra (Vue 3, TypeScript, Pinia, Single-SPA Micro-Frontend Interop)
+  - LandTrust BhumiSetu: https://mahmudulhasan.info.bd/systems/landtrust-bhumisetu (Java 21, Spring Boot, PostGIS Cadastral Spatial Analysis, Deed Tracking)
+  - Secure Notes Cloud: https://mahmudulhasan.info.bd/systems/secure-notes-cloud (NestJS, MongoDB, B-Tree Compound Indexing, AES-256 Storage)
+  - Marksheets Automation: https://mahmudulhasan.info.bd/systems/marksheets-automation (Node.js, Express, Puppeteer Headless PDF Batch Tabulation)
+  - EduMeet WebRTC: https://mahmudulhasan.info.bd/systems/edumeet-webrtc (Flutter, Jitsi Meet SDK, Bandwidth Throttling, Micro-Attendance)
+  - Gecko Browser Engine: https://mahmudulhasan.info.bd/systems/gecko-browser-engine (Kotlin, Mozilla GeckoView Omni Runtime, Ad-Blocking WebExtension Core)
+  - AMH Work Order Sniper: https://mahmudulhasan.info.bd/systems/amh-wo-sniper (Chrome Extension MV3, DOM MutationObserver Ingestion, Sub-15ms Dispatch)
+  - YouTube Playlist Audio Engine: https://mahmudulhasan.info.bd/systems/yt-playlist-engine (Python, yt-dlp, FFmpeg Async Pipeline, High-Throughput Ingestion)
 - Syndication & Verification Endpoints:
   - RSS 2.0 Feed: https://mahmudulhasan.info.bd/rss.xml
   - RFC 9116 Security Disclosure: https://mahmudulhasan.info.bd/.well-known/security.txt

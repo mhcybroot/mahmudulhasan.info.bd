@@ -362,10 +362,10 @@ const modularSystems = [
     <div class="flex flex-wrap items-center gap-2 font-mono text-xs pt-2.5 border-t border-theme-border">
       <span class="text-theme-muted text-[10px] uppercase mr-1">Filter Domain:</span>
       <button type="button" class="sys-filter-pill active px-3 py-1 bg-theme-accent text-white font-semibold rounded-sm transition-all cursor-pointer" data-filter="all">ALL [25]</button>
-      <button type="button" class="sys-filter-pill px-3 py-1 bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme-border rounded-sm transition-all cursor-pointer" data-filter="hardware">HARDWARE &amp; IOT</button>
-      <button type="button" class="sys-filter-pill px-3 py-1 bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme-border rounded-sm transition-all cursor-pointer" data-filter="backend">BACKEND &amp; RUST/JAVA</button>
-      <button type="button" class="sys-filter-pill px-3 py-1 bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme-border rounded-sm transition-all cursor-pointer" data-filter="fintech">FINTECH &amp; COMPLIANCE</button>
-      <button type="button" class="sys-filter-pill px-3 py-1 bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme-border rounded-sm transition-all cursor-pointer" data-filter="web">WEB &amp; CROSS-PLATFORM</button>
+      <button type="button" class="sys-filter-pill px-3 py-1 bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme-border rounded-sm transition-all cursor-pointer" data-filter="hardware">HARDWARE &amp; IOT [6]</button>
+      <button type="button" class="sys-filter-pill px-3 py-1 bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme-border rounded-sm transition-all cursor-pointer" data-filter="backend">BACKEND &amp; RUST/JAVA [7]</button>
+      <button type="button" class="sys-filter-pill px-3 py-1 bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme-border rounded-sm transition-all cursor-pointer" data-filter="fintech">FINTECH &amp; COMPLIANCE [7]</button>
+      <button type="button" class="sys-filter-pill px-3 py-1 bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme-border rounded-sm transition-all cursor-pointer" data-filter="web">WEB &amp; CROSS-PLATFORM [6]</button>
     </div>
   </div>
 
@@ -471,6 +471,15 @@ const modularSystems = [
         emptyState.classList.add('hidden');
       }
     }
+
+    try {
+      const url = new URL(window.location.href);
+      if (searchQuery.trim()) url.searchParams.set('q', searchQuery.trim());
+      else url.searchParams.delete('q');
+      if (activeDomain !== 'all') url.searchParams.set('filter', activeDomain);
+      else url.searchParams.delete('filter');
+      window.history.replaceState(null, '', url.toString());
+    } catch (e) {}
   }
 
   filterPills.forEach(pill => {
