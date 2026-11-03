@@ -11,6 +11,10 @@
 /icons/*
   Cache-Control: public, max-age=31536000, immutable
 
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
 # AI Agent Discoverability Files: Open CORS & 1-Day Cache
 /.well-known/ai-catalog.json
   Cache-Control: public, max-age=86400
