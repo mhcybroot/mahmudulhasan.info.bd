@@ -110,6 +110,18 @@
         } else {
           document.documentElement.classList.add('dark');
         }
+        const themeColors: Record<string, string> = {
+          swiss: '#F8F9FF',
+          obsidian: '#090D16',
+          amber: '#0B0904',
+          synthwave: '#0B0514',
+          emerald: '#040B07',
+          cleanroom: '#FFFFFF',
+        };
+        const metaTheme = document.querySelector('meta[name="theme-color"]');
+        if (metaTheme && themeColors[theme]) {
+          metaTheme.setAttribute('content', themeColors[theme]);
+        }
         localStorage.setItem('theme-preference', theme);
         closeDrawer();
       }

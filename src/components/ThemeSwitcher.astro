@@ -71,6 +71,14 @@ const themes = [
     const options = document.querySelectorAll('.theme-option-btn');
 
     const themeOrder = ['swiss', 'obsidian', 'amber', 'synthwave', 'emerald', 'cleanroom'];
+    const themeColors: Record<string, string> = {
+      swiss: '#F8F9FF',
+      obsidian: '#090D16',
+      amber: '#0B0904',
+      synthwave: '#0B0514',
+      emerald: '#040B07',
+      cleanroom: '#FFFFFF',
+    };
 
     function applyTheme(selectedTheme: string) {
       document.documentElement.setAttribute('data-theme', selectedTheme);
@@ -78,6 +86,10 @@ const themes = [
         document.documentElement.classList.remove('dark');
       } else {
         document.documentElement.classList.add('dark');
+      }
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+      if (metaTheme && themeColors[selectedTheme]) {
+        metaTheme.setAttribute('content', themeColors[selectedTheme]);
       }
       localStorage.setItem('theme-preference', selectedTheme);
       updateActiveState(selectedTheme);
