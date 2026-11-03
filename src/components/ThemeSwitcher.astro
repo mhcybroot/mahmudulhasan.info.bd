@@ -70,6 +70,19 @@ const themes = [
     const dot = document.getElementById('active-theme-dot');
     const options = document.querySelectorAll('.theme-option-btn');
 
+    const themeOrder = ['swiss', 'obsidian', 'amber', 'synthwave', 'emerald', 'cleanroom'];
+
+    function applyTheme(selectedTheme: string) {
+      document.documentElement.setAttribute('data-theme', selectedTheme);
+      if (selectedTheme === 'cleanroom' || selectedTheme === 'swiss') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+      localStorage.setItem('theme-preference', selectedTheme);
+      updateActiveState(selectedTheme);
+    }
+
     function updateActiveState(currentTheme: string) {
       options.forEach(opt => {
         const themeId = opt.getAttribute('data-theme-id');
@@ -114,20 +127,20 @@ const themes = [
 
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeMenu();
+      if ((e.key === 't' || e.key === 'T') && !['INPUT', 'TEXTAREA'].includes((document.activeElement?.tagName || ''))) {
+        e.preventDefault();
+        const cur = document.documentElement.getAttribute('data-theme') || 'swiss';
+        const curIdx = themeOrder.indexOf(cur);
+        const nextIdx = curIdx === -1 ? 0 : (curIdx + 1) % themeOrder.length;
+        applyTheme(themeOrder[nextIdx]);
+      }
     });
 
     options.forEach(opt => {
       opt.addEventListener('click', () => {
         const selectedTheme = opt.getAttribute('data-theme-id');
         if (selectedTheme) {
-          document.documentElement.setAttribute('data-theme', selectedTheme);
-          if (selectedTheme === 'cleanroom' || selectedTheme === 'swiss') {
-            document.documentElement.classList.remove('dark');
-          } else {
-            document.documentElement.classList.add('dark');
-          }
-          localStorage.setItem('theme-preference', selectedTheme);
-          updateActiveState(selectedTheme);
+          applyTheme(selectedTheme);
           closeMenu();
         }
       });

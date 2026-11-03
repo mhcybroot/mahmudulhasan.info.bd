@@ -1,0 +1,139 @@
+---
+// Command Palette & Hotkeys Matrix Modal Component — Swiss Architectural
+---
+
+<div
+  id="hotkeys-modal"
+  class="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="hotkeys-title"
+  aria-hidden="true"
+  inert
+>
+  <!-- Backdrop Overlay -->
+  <div id="hotkeys-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity duration-200"></div>
+
+  <!-- Modal Dialog Container -->
+  <div class="relative w-full max-w-lg bg-theme-lowest border-2 border-theme-secondary rounded-sm shadow-2xl p-6 sm:p-8 z-10 space-y-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between border-b border-theme-border pb-3">
+      <div>
+        <span class="font-mono text-xs text-theme-accent font-semibold uppercase tracking-wider block">
+          // SYSTEM TELEMETRY :: COMMAND MATRIX
+        </span>
+        <h2 id="hotkeys-title" class="text-lg sm:text-xl font-bold text-theme-primary mt-0.5">
+          Keyboard Shortcuts &amp; Navigation
+        </h2>
+      </div>
+
+      <button
+        id="btn-close-hotkeys"
+        type="button"
+        class="p-1.5 rounded-sm text-theme-muted hover:text-theme-primary hover:bg-theme-surface transition-colors cursor-pointer"
+        aria-label="Close shortcuts modal"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Shortcuts List -->
+    <div class="space-y-3 font-mono text-xs text-theme-secondary">
+      <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
+        <div class="flex items-center gap-2">
+          <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">/</kbd>
+          <span>Instant Filter &amp; Search</span>
+        </div>
+        <span class="text-[11px] text-theme-muted">Filters 24 Flagship Modules</span>
+      </div>
+
+      <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
+        <div class="flex items-center gap-2">
+          <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">D</kbd>
+          <span>Resume Dossier</span>
+        </div>
+        <span class="text-[11px] text-theme-muted">Printable Systems CV</span>
+      </div>
+
+      <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
+        <div class="flex items-center gap-2">
+          <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">T</kbd>
+          <span>Cycle Visual Theme</span>
+        </div>
+        <span class="text-[11px] text-theme-muted">6 System Editions</span>
+      </div>
+
+      <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
+        <div class="flex items-center gap-2">
+          <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">?</kbd>
+          <span>Toggle This Matrix</span>
+        </div>
+        <span class="text-[11px] text-theme-muted">Command Palette</span>
+      </div>
+
+      <div class="flex items-center justify-between p-2.5 bg-theme-surface border border-theme-border rounded-sm">
+        <div class="flex items-center gap-2">
+          <kbd class="px-2 py-1 bg-theme-lowest border border-theme-border rounded-sm font-bold text-theme-primary shadow-sm">Esc</kbd>
+          <span>Dismiss Dialog</span>
+        </div>
+        <span class="text-[11px] text-theme-muted">Closes Active Modal</span>
+      </div>
+    </div>
+
+    <!-- Footer Note -->
+    <div class="pt-3 border-t border-theme-border flex items-center justify-between font-mono text-[11px] text-theme-muted">
+      <span>ZERO-JANK FAST DISPATCH</span>
+      <button
+        id="btn-dismiss-hotkeys"
+        type="button"
+        class="px-3 py-1.5 bg-theme-surface border border-theme-border rounded-sm text-theme-primary hover:border-theme-secondary transition-colors cursor-pointer"
+      >
+        Dismiss (Esc)
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const hotkeysModal = document.getElementById('hotkeys-modal');
+  const hotkeysBackdrop = document.getElementById('hotkeys-backdrop');
+  const closeHotkeysBtn = document.getElementById('btn-close-hotkeys');
+  const dismissHotkeysBtn = document.getElementById('btn-dismiss-hotkeys');
+  const footerTrigger = document.getElementById('footer-hotkeys-btn');
+
+  function openHotkeys() {
+    hotkeysModal?.classList.remove('hidden');
+    hotkeysModal?.removeAttribute('aria-hidden');
+    hotkeysModal?.removeAttribute('inert');
+    document.body.style.overflow = 'hidden';
+    closeHotkeysBtn?.focus();
+  }
+
+  function closeHotkeys() {
+    hotkeysModal?.classList.add('hidden');
+    hotkeysModal?.setAttribute('aria-hidden', 'true');
+    hotkeysModal?.setAttribute('inert', '');
+    document.body.style.overflow = '';
+  }
+
+  closeHotkeysBtn?.addEventListener('click', closeHotkeys);
+  dismissHotkeysBtn?.addEventListener('click', closeHotkeys);
+  hotkeysBackdrop?.addEventListener('click', closeHotkeys);
+  footerTrigger?.addEventListener('click', openHotkeys);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === '?' && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName || '')) {
+      e.preventDefault();
+      if (hotkeysModal?.classList.contains('hidden')) {
+        openHotkeys();
+      } else {
+        closeHotkeys();
+      }
+    }
+    if (e.key === 'Escape' && !hotkeysModal?.classList.contains('hidden')) {
+      closeHotkeys();
+    }
+  });
+</script>
