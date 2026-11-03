@@ -75,6 +75,18 @@
           <span id="copy-gpg-btn-text">Copy Fingerprint</span>
         </button>
 
+        <button
+          id="btn-copy-public-key"
+          type="button"
+          class="px-3.5 py-2 bg-theme-surface border border-theme-border text-theme-primary rounded-sm hover:border-theme-secondary transition-colors inline-flex items-center gap-1.5 cursor-pointer active:scale-95"
+          title="Copy OpenPGP ASCII-Armored Key Block"
+        >
+          <svg class="w-3.5 h-3.5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <span id="copy-key-btn-text">Copy Key Block</span>
+        </button>
+
         <a
           href="/mhcybroot-key.asc"
           download="mhcybroot-key.asc"
@@ -158,6 +170,34 @@
       }, 2000);
     } catch {
       if (copyGpgBtnText) copyGpgBtnText.textContent = 'COPIED TO BUFFER [OK]';
+    }
+  });
+
+  const copyKeyBtn = document.getElementById('btn-copy-public-key');
+  const copyKeyBtnText = document.getElementById('copy-key-btn-text');
+
+  copyKeyBtn?.addEventListener('click', async () => {
+    try {
+      const resp = await fetch('/mhcybroot-key.asc');
+      const keyText = await resp.text();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(keyText);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = keyText;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      if (copyKeyBtnText) copyKeyBtnText.textContent = 'KEY COPIED [OK]';
+      setTimeout(() => {
+        if (copyKeyBtnText) copyKeyBtnText.textContent = 'Copy Key Block';
+      }, 2000);
+    } catch {
+      if (copyKeyBtnText) copyKeyBtnText.textContent = 'KEY COPIED [OK]';
     }
   });
 

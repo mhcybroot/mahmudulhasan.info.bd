@@ -139,6 +139,7 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
   canonicalURL={`https://mahmudulhasan.info.bd/systems/${data.slug}`}
   type="article"
   date={data.date}
+  section={data.primaryLanguage}
 >
   <Fragment slot="head">
     <link rel="prev" href={`https://mahmudulhasan.info.bd/systems/${prevProject.slug}`} />
@@ -8022,6 +8023,9 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
           ticking = true;
         }
       }, { passive: true });
+
+      // Calculate initial progress on mount / deep-link restore
+      updateReadingProgress();
     }
 
     initCaseStudyInteractions();

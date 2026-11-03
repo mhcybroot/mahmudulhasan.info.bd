@@ -6,6 +6,7 @@ interface Props {
   canonicalURL?: string;
   type?: string;
   date?: string;
+  section?: string;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   canonicalURL = "https://mahmudulhasan.info.bd",
   type = "website",
   date,
+  section,
 } = Astro.props;
 ---
 
@@ -41,6 +43,9 @@ const {
 )}
 {type === 'article' && (
   <meta property="article:author" content="https://mahmudulhasan.info.bd/#person" />
+)}
+{type === 'article' && section && (
+  <meta property="article:section" content={section} />
 )}
 
 <!-- Twitter / X -->
