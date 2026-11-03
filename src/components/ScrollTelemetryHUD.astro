@@ -57,6 +57,9 @@
     ticking = false;
   }
 
+  // Initialize altitude and visibility state immediately on mount
+  updateScroll();
+
   window.addEventListener('scroll', () => {
     if (!ticking) {
       window.requestAnimationFrame(updateScroll);
