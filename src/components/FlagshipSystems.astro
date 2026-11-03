@@ -1,5 +1,199 @@
 ---
-// Flagship Engineered Systems Component
+// Flagship Engineered Systems Component — Swiss Division 01
+const modularSystems = [
+  {
+    modId: "MOD-01",
+    category: "BIOMETRIC CORE",
+    title: "Skylink HRMS: Instant Biometric Attendance & Payroll Platform",
+    slug: "skylink-hrms",
+    desc: "Java 21 Spring Boot Loom to handle extreme 9:00 AM shift rush with zero missing punch logs. ZKTeco ADMS Push engine.",
+    stack: "Java 21 • Spring Boot 3.4 • Loom • ZKTeco"
+  },
+  {
+    modId: "MOD-02",
+    category: "ENDPOINT AUDIT",
+    title: "Skylink Workstation Guard: Ultra-Lightweight Focus & Activity Monitor",
+    slug: "skylink-monitor",
+    desc: "Rust 2024, Win32 API Hook, <15MB RAM footprint, AES-GCM-256 local encrypted tamper-proof audit trail.",
+    stack: "Rust 2024 • Win32 API • <15MB RAM"
+  },
+  {
+    modId: "MOD-03",
+    category: "FINTECH REDACTION",
+    title: "Swift PDF Studio: SWIFT Wire Transfer Redaction & Arabic Typography",
+    slug: "swift-pdf-editor",
+    desc: "Python FastAPI & Flutter desktop engine, permanent irreversible blackout redaction for strict banking compliance.",
+    stack: "Python FastAPI • Flutter • HarfBuzz"
+  },
+  {
+    modId: "MOD-04",
+    category: "DIGITAL TWIN",
+    title: "HomeSync IoT: Interactive 3D Digital Twin Smart Home Configurator",
+    slug: "homesync-iot",
+    desc: "React 19, Three.js WebGL, MQTT state broker with zero-latency live telemetry floorplan feedback loops.",
+    stack: "Three.js WebGL • MQTT • React 19"
+  },
+  {
+    modId: "MOD-05",
+    category: "EDUTECH CORE",
+    title: "Marksheet Engine: Academic Tabulation & Automated Merit Compiler",
+    slug: "marksheets-automation",
+    desc: "Node.js & Prisma, differential cryptographic hash audit trail, Bangladesh Board GPA 5.0 normalization algorithm.",
+    stack: "Node.js • Prisma • GPA 5.0 Rules"
+  },
+  {
+    modId: "MOD-06",
+    category: "LOW-BITRATE RTC",
+    title: "EduMeet WebRTC: Low-Latency Virtual Classroom for 3G/4G Networks",
+    slug: "edumeet-webrtc",
+    desc: "Flutter & WebRTC SFU, VP8/Opus low bitrate adaptive video codec designed for weak remote network conditions.",
+    stack: "Flutter • WebRTC SFU • Opus/VP8"
+  },
+  {
+    modId: "MOD-07",
+    category: "ON-DEVICE AI",
+    title: "SmartAI Edge Vision: On-Device Facial Attendance & GPS Geofence",
+    slug: "smartai-edge-vision",
+    desc: "Kotlin, Google ML Kit, TensorFlow Lite, robust liveness anti-spoofing running smoothly on low-cost $100 Android devices.",
+    stack: "Kotlin • TFLite • ML Kit • Geofence"
+  },
+  {
+    modId: "MOD-08",
+    category: "GIS SPATIAL",
+    title: "LandTrust Bhumi Setu: 100-Year Land Record Ledger & Boundary Audit",
+    slug: "landtrust-bhumisetu",
+    desc: "Flutter, PostgreSQL PostGIS, cadastral map overlays and conflict-free spatial boundary validation for registry.",
+    stack: "PostgreSQL PostGIS • Flutter • GIS"
+  },
+  {
+    modId: "MOD-09",
+    category: "BARE-METAL OS",
+    title: "Modern OS Microkernel: Crash-Proof #![no_std] Rust Microkernel",
+    slug: "modern-os-microkernel",
+    desc: "Rust #![no_std], x86_64 ASM, QEMU VMM, custom memory paging and preemptive priority multitasking scheduler.",
+    stack: "Rust #![no_std] • x86_64 ASM • QEMU"
+  },
+  {
+    modId: "MOD-10",
+    category: "IN-MEMORY PIPELINE",
+    title: "AMH Work Order Sniper: Sub-100ms In-Memory Auto-Claim Extension",
+    slug: "amh-wo-sniper",
+    desc: "Vanilla TypeScript & WebSocket raw hot-pipe, sub-100ms claim execution via event-driven worker automation.",
+    stack: "TypeScript • WebSockets • <100ms"
+  },
+  {
+    modId: "MOD-11",
+    category: "FX ENGINE",
+    title: "Doller: Sub-14ms Multi-Currency FX Trading & Double-Entry Ledger",
+    slug: "doller-fintech-wallet",
+    desc: "Java 21 & Flutter desktop, strictly immutable ACID double-entry accounting balances with zero currency drift.",
+    stack: "Java 21 • Flutter • Double-Entry ACID"
+  },
+  {
+    modId: "MOD-12",
+    category: "ACCOUNTING ETL",
+    title: "QuickBooks Ledger Sync: Automated Invoice Normalizer & Reconciler",
+    slug: "quickbooks-ledger-sync",
+    desc: "Java 21 & Vaadin enterprise pipeline, automated ledger reconciliation and multi-source discrepancy resolution.",
+    stack: "Java 21 • Vaadin • QuickBooks API"
+  },
+  {
+    modId: "MOD-13",
+    category: "CRM ENGINE",
+    title: "BD CRM: Multi-Tenant Lead Pipeline with Fuzzy Duplicate Scanner",
+    slug: "bd-crm-pipeline",
+    desc: "Java 21 & React, fast Levenshtein duplicate scanner preventing data pollution across large multi-tenant sales operations.",
+    stack: "Java 21 • React • Levenshtein Alg"
+  },
+  {
+    modId: "MOD-14",
+    category: "SMTP HANDSHAKE",
+    title: "Email Verifier Service: Direct Port 25 SMTP Mailbox Deliverability API",
+    slug: "email-verifier-service",
+    desc: "Python FastAPI asynchronous worker loop, live MX records and direct Port 25 zero-spam-score mailbox deliverability checks.",
+    stack: "Python FastAPI • Port 25 • MX Validation"
+  },
+  {
+    modId: "MOD-15",
+    category: "VISION OCR",
+    title: "Cameraman: CCTV Bangla BRTA License Plate ANPR & Factory Safety AI",
+    slug: "cameraman-edge-vision",
+    desc: "Rust Axum & YOLOv8, real-time localized license plate OCR extraction and factory worker safety gear compliance monitoring.",
+    stack: "Rust Axum • YOLOv8 • Bangla OCR"
+  },
+  {
+    modId: "MOD-16",
+    category: "MASS WEBRTC",
+    title: "ClassRoom Live: LiveKit WebRTC SFU Virtual Hall for 500+ Students",
+    slug: "classroom-livekit-webrtc",
+    desc: "Java 21 & WebRTC SFU media bridge, seamless simultaneous stream routing for high-density academic cohorts.",
+    stack: "Java 21 • LiveKit • SFU Architecture"
+  },
+  {
+    modId: "MOD-17",
+    category: "ENCRYPTED LEDGER",
+    title: "Self-MT Finance: Zero-Based Cash Envelope Budgeting & Loan Tracker",
+    slug: "self-mt-finance-ledger",
+    desc: "Flutter & SQLite AES-256 local encrypted storage, private financial management with zero cloud surveillance.",
+    stack: "Flutter • SQLite • AES-256 Offline"
+  },
+  {
+    modId: "MOD-18",
+    category: "SIMD ACCELERATION",
+    title: "ImageUpscale Pro: Offline SIMD Photo & Document Enhancer",
+    slug: "image-upscale-simd",
+    desc: "Rust AVX-512 hardware-accelerated image pipeline, offline neural super-resolution and document artifact cleaning.",
+    stack: "Rust AVX-512 • SIMD • Neural Filter"
+  },
+  {
+    modId: "MOD-19",
+    category: "BROWSER ENGINE",
+    title: "Gecko Browser Suite: High-Throughput Headless Crawler & Renderer",
+    slug: "gecko-browser-engine",
+    desc: "C++ & Rust Gecko runtime, automated multi-tab script execution and deep headless DOM capture without detection.",
+    stack: "C++ • Rust • Gecko Runtime • DOM"
+  },
+  {
+    modId: "MOD-20",
+    category: "ACADEMIC INFRA",
+    title: "Smart Campus ERP: Automated Student Billing & Examination Ledger",
+    slug: "smart-academic-infra",
+    desc: "Spring Boot 3.4 & React 19, unified campus operational portal covering 5,000+ enrolled students and faculty.",
+    stack: "Spring Boot • React 19 • PostgreSQL"
+  },
+  {
+    modId: "MOD-21",
+    category: "CONVEYANCE AUDIT",
+    title: "SSSMS Transport Ledger: Fuel Log & Driver Trip Verification Engine",
+    slug: "sssms-conveyance-ledger",
+    desc: "Flutter & Node.js, automated GPS mileage reconciliation, fuel expense auditing, and route dispute prevention.",
+    stack: "Flutter • Node.js • GPS Ledger"
+  },
+  {
+    modId: "MOD-22",
+    category: "MEDIA STREAMING",
+    title: "YT Playlist Aggregator: High-Speed Cached Media Metadata Engine",
+    slug: "yt-playlist-engine",
+    desc: "Go & Redis, high-throughput caching of external video stream indexes with sub-5ms lookup latency.",
+    stack: "Go • Redis • Sub-5ms Caching"
+  },
+  {
+    modId: "MOD-23",
+    category: "CLOUD VAULT",
+    title: "SecureNotes Cloud: Client-Side Encrypted Knowledge Repository",
+    slug: "secure-notes-cloud",
+    desc: "React & WebCrypto API, zero-knowledge end-to-end encrypted personal data vault with argon2 key derivation.",
+    stack: "React • WebCrypto • Argon2 • Vault"
+  },
+  {
+    modId: "MOD-24",
+    category: "EDTECH PORTAL",
+    title: "EduGo Learning Hub: Interactive Syllabus & Exam Evaluation Core",
+    slug: "edugo-institute-core",
+    desc: "React 19 & Express, automated grading workflows, course materials distribution, and student progress telemetry.",
+    stack: "React 19 • Express • MongoDB"
+  }
+];
 ---
 
 <section id="systems" class="pt-12 pb-12 sm:pt-16 sm:pb-16 space-y-8 scroll-mt-24">
@@ -104,1227 +298,34 @@
     </div>
   </div>
 
-    <!-- Split Row Below: Card A (Enterprise HRMS) & Card B (Activity Monitor) -->
+  <!-- 24 Modular Systems Grid (Clean Swiss Architectural Cards) -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- Card A: Enterprise Skylink HRMS Suite -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 004 11m0 0a8 8 0 00.99 7.132" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">Skylink HRMS: Automated Attendance &amp; Payroll</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-secondaryAccent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-secondaryAccent"></span>
-          Biometric Hardware + Cloud
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        Handles thousands of factory and office workers clocking in at 9:00 AM rush simultaneously — zero lost attendance punches, zero server crashes, and automated 1-click monthly payroll.
-      </p>
-
-      <!-- Packet Trace Preview Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>HIGH-VOLUME WORKER RUSH INGESTION</span>
-          <span class="text-theme-secondaryAccent font-bold">ZERO LOST PUNCHES</span>
-        </div>
-        <div class="text-theme-accent truncate font-semibold">POST /iclock/cdata (ZKTeco Biometric Terminal Sync)</div>
-        <div class="text-theme-secondaryAccent text-[11px]">Java 21 Virtual Threads processes 10,000+ simultaneous punches with instant WhatsApp/SMS check-in alerts.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21 LTS</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">ZKTeco ADMS</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Payroll</span>
-        </div>
-        <a
-          href="/systems/skylink-hrms"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card B: Workstation Activity Monitor -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">Skylink Monitor: Workstation Activity &amp; Productivity Guard</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Lightweight Agent
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        Tracks team productive hours, security compliance, and focus drift with 99% less computer memory than commercial surveillance tools — completely unblockable and crash-proof.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>EFFICIENCY & DATA PRIVACY</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt;0.01% CPU IMPACT</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Bank-grade AES-256 local encrypted buffer queue</div>
-        <div class="text-theme-secondaryAccent text-[11px]">&lt; 14MB RAM (Won't slow down work) • Works 100% offline with zero data loss.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Rust 2024</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">WebSockets</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">&lt; 14MB RAM</span>
-        </div>
-        <a
-          href="/systems/skylink-monitor"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card C: Swift PDF Studio (Financial Wire Redaction & Typography Engine) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">Swift PDF Studio: Permanent Financial Document Redaction</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Zero Data Leakage
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        Permanently blacks out confidential bank account numbers, passwords, and sensitive client details from financial PDF statements before sharing — making it impossible for anyone to recover hidden text.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>PRECISION &amp; SECURITY</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 120ms PIPELINE</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">True cryptographic byte scrubbing on sensitive financial statements</div>
-        <div class="text-theme-secondaryAccent text-[11px]">Replaces text with solid blackout boxes • Leaves zero underlying hidden data • Arabic &amp; English fonts.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Python 3.12</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PyMuPDF fitz</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">BiDi RTL</span>
-        </div>
-        <a
-          href="/systems/swift-pdf-editor"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card D: ImageUpscale Pro (Photo & Document Quality Enhancer) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">ImageUpscale Pro: Offline Photo &amp; Document Enhancer</h3>
-        </div>
-        <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-emerald-500/10 text-emerald-300 border border-emerald-500/40">
-          100% Offline
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        Turns blurry, low-resolution photos and document scans into crisp HD visuals in milliseconds — zero cloud uploads, zero subscriptions, and complete data privacy.
-      </p>
-
-      <!-- Human-Centric Value Highlights Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>HARDWARE SIMD ACCELERATION</span>
-          <span class="text-emerald-400 font-bold">292 PHOTOS / SEC</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Contrast-Adaptive Sharpening (Zero Halo Artifacts)</div>
-        <div class="text-emerald-300 text-[11px]">&lt; 25 MB RAM • 3.43 ms per photo • Runs 100% locally on your PC.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Rust 2021</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">SIMD AVX2</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Rayon Concurrency</span>
-        </div>
-        <a
-          href="/systems/image-upscale-simd"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
-        >
-          <span>See Live Demo</span>
-          <svg class="w-3.5 h-3.5 text-theme-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card: HomeSync IoT (Interactive 3D Smart Home Floorplan & Digital Twin) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">HomeSync: Interactive 3D Smart Home Floorplan &amp; Digital Twin</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-secondary bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Real-Time 3D
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        Turns architectural blueprints into interactive 3D virtual floorplans where homeowners and electricians test smart lighting, security radar sensors, and appliance automation in real time.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>REAL-TIME 3D LIGHTING &amp; SENSORS</span>
-          <span class="text-emerald-400 font-bold">60 FPS LOCKED</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Dynamic Kelvin ambient lighting shaders &amp; radar cones</div>
-        <div class="text-theme-secondary text-[11px]">&lt; 38 MB VRAM • Matter &amp; Zigbee mesh simulation • Runs smoothly in any browser.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">React 19</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Three.js</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">React Three Fiber</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Matter 3.0</span>
-        </div>
-        <a
-          href="/systems/homesync-iot"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
-        >
-          <span>See Live Demo</span>
-          <svg class="w-3.5 h-3.5 text-theme-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card E: Marksheet Automation Engine (Academic Tabulation & Merit Order Compiler) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">Marksheets Automation: Academic Exam Grading &amp; PDF Reports</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          GPA 5.0 Auto-Grading
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        Ingests multi-subject teacher spreadsheets (Excel/CSV), applies official GPA 5.0 and 4th-subject bonus rules, ranks merit order, and batch compiles 1,200+ print-ready PDF marksheets in minutes.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>HIGH-THROUGHPUT COMPILATION</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 42ms BATCH PASS</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Official Board Rules: Automatic 4th-subject bonus points &amp; fail-grade locks</div>
-        <div class="text-theme-secondaryAccent text-[11px]">&lt; 42MB memory • Eliminates human arithmetic mistakes across thousands of students.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Node.js 22</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Prisma ORM</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">SheetJS (xlsx)</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PDFKit Vector</span>
-        </div>
-        <a
-          href="/systems/marksheets-automation"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card F: EduMeet WebRTC (Virtual Classroom & Live Lecture Platform) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">EduMeet: Low-Bandwidth Virtual Classroom Suite</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-secondary bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Smooth on 3G/4G Mobile
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        A live video classroom app tailored for students with slow internet connections. Automatically adjusts video quality to prevent buffering, logs attendance automatically, and has no call time limits.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>LOW-BANDWIDTH OPTIMIZATION</span>
-          <span class="text-emerald-400 font-bold">&lt; 95ms LATENCY</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Adaptive Streaming: Downscales video to prevent buffering on weak cellular data</div>
-        <div class="text-theme-secondary text-[11px]">&lt; 95ms delay • Automated in-call attendance logging • Separate student and teacher apps.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">WebRTC</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Jitsi Core</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Firestore</span>
-        </div>
-        <a
-          href="/systems/edumeet-webrtc"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card G: SmartAI (Mobile Edge Vision & Geofenced Attendance) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">SmartAI: Mobile Face &amp; GPS Attendance Verification</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Anti-Spoofing &amp; Offline
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        Stops students or staff from faking attendance for friends. Uses on-device facial recognition and a 50-meter GPS geofence on their phone to verify attendance in under a second with zero cellular data cost.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>ZERO CLOUD DATA CONSUMPTION</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 340ms SCAN</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Two-Factor Verification: On-device face scan + campus GPS radius check</div>
-        <div class="text-theme-secondaryAccent text-[11px]">&lt; 340ms scan • Works 100% offline without cellular data • Syncs automatically when connected.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Kotlin 2.0</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Jetpack Compose</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">CameraX</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">ML Kit</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Room DB</span>
-        </div>
-        <a
-          href="/systems/smartai-edge-vision"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card H: SecureNotes (Encrypted Knowledge Base & RBAC Engine) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">SecureNotes: Private Encrypted Documentation Workspace</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-secondary bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Zero-Trust Privacy
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        A bank-grade encrypted workspace for corporate teams to store confidential procedures, company wikis, and credentials with strict permission controls and sub-5ms search.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>HIGH-THROUGHPUT COMPOUND INDEX</span>
-          <span class="text-emerald-400 font-bold">&lt; 4.8ms QUERY</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Role-Based Access: Team members only see documents permitted for their clearance level</div>
-        <div class="text-theme-secondary text-[11px]">Encrypted at rest and in transit • Instant search across millions of records • Zero data leaks.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">NestJS 10</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">TypeScript</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Mongoose</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">JWT RBAC</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Docker Compose</span>
-        </div>
-        <a
-          href="/systems/secure-notes-cloud"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card I: SSSMS (Conveyance Billing Ledger & bKash Disbursal Engine) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">SSSMS: Employee Travel Expense &amp; bKash Disbursal</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          1-Click Mobile Payouts
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        Replaces messy paper travel slips with an auditable mobile tracker for employee visits (Rickshaw, CNG, Bus, Fuel), verifies standard fare rates, and pays out reimbursements via bKash or Nagad in seconds.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>INSTANT MOBILE BANKING PAYOUT</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 18ms SYNC</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Automated Fare Audit: Prevents inflated travel bills and lost receipts</div>
-        <div class="text-theme-secondaryAccent text-[11px]">Instant bKash, Nagad, and bank transfers • Generates print-ready PDF accounting vouchers.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Dart 3.11</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Firestore</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Vector PDF</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">bKash Disbursal</span>
-        </div>
-        <a
-          href="/systems/sssms-conveyance-ledger"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Dart 3.11</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Firestore</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Vector PDF</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">bKash Disbursal</span>
-        </div>
-        <a
-          href="/systems/sssms-conveyance-ledger"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card J: Smart Academic (Unified Micro-Frontend & Campus ERP Monorepo) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">Smart Academic: Unified School &amp; University Admin Portal</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-secondary bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Complete School ERP
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        Consolidates student attendance, teacher payroll, report card generation, and fees collection into a single, easy-to-use administrative dashboard for schools and colleges.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>ALL-IN-ONE CAMPUS OPERATIONS</span>
-          <span class="text-emerald-400 font-bold">&lt; 14ms INTEROP</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Consolidates 5 disconnected school software systems into one portal</div>
-        <div class="text-theme-secondary text-[11px]">Handles thousands of students simultaneously • Works offline without cloud subscriptions.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21 Loom</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Vue.js 3</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Orchestrator</span>
-        </div>
-        <a
-          href="/systems/smart-academic-infra"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card K: Bhumi Setu (Land Record Ledger & Title Deed Verification Engine) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">Bhumi Setu: Land Record Verification &amp; Property Dispute Radar</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Stops Land Fraud
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        Verifies historical Bangladesh land ownership records across multiple eras (CS, SA, RS, BS), converts between traditional land units (Katha, Bigha, Decimal), and detects overlapping boundary disputes.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>GEOMETRIC BOUNDARY VALIDATION</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 28ms PostGIS</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Historical Ownership Audit: Tracks deed lineage to prevent fraudulent double-selling</div>
-        <div class="text-theme-secondaryAccent text-[11px]">Instant PostGIS boundary overlap check • Converts Katha, Bigha, Decimal, and Square Feet.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostGIS 16</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Docker</span>
-        </div>
-        <a
-          href="/systems/landtrust-bhumisetu"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card L: Mordern OS (Capability-Secure #![no_std] Rust Microkernel) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">Modern OS: Crash-Proof Secure Microkernel</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-secondary bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Zero Fatal Crashes
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        A computer operating system engineered from scratch in Rust where device driver crashes (like Wi-Fi or disk errors) can never crash the whole computer, restarting faulty components in microseconds.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>LOCK-FREE SPSC IPC QUEUE</span>
-          <span class="text-emerald-400 font-bold">&lt; 38ns ROUNDTRIP</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Fault-Isolated Architecture: A buggy hardware driver cannot take down the operating system</div>
-        <div class="text-theme-secondary text-[11px]">Sub-microsecond communication • Ultra-compact core (&lt; 2,500 lines) • Maximum security.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Rust 2024</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">#![no_std]</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">x86_64</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">AArch64</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Lock-Free SPSC</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">QEMU</span>
-        </div>
-        <a
-          href="/systems/modern-os-microkernel"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all hover:scale-[1.02]"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card M: YT-Stream (High-Concurrency Media Ingestion & Multi-ISP Caching Engine) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">YT-Stream: High-Speed Video Archive &amp; Caching Engine</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Fast &amp; Ad-Free
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        Downloads and archives video playlists and educational lectures at full internet speed via 16 simultaneous network streams, automatically cuts out promotional segments, and streams smoothly on home screens.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>SEGMENTED TCP ACCELERATION</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 180ms QUEUE</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">16 Multi-Socket Streams: Downloads at maximum network speed even during ISP slowdowns</div>
-        <div class="text-theme-secondaryAccent text-[11px]">Automatically skips promotional sponsor plugs • Integrates directly with home Plex &amp; Jellyfin media.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Python 3.12</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">yt-dlp</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">aria2c</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">FFmpeg</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Jellyfin / Plex</span>
-        </div>
-        <a
-          href="/systems/yt-playlist-engine"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card N: AMH Sniper (In-Memory Work Order Auto-Acceptor & Chrome MV3 Engine) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">AMH Sniper: High-Speed Work Order Auto-Claimer</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Instant Job Claiming
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        A browser automation tool that continuously monitors contractor job portals and claims high-value work orders in under a quarter of a second before competitors can even refresh the page.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>IN-MEMORY API INTERCEPTION</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 80ms SOFT TAB</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Sub-Second Detection: Catches new client jobs before they appear on screen</div>
-        <div class="text-theme-secondaryAccent text-[11px]">Auto-checks terms and accepts jobs in &lt; 250ms • Built-in cooling prevents account lockouts.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Chrome MV3</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">MAIN World</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Memory Hook</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">MutationObserver</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Web Audio API</span>
-        </div>
-        <a
-          href="/systems/amh-wo-sniper"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card O: GeckoEngine (Independent Android Web Browser & GeckoView Omni 134 Runtime) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">GeckoEngine: Independent Privacy-First Mobile Browser</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          100% Google-Free
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        An independent Android mobile browser built on Mozilla's Gecko engine instead of Google Chrome, protecting user search history, blocking invasive web trackers, and loading pages smoothly.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>TRUE BROWSER INDEPENDENCE</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 24ms DISPATCH</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Free from Google Chrome tracking and browser monoculture</div>
-        <div class="text-theme-secondaryAccent text-[11px]">&lt; 42 MB Engine RAM • Built-in tracker protection • Supports full web extensions.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Kotlin</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Android SDK 34</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">GeckoView 134</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">GeckoRuntime</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">WebRender</span>
-        </div>
-        <a
-          href="/systems/gecko-browser-engine"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card P: Doller (Multi-Currency Trading, Settlement & PnL Ledger Engine) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">Doller: Multi-Currency Trading &amp; Corporate FX Wallet</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Zero Math Discrepancy
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        A foreign currency exchange platform that records every trade, currency conversion, and profit calculation with double-entry accounting integrity, working reliably even during offline network dropouts.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>BALANCED DOUBLE-ENTRY LEDGER</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 14ms COMMIT</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">1,500+ Deals/Sec • Balanced Journal (Debits Always Equal Credits)</div>
-        <div class="text-theme-secondaryAccent text-[11px]">&lt; 145 MB Spring Boot Container • Real-Time PnL Valuation • Offline Mobile Outbox.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.5</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flyway V1-V10</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
-        </div>
-        <a
-          href="/systems/doller-fintech-wallet"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card Q: QuickBooks Ledger Sync (Automated Invoicing, Tiered Bank Reconciliation & QBO API Engine) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">QuickBooks Ledger Sync: Automated Invoicing &amp; Bank Reconciliation</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Zero Manual Bookkeeping
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        Imports chaotic bank statements and spreadsheet invoices, automatically reconciles payments against accounting ledgers, and syncs directly into QuickBooks Online with zero duplicate entries.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>SMART BANK RECONCILIATION</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 14ms VALIDATION</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">1,200 Invoices/Min • 4-Tier Automated Bank Statement Matching</div>
-        <div class="text-theme-secondaryAccent text-[11px]">Vaadin 25 Flow Push UI • AES-256-GCM Vault • Idempotent Duplicate Shield.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 4.0</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Vaadin 25</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">QuickBooks API</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">OAuth 2.0</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
-        </div>
-        <a
-          href="/systems/quickbooks-ledger-sync"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card R: EduGo (Multi-Tenant Academic ERP & Dual-Security Microservice Architecture) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">EduGo: Multi-Campus School Administration &amp; Mobile App</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Unified Web &amp; Mobile
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        A complete school management suite featuring a web dashboard for administrative staff and a native mobile app for students and parents to check grades, track attendance, and receive announcements.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>DUAL-ROLE SECURITY &amp; MULTI-TENANCY</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 12ms JWT AUTH</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">2,800 Req/Sec • Strict Institutional Data Isolation</div>
-        <div class="text-theme-secondaryAccent text-[11px]">Vaadin Admin Web UI • Flutter Student App • Seamless push announcements.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.3</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Vaadin Flow</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flyway V1-V8</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
-        </div>
-        <a
-          href="/systems/edugo-institute-core"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card S: BD CRM (Multi-Tenant B2B Sales Pipeline, Fuzzy Duplicate Rescan & SLA Escalation) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">BD CRM: Enterprise Sales Pipeline &amp; Lead Deduplication</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Closes Deals Faster
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        A high-velocity sales CRM that automatically flags duplicate customer inquiries, alerts managers before customer deals go cold, and visualizes company revenue on interactive drag-and-drop boards.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>PIPELINE VELOCITY &amp; DEDUPLICATION</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 1.8ms RESCAN</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Fuzzy Duplicate Detection: Stops multiple sales reps from calling the same lead</div>
-        <div class="text-theme-secondaryAccent text-[11px]">Automated follow-up reminders ensure no deal goes cold • Real-time interactive deal boards.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.3</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flyway V1-V5</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">React 18</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">TypeScript</span>
-        </div>
-        <a
-          href="/systems/bd-crm-pipeline"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card T: Email Verifier Service (High-Throughput SMTP Handshake & Mailbox Deliverability Engine) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">Email Verifier: SMTP Mailbox Checker &amp; Bounce Preventer</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Protects Domain Reputation
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        Verifies whether customer email addresses actually exist before you launch a marketing campaign — stopping high bounce rates, preventing spam blacklists, and cutting third-party API subscription costs.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>PORT 25 SMTP &amp; CATCH-ALL PROBE</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 1.2s HANDSHAKE</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Direct Mailbox Handshake: Confirms inbox existence in 1 second without sending spam</div>
-        <div class="text-theme-secondaryAccent text-[11px]">Catches temporary burner emails • Protects company email domains from spam blacklists.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Python 3.12</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">FastAPI</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Asyncio</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Port 25 SMTP</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Docker</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Dokploy</span>
-        </div>
-        <a
-          href="/systems/email-verifier-service"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card U: Cameraman (Edge CCTV AI Webhook Ingestion, Bangla ANPR & Multi-Model Vision Pipeline) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">Cameraman: CCTV Security AI &amp; Bangladeshi License Plate Reader</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Real-Time Edge Intelligence
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        Connects to CCTV security cameras to instantly read Bangladeshi vehicle license plates in Bengali script, verify worker safety gear (helmets, vests), and trigger physical access gates in under 25 milliseconds.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>EDGE CCTV INGESTION &amp; BANGLA ANPR</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 24ms ACK</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Bangla License Plate Parsing: Identifies vehicle numbers across all 64 districts of Bangladesh</div>
-        <div class="text-theme-secondaryAccent text-[11px]">Detects workplace safety gear compliance • Triggers automated turnstiles with zero lag.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Rust 2021</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Axum 0.7</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Tokio</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">SQLx</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Bangla ANPR</span>
-        </div>
-        <a
-          href="/systems/cameraman-edge-vision"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card V: ClassRoom Live (WebRTC SFU Virtual Classroom Engine) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">ClassRoom Live: Low-Latency Virtual Lecture Platform</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Smooth Video for 500+ Students
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        A crystal-clear online lecture and virtual classroom platform that adapts video quality dynamically for students on spotty mobile data, giving instructors instant 1-click room moderation controls.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>WEBRTC SFU &amp; ADAPTIVE DYNACAST</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 65ms LATENCY</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Adaptive Quality: Downscales video to prevent buffering on weak phone connections</div>
-        <div class="text-theme-secondaryAccent text-[11px]">Sub-35ms teacher moderation: mute-all and camera controls • 500+ students per lecture room.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Java 21</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Spring Boot 3.4</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Vaadin 24</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">LiveKit SFU</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">WebRTC</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PostgreSQL 16</span>
-        </div>
-        <a
-          href="/systems/classroom-livekit-webrtc"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Card W: Self-MT (Envelope Budgeting & Financial Ledger Engine) -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-lowest space-y-4 hover:border-theme-secondary transition-all duration-200 flex flex-col justify-between shadow-xs">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <svg class="w-5 h-5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <h3 class="text-lg font-bold text-theme-primary">Self-MT: Envelope Budgeting &amp; Offline Expense Ledger</h3>
-        </div>
-        <span class="font-mono text-xs text-theme-accent bg-theme-surface px-2 py-0.5 rounded-sm border border-theme-border flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-theme-accent"></span>
-          Zero-Based Money Management
-        </span>
-      </div>
-
-      <p class="text-sm text-theme-muted leading-relaxed">
-        An offline-first personal finance app that divides income into digital cash envelopes so you never overspend, calculates loan payoffs automatically, and compiles bank-ready PDF financial statements right from your phone.
-      </p>
-
-      <!-- Metrics Box -->
-      <div class="p-3 rounded-sm bg-[#eff4ff] dark:bg-theme-surface border border-theme-border font-mono text-xs space-y-1.5">
-        <div class="text-theme-muted text-[10px] flex items-center justify-between uppercase">
-          <span>ENVELOPE BUDGETING &amp; ATOMIC ROLLBACK</span>
-          <span class="text-theme-secondaryAccent font-bold">&lt; 12ms UI BLOC</span>
-        </div>
-        <div class="text-theme-primary truncate font-semibold">Digital Envelope Budgeting: Assigns every dollar a purpose before you spend it</div>
-        <div class="text-theme-secondaryAccent text-[11px]">Calculates loan amortization • 100% private &amp; offline • Exports clean PDF financial statements.</div>
-      </div>
-
-      <!-- Tech Badges & CTA -->
-      <div class="pt-3 flex items-center justify-between flex-wrap gap-2 border-t border-theme-border">
-        <div class="flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Flutter 3.29</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Dart 3.11</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">BLoC</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Freezed</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">Firestore</span>
-          <span class="px-2 py-0.5 rounded-sm bg-theme-surface border border-theme-border font-mono text-[11px] text-theme-muted">PDFKit</span>
-        </div>
-        <a
-          href="/systems/self-mt-finance-ledger"
-          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-theme-surface hover:bg-theme-secondary hover:text-white text-theme-secondary border border-theme-border text-xs font-mono font-semibold transition-all"
-        >
-          <span>Explore Case Study</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
+    {modularSystems.map((sys) => (
+      <div class="bg-theme-lowest border border-theme-border p-5 rounded-sm flex flex-col justify-between hover:border-theme-secondary transition-colors space-y-4">
+        <div>
+          <div class="flex justify-between items-center font-mono text-[10px] text-theme-muted mb-1.5">
+            <span>[{sys.modId}]</span>
+            <span class="tracking-wider">{sys.category}</span>
+          </div>
+          <h4 class="text-base sm:text-lg font-bold text-theme-primary mb-1.5 leading-snug">
+            <a href={`/systems/${sys.slug}`} class="hover:text-theme-accent transition-colors">
+              {sys.title}
+            </a>
+          </h4>
+          <p class="text-xs sm:text-sm text-theme-secondary mb-3 leading-relaxed">
+            {sys.desc}
+          </p>
+        </div>
+        <div class="pt-2.5 border-t border-theme-border font-mono text-xs text-theme-accent font-semibold flex items-center justify-between">
+          <span class="truncate text-[11px] sm:text-xs">{sys.stack}</span>
+          <a
+            href={`/systems/${sys.slug}`}
+            class="text-theme-secondary hover:text-theme-accent transition-colors shrink-0 ml-2 font-mono text-xs"
+          >
+            Case Study →
+          </a>
+        </div>
+      </div>
+    ))}
   </div>
 </section>

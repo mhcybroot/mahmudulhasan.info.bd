@@ -24,12 +24,12 @@
   --bg-base: #F8F9FF;
   --bg-surface: #FFFFFF;
   --bg-card: #FFFFFF;
-  --bg-lowest: #EFF4FF;
-  --border-subtle: #D8E0ED;
+  --bg-lowest: #FFFFFF;
+  --border-subtle: #C6C6CD;
   --border-strong: #76777D;
   --text-primary: #0B1C30;
-  --text-secondary: #334155;
-  --text-muted: #64748B;
+  --text-secondary: #45464D;
+  --text-muted: #76777D;
   --accent-primary: #FD761A;       /* International Safety Orange */
   --accent-secondary: #131B2E;     /* Blueprint Slate Navy */
   --accent-glow: rgba(253, 118, 26, 0.22);
