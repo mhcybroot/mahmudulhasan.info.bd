@@ -86,5 +86,14 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
         background: var(--border-strong);
       }
     </style>
+
+    <!-- Telemetry Service Worker Registration (Offline Resilience) -->
+    <script is:inline>
+      if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
   </body>
 </html>

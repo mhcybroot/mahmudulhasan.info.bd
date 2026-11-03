@@ -20,12 +20,12 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
 
     <!-- Desktop Navigation Links (Uppercase Monospace) -->
     <nav class="hidden md:flex items-center space-x-6 lg:space-x-8 font-mono text-xs uppercase tracking-wider text-theme-muted">
-      <a href="#systems" class="text-theme-accent border-b-2 border-theme-accent py-4 font-semibold hover:text-theme-accent transition-colors">Flagship Systems</a>
-      <a href="#deployments" class="hover:text-theme-accent py-5 transition-colors font-medium">Deployments</a>
-      <a href="#arsenal" class="hover:text-theme-accent py-5 transition-colors font-medium">Arsenal</a>
-      <a href="#chronicle" class="hover:text-theme-accent py-5 transition-colors font-medium">Chronicle</a>
-      <a href="#endorsements" class="hover:text-theme-accent py-5 transition-colors font-medium">Endorsements</a>
-      <a href="#contact" class="hover:text-theme-accent py-5 transition-colors font-medium">Contact</a>
+      <a href="#systems" class="nav-desktop-link text-theme-accent border-b-2 border-theme-accent py-4 font-semibold hover:text-theme-accent transition-colors">Flagship Systems</a>
+      <a href="#deployments" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Deployments</a>
+      <a href="#arsenal" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Arsenal</a>
+      <a href="#chronicle" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Chronicle</a>
+      <a href="#endorsements" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Endorsements</a>
+      <a href="#contact" class="nav-desktop-link hover:text-theme-accent py-4 transition-colors font-medium">Contact</a>
     </nav>
 
     <!-- Trailing Actions -->
@@ -66,3 +66,41 @@ import ThemeSwitcher from './ThemeSwitcher.astro';
     </div>
   </div>
 </header>
+
+<script>
+  function initNavbarScrollSpy() {
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-desktop-link');
+    if (!navLinks.length) return;
+
+    const sectionIds = ['systems', 'deployments', 'arsenal', 'chronicle', 'endorsements', 'contact'];
+    const sections = sectionIds
+      .map(id => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === `#${id}`) {
+              link.classList.add('text-theme-accent', 'border-b-2', 'border-theme-accent', 'font-semibold');
+              link.classList.remove('text-theme-muted', 'font-medium');
+            } else {
+              link.classList.remove('text-theme-accent', 'border-b-2', 'border-theme-accent', 'font-semibold');
+              link.classList.add('text-theme-muted', 'font-medium');
+            }
+          });
+        }
+      });
+    }, {
+      rootMargin: '-20% 0px -65% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(section => observer.observe(section));
+  }
+
+  initNavbarScrollSpy();
+  document.addEventListener('astro:page-load', initNavbarScrollSpy);
+</script>

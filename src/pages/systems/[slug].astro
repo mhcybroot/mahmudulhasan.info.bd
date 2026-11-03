@@ -184,6 +184,18 @@ if (isPms) {
           <span>Under The Hood ↓</span>
         </a>
 
+        <button
+          type="button"
+          id="btn-share-spec"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-theme-lowest border border-theme-border hover:border-theme-accent text-xs font-mono text-theme-secondary hover:text-theme-primary transition-all font-semibold cursor-pointer"
+          title="Share Specification (Hotkey: S)"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+          </svg>
+          <span id="share-btn-text">Share Spec</span>
+        </button>
+
         <ThemeSwitcher />
       </div>
     </div>
@@ -7886,6 +7898,52 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
         }
       });
 
+      // Native Web Share & Clipboard Fallback
+      const shareBtn = document.getElementById('btn-share-spec');
+      const shareBtnText = document.getElementById('share-btn-text');
+
+      async function triggerShare() {
+        const title = document.title;
+        const url = window.location.href;
+        if (navigator.share) {
+          try {
+            await navigator.share({ title, url });
+            return;
+          } catch {
+            // Aborted or cancelled by user; fallback to clipboard copy
+          }
+        }
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(url);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = url;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          if (shareBtnText) shareBtnText.textContent = 'URL COPIED [OK]';
+          setTimeout(() => {
+            if (shareBtnText) shareBtnText.textContent = 'Share Spec';
+          }, 2000);
+        } catch {
+          if (shareBtnText) shareBtnText.textContent = 'URL COPIED [OK]';
+        }
+      }
+
+      shareBtn?.addEventListener('click', triggerShare);
+
+      window.addEventListener('keydown', (e) => {
+        if ((e.key === 's' || e.key === 'S') && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName || '')) {
+          e.preventDefault();
+          triggerShare();
+        }
+      });
+
       // Reading Progress Bar
       const progressBar = document.getElementById('reading-progress-bar');
       let ticking = false;
@@ -7910,4 +7968,39 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
     initCaseStudyInteractions();
     document.addEventListener('astro:page-load', initCaseStudyInteractions);
   </script>
+
+  <style is:global>
+    @media print {
+      header,
+      #reading-progress-bar,
+      nav[aria-label="Sequential Project Navigation"],
+      #copy-code-btn,
+      #btn-share-spec,
+      #theme-switcher-container,
+      #theme-dropdown-menu,
+      footer,
+      #contact-footer {
+        display: none !important;
+      }
+      body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+      }
+      main {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+      }
+      pre {
+        white-space: pre-wrap !important;
+        word-break: break-word !important;
+        background: #f8fafc !important;
+        color: #0f172a !important;
+        border: 1px solid #cbd5e1 !important;
+      }
+      .rounded-2xl, .rounded-xl, .rounded-lg, .rounded-sm {
+        border-radius: 0 !important;
+      }
+    }
+  </style>
 </Layout>

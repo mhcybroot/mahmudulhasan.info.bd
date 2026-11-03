@@ -468,6 +468,17 @@ const modularSystems = [
     applyFilters();
   });
 
+  searchInput?.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (searchInput.value) {
+        searchInput.value = '';
+        searchQuery = '';
+        applyFilters();
+      }
+      searchInput.blur();
+    }
+  });
+
   resetBtn?.addEventListener('click', () => {
     if (searchInput) searchInput.value = '';
     searchQuery = '';
