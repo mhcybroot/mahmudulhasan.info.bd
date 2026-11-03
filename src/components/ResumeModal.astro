@@ -7,9 +7,9 @@
   <div id="resume-modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity duration-200"></div>
 
   <!-- Modal Dialog Container -->
-  <div class="relative w-full max-w-[920px] max-h-[90vh] flex flex-col rounded-3xl border border-theme-border bg-theme-surface/95 shadow-2xl shadow-black/90 overflow-hidden backdrop-blur-2xl z-10">
+  <div class="relative w-full max-w-[920px] max-h-[90vh] flex flex-col rounded-sm border-2 border-theme-secondary bg-theme-surface shadow-2xl overflow-hidden z-10">
     <!-- Top System Bar -->
-    <div class="flex items-center justify-between px-5 py-3.5 border-b border-theme-border bg-theme-bar shrink-0 select-none">
+    <div class="flex items-center justify-between px-5 py-3.5 border-b border-theme-border bg-theme-lowest shrink-0 select-none">
       <div class="flex items-center gap-3 overflow-hidden">
         <div class="flex items-center gap-2">
           <span class="relative flex h-2 w-2">
@@ -20,7 +20,7 @@
             mhcybroot // systems_dossier.pdf <span class="text-theme-muted font-normal">(v2.5-prod)</span>
           </span>
         </div>
-        <div class="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-theme-base border border-theme-border font-mono text-[10px] text-theme-muted">
+        <div class="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-sm bg-theme-base border border-theme-border font-mono text-[10px] text-theme-muted">
           <span class="text-theme-accent">●</span>
           <span>sha256:8f2a...c019</span>
         </div>
@@ -31,7 +31,7 @@
         <button
           id="btn-print-dossier"
           type="button"
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-theme-base border border-theme-border text-theme-primary hover:border-theme-accent hover:text-theme-accent transition-all text-xs font-mono cursor-pointer"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-theme-surface border border-theme-border text-theme-primary hover:border-theme-secondary hover:text-theme-secondary transition-all text-xs font-mono cursor-pointer"
         >
           <svg class="w-3.5 h-3.5 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -44,7 +44,7 @@
         <button
           id="resume-modal-close"
           type="button"
-          class="p-1.5 rounded-lg text-theme-muted hover:text-theme-primary hover:bg-theme-base transition-all cursor-pointer"
+          class="p-1.5 rounded-sm text-theme-muted hover:text-theme-primary hover:bg-theme-lowest transition-all cursor-pointer"
           aria-label="Close Dossier"
         >
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

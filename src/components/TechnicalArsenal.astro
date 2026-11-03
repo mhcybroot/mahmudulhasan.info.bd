@@ -2,7 +2,7 @@
 // Technical Arsenal Matrix Component — Swiss Division 03
 ---
 
-<section id="arsenal" class="space-y-8 scroll-mt-24 pt-8">
+<section id="arsenal" class="pt-12 pb-12 sm:pt-16 sm:pb-16 border-t border-theme-border space-y-8 scroll-mt-24">
   <!-- Section Heading — Swiss Division 03 -->
   <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-theme-border pb-3 gap-3">
     <div>
@@ -17,148 +17,84 @@
   </div>
 
   <!-- 4-Column Architectural Blueprint Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
     <!-- Pillar 1: Fast Backends & APIs -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-surface space-y-4 hover:border-theme-accent transition-all duration-300 flex flex-col justify-between">
+    <div class="bg-theme-lowest border border-theme-border p-5 rounded-sm flex flex-col justify-between space-y-4 hover:border-theme-secondary transition-colors">
       <div>
         <div class="font-mono text-[10px] text-theme-muted mb-1">[PILLAR_01]</div>
-        <h3 class="font-bold text-lg text-theme-primary mb-1">Fast Backends &amp; APIs</h3>
-        <p class="text-xs text-theme-muted font-sans mb-3">
-          Your apps never freeze or crash, even during massive user traffic spikes.
-        </p>
-        <ul class="space-y-2.5 font-mono text-xs text-theme-secondary">
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>Rust (Axum &amp; Tokio)</span>
-            <span class="text-theme-secondary font-bold bg-theme-lowest border border-theme-border px-1.5 py-0.5 rounded-sm text-[11px]">Super-Fast</span>
-          </li>
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>Java 21 (Spring Boot 3.4)</span>
-            <span class="text-theme-accent font-semibold bg-theme-lowest border border-theme-border px-1.5 py-0.5 rounded-sm text-[11px]">Enterprise</span>
-          </li>
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>Real-Time WebSockets</span>
-            <span class="text-theme-muted bg-theme-lowest px-1.5 py-0.5 rounded-sm border border-theme-border text-[11px]">Sub-10ms</span>
-          </li>
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>Multi-Threaded Daemons</span>
-            <span class="text-theme-primary bg-theme-lowest px-1.5 py-0.5 rounded-sm border border-theme-border text-[11px]">Parallel</span>
-          </li>
-          <li class="flex items-center justify-between">
-            <span>High-Load Concurrency</span>
-            <span class="text-theme-muted bg-theme-lowest px-1.5 py-0.5 rounded-sm border border-theme-border text-[11px]">10k+ RPS</span>
-          </li>
+        <h3 class="text-lg font-bold text-theme-primary mb-3">Fast Backends &amp; APIs</h3>
+        <ul class="space-y-2 font-mono text-xs text-theme-secondary mb-4">
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> Rust (Axum, Tokio)</li>
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> Java 21 (Spring Boot 3.4, Loom)</li>
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> WebSockets &amp; gRPC</li>
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> Python FastAPI</li>
         </ul>
       </div>
-      <div class="pt-3 border-t border-theme-border font-mono text-[11px] text-theme-accent">
-        <span class="font-bold">WHY IT MATTERS:</span> Sub-millisecond execution without bloated cloud costs.
+      <div class="bg-[#eff4ff] dark:bg-theme-surface p-3.5 border border-theme-border rounded-sm">
+        <span class="font-mono text-xs text-theme-secondary font-bold block mb-1">WHY IT MATTERS TO YOU:</span>
+        <p class="text-xs text-theme-muted leading-relaxed">
+          10k+ RPS throughput with zero memory leaks, slashing cloud server bills from $2,000/mo to a single $40/mo dedicated box.
+        </p>
       </div>
     </div>
 
     <!-- Pillar 2: Secure Databases & Data -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-surface space-y-4 hover:border-theme-accent transition-all duration-300 flex flex-col justify-between">
+    <div class="bg-theme-lowest border border-theme-border p-5 rounded-sm flex flex-col justify-between space-y-4 hover:border-theme-secondary transition-colors">
       <div>
         <div class="font-mono text-[10px] text-theme-muted mb-1">[PILLAR_02]</div>
-        <h3 class="font-bold text-lg text-theme-primary mb-1">Secure Databases</h3>
-        <p class="text-xs text-theme-muted font-sans mb-3">
-          Your business records are safely protected against data leaks and financial math errors.
-        </p>
-        <ul class="space-y-2.5 font-mono text-xs text-theme-secondary">
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>PostgreSQL 16 &amp; SeaORM</span>
-            <span class="text-theme-secondary font-bold bg-theme-lowest border border-theme-border px-1.5 py-0.5 rounded-sm text-[11px]">ACID Safe</span>
-          </li>
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>Spring Data JPA / Hibernate</span>
-            <span class="text-theme-accent font-semibold bg-theme-lowest border border-theme-border px-1.5 py-0.5 rounded-sm text-[11px]">Robust</span>
-          </li>
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>Redis Caching &amp; Pub/Sub</span>
-            <span class="text-theme-muted bg-theme-lowest px-1.5 py-0.5 rounded-sm border border-theme-border text-[11px]">In-Memory</span>
-          </li>
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>SQLite Embedded Storage</span>
-            <span class="text-theme-muted bg-theme-lowest px-1.5 py-0.5 rounded-sm border border-theme-border text-[11px]">Local Edge</span>
-          </li>
-          <li class="flex items-center justify-between">
-            <span>Connection Pool Tuning</span>
-            <span class="text-theme-primary bg-theme-lowest px-1.5 py-0.5 rounded-sm border border-theme-border text-[11px]">Zero Leak</span>
-          </li>
+        <h3 class="text-lg font-bold text-theme-primary mb-3">Secure Databases &amp; Data</h3>
+        <ul class="space-y-2 font-mono text-xs text-theme-secondary mb-4">
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> PostgreSQL 16 &amp; SeaORM</li>
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> Spring Data JPA &amp; Hibernate</li>
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> Redis In-Memory Caching</li>
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> SQLite Edge Embedded Fallback</li>
         </ul>
       </div>
-      <div class="pt-3 border-t border-theme-border font-mono text-[11px] text-theme-accent">
-        <span class="font-bold">WHY IT MATTERS:</span> 100% data integrity with zero downtime during peak ledger operations.
+      <div class="bg-[#eff4ff] dark:bg-theme-surface p-3.5 border border-theme-border rounded-sm">
+        <span class="font-mono text-xs text-theme-secondary font-bold block mb-1">WHY IT MATTERS TO YOU:</span>
+        <p class="text-xs text-theme-muted leading-relaxed">
+          Bank-grade ACID transactions and zero data loss even during sudden power outages or network dropouts.
+        </p>
       </div>
     </div>
 
-    <!-- Pillar 3: Smart Hardware & Devices -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-surface space-y-4 hover:border-theme-accent transition-all duration-300 flex flex-col justify-between">
+    <!-- Pillar 3: Smart Hardware & IoT -->
+    <div class="bg-theme-lowest border border-theme-border p-5 rounded-sm flex flex-col justify-between space-y-4 hover:border-theme-secondary transition-colors">
       <div>
         <div class="font-mono text-[10px] text-theme-muted mb-1">[PILLAR_03]</div>
-        <h3 class="font-bold text-lg text-theme-primary mb-1">Smart Hardware &amp; IoT</h3>
-        <p class="text-xs text-theme-muted font-sans mb-3">
-          Connects physical gates, attendance machines, and security cameras seamlessly.
-        </p>
-        <ul class="space-y-2.5 font-mono text-xs text-theme-secondary">
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>ZKTeco Biometrics (ADMS)</span>
-            <span class="text-theme-secondary font-bold bg-theme-lowest border border-theme-border px-1.5 py-0.5 rounded-sm text-[11px]">Push API</span>
-          </li>
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>AI Cameras &amp; Video (RTSP)</span>
-            <span class="text-theme-accent font-semibold bg-theme-lowest border border-theme-border px-1.5 py-0.5 rounded-sm text-[11px]">Vision AI</span>
-          </li>
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>Barrier Gate Relays</span>
-            <span class="text-theme-muted bg-theme-lowest px-1.5 py-0.5 rounded-sm border border-theme-border text-[11px]">Hardware</span>
-          </li>
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>RS485 / Serial Modbus</span>
-            <span class="text-theme-primary bg-theme-lowest px-1.5 py-0.5 rounded-sm border border-theme-border text-[11px]">Direct Bus</span>
-          </li>
-          <li class="flex items-center justify-between">
-            <span>Barcode &amp; POS Systems</span>
-            <span class="text-theme-muted bg-theme-lowest px-1.5 py-0.5 rounded-sm border border-theme-border text-[11px]">Multi-Term</span>
-          </li>
+        <h3 class="text-lg font-bold text-theme-primary mb-3">Smart Hardware &amp; IoT</h3>
+        <ul class="space-y-2 font-mono text-xs text-theme-secondary mb-4">
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> ZKTeco Biometrics ADMS Push SDK</li>
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> RTSP AI Cameras &amp; YOLO OCR</li>
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> Barrier Gate Relays &amp; MCUs</li>
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> RS485 / Serial / Modbus Protocols</li>
         </ul>
       </div>
-      <div class="pt-3 border-t border-theme-border font-mono text-[11px] text-theme-accent">
-        <span class="font-bold">WHY IT MATTERS:</span> Bridges physical electrical relays directly with web servers in real time.
+      <div class="bg-[#eff4ff] dark:bg-theme-surface p-3.5 border border-theme-border rounded-sm">
+        <span class="font-mono text-xs text-theme-secondary font-bold block mb-1">WHY IT MATTERS TO YOU:</span>
+        <p class="text-xs text-theme-muted leading-relaxed">
+          Physical devices talk seamlessly to cloud or on-premise servers with sub-second response times and zero human intervention.
+        </p>
       </div>
     </div>
 
-    <!-- Pillar 4: Modern Web & Cross-Platform Apps -->
-    <div class="p-5 rounded-sm border border-theme-border bg-theme-surface space-y-4 hover:border-theme-accent transition-all duration-300 flex flex-col justify-between">
+    <!-- Pillar 4: Web & Cross-Platform -->
+    <div class="bg-theme-lowest border border-theme-border p-5 rounded-sm flex flex-col justify-between space-y-4 hover:border-theme-secondary transition-colors">
       <div>
         <div class="font-mono text-[10px] text-theme-muted mb-1">[PILLAR_04]</div>
-        <h3 class="font-bold text-lg text-theme-primary mb-1">Web &amp; Cross-Platform</h3>
-        <p class="text-xs text-theme-muted font-sans mb-3">
-          Clean, fast interfaces your team and customers can use without technical training.
-        </p>
-        <ul class="space-y-2.5 font-mono text-xs text-theme-secondary">
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>React 19 &amp; TypeScript</span>
-            <span class="text-theme-secondary font-bold bg-theme-lowest border border-theme-border px-1.5 py-0.5 rounded-sm text-[11px]">Modern</span>
-          </li>
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>Astro &amp; Tailwind CSS</span>
-            <span class="text-theme-accent font-semibold bg-theme-lowest border border-theme-border px-1.5 py-0.5 rounded-sm text-[11px]">100/100 Perf</span>
-          </li>
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>Flutter (iOS &amp; Android)</span>
-            <span class="text-theme-primary bg-theme-lowest px-1.5 py-0.5 rounded-sm border border-theme-border text-[11px]">Cross-Plat</span>
-          </li>
-          <li class="flex items-center justify-between pb-2 border-b border-theme-border/60">
-            <span>Interactive 3D (Three.js)</span>
-            <span class="text-theme-muted bg-theme-lowest px-1.5 py-0.5 rounded-sm border border-theme-border text-[11px]">WebGL</span>
-          </li>
-          <li class="flex items-center justify-between">
-            <span>Linux VPS &amp; Docker</span>
-            <span class="text-theme-muted bg-theme-lowest px-1.5 py-0.5 rounded-sm border border-theme-border text-[11px]">Deploy</span>
-          </li>
+        <h3 class="text-lg font-bold text-theme-primary mb-3">Web &amp; Cross-Platform</h3>
+        <ul class="space-y-2 font-mono text-xs text-theme-secondary mb-4">
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> React 19 &amp; TypeScript</li>
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> Astro &amp; Tailwind CSS</li>
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> Flutter (iOS, Android, Windows)</li>
+          <li class="flex items-center gap-2"><span class="text-theme-accent">■</span> Three.js WebGL Runtimes</li>
         </ul>
       </div>
-      <div class="pt-3 border-t border-theme-border font-mono text-[11px] text-theme-accent">
-        <span class="font-bold">WHY IT MATTERS:</span> Single-click deployment with zero bloat and instant responsive UI.
+      <div class="bg-[#eff4ff] dark:bg-theme-surface p-3.5 border border-theme-border rounded-sm">
+        <span class="font-mono text-xs text-theme-secondary font-bold block mb-1">WHY IT MATTERS TO YOU:</span>
+        <p class="text-xs text-theme-muted leading-relaxed">
+          Pixel-perfect, ultra-snappy 60fps native performance across all screens from field technician phones to command centers.
+        </p>
       </div>
     </div>
   </div>
