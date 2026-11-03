@@ -14,7 +14,7 @@
         Email Verifier Service Simulator
       </h2>
       <p class="text-xs sm:text-sm text-slate-300 font-sans mt-1">
-        Inspect 5-stage verification: RFC 5322 syntax validation, disposable hash lookup, DNS MX IPv4 resolution, direct Port 25 SMTP handshake, and UUID catch-all probing.
+        Test how the system verifies customer email addresses in real time without sending spam: checks domain records, tests if the inbox exists, and catches fake burner addresses.
       </p>
     </div>
 
@@ -26,7 +26,7 @@
         class="ev-tab-btn px-3.5 py-1.5 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold transition-all shadow-sm"
         data-view="single"
       >
-        ⚡ Live SMTP Handshake
+        ⚡ Verify Single Email
       </button>
       <button
         type="button"
@@ -34,7 +34,7 @@
         class="ev-tab-btn px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition-all font-semibold"
         data-view="batch"
       >
-        📊 Batch &amp; Anti-Burst Pacing
+        📊 Batch List Check
       </button>
       <button
         type="button"
@@ -42,7 +42,7 @@
         class="ev-tab-btn px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 transition-all font-semibold"
         data-view="dns"
       >
-        🛡️ SPF &amp; Reverse DNS (PTR)
+        🛡️ Domain Safety &amp; DNS
       </button>
     </div>
   </div>
