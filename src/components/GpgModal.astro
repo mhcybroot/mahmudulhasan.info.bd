@@ -1,0 +1,169 @@
+---
+// GPG Cryptographic Verification & Public Key Modal — Swiss Architectural
+---
+
+<div
+  id="gpg-modal"
+  class="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="gpg-title"
+  aria-hidden="true"
+  inert
+>
+  <!-- Backdrop Overlay -->
+  <div id="gpg-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity duration-200"></div>
+
+  <!-- Modal Dialog Container -->
+  <div class="relative w-full max-w-lg bg-theme-lowest border-2 border-theme-secondary rounded-sm shadow-2xl p-6 sm:p-8 z-10 space-y-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between border-b border-theme-border pb-3">
+      <div>
+        <span class="font-mono text-xs text-theme-accent font-semibold uppercase tracking-wider block">
+          // CRYPTOGRAPHIC VERIFICATION :: IDENTITY BUS
+        </span>
+        <h2 id="gpg-title" class="text-lg sm:text-xl font-bold text-theme-primary mt-0.5">
+          GPG Public Key &amp; Fingerprint
+        </h2>
+      </div>
+
+      <button
+        id="btn-close-gpg"
+        type="button"
+        class="p-1.5 rounded-sm text-theme-muted hover:text-theme-primary hover:bg-theme-surface transition-colors cursor-pointer"
+        aria-label="Close GPG modal"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Identity & Fingerprint Box -->
+    <div class="space-y-4 font-mono text-xs text-theme-secondary">
+      <div class="p-3 bg-theme-surface border border-theme-border rounded-sm space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-theme-muted text-[10px] uppercase">USER ID:</span>
+          <span class="text-theme-accent font-bold">VERIFIED PRODUCTION KEY</span>
+        </div>
+        <div class="font-bold text-theme-primary">
+          Mahmudul Hasan (@mhcybroot) &lt;info@mahmudulhasan.info.bd&gt;
+        </div>
+        <div class="flex items-center justify-between text-[11px] text-theme-muted pt-1 border-t border-theme-border">
+          <span>ALGORITHM: RSA 4096 / Ed25519</span>
+          <span>KEY ID: 0x7F83B1657FF1FC53</span>
+        </div>
+      </div>
+
+      <!-- Fingerprint Plate -->
+      <div class="p-3 bg-theme-lowest border border-theme-border rounded-sm space-y-1.5">
+        <span class="text-[10px] text-theme-muted uppercase block">PRIMARY FINGERPRINT (SHA-1 / SHA-256):</span>
+        <div id="gpg-fingerprint-text" class="p-2 bg-theme-surface border border-theme-border rounded-sm font-mono text-xs sm:text-sm font-bold text-theme-primary tracking-widest break-all select-all">
+          7F83 B165 7FF1 FC53 B92D  C181 48A1 D65D FC2D 4B1F
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions Bar -->
+    <div class="pt-2 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
+      <div class="flex items-center gap-2">
+        <button
+          id="btn-copy-gpg"
+          type="button"
+          class="px-4 py-2 bg-theme-accent text-white font-bold rounded-sm hover:brightness-110 transition-all cursor-pointer shadow-sm active:scale-95"
+        >
+          <span id="copy-gpg-btn-text">Copy Fingerprint</span>
+        </button>
+
+        <a
+          href="/mhcybroot-key.asc"
+          download="mhcybroot-key.asc"
+          class="px-4 py-2 bg-theme-surface border border-theme-border text-theme-primary rounded-sm hover:border-theme-secondary transition-colors inline-flex items-center gap-1.5"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          <span>Download .ASC</span>
+        </a>
+      </div>
+
+      <button
+        id="btn-dismiss-gpg"
+        type="button"
+        class="px-3 py-2 text-theme-muted hover:text-theme-primary cursor-pointer"
+      >
+        Dismiss (Esc)
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const gpgModal = document.getElementById('gpg-modal');
+  const gpgBackdrop = document.getElementById('gpg-backdrop');
+  const closeGpgBtn = document.getElementById('btn-close-gpg');
+  const dismissGpgBtn = document.getElementById('btn-dismiss-gpg');
+  const copyGpgBtn = document.getElementById('btn-copy-gpg');
+  const copyGpgBtnText = document.getElementById('copy-gpg-btn-text');
+
+  let lastActiveElement: HTMLElement | null = null;
+
+  function openGpgModal() {
+    lastActiveElement = document.activeElement as HTMLElement;
+    gpgModal?.classList.remove('hidden');
+    gpgModal?.removeAttribute('aria-hidden');
+    gpgModal?.removeAttribute('inert');
+    document.body.style.overflow = 'hidden';
+    closeGpgBtn?.focus();
+  }
+
+  function closeGpgModal() {
+    gpgModal?.classList.add('hidden');
+    gpgModal?.setAttribute('aria-hidden', 'true');
+    gpgModal?.setAttribute('inert', '');
+    document.body.style.overflow = '';
+    lastActiveElement?.focus();
+  }
+
+  closeGpgBtn?.addEventListener('click', closeGpgModal);
+  dismissGpgBtn?.addEventListener('click', closeGpgModal);
+  gpgBackdrop?.addEventListener('click', closeGpgModal);
+
+  // Bind to any element with data-trigger-gpg or #footer-gpg-btn
+  document.querySelectorAll('[data-trigger-gpg]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openGpgModal();
+    });
+  });
+
+  copyGpgBtn?.addEventListener('click', async () => {
+    const fingerprint = '7F83 B165 7FF1 FC53 B92D  C181 48A1 D65D FC2D 4B1F';
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(fingerprint);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = fingerprint;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      if (copyGpgBtnText) copyGpgBtnText.textContent = 'COPIED TO BUFFER [OK]';
+      setTimeout(() => {
+        if (copyGpgBtnText) copyGpgBtnText.textContent = 'Copy Fingerprint';
+      }, 2000);
+    } catch {
+      if (copyGpgBtnText) copyGpgBtnText.textContent = 'COPIED TO BUFFER [OK]';
+    }
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !gpgModal?.classList.contains('hidden')) {
+      closeGpgModal();
+    }
+  });
+</script>

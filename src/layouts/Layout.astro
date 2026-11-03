@@ -3,6 +3,7 @@ import MetaTags from '../components/seo/MetaTags.astro';
 import JsonLd from '../components/seo/JsonLd.astro';
 import ResumeModal from '../components/ResumeModal.astro';
 import HotkeysModal from '../components/HotkeysModal.astro';
+import GpgModal from '../components/GpgModal.astro';
 import '../styles/themes.css';
 
 interface Props {
@@ -79,6 +80,9 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
 
     <!-- Hotkeys Command Palette Matrix (Global Scope) -->
     <HotkeysModal />
+
+    <!-- GPG Cryptographic Verification Modal (Global Scope) -->
+    <GpgModal />
 
     <style is:global>
       /* Custom modern scrollbar */

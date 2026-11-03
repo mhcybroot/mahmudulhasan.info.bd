@@ -17,6 +17,16 @@
   Access-Control-Allow-Origin: *
   Content-Type: application/json; charset=utf-8
 
+/.well-known/security.txt
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+  Content-Type: text/plain; charset=utf-8
+
+/mhcybroot-key.asc
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+  Content-Type: application/pgp-keys; charset=utf-8
+
 /ai-catalog.json
   Cache-Control: public, max-age=86400
   Access-Control-Allow-Origin: *
