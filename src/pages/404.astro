@@ -41,6 +41,10 @@ import Footer from '../components/Footer.astro';
       <!-- Diagnostic Telemetry Plate -->
       <div class="bg-[#eff4ff] dark:bg-theme-surface p-4 border border-theme-border font-mono text-xs space-y-2 rounded-sm text-theme-secondary">
         <div class="flex justify-between py-1 border-b border-theme-border/60">
+          <span class="text-theme-muted">REQUESTED PATH:</span>
+          <span id="fault-path-display" class="text-theme-primary font-bold truncate max-w-[200px] sm:max-w-none">/404</span>
+        </div>
+        <div class="flex justify-between py-1 border-b border-theme-border/60">
           <span class="text-theme-muted">HTTP STATUS:</span>
           <span class="text-theme-accent font-bold">404 NOT FOUND</span>
         </div>
@@ -85,6 +89,15 @@ import Footer from '../components/Footer.astro';
       </div>
     </div>
   </main>
+
+  <script>
+    try {
+      const faultPath = document.getElementById('fault-path-display');
+      if (faultPath && window.location.pathname) {
+        faultPath.textContent = window.location.pathname;
+      }
+    } catch (e) {}
+  </script>
 
   <Footer />
 </Layout>
