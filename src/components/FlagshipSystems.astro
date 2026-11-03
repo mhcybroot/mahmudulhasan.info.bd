@@ -261,10 +261,9 @@ const modularSystems = [
       <div class="lg:col-span-5 bg-[#eff4ff] dark:bg-theme-surface border border-theme-border p-5 flex flex-col justify-between font-mono text-xs rounded-sm">
         <div>
           <div class="flex items-center justify-between border-b border-theme-border pb-2 mb-3">
-            <span class="font-bold text-theme-primary uppercase">Hardware Bus Telemetry</span>
+            <span class="font-bold text-theme-primary uppercase">HARDWARE BUS TELEMETRY</span>
             <span class="text-theme-accent font-semibold flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-theme-accent animate-pulse"></span>
-              ACTIVE REALTIME
+              ● ACTIVE REALTIME
             </span>
           </div>
           <div class="space-y-2 text-theme-secondary font-mono">
@@ -281,7 +280,7 @@ const modularSystems = [
               <span class="text-theme-accent font-bold">0.824s [TARGET: &lt;1.0s]</span>
             </div>
             <div class="flex justify-between py-1.5 border-b border-theme-border/60">
-              <span class="text-theme-muted">VEHICLES LOGGED:</span>
+              <span class="text-theme-muted">VEHICLE LOGGED:</span>
               <span class="text-theme-primary font-bold">1,420,000+ AUDITED</span>
             </div>
           </div>
@@ -303,20 +302,20 @@ const modularSystems = [
     {modularSystems.map((sys) => (
       <div class="bg-theme-lowest border border-theme-border p-5 rounded-sm flex flex-col justify-between hover:border-theme-secondary transition-colors space-y-4">
         <div>
-          <div class="flex justify-between items-center font-mono text-[10px] text-theme-muted mb-1.5">
+          <div class="flex justify-between items-center font-mono text-label-mono-xs text-theme-muted mb-1">
             <span>[{sys.modId}]</span>
             <span class="tracking-wider">{sys.category}</span>
           </div>
-          <h4 class="text-base sm:text-lg font-bold text-theme-primary mb-1.5 leading-snug">
+          <h4 class="text-headline-sm font-bold text-theme-primary mb-1.5 leading-snug">
             <a href={`/systems/${sys.slug}`} class="hover:text-theme-accent transition-colors">
               {sys.title}
             </a>
           </h4>
-          <p class="text-xs sm:text-sm text-theme-secondary mb-3 leading-relaxed">
+          <p class="text-body-sm text-theme-secondary mb-3 leading-relaxed">
             {sys.desc}
           </p>
         </div>
-        <div class="pt-2.5 border-t border-theme-border font-mono text-xs text-theme-accent font-semibold flex items-center justify-between">
+        <div class="pt-2.5 border-t border-theme-border font-mono text-label-mono-xs text-theme-accent font-semibold flex items-center justify-between">
           <span class="truncate text-[11px] sm:text-xs">{sys.stack}</span>
           <a
             href={`/systems/${sys.slug}`}
