@@ -34,6 +34,10 @@ seo:
 
 # Executive Summary
 
+> **At a Glance:** An automated email verification tool that checks whether customer email addresses actually exist before you send campaigns. Built with Python and FastAPI, it protects your company domain from being blacklisted as spam, eliminates temporary burner emails, and runs on your own server without paying high third-party API fees.
+
+---
+
 High-volume outbound communication, sales prospecting, and transactional onboarding systems are frequently crippled by high bounce rates. When bulk campaigns send to invalid or non-existent inboxes, sender reputation plummets, IP pools get blacklisted by Spamhaus and Barracuda, and corporate domain deliverability collapses. Relying solely on basic regex syntax checking misses over 90% of deliverability issues—such as dead MX records, deactivated employee accounts, disposable burner mailboxes, and spam-trap catch-all servers. Meanwhile, commercial validation APIs charge exorbitant per-call micro-fees and introduce critical external vendor latency.
 
 **Email Verifier Service** is an enterprise in-house email and mailbox verification REST API engineered in **Python 3.12**, **FastAPI**, **Asyncio**, and **Docker/Dokploy**. It executes a surgical 5-stage verification pipeline—combining strict RFC 5322 syntax normalization, an in-memory disposable domain hash filter, asynchronous priority-sorted DNS MX lookups with forced IPv4 resolution, direct socket-level Port 25 SMTP handshakes (`HELO` -> `MAIL FROM` -> `RCPT TO`), and randomized UUID catch-all domain probing. Equipped with an in-memory TTL caching layer, anti-burst domain pacing, and a 15-minute greylist cooldown daemon, it validates mailbox existence in 1–2 seconds with zero outbound test emails delivered.

@@ -30,7 +30,7 @@ seo:
 
 # Skylink Workstation Guard: Ultra-Lightweight Focus & Activity Monitor
 
-> **At a Glance:** An enterprise workstation activity and team productivity monitoring platform engineered with Rust 2024, Tokio, and Spring Boot 3.4. Unlike bloated commercial trackers that swallow 500MB+ of RAM and slow employee machines down to a crawl, Skylink Workstation Guard runs in the background using less than **14 MB of RAM** and **<0.01% CPU**, captures active window focus, streams real-time screen verification over encrypted WebSockets on demand, and safeguards enterprise privacy with bank-grade local OS keyring encryption.
+> **At a Glance:** An ultra-lightweight team productivity monitor engineered in Rust that uses less than 15 MB of memory—meaning employee computers run at full speed with zero lag. It tracks active work focus, saves logs safely during internet outages, and respects employee privacy with zero keyloggers and encrypted password vaults.
 
 ---
 

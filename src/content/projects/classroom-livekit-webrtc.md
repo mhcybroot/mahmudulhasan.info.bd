@@ -33,6 +33,10 @@ seo:
 
 # Executive Summary
 
+> **At a Glance:** A self-hosted virtual classroom and interactive video lecture platform that eliminates expensive monthly Zoom subscriptions. Built with Java 21, Spring Boot, and LiveKit WebRTC, it supports hundreds of students in a single lecture with crystal-clear screen sharing, automatically adapts video quality for weak mobile internet (3G/4G), and logs student attendance in real time.
+
+---
+
 Remote education platforms across emerging markets face harsh infrastructural constraints: students connect over fluctuating 3G/4G cellular networks, budget mobile devices struggle with CPU-intensive multi-peer decoding, and traditional conferencing tools (such as Zoom or Google Meet) impose severe per-host licensing fees while failing to integrate directly with internal academic databases and attendance rosters. Furthermore, peer-to-peer (P2P) WebRTC architectures collapse beyond 4 to 6 simultaneous participants due to $O(N^2)$ upstream bandwidth saturation.
 
 **ClassRoom Live** is a production-grade, ultra-low latency virtual classroom and media orchestration engine built with **Java 21 LTS**, **Spring Boot 3.4**, **Vaadin 24 Flow**, and a self-hosted **LiveKit WebRTC Selective Forwarding Unit (SFU)**. Designed to serve hundreds of concurrent learners across resource-constrained campus networks:

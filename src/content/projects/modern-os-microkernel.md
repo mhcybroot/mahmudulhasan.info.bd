@@ -29,7 +29,7 @@ seo:
 
 # Mordern OS: Capability-Secure #![no_std] Rust Microkernel
 
-> **At a Glance:** A high-performance, capability-secure, pure microkernel operating system built from scratch in `#![no_std]` Rust. Designed for modern multi-core x86_64 and ARM64 processors, Mordern OS solves the fatal stability and security flaws of monolithic kernels (Linux/Windows) by stripping Ring 0 supervisor mode down to its mathematical minimum (< 2,500 lines of verified core code). Storage drivers (NVMe), filesystems (VFS), and network stacks run as isolated, unprivileged Ring 3 user daemons. Featuring lock-free Single-Producer Single-Consumer (SPSC) IPC queues, an event-driven async cooperative task executor, and formal mathematical proofs guaranteeing privilege non-escalation, Mordern OS delivers crash-resilient bare-metal execution.
+> **At a Glance:** A crash-proof operating software microkernel built to ensure that computer systems never freeze or suffer total system failures. When a device driver or application crashes, Mordern OS restarts it in microseconds in the background without affecting running programs or requiring a reboot. Built from scratch in pure `#![no_std]` Rust, it eliminates security vulnerabilities through unforgeable permission tokens and lock-free multi-core communication channels.
 
 ---
 

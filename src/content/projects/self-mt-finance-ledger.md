@@ -32,6 +32,10 @@ seo:
 
 # Executive Summary
 
+> **At a Glance:** A personal and business financial manager that eliminates month-end budget surprises by dividing money into virtual cash envelopes so you never overspend. Built with Flutter and SQLite, it tracks debts, loans, and multiple wallets (cash, bank accounts, bKash/Nagad) 100% offline on your device with complete privacy and zero monthly subscription fees.
+
+---
+
 Personal and small-business financial management across emerging economies faces distinct behavioral and infrastructural obstacles: users juggle fragmented accounts (liquid cash, conventional banking, and mobile financial services like bKash/Nagad), network connectivity is intermittent, and conventional expense-tracking apps function merely as passive digital receipts rather than enforcing disciplined forward-looking allocations. Under traditional tracking, users discover budget deficits only after funds are exhausted.
 
 **Self-MT** is a modern, offline-first personal financial management and executive ledger engine engineered in **Flutter 3.29**, **Dart 3.11**, and **BLoC (Business Logic Component) pattern**. Built upon the mathematically rigorous **Zero-Based Envelope Budgeting** methodology:

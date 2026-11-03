@@ -30,7 +30,7 @@ seo:
 
 # HomeSync: Interactive 3D Digital Twin & Smart IoT Configurator
 
-> **At a Glance:** An interactive 3D digital twin smart home configurator and IoT automation visualization engine built with React 19, TypeScript, Three.js, and React Three Fiber. Deployed commercially at `homesyncllc.org`, it replaces confusing paper catalogs and static PDF blueprints with an ultra-smooth 60 FPS interactive WebGL floorplan. Homeowners, architects, and enterprise builders can customize smart ambient lighting, simulate security camera detection cones, test automated biometric locks, and inspect Zigbee/Matter mesh topologies in real time with zero mobile GPU lag.
+> **At a Glance:** An interactive 3D floorplan and smart home visualizer built with React 19 and Three.js. It lets homeowners, builders, and architects preview smart lighting scenes, test camera coverage angles, and configure smart locks in real time before construction begins, saving time and preventing wiring mistakes.
 
 ---
 

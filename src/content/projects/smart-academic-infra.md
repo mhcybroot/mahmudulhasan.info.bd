@@ -29,7 +29,7 @@ seo:
 
 # Smart Academic: Unified Micro-Frontend & Multi-Tier Campus ERP Infrastructure
 
-> **At a Glance:** A unified, enterprise-grade academic administration, faculty payroll, student result tabulation, and executive portal monorepo engineered in Spring Boot 3.4, Java 21, Vue.js 3, and PostgreSQL 16. Smart Academic replaces fragmented, single-purpose campus software tools with an orchestrated micro-frontend ecosystem. Subsystems (Attendance & Shift Rostering, GPA Merit Compilation, Student Focus Telemetry, and Executive Analytics) are seamlessly unified under a modern glassmorphic dashboard with zero cross-origin styling friction and instant one-click deployment.
+> **At a Glance:** A unified campus command center that combines student attendance tracking, tuition fee collection, and report card grade tabulation in one easy dashboard. Built with Spring Boot and Vue 3, it replaces multiple disconnected software tools, stops calculation errors, and keeps school operations running smoothly.
 
 ---
 

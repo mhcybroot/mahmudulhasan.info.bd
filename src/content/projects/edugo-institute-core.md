@@ -33,6 +33,10 @@ seo:
 
 # Executive Summary
 
+> **At a Glance:** A comprehensive school management platform that allows administrators to run multiple school campuses securely from one dashboard. Built with Java 21, Spring Boot, and Flutter, it provides mobile apps for students and parents to view fees and exam results, and gives teachers fast, automated tools to grade assignments and record attendance.
+
+---
+
 Managing large educational institutions and multi-campus school chains requires juggling conflicting operational demands. Desktop administrative personnel (registrars, principals, bursars) require high-productivity, server-rendered data tables with server-side push and complex form validations. Conversely, hundreds of thousands of students, teachers, and parents access the platform exclusively via mobile devices over variable cellular connections, demanding lightweight JSON REST APIs, biometric authentication, and offline resilience.
 
 **EduGo Institute Core** is an enterprise multi-tenant academic management platform engineered with **Java 21**, **Spring Boot 3.3**, **Vaadin Flow**, and **Flutter 3.29**. The platform's defining architectural achievement is its **Dual Security Filter Chain**: a unified Spring Boot application that simultaneously hosts a stateless, high-throughput JWT authentication engine for mobile clients at `@Order(0)` and a stateful, session-based OAuth2 Google login web interface for desktop administrators at `@Order(1)`.

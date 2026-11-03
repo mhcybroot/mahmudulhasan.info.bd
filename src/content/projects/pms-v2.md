@@ -30,7 +30,7 @@ seo:
 
 # PMS-V2: Autonomous Smart Parking & Barrier Gate Automation Engine
 
-> **At a Glance:** A production-grade commercial parking automation and revenue protection platform engineered with a high-throughput Rust backend and cross-platform Flutter frontend. Deployed in commercial multi-story facilities, it automates barrier gate opening in under 0.84 seconds using AI license plate recognition, stops parking cash leakage, and guarantees 100% operational uptime even during internet blackouts.
+> **At a Glance:** A commercial parking automation and revenue protection system that opens barrier gates in under 0.84 seconds using AI license plate recognition. Built in high-performance Rust and Flutter, it stops parking fee cash theft, eliminates rush-hour vehicle queues, and runs 100% reliably even during internet blackouts.
 
 ---
 

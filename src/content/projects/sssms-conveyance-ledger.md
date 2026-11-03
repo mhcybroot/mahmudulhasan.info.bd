@@ -29,7 +29,7 @@ seo:
 
 # SSSMS: Enterprise Conveyance Billing & Payout Disbursement Engine
 
-> **At a Glance:** An enterprise employee conveyance expense accounting, payroll structure, and instant payout disbursement engine engineered in Flutter, Dart, and Cloud Firestore. Deployed across corporate field operations in Bangladesh, SSSMS replaces chaotic handwritten paper travel slips with an auditable multi-leg journey tracker (Rickshaw, CNG, Bus, Bike/Fuel, Metro), automated transit rate normalizers, two-tier managerial approval workflows, instant vector PDF reimbursement vouchers, and mobile banking settlement ledgers (bKash, Nagad, Corporate Bank EFT).
+> **At a Glance:** An employee travel expense and reimbursement system that eliminates paper travel slips. Built with Flutter and Firestore, field engineers log rickshaw, bus, and fuel trips directly on their phones, while finance managers audit claims with preset travel rates and send reimbursements straight to bKash wallets in seconds.
 
 ---
 

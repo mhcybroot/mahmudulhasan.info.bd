@@ -30,7 +30,7 @@ seo:
 
 # SmartAI: Mobile Edge Vision & Geofenced Attendance System
 
-> **At a Glance:** An Android native mobile edge-AI platform engineered in Kotlin and Jetpack Compose that solves student proxy attendance, fake GPS spoofing, and remote roll-call delays. Combining Google ML Kit on-device face landmark tracking with Google Play Services high-accuracy GPS geofencing, SmartAI verifies identity and physical classroom presence in under 350 milliseconds with zero cellular data consumption. It features an offline-first Room SQLite architecture that logs attendance reliably during campus internet blackouts and synchronizes automatically with Cloud Firestore when connections resume.
+> **At a Glance:** A mobile face-recognition and attendance app that lets students check in directly on their phones using front cameras and GPS location. Built with Kotlin and Google ML Kit, it prevents proxy roll calls, works completely offline during campus power cuts, and requires zero expensive biometric hardware.
 
 ---
 

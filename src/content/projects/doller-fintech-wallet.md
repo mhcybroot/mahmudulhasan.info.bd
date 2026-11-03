@@ -31,7 +31,7 @@ seo:
 
 # Doller: Multi-Currency Trading, Settlement & PnL Ledger Engine
 
-> **At a Glance:** An enterprise financial exchange, counterparty debt ledger, and real-time Profit & Loss (PnL) explain platform engineered in modern Java 21, Spring Boot 3.5, and Flutter 3.29. Designed for high-volume foreign currency exchange (FX) brokers, import-export commercial traders, and multi-party settlement desks, Doller replaces fragile manual spreadsheet accounting with a strict, immutable double-entry ledger. Backed by PostgreSQL with 10 sequential Flyway database migrations, it guarantees sub-14ms transaction commits, automated multi-instrument FX rate conversions, end-of-day ledger freeze snapshots, and resilient offline trade queueing via an integrated mobile outbox store.
+> **At a Glance:** A multi-currency trading and accounting platform for foreign exchange brokers and trading businesses. Built in Java 21 and Flutter, it replaces error-prone spreadsheets with an automated double-entry ledger where debits and credits always balance to the penny, providing real-time profit tracking and tamper-proof daily balance seals.
 
 ---
 

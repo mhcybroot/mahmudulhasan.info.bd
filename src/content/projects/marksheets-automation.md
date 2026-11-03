@@ -29,7 +29,7 @@ seo:
 
 # Marksheet Engine: Academic Tabulation & Automated Merit Compiler
 
-> **At a Glance:** An enterprise academic result tabulation and high-throughput marksheet generation compiler engineered with Node.js, Express, Prisma ORM, and React. Deployed in educational institutions across Bangladesh (including *Uttar Wasekpur Mohammadia Girls Dakhil Madrasha*), it eliminates hundreds of hours of manual arithmetic errors by ingesting raw multi-subject teacher spreadsheets (Excel/CSV), enforcing official Bangladesh Education Board (BISE / Madrasah Board) grading scales and 4th-subject bonus rules, dynamically computing student merit orders, and compiling hundreds of print-ready, high-resolution PDF report cards in seconds.
+> **At a Glance:** An automated academic grading and report card system that turns 3 weeks of manual teacher calculation into a single 30-minute automated pass. Built to strictly comply with official Bangladesh education board rules, it calculates GPA 5.0, applies 4th subject bonus points, and compiles hundreds of print-ready student marksheets with zero mathematical errors.
 
 ---
 

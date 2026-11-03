@@ -31,7 +31,7 @@ seo:
 
 # YT-Stream: High-Concurrency Media Ingestion & Multi-ISP Caching Engine
 
-> **At a Glance:** A production-grade distributed media ingestion, stream caching, and automated library transcoding pipeline engineered in Python 3.12, `yt-dlp`, and `aria2c`. Engineered to eliminate bandwidth throttling, buffering latency, and invasive sponsor segments, YT-Stream ingests high-resolution 4K/1080p playlists with 16-socket multi-segmented TCP acceleration, algorithmically excises sponsor segments via SponsorBlock APIs, transcodes video into space-efficient H.265/HEVC containers, dynamically routes traffic across multi-ISP gateways (Local BDIX caching vs Starlink satellite uplink), and auto-syncs ingested media directly into private Jellyfin and Plex home-theater clusters.
+> **At a Glance:** A high-speed media download and private streaming hub that downloads videos up to 4x faster using multi-connection acceleration. Built in Python 3.12, it automatically skips video ads and sponsor interruptions, transcodes media to save disk space, and syncs directly into private home theater libraries.
 
 ---
 

@@ -29,7 +29,7 @@ seo:
 
 # EduMeet: Low-Latency Virtual Classroom & WebRTC Video Conferencing Suite
 
-> **At a Glance:** An enterprise virtual classroom, live lecture broadcasting, and remote academic attendance platform engineered in Flutter 3.29, Dart, and WebRTC (Jitsi Meet SDK). Grounded in the `JitsiMeet` codebase, it features a unified multi-flavor architecture generating isolated, target-specific production builds (`Student_App.apk`, `Teacher_App.apk`, and `Admin_App.apk`). Engineered for challenging network connectivity in Bangladesh, it incorporates adaptive video downscaling (VP8/H.264 simulcast) down to 380 Kbps, sub-95ms peer-to-peer audio latencies, and in-call automated student attendance verification with Firestore realtime state synchronization.
+> **At a Glance:** A lightweight virtual classroom and video meeting platform engineered in Flutter and WebRTC for students with slow mobile connections. It keeps lectures clear even on unstable 3G/4G networks, logs student attendance automatically without roll-call delays, and runs smoothly on low-cost Android phones.
 
 ---
 

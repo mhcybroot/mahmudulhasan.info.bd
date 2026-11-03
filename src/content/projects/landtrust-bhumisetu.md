@@ -29,7 +29,7 @@ seo:
 
 # Bhumi Setu (ভূমি সেতু): Land Record Ledger & Title Deed Verification Engine
 
-> **At a Glance:** A production-grade digital land record registry, chain-of-title verification, and parcel boundary audit engine engineered in Flutter 3.29, Spring Boot 3.4, and PostgreSQL 16 PostGIS. Developed to address the primary cause of civil litigation in Bangladesh—fraudulent duplicate deeds and broken ownership chains—Bhumi Setu verifies historical Khatiyan continuity (CS 1910 → SA 1956 → RS 1972 → BS 2010), detects parcel boundary overlaps using PostGIS polygons, converts traditional regional land units (Bigha, Katha, Decimal, Acre, Square Feet) with precision, and validates Mutation (নামজারি) clearance in milliseconds.
+> **At a Glance:** A digital land record and property deed verification system built to prevent land fraud and double-selling in Bangladesh. Built with Flutter, Spring Boot, and PostgreSQL PostGIS, it verifies unbroken historical ownership chains across 100 years of surveys (CS, SA, RS, BS), calculates exact regional land measurements (Katha, Bigha, Decimal), and maps plot boundaries to stop boundary disputes before buying property.
 
 ---
 

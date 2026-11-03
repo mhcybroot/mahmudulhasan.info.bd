@@ -30,7 +30,7 @@ seo:
 
 # GeckoEngine: Independent Android Web Browser & GeckoView Omni 134 Runtime
 
-> **At a Glance:** An enterprise-grade, privacy-first mobile web browser and custom rendering harness engineered in native Kotlin for Android SDK 34. While over 98% of mobile browsers rely on Google's default Android System WebView (Chromium/Blink engine)—inheriting its telemetry, Manifest V3 extension crippling, and unified fingerprinting—GeckoEngine embeds Mozilla's full GeckoView Omni (v134) Quantum engine. It establishes a persistent singleton `GeckoRuntime`, implements reactive `ProgressDelegate` and `NavigationDelegate` hooks for seamless state telemetry, and introduces an intelligent scheme-aware URL resolver that dynamically distinguishes between IP addresses, top-level domains, and search queries with zero external dependencies.
+> **At a Glance:** A privacy-first mobile web browser for Android that gives users complete control over their browsing experience without relying on Google Chrome. Built in native Kotlin using Mozilla's high-speed GeckoView Quantum engine, it blocks intrusive trackers, runs full desktop-class browser extensions, and preserves complete user privacy with zero background data logging.
 
 ---
 

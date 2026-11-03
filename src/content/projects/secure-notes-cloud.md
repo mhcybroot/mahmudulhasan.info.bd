@@ -30,7 +30,7 @@ seo:
 
 # SecureNotes: Enterprise Encrypted Knowledge Base & RBAC Engine
 
-> **At a Glance:** An enterprise-grade, multi-tenant knowledge management and encrypted note-taking platform engineered in NestJS, TypeScript, MongoDB, and React. Built on a Clean Layered Architecture using the Repository Pattern, SecureNotes delivers strict multi-tenant data isolation, cryptographic JWT authentication, role-based access control (RBAC), and high-throughput compound B-Tree indexing (`{ owner: 1, createdAt: -1 }`). It processes over 8,400 queries per second with sub-5ms response times while preventing cross-user data leakage and authorization bypass attacks.
+> **At a Glance:** A private, airtight company knowledge vault where team members can safely store confidential documents, meeting notes, and internal procedures. Built with NestJS, TypeScript, and MongoDB, it ensures team members only access their own authorized records, while delivering instant search results across thousands of files in under 5 milliseconds.
 
 ---
 

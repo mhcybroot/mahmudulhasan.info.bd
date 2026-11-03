@@ -30,7 +30,7 @@ seo:
 
 # Swift PDF Studio: Financial SWIFT Wire Redaction & Typography Engine
 
-> **At a Glance:** An enterprise financial document processing, redaction, and typography verification engine engineered with Python (FastAPI & PyMuPDF) and Flutter. Designed for international trade houses, banks, and cross-border commercial transactions, it enables sub-pixel precision text replacement and true cryptographic black-box redaction on official SWIFT MT103 wire transfer confirmation PDFs — complete with native bidirectional Arabic/English typesetting (Tajawal & Amiri) and zero underlying metadata leakage.
+> **At a Glance:** An enterprise document security and typography tool designed for international banks and trading houses. Built with Python and Flutter, it provides permanent blackout redaction for confidential banking contracts (SWIFT MT103 wire transfers) and accurately renders flowing right-to-left Arabic text, guaranteeing tamper-proof document safety with zero private data leakage.
 
 ---
 

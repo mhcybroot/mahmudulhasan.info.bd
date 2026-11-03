@@ -34,6 +34,10 @@ seo:
 
 # Executive Summary
 
+> **At a Glance:** A high-speed sales CRM that collects customer leads from WhatsApp, web forms, and customer lists in one organized pipeline. Built with Java 21, Spring Boot, and React, it automatically detects duplicate leads and typos in milliseconds, stops dropped follow-ups with manager alerts, and ensures each sales rep only sees their own assigned deals.
+
+---
+
 High-velocity B2B sales organizations in developing economies like Bangladesh face unique operational friction: fragmented lead ingestion from Facebook messages, WhatsApp chats, CSV spreadsheet uploads, and manual cold calling. Without rigid data governance, sales databases quickly degrade with rampant duplicate contacts (sales reps inadvertently fighting over the same client), dropped follow-ups without manager accountability, and total lack of multi-company data segregation.
 
 **BD CRM** is an enterprise sales execution and pipeline acceleration engine engineered with **Java 21**, **Spring Boot 3.3**, **PostgreSQL 16**, and **React 18 TypeScript**. Built upon 5 rigorous **Flyway database migrations**, the platform introduces full **multi-company tenant isolation**, an automated **Fuzzy Duplicate Rescan Engine** powered by Levenshtein distance matching, an automated **SLA Follow-up Escalation Daemon**, and an ultra-responsive React Kanban pipeline board.

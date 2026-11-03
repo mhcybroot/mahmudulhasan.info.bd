@@ -32,6 +32,10 @@ seo:
 
 # Executive Summary
 
+> **At a Glance:** An automated financial data sync tool that imports thousands of e-commerce orders from Shopify, Stripe, and custom stores directly into QuickBooks Online in seconds. Built with Java 21 and Spring Boot, it automatically matches bank statement deposits against open invoices, eliminating hours of manual bookkeeping and preventing duplicate billing errors.
+
+---
+
 Corporate accounting operations frequently bottleneck during monthly reconciliations and bulk billing cycles. Enterprise teams receive thousands of invoices, receipts, and vendor bills across heterogeneous CSV exports from e-commerce checkouts, stripe payouts, point-of-sale terminals, and field dispatch systems. Manually re-keying or formatting these records into **Intuit QuickBooks Online (QBO)** introduces human transcription errors, duplicate entries, incorrect tax classifications, and immense labor overhead.
 
 **QuickBooks Ledger Sync** is an enterprise-grade financial synchronization and automated reconciliation system engineered with **Java 21**, **Spring Boot 4**, and **Vaadin 25 Flow**. The platform ingests unstructured multi-line transaction exports, applies deterministic column-mapping normalization, executes double-entry and tax-rate validation gates, and pushes batches to Intuit QBO via a resilient, token-refreshed OAuth 2.0 API gateway. 

@@ -34,6 +34,10 @@ seo:
 
 # Executive Summary
 
+> **At a Glance:** An AI camera security system that scans vehicle license plates in real time and enforces industrial workplace safety. Engineered in Rust and Axum, it automatically corrects blurry Bengali numbers on license plates, opens parking gates in milliseconds, and detects missing hardhats or safety vests on factory floors without expensive cloud dependencies.
+
+---
+
 Commercial surveillance infrastructure across Bangladesh—encompassing highway toll plazas, automated parking garages, high-security residential gates, and readymade garment (RMG) factory floors—generates thousands of real-time snapshot events every minute. However, off-the-shelf Network Video Recorders (NVRs) and proprietary international software suites suffer from three critical bottlenecks:
 1. **Zero Native Bangla Script Support:** Standard OCR engines fail entirely when parsing official Bangladesh Road Transport Authority (BRTA) license plates, which require contextual understanding of 64 districts (e.g. ঢাকা, চট্ট, সিলেট), metro prefixes (মেট্রো), 32 vehicle class letters (ক to হ), and Bengali numerals (১২-৩৪৫৬).
 2. **Ingestion Throttling & Network Jitter:** Dahua, Hikvision, and Uniview IP cameras dispatch heavy multipart/form-data or Base64 JSON payloads when tripwires fire. Under heavy traffic, legacy Python/PHP backends lock threads, causing dropped events and unrecorded vehicle passages.

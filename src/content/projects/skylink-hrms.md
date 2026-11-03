@@ -29,7 +29,7 @@ seo:
 
 # Skylink HRMS: Instant Biometric Attendance & Automated Payroll Platform
 
-> **At a Glance:** An enterprise human resource management and biometric attendance synchronization engine engineered with modern Java 21 (Project Loom virtual threads) and Spring Boot 3.4. Deployed across corporate offices and factory floors, it ingests raw HTTP push telemetry from ZKTeco biometric terminals during 9:00 AM shift-change rush hours without missing records, automates multi-tier leave lifecycles, and computes monthly payroll in seconds with zero salary calculation errors.
+> **At a Glance:** An enterprise employee attendance and automated payroll platform that handles thousands of factory workers clocking in simultaneously at 9:00 AM shift change without server lag or lost punches. Built with modern Java 21 and Spring Boot, it replaces days of tedious payroll spreadsheets with 1-click salary calculations, tax withholdings, and instant bank-ready pay slips.
 
 ---
 
