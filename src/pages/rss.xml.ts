@@ -13,6 +13,7 @@ export const GET: APIRoute = async (context) => {
       <link>${siteUrl}/systems/${project.data.slug}</link>
       <guid isPermaLink="true">${siteUrl}/systems/${project.data.slug}</guid>
       <description><![CDATA[${project.data.seo?.focusKeyword || project.data.title} — Stack: ${project.data.stack?.join(', ') || project.data.primaryLanguage} | Latency: ${project.data.metrics?.latency || 'Sub-second'} | Throughput: ${project.data.metrics?.throughput || 'High-Throughput'}]]></description>
+      <author>info@mahmudulhasan.info.bd (Mahmudul Hasan)</author>
       <category>${project.data.primaryLanguage}</category>
       <pubDate>${new Date(project.data.date).toUTCString()}</pubDate>
     </item>`).join('');

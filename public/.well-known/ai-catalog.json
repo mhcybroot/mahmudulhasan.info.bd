@@ -66,6 +66,30 @@
       ]
     },
     {
+      "identifier": "urn:air:mahmudulhasan.info.bd:system:modern-os-microkernel",
+      "displayName": "Modern OS Microkernel Architecture",
+      "type": "text/html",
+      "url": "https://mahmudulhasan.info.bd/systems/modern-os-microkernel",
+      "description": "Pure #![no_std] Rust microkernel with Ring 0 privilege isolation, formal capability non-escalation, and lock-free SPSC IPC.",
+      "representativeQueries": [
+        "rust microkernel no_std operating system",
+        "ring 0 privilege isolation rust",
+        "lock-free spsc ipc microkernel"
+      ]
+    },
+    {
+      "identifier": "urn:air:mahmudulhasan.info.bd:system:homesync-iot",
+      "displayName": "HomeSync 3D Digital Twin & IoT Configurator",
+      "type": "text/html",
+      "url": "https://mahmudulhasan.info.bd/systems/homesync-iot",
+      "description": "Real-time 60 FPS WebGL room visualizer with dynamic Kelvin lighting shaders, security radar cones, and MQTT hardware telemetry.",
+      "representativeQueries": [
+        "three.js webgl iot digital twin",
+        "mqtt hardware telemetry home automation",
+        "interactive 3d smart home configurator"
+      ]
+    },
+    {
       "identifier": "urn:air:mahmudulhasan.info.bd:schema:person",
       "displayName": "Structured JSON-LD Person Graph",
       "type": "application/ld+json",

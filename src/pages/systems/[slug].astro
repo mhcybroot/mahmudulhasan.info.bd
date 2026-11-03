@@ -7877,7 +7877,7 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
           class="group p-5 bg-theme-lowest border border-theme-border rounded-sm hover:border-theme-secondary transition-all flex flex-col justify-between space-y-2 shadow-sm"
         >
           <span class="font-mono text-[10px] text-theme-muted flex items-center gap-1 group-hover:text-theme-accent transition-colors">
-            <span>← PREVIOUS NODE [Hotkey: []</span>
+            <span>← PREVIOUS NODE [Hotkey: [ / P]</span>
           </span>
           <span class="font-bold text-theme-primary text-sm sm:text-base group-hover:text-theme-accent transition-colors">
             {prevProject.title}
@@ -7890,7 +7890,7 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
           class="group p-5 bg-theme-lowest border border-theme-border rounded-sm hover:border-theme-secondary transition-all flex flex-col justify-between space-y-2 text-left md:text-right shadow-sm"
         >
           <span class="font-mono text-[10px] text-theme-muted flex items-center justify-start md:justify-end gap-1 group-hover:text-theme-accent transition-colors">
-            <span>NEXT NODE [Hotkey: ]] →</span>
+            <span>NEXT NODE [Hotkey: ] / N] →</span>
           </span>
           <span class="font-bold text-theme-primary text-sm sm:text-base group-hover:text-theme-accent transition-colors">
             {nextProject.title}
@@ -7990,12 +7990,12 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
         if (e.key === 's' || e.key === 'S') {
           e.preventDefault();
           triggerShare();
-        } else if (e.key === '[' || (e.altKey && e.key === 'ArrowLeft')) {
+        } else if (e.key === '[' || e.key === 'p' || e.key === 'P' || (e.altKey && e.key === 'ArrowLeft')) {
           if (prevLink?.href) {
             e.preventDefault();
             window.location.href = prevLink.href;
           }
-        } else if (e.key === ']' || (e.altKey && e.key === 'ArrowRight')) {
+        } else if (e.key === ']' || e.key === 'n' || e.key === 'N' || (e.altKey && e.key === 'ArrowRight')) {
           if (nextLink?.href) {
             e.preventDefault();
             window.location.href = nextLink.href;
