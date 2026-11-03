@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mahmudul Hasan (@mhcybroot) — Systems Architecture &amp; Industrial IoT</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary-fixed-dim": "#ffb690",
+          "secondary-fixed": "#ffdbca",
+          "inverse-on-surface": "#eaf1ff",
+          "secondary-container": "#fd761a",
+          "background": "#f8f9ff",
+          "error-container": "#ffdad6",
+          "error": "#ba1a1a",
+          "on-background": "#0b1c30",
+          "outline-variant": "#c6c6cd",
+          "surface-container-low": "#eff4ff",
+          "primary-container": "#131b2e",
+          "on-surface": "#0b1c30",
+          "inverse-primary": "#bec6e0",
+          "on-primary": "#ffffff",
+          "tertiary": "#000000",
+          "primary-fixed": "#dae2fd",
+          "inverse-surface": "#213145",
+          "secondary": "#9d4300",
+          "on-secondary-fixed": "#341100",
+          "on-error-container": "#93000a",
+          "surface-container-highest": "#d3e4fe",
+          "outline": "#76777d",
+          "tertiary-container": "#111c2d",
+          "primary": "#000000",
+          "on-secondary-fixed-variant": "#783200",
+          "surface-container": "#e5eeff",
+          "surface-variant": "#d3e4fe",
+          "on-primary-fixed-variant": "#3f465c",
+          "primary-fixed-dim": "#bec6e0",
+          "on-secondary": "#ffffff",
+          "surface-bright": "#f8f9ff",
+          "tertiary-fixed": "#d8e3fb",
+          "on-primary-container": "#7c839b",
+          "surface-tint": "#565e74",
+          "on-primary-fixed": "#131b2e",
+          "surface-container-high": "#dce9ff",
+          "on-error": "#ffffff",
+          "on-tertiary-container": "#79849a",
+          "surface": "#f8f9ff",
+          "on-tertiary-fixed-variant": "#3c475a",
+          "surface-container-lowest": "#ffffff",
+          "on-secondary-container": "#5c2400",
+          "on-surface-variant": "#45464d",
+          "tertiary-fixed-dim": "#bcc7de",
+          "surface-dim": "#cbdbf5",
+          "on-tertiary": "#ffffff",
+          "on-tertiary-fixed": "#111c2d"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter-sm": "1rem",
+          "margin": "2rem",
+          "margin-lg": "4rem",
+          "margin-sm": "1rem",
+          "space-xl": "2.5rem",
+          "space-lg": "1.5rem",
+          "space-xs": "0.25rem",
+          "gutter": "1.5rem",
+          "space-sm": "0.5rem",
+          "gutter-lg": "2rem",
+          "space-md": "1rem"
+        },
+        "fontFamily": {
+          "body-lg": ["Plus Jakarta Sans"],
+          "label-mono-xs": ["JetBrains Mono"],
+          "label-mono-md": ["JetBrains Mono"],
+          "headline-md": ["Plus Jakarta Sans"],
+          "body-md": ["Plus Jakarta Sans"],
+          "display-hero-mobile": ["Plus Jakarta Sans"],
+          "display-hero": ["Plus Jakarta Sans"],
+          "headline-lg": ["Plus Jakarta Sans"],
+          "body-sm": ["Plus Jakarta Sans"],
+          "label-mono-lg": ["JetBrains Mono"],
+          "headline-lg-mobile": ["Plus Jakarta Sans"],
+          "headline-sm": ["Plus Jakarta Sans"]
+        },
+        "fontSize": {
+          "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400"}],
+          "label-mono-xs": ["10px", {"lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "500"}],
+          "label-mono-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500"}],
+          "headline-md": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "body-md": ["15px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "display-hero-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700"}],
+          "display-hero": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+          "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "body-sm": ["13px", {"lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400"}],
+          "label-mono-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+          "headline-lg-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+        }
+      },
+    },
+  }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Architectural Cartesian Grid Texture */
+    .architectural-grid {
+      background-size: 24px 24px;
+      background-image: 
+        linear-gradient(to right, rgba(198, 198, 205, 0.25) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(198, 198, 205, 0.25) 1px, transparent 1px);
+    }
+    
+    .hairline-border {
+      border: 1px solid #c6c6cd;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased architectural-grid selection:bg-secondary-container selection:text-white min-h-screen">
+<!-- TOP NAVIGATION BAR (Shared Component Anchor) -->
+<header class="w-full border-b border-outline-variant bg-surface sticky top-0 z-50 px-gutter md:px-gutter-lg max-w-7xl mx-auto flex items-center justify-between">
+<!-- Brand Anchor & Coordinates -->
+<div class="flex items-center gap-space-md py-3">
+<a class="font-label-mono-lg text-label-mono-lg uppercase font-bold tracking-wider text-on-surface flex items-center gap-2" href="#">
+<span class="inline-block w-2.5 h-2.5 bg-secondary-container"></span>
+        MH // SYS-ARCH
+      </a>
+<span class="hidden lg:inline-block font-label-mono-xs text-label-mono-xs text-on-surface-variant bg-surface-container-low px-2 py-0.5 border border-outline-variant">
+        [23.8103° N, 90.4125° E]
+      </span>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-space-lg">
+<a class="text-secondary-container border-b-2 border-secondary-container font-label-mono-md text-label-mono-md py-4 uppercase tracking-wider hover:text-secondary-container transition-colors" href="#systems">Flagship Systems</a>
+<a class="text-on-surface-variant font-label-mono-md text-label-mono-md py-4 uppercase tracking-wider hover:text-secondary-container transition-colors" href="#deployments">Deployments</a>
+<a class="text-on-surface-variant font-label-mono-md text-label-mono-md py-4 uppercase tracking-wider hover:text-secondary-container transition-colors" href="#arsenal">Arsenal</a>
+<a class="text-on-surface-variant font-label-mono-md text-label-mono-md py-4 uppercase tracking-wider hover:text-secondary-container transition-colors" href="#chronicle">Chronicle</a>
+<a class="text-on-surface-variant font-label-mono-md text-label-mono-md py-4 uppercase tracking-wider hover:text-secondary-container transition-colors" href="#endorsements">Endorsements</a>
+<a class="text-on-surface-variant font-label-mono-md text-label-mono-md py-4 uppercase tracking-wider hover:text-secondary-container transition-colors" href="#contact">Contact</a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-space-sm">
+<div class="hidden sm:flex items-center gap-1.5 px-2 py-1 bg-surface-container border border-outline-variant font-label-mono-xs text-label-mono-xs text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse"></span>
+<span>SYS_SPEC // V4.2</span>
+</div>
+<a class="inline-flex items-center gap-1.5 bg-primary-container text-white px-3.5 py-2 font-label-mono-md text-label-mono-md hover:bg-tertiary-container transition-colors border border-outline" href="#contact">
+<span class="material-symbols-outlined text-sm" data-icon="terminal">terminal</span>
+<span class="hidden sm:inline">Interactive Resume Dossier</span>
+<span class="sm:hidden">Dossier</span>
+</a>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="max-w-7xl mx-auto px-gutter md:px-gutter-lg pb-margin-lg">
+<!-- 1. HERO SECTION -->
+<section class="pt-space-xl pb-margin border-b border-outline-variant relative">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-lg">
+<div class="inline-flex items-center gap-2 border border-outline-variant bg-surface-container-lowest px-3 py-1 font-label-mono-xs text-label-mono-xs">
+<span class="w-2 h-2 bg-secondary-container"></span>
+<span class="font-semibold text-on-surface">Software &amp; Smart Hardware Systems Engineer • Dhaka, BD</span>
+</div>
+<div class="inline-flex items-center gap-2 font-label-mono-xs text-label-mono-xs text-on-surface-variant">
+<span class="text-outline">[STATUS]</span>
+<span class="font-bold text-on-surface">FIELD TESTED // ZERO-FAULT ARCHITECTURE</span>
+</div>
+</div>
+<div class="max-w-5xl">
+<h1 class="hidden md:block font-display-hero text-display-hero text-primary tracking-tight mb-space-md">
+          I Build Software &amp; Smart Hardware Systems That 
+          <span class="inline-block relative">
+<span class="text-primary-container">Never Crash</span>
+<span class="absolute bottom-1 left-0 w-full h-1 bg-secondary-container"></span>
+</span>
+          and 
+          <span class="inline-block relative">
+<span class="text-primary-container">Never Slow Down.</span>
+<span class="absolute bottom-1 left-0 w-full h-1 bg-secondary-container"></span>
+</span>
+</h1>
+<h1 class="md:hidden font-display-hero-mobile text-display-hero-mobile text-primary tracking-tight mb-space-md">
+          I Build Software &amp; Smart Hardware Systems That 
+          <span class="text-secondary underline decoration-secondary-container">Never Crash</span> and 
+          <span class="text-secondary underline decoration-secondary-container">Never Slow Down.</span>
+</h1>
+<p class="font-label-mono-lg text-label-mono-lg text-secondary font-semibold uppercase tracking-wider mb-space-md">
+          Mahmudul Hasan (@mhcybroot) / Full-Stack Solutions &amp; Industrial IoT Automation
+        </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mb-space-xl">
+          From automated car parking gates and factory biometric attendance to high-speed web &amp; mobile apps, I help businesses in Bangladesh and worldwide automate complex operations, eliminate expensive cloud subscriptions, and handle thousands of concurrent users with zero downtime.
+        </p>
+<!-- CTA Buttons -->
+<div class="flex flex-wrap items-center gap-space-md mb-margin">
+<a class="inline-flex items-center gap-2 bg-secondary-container text-white font-label-mono-md text-label-mono-md font-bold px-6 py-3.5 hover:bg-secondary transition-colors border border-secondary shadow-sm" href="#systems">
+<span>See What I Build ↓</span>
+</a>
+<a class="inline-flex items-center gap-2 bg-surface-container-lowest text-on-surface font-label-mono-md text-label-mono-md px-6 py-3.5 border border-outline-variant hover:border-primary transition-colors" href="#dossier">
+<span class="material-symbols-outlined text-sm" data-icon="code">code</span>
+<span>View Printable Resume Dossier</span>
+</a>
+</div>
+</div>
+<!-- Architectural Metrics Bar (4-Column Plate) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 bg-surface-container-lowest border border-outline-variant">
+<div class="p-space-md border-b sm:border-b-0 sm:border-r border-outline-variant relative">
+<div class="font-label-mono-xs text-label-mono-xs text-outline mb-1">[BENCHMARK_01]</div>
+<div class="font-headline-sm text-headline-sm text-primary mb-1">&lt;0.84s Gate Open Latency</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Benchmarked RS485 loop with zero jitter</p>
+<span class="absolute top-2 right-2 text-outline-variant font-label-mono-xs">+</span>
+</div>
+<div class="p-space-md border-b sm:border-b-0 lg:border-r border-outline-variant relative">
+<div class="font-label-mono-xs text-label-mono-xs text-outline mb-1">[BENCHMARK_02]</div>
+<div class="font-headline-sm text-headline-sm text-primary mb-1">10,000+ RPS / Lane</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tokio Rust async worker pools</p>
+<span class="absolute top-2 right-2 text-outline-variant font-label-mono-xs">+</span>
+</div>
+<div class="p-space-md border-b sm:border-b-0 sm:border-r border-outline-variant relative">
+<div class="font-label-mono-xs text-label-mono-xs text-outline mb-1">[BENCHMARK_03]</div>
+<div class="font-headline-sm text-headline-sm text-primary mb-1">&lt;15MB RAM Core</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Zero memory leak on bare metal</p>
+<span class="absolute top-2 right-2 text-outline-variant font-label-mono-xs">+</span>
+</div>
+<div class="p-space-md relative">
+<div class="font-label-mono-xs text-label-mono-xs text-outline mb-1">[BENCHMARK_04]</div>
+<div class="font-headline-sm text-headline-sm text-primary mb-1">100% Offline-Ready</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Local SQLite edge &amp; self-healing sync</p>
+<span class="absolute top-2 right-2 text-outline-variant font-label-mono-xs">+</span>
+</div>
+</div>
+</section>
+<!-- 2. FLAGSHIP SYSTEMS SHOWCASE -->
+<section class="pt-margin-lg pb-margin" id="systems">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg border-b border-outline-variant pb-space-sm">
+<div>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary-container font-semibold tracking-wider uppercase block">
+            // ARSENAL PRIME :: DIVISION 01 // PRODUCTION-HARDENED SPECIFICATIONS
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-1">Flagship Engineered Systems</h2>
+</div>
+<div class="mt-2 md:mt-0 font-label-mono-xs text-label-mono-xs text-on-surface-variant">
+          TOTAL_MODULES: 19 ACTIVE // ARCHITECTURAL DRAFT
+        </div>
+</div>
+<!-- Spotlight Card: PMS-V2 -->
+<div class="bg-surface-container-lowest border-2 border-primary mb-margin p-space-md md:p-space-xl relative">
+<div class="absolute top-0 right-0 bg-secondary-container text-white px-3 py-1 font-label-mono-xs text-label-mono-xs font-bold uppercase tracking-wider">
+          DEPLOYED &amp; OPERATIONAL // MOD_ID: PMS-V2.84
+        </div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<div class="lg:col-span-7">
+<span class="font-label-mono-xs text-label-mono-xs text-outline block mb-1">SYSTEM SCHEMATIC 001</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-space-sm">
+              PMS-V2: Autonomous Smart Parking &amp; Barrier Gate Automation Engine
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              High-throughput embedded barrier gate automation platform engineered to eliminate parking fee leakage and manual ticket theft 100%. Orchestrates ZKTeco ADMS hardware relays, Bangla BRTA-compliant automatic license plate recognition (Frigate RTSP), and local edge fallback storage.
+            </p>
+<!-- Key Specs Badges -->
+<div class="flex flex-wrap gap-2 mb-space-md">
+<span class="font-label-mono-xs text-label-mono-xs px-2.5 py-1 bg-surface-container border border-outline-variant text-on-surface">● Stops Fee Leakage 100%</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2.5 py-1 bg-surface-container border border-outline-variant text-on-surface">● Anti-Tailgating RFID Relays</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2.5 py-1 bg-surface-container border border-outline-variant text-on-surface">● Zero Cloud Dependency (Dual Local DB)</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed font-bold border border-secondary-fixed-dim">● &lt;0.84s Barrier Response</span>
+</div>
+<!-- Technology Tags -->
+<div class="pt-space-sm border-t border-outline-variant flex flex-wrap items-center gap-2">
+<span class="font-label-mono-xs text-label-mono-xs text-outline uppercase">Stack:</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 bg-surface text-primary border border-outline-variant">Rust 2024</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 bg-surface text-primary border border-outline-variant">Flutter Desktop</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 bg-surface text-primary border border-outline-variant">ZKTeco ADMS</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 bg-surface text-primary border border-outline-variant">Frigate AI RTSP</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 bg-surface text-primary border border-outline-variant">RS485 Modbus</span>
+<span class="font-label-mono-xs text-label-mono-xs px-2 py-0.5 bg-surface text-primary border border-outline-variant">PostgreSQL</span>
+</div>
+</div>
+<!-- Embedded Telemetry Diagram Box -->
+<div class="lg:col-span-5 bg-surface-container-low border border-outline-variant p-space-md flex flex-col justify-between font-label-mono-xs text-label-mono-xs">
+<div>
+<div class="flex items-center justify-between border-b border-outline-variant pb-2 mb-space-sm">
+<span class="font-bold text-primary">HARDWARE BUS TELEMETRY</span>
+<span class="text-secondary-container font-semibold">● ACTIVE REALTIME</span>
+</div>
+<div class="space-y-2 text-on-surface-variant font-label-mono-xs">
+<div class="flex justify-between py-1 border-b border-outline-variant/50">
+<span>ACTUATOR BUS:</span>
+<span class="text-primary font-bold">Modbus RTU / RS485 [PORT COM3]</span>
+</div>
+<div class="flex justify-between py-1 border-b border-outline-variant/50">
+<span>ANPR RECOGNITION:</span>
+<span class="text-primary font-bold">Bangla BRTA OCR / RTSP 30 FPS</span>
+</div>
+<div class="flex justify-between py-1 border-b border-outline-variant/50">
+<span>BARRIER RESPONSE:</span>
+<span class="text-secondary font-bold">0.824s [TARGET: &lt;1.0s]</span>
+</div>
+<div class="flex justify-between py-1 border-b border-outline-variant/50">
+<span>VEHICLE LOGGED:</span>
+<span class="text-primary font-bold">1,420,000+ AUDITED</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant bg-surface-container-lowest p-2 border">
+<span class="text-outline block text-[9px] uppercase">Cryptographic Integrity Stamp:</span>
+<span class="text-on-surface font-mono text-[10px] break-all">SHA256: 7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069</span>
+<div class="mt-1 flex items-center justify-between text-[10px]">
+<span class="text-secondary font-bold">STATUS: ZERO FAULT VERIFIED</span>
+<span class="text-outline">CLK: 120MHz</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 18 Modular Systems Grid (Clean Swiss Architectural Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<!-- System 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-01]</span>
+<span>BIOMETRIC CORE</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Skylink HRMS: Instant Biometric Attendance &amp; Payroll Platform</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Java 21 Spring Boot Loom to handle extreme 9:00 AM shift rush with zero missing punch logs. ZKTeco ADMS Push engine.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Java 21 • Spring Boot 3.4 • Loom • ZKTeco
+          </div>
+</div>
+<!-- System 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-02]</span>
+<span>ENDPOINT AUDIT</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Skylink Workstation Guard: Ultra-Lightweight Focus &amp; Activity Monitor</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Rust 2024, Win32 API Hook, &lt;15MB RAM footprint, AES-GCM-256 local encrypted tamper-proof audit trail.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Rust 2024 • Win32 API • &lt;15MB RAM
+          </div>
+</div>
+<!-- System 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-03]</span>
+<span>FINTECH REDACTION</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Swift PDF Studio: SWIFT Wire Transfer Redaction &amp; Arabic Typography</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Python FastAPI &amp; Flutter desktop engine, permanent irreversible blackout redaction for strict banking compliance.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Python FastAPI • Flutter • HarfBuzz
+          </div>
+</div>
+<!-- System 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-04]</span>
+<span>DIGITAL TWIN</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">HomeSync IoT: Interactive 3D Digital Twin Smart Home Configurator</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              React 19, Three.js WebGL, MQTT state broker with zero-latency live telemetry floorplan feedback loops.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Three.js WebGL • MQTT • React 19
+          </div>
+</div>
+<!-- System 5 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-05]</span>
+<span>EDUTECH CORE</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Marksheet Engine: Academic Tabulation &amp; Automated Merit Compiler</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Node.js &amp; Prisma, differential cryptographic hash audit trail, Bangladesh Board GPA 5.0 normalization algorithm.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Node.js • Prisma • GPA 5.0 Rules
+          </div>
+</div>
+<!-- System 6 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-06]</span>
+<span>LOW-BITRATE RTC</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">EduMeet WebRTC: Low-Latency Virtual Classroom for 3G/4G Networks</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Flutter &amp; WebRTC SFU, VP8/Opus low bitrate adaptive video codec designed for weak remote network conditions.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Flutter • WebRTC SFU • Opus/VP8
+          </div>
+</div>
+<!-- System 7 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-07]</span>
+<span>ON-DEVICE AI</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">SmartAI Edge Vision: On-Device Facial Attendance &amp; GPS Geofence</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Kotlin, Google ML Kit, TensorFlow Lite, robust liveness anti-spoofing running smoothly on low-cost $100 Android devices.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Kotlin • TFLite • ML Kit • Geofence
+          </div>
+</div>
+<!-- System 8 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-08]</span>
+<span>GIS SPATIAL</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">LandTrust Bhumi Setu: 100-Year Land Record Ledger &amp; Boundary Audit</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Flutter, PostgreSQL PostGIS, cadastral map overlays and conflict-free spatial boundary validation for registry.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            PostgreSQL PostGIS • Flutter • GIS
+          </div>
+</div>
+<!-- System 9 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-09]</span>
+<span>BARE-METAL OS</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Modern OS Microkernel: Crash-Proof #![no_std] Rust Microkernel</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Rust #![no_std], x86_64 ASM, QEMU VMM, custom memory paging and preemptive priority multitasking scheduler.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Rust #![no_std] • x86_64 ASM • QEMU
+          </div>
+</div>
+<!-- System 10 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-10]</span>
+<span>IN-MEMORY PIPELINE</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">AMH Work Order Sniper: Sub-100ms In-Memory Auto-Claim Extension</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Vanilla TypeScript &amp; WebSocket raw hot-pipe, sub-100ms claim execution via event-driven worker automation.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            TypeScript • WebSockets • &lt;100ms
+          </div>
+</div>
+<!-- System 11 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-11]</span>
+<span>FX ENGINE</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Doller: Sub-14ms Multi-Currency FX Trading &amp; Double-Entry Ledger</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Java 21 &amp; Flutter desktop, strictly immutable ACID double-entry accounting balances with zero currency drift.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Java 21 • Flutter • Double-Entry ACID
+          </div>
+</div>
+<!-- System 12 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-12]</span>
+<span>ACCOUNTING ETL</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">QuickBooks Ledger Sync: Automated Invoice Normalizer &amp; Reconciler</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Java 21 &amp; Vaadin enterprise pipeline, automated ledger reconciliation and multi-source discrepancy resolution.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Java 21 • Vaadin • QuickBooks API
+          </div>
+</div>
+<!-- System 13 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-13]</span>
+<span>CRM ENGINE</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">BD CRM: Multi-Tenant Lead Pipeline with Fuzzy Duplicate Scanner</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Java 21 &amp; React, fast Levenshtein duplicate scanner preventing data pollution across large multi-tenant sales operations.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Java 21 • React • Levenshtein Alg
+          </div>
+</div>
+<!-- System 14 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-14]</span>
+<span>SMTP HANDSHAKE</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Email Verifier Service: Direct Port 25 SMTP Mailbox Deliverability API</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Python FastAPI asynchronous worker loop, live MX records and direct Port 25 zero-spam-score mailbox deliverability checks.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Python FastAPI • Port 25 • MX Validation
+          </div>
+</div>
+<!-- System 15 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-15]</span>
+<span>VISION OCR</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Cameraman: CCTV Bangla BRTA License Plate ANPR &amp; Factory Safety AI</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Rust Axum &amp; YOLOv8, real-time localized license plate OCR extraction and factory worker safety gear compliance monitoring.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Rust Axum • YOLOv8 • Bangla OCR
+          </div>
+</div>
+<!-- System 16 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-16]</span>
+<span>MASS WEBRTC</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">ClassRoom Live: LiveKit WebRTC SFU Virtual Hall for 500+ Students</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Java 21 &amp; WebRTC SFU media bridge, seamless simultaneous stream routing for high-density academic cohorts.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Java 21 • LiveKit • SFU Architecture
+          </div>
+</div>
+<!-- System 17 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-17]</span>
+<span>ENCRYPTED LEDGER</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Self-MT Finance: Zero-Based Cash Envelope Budgeting &amp; Loan Tracker</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Flutter &amp; SQLite AES-256 local encrypted storage, private financial management with zero cloud surveillance.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Flutter • SQLite • AES-256 Offline
+          </div>
+</div>
+<!-- System 18 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between hover:border-primary transition-colors">
+<div>
+<div class="flex justify-between items-center text-label-mono-xs font-label-mono-xs text-outline mb-1">
+<span>[MOD-18]</span>
+<span>SIMD ACCELERATION</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">ImageUpscale Pro: Offline SIMD Photo &amp; Document Enhancer</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Rust AVX-512 hardware-accelerated image pipeline, offline neural super-resolution and document artifact cleaning.
+            </p>
+</div>
+<div class="pt-2 border-t border-outline-variant font-label-mono-xs text-label-mono-xs text-secondary font-semibold">
+            Rust AVX-512 • SIMD • Neural Filter
+          </div>
+</div>
+</div>
+</section>
+<!-- 3. LIVE COMMERCIAL DEPLOYMENTS -->
+<section class="pt-margin pb-margin border-t border-outline-variant" id="deployments">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg">
+<div>
+<span class="font-label-mono-xs text-label-mono-xs text-secondary-container font-semibold uppercase tracking-wider block">
+            // FIELD OPERATIONS :: DIVISION 02
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-1">Live Commercial Deployments</h2>
+</div>
+<div class="font-label-mono-xs text-label-mono-xs text-outline">
+          AUDIT_STATE: PRODUCTION HARDENED
+        </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Node 01 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md relative">
+<div class="flex items-center justify-between border-b border-outline-variant pb-2 mb-space-sm">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary font-bold">NODE // 01</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">skylinkltd.ai</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Skylink Innovations Ltd</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+            Enterprise biometric attendance, facial recognition terminals &amp; security operations portal handling live workforce authentication.
+          </p>
+<div class="bg-surface-container-low p-2 border border-outline-variant font-label-mono-xs text-label-mono-xs text-on-surface flex justify-between items-center">
+<span>Stack: Java 21 • ZKTeco ADMS • WebSockets</span>
+<span class="text-secondary-container font-semibold">● ACTIVE</span>
+</div>
+</div>
+<!-- Node 02 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md relative">
+<div class="flex items-center justify-between border-b border-outline-variant pb-2 mb-space-sm">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary font-bold">NODE // 02</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">finaraprosolutions.com</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Finara Property Solutions LLC</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+            US Real Estate investment acquisition analysis &amp; valuation portal with multi-parameter automated deal pipelines.
+          </p>
+<div class="bg-surface-container-low p-2 border border-outline-variant font-label-mono-xs text-label-mono-xs text-on-surface flex justify-between items-center">
+<span>Stack: React 19 • Node.js • Cloudflare Edge</span>
+<span class="text-secondary-container font-semibold">● ACTIVE</span>
+</div>
+</div>
+<!-- Node 03 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md relative">
+<div class="flex items-center justify-between border-b border-outline-variant pb-2 mb-space-sm">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary font-bold">NODE // 03</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">homesyncllc.org</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">HomeSync Smart Automation</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+            Interactive 3D IoT Smart Home Configurator with live hardware telemetry, lighting presets, and perimeter sensors.
+          </p>
+<div class="bg-surface-container-low p-2 border border-outline-variant font-label-mono-xs text-label-mono-xs text-on-surface flex justify-between items-center">
+<span>Stack: Three.js WebGL • MQTT • TypeScript</span>
+<span class="text-secondary-container font-semibold">● ACTIVE</span>
+</div>
+</div>
+<!-- Node 04 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md relative">
+<div class="flex items-center justify-between border-b border-outline-variant pb-2 mb-space-sm">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary font-bold">NODE // 04</span>
+<span class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">dreamzonebuilders.com</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">DreamZone Builders Inc</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+            Commercial architectural &amp; structural engineering milestone tracking portfolio with high-fidelity asset rendering.
+          </p>
+<div class="bg-surface-container-low p-2 border border-outline-variant font-label-mono-xs text-label-mono-xs text-on-surface flex justify-between items-center">
+<span>Stack: Astro • Tailwind • High-DPI Engine</span>
+<span class="text-secondary-container font-semibold">● ACTIVE</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. TECHNICAL ARSENAL MATRIX -->
+<section class="pt-margin pb-margin border-t border-outline-variant" id="arsenal">
+<div class="mb-space-lg">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary-container font-semibold uppercase tracking-wider block">
+          // COMPETENCIES &amp; STACK :: DIVISION 03
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-1">Technical Arsenal Matrix</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Col 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between">
+<div>
+<div class="font-label-mono-xs text-label-mono-xs text-outline mb-1">[PILLAR_01]</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-space-sm">Fast Backends &amp; APIs</h3>
+<ul class="space-y-1.5 font-label-mono-xs text-label-mono-xs text-on-surface mb-space-md">
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> Rust (Axum, Tokio)</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> Java 21 (Spring Boot 3.4, Loom)</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> WebSockets &amp; gRPC</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> Python FastAPI</li>
+</ul>
+</div>
+<div class="bg-surface-container p-space-sm border border-outline-variant">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary font-bold block mb-1">WHY IT MATTERS TO YOU:</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              10k+ RPS throughput with zero memory leaks, slashing cloud server bills from $2,000/mo to a single $40/mo dedicated box.
+            </p>
+</div>
+</div>
+<!-- Col 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between">
+<div>
+<div class="font-label-mono-xs text-label-mono-xs text-outline mb-1">[PILLAR_02]</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-space-sm">Secure Databases &amp; Data</h3>
+<ul class="space-y-1.5 font-label-mono-xs text-label-mono-xs text-on-surface mb-space-md">
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> PostgreSQL 16 &amp; SeaORM</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> Spring Data JPA &amp; Hibernate</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> Redis In-Memory Caching</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> SQLite Edge Embedded Fallback</li>
+</ul>
+</div>
+<div class="bg-surface-container p-space-sm border border-outline-variant">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary font-bold block mb-1">WHY IT MATTERS TO YOU:</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Bank-grade ACID transactions and zero data loss even during sudden power outages or network dropouts.
+            </p>
+</div>
+</div>
+<!-- Col 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between">
+<div>
+<div class="font-label-mono-xs text-label-mono-xs text-outline mb-1">[PILLAR_03]</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-space-sm">Smart Hardware &amp; IoT</h3>
+<ul class="space-y-1.5 font-label-mono-xs text-label-mono-xs text-on-surface mb-space-md">
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> ZKTeco Biometrics ADMS Push SDK</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> RTSP AI Cameras &amp; YOLO OCR</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> Barrier Gate Relays &amp; MCUs</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> RS485 / Serial / Modbus Protocols</li>
+</ul>
+</div>
+<div class="bg-surface-container p-space-sm border border-outline-variant">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary font-bold block mb-1">WHY IT MATTERS TO YOU:</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Physical devices talk seamlessly to cloud or on-premise servers with sub-second response times and zero human intervention.
+            </p>
+</div>
+</div>
+<!-- Col 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md flex flex-col justify-between">
+<div>
+<div class="font-label-mono-xs text-label-mono-xs text-outline mb-1">[PILLAR_04]</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-space-sm">Web &amp; Cross-Platform</h3>
+<ul class="space-y-1.5 font-label-mono-xs text-label-mono-xs text-on-surface mb-space-md">
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> React 19 &amp; TypeScript</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> Astro &amp; Tailwind CSS</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> Flutter (iOS, Android, Windows)</li>
+<li class="flex items-center gap-1.5"><span class="text-secondary-container">■</span> Three.js WebGL Runtimes</li>
+</ul>
+</div>
+<div class="bg-surface-container p-space-sm border border-outline-variant">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary font-bold block mb-1">WHY IT MATTERS TO YOU:</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Pixel-perfect, ultra-snappy 60fps native performance across all screens from field technician phones to command centers.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. CAREER & ACADEMIC CHRONICLE -->
+<section class="pt-margin pb-margin border-t border-outline-variant" id="chronicle">
+<div class="mb-space-lg">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary-container font-semibold uppercase tracking-wider block">
+          // TIMELINE &amp; QUALIFICATIONS :: DIVISION 04
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-1">Career &amp; Academic Chronicle</h2>
+</div>
+<div class="border-l-2 border-primary pl-space-md sm:pl-space-lg space-y-space-lg relative ml-2 sm:ml-4">
+<!-- Milestone 1 -->
+<div class="relative">
+<span class="absolute -left-[23px] sm:-left-[31px] top-1.5 w-3 h-3 bg-secondary-container border-2 border-white"></span>
+<div class="font-label-mono-xs text-label-mono-xs text-secondary font-bold mb-1">OCT 2025 — PRESENT</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">
+            IT Executive / Software &amp; Systems Engineer
+          </h3>
+<div class="font-label-mono-md text-label-mono-md text-on-surface font-semibold mb-2">Skylink Innovations Ltd</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+            Leading smart IoT device integration, biometric payroll platforms, and mission-critical cloud backends. Directing high-load architecture optimization and zero-latency ZKTeco Push communications.
+          </p>
+</div>
+<!-- Milestone 2 -->
+<div class="relative">
+<span class="absolute -left-[23px] sm:-left-[31px] top-1.5 w-3 h-3 bg-outline border-2 border-white"></span>
+<div class="font-label-mono-xs text-label-mono-xs text-outline mb-1">MAR 2024 — OCT 2025</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">
+            Software Executive / IoT &amp; Systems Engineer
+          </h3>
+<div class="font-label-mono-md text-label-mono-md text-on-surface font-semibold mb-2">SPY Security Solutions</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+            Pioneered automated parking barrier systems, ZKTeco ADMS server pipelines, and Frigate RTSP license plate recognition engines across multi-lane industrial facilities.
+          </p>
+</div>
+<!-- Milestone 3 -->
+<div class="relative">
+<span class="absolute -left-[23px] sm:-left-[31px] top-1.5 w-3 h-3 bg-outline border-2 border-white"></span>
+<div class="font-label-mono-xs text-label-mono-xs text-outline mb-1">ENROLLED 2026</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">
+            AMIE (IEB) B.Sc. in Engineering Equivalence
+          </h3>
+<div class="font-label-mono-md text-label-mono-md text-on-surface font-semibold mb-2">Institution of Engineers, Bangladesh (IEB)</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+            Advanced engineering theory, computational dynamics, and formal professional accreditation in systems engineering.
+          </p>
+</div>
+<!-- Milestone 4 -->
+<div class="relative">
+<span class="absolute -left-[23px] sm:-left-[31px] top-1.5 w-3 h-3 bg-outline border-2 border-white"></span>
+<div class="font-label-mono-xs text-label-mono-xs text-outline mb-1">GRADUATED WITH DISTINCTION</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">
+            Diploma in Computer Science &amp; Technology (CGPA 3.75 / 4.00)
+          </h3>
+<div class="font-label-mono-md text-label-mono-md text-on-surface font-semibold mb-2">Dhaka Polytechnic Institute • BTEB</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+            Distinction honors focusing on embedded hardware interfacing, bare-metal microcontroller programming, operating systems, and computer architecture.
+          </p>
+</div>
+</div>
+</section>
+<!-- 6. VERIFIED LEADERSHIP ENDORSEMENTS -->
+<section class="pt-margin pb-margin border-t border-outline-variant" id="endorsements">
+<div class="mb-space-lg">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary-container font-semibold uppercase tracking-wider block">
+          // AUDITED TESTIMONIALS :: DIVISION 05
+        </span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-1">Verified Leadership Endorsements</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Quote 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md md:p-space-lg flex flex-col justify-between relative">
+<span class="font-label-mono-xs text-label-mono-xs text-outline block mb-2">[VERIFIED_ACADEMIC_AUDIT]</span>
+<p class="font-body-lg text-body-lg text-on-surface italic mb-space-md">
+            "Mahmudul exhibits exceptional technical depth that goes far beyond conventional coursework. His ability to build bare-metal kernels and seamlessly bridge low-level embedded hardware with complex software layers reflects an uncompromising engineering standard."
+          </p>
+<div class="pt-space-sm border-t border-outline-variant">
+<div class="font-headline-sm text-headline-sm text-primary">Engr. Niger Sultana</div>
+<div class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">
+              Head of Department, Computer Science &amp; Technology • Dhaka Polytechnic Institute
+            </div>
+</div>
+</div>
+<!-- Quote 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-space-md md:p-space-lg flex flex-col justify-between relative">
+<span class="font-label-mono-xs text-label-mono-xs text-outline block mb-2">[VERIFIED_INDUSTRY_AUDIT]</span>
+<p class="font-body-lg text-body-lg text-on-surface italic mb-space-md">
+            "Mahmudul delivers production systems with unmatched speed and engineering precision. Whether resolving difficult hardware telemetry synchronization or optimizing server architectures for zero lag, his solutions are robust, resilient, and enterprise-grade."
+          </p>
+<div class="pt-space-sm border-t border-outline-variant">
+<div class="font-headline-sm text-headline-sm text-primary">Nazrul Hasan Raju</div>
+<div class="font-label-mono-xs text-label-mono-xs text-on-surface-variant">
+              Managing Director • Nexus Netro Ltd
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. CONTACT & CALL TO ACTION (Precision Blueprint Plate) -->
+<section class="pt-margin pb-space-xl border-t border-outline-variant" id="contact">
+<div class="bg-surface-container-lowest border-2 border-primary p-space-md md:p-space-xl relative">
+<div class="max-w-3xl mb-space-lg">
+<span class="font-label-mono-xs text-label-mono-xs text-secondary-container font-semibold uppercase tracking-wider block mb-1">
+            // DIRECT TRANSMISSION CHANNEL :: DIVISION 06
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">
+            Have a Complex System in Mind? Let's Build Something Rock-Solid.
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Available for industrial automation, custom high-throughput backends, hardware firmware integrations, and enterprise web/mobile applications.
+          </p>
+</div>
+<!-- Direct Email Plate with Interactive Copy Button -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-center bg-surface-container-low border border-outline-variant p-space-md mb-space-md">
+<div class="md:col-span-8 flex flex-col">
+<span class="font-label-mono-xs text-label-mono-xs text-outline mb-1">PRIMARY INBOX (ENCRYPTED ROUTE):</span>
+<span class="font-label-mono-lg text-label-mono-lg font-bold text-primary select-all" id="emailText">
+              info@mahmudulhasan.info.bd
+            </span>
+</div>
+<div class="md:col-span-4 flex justify-start md:justify-end">
+<button class="inline-flex items-center gap-1.5 bg-primary-container text-white px-4 py-2.5 font-label-mono-md text-label-mono-md hover:bg-tertiary-container transition-colors border border-outline" id="copyBtn" onclick="copyEmailToClipboard()">
+<span class="material-symbols-outlined text-sm" data-icon="terminal">terminal</span>
+<span id="copyBtnText">Copy Email</span>
+</button>
+</div>
+</div>
+<!-- Telemetry Details Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md pt-space-sm border-t border-outline-variant font-label-mono-xs text-label-mono-xs">
+<div>
+<span class="text-outline block mb-1">PHONE &amp; WHATSAPP:</span>
+<span class="text-on-surface font-bold text-label-mono-md">+880 1410-749454</span>
+</div>
+<div>
+<span class="text-outline block mb-1">PRIMARY PHYSICAL DISPATCH:</span>
+<span class="text-on-surface font-bold text-label-mono-md">Dhaka, Bangladesh [UTC+6]</span>
+</div>
+<div>
+<span class="text-outline block mb-1">SERVICE LEVEL AGREEMENT:</span>
+<span class="text-secondary font-bold text-label-mono-md">&lt; 4 Hours Response Time</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER (Shared Component Anchor) -->
+<footer class="w-full border-t border-outline dark:border-outline-variant bg-primary-container dark:bg-surface-container-lowest px-gutter md:px-gutter-lg py-margin max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-space-md">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-label-mono-md text-label-mono-md uppercase font-bold text-on-primary dark:text-primary mb-1">
+        MH // SYS-ARCH
+      </span>
+<div class="font-label-mono-xs text-label-mono-xs text-on-primary-container dark:text-on-surface-variant">
+        [SPEC-V4.2] MH // CYBROOT • ZERO-FAULT TOLERANCE
+      </div>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-space-md font-label-mono-xs text-label-mono-xs uppercase tracking-wider">
+<a class="text-on-primary-container dark:text-on-surface-variant hover:text-secondary-fixed-dim dark:hover:text-secondary-container underline transition-colors duration-150" href="#systems">GPG Fingerprint</a>
+<a class="text-on-primary-container dark:text-on-surface-variant hover:text-secondary-fixed-dim dark:hover:text-secondary-container underline transition-colors duration-150" href="#arsenal">Industrial IoT Specs</a>
+<a class="text-on-primary-container dark:text-on-surface-variant hover:text-secondary-fixed-dim dark:hover:text-secondary-container underline transition-colors duration-150" href="#deployments">Root Node Status</a>
+<a class="text-on-primary-container dark:text-on-surface-variant hover:text-secondary-fixed-dim dark:hover:text-secondary-container underline transition-colors duration-150" href="#chronicle">System Audit Log</a>
+</div>
+<div class="font-label-mono-xs text-label-mono-xs text-on-primary-container dark:text-on-surface-variant text-center md:text-right">
+      © 2025 Mahmudul Hasan (@mhcybroot)
+    </div>
+</footer>
+<!-- Interactive JavaScript for micro-interactions -->
+<script>
+    function copyEmailToClipboard() {
+      const email = document.getElementById('emailText').innerText.trim();
+      navigator.clipboard.writeText(email).then(() => {
+        const btnText = document.getElementById('copyBtnText');
+        const original = btnText.innerText;
+        btnText.innerText = "COPIED TO BUFFER [OK]";
+        setTimeout(() => {
+          btnText.innerText = original;
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy text: ', err);
+      });
+    }
+  </script>
+</body></html>

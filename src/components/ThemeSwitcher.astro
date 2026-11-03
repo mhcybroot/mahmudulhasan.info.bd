@@ -1,6 +1,7 @@
 ---
 // Theme Switcher Component
 const themes = [
+  { id: 'swiss', name: 'Swiss Editorial', desc: 'Blueprint & Safety Orange', dot: '#FD761A', border: '#131B2E' },
   { id: 'obsidian', name: 'Obsidian Telemetry', desc: 'Deep Slate & Cyan', dot: '#38BDF8', border: '#10B981' },
   { id: 'amber', name: 'Amber Cockpit', desc: 'Brutalist Hazard Gold', dot: '#F59E0B', border: '#FCC742' },
   { id: 'synthwave', name: 'Neon Synthwave', desc: 'Cyberpunk Magenta', dot: '#EC4899', border: '#8B5CF6' },
@@ -34,7 +35,7 @@ const themes = [
   >
     <div class="px-3 py-2 text-[10px] uppercase tracking-wider text-theme-muted border-b border-theme-border flex items-center justify-between">
       <span>CHOOSE SYSTEM THEME</span>
-      <span class="text-theme-accent">5 EDITIONS</span>
+      <span class="text-theme-accent">6 EDITIONS</span>
     </div>
 
     <div class="py-1 space-y-1">
@@ -120,7 +121,7 @@ const themes = [
         const selectedTheme = opt.getAttribute('data-theme-id');
         if (selectedTheme) {
           document.documentElement.setAttribute('data-theme', selectedTheme);
-          if (selectedTheme === 'cleanroom') {
+          if (selectedTheme === 'cleanroom' || selectedTheme === 'swiss') {
             document.documentElement.classList.remove('dark');
           } else {
             document.documentElement.classList.add('dark');
@@ -133,7 +134,7 @@ const themes = [
     });
 
     // Initialize state from current html attribute
-    const current = document.documentElement.getAttribute('data-theme') || 'obsidian';
+    const current = document.documentElement.getAttribute('data-theme') || 'swiss';
     updateActiveState(current);
   }
 

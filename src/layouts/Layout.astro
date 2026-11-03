@@ -9,11 +9,12 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const envDefaultTheme = import.meta.env.PUBLIC_DEFAULT_THEME || 'obsidian';
+const envDefaultTheme = import.meta.env.PUBLIC_DEFAULT_THEME || 'swiss';
+const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amber' || envDefaultTheme === 'synthwave' || envDefaultTheme === 'emerald';
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth dark" data-theme={envDefaultTheme}>
+<html lang="en" class={`scroll-smooth ${isInitialDark ? 'dark' : ''}`} data-theme={envDefaultTheme}>
   <head>
     <meta charset="UTF-8" />
     <!-- Preload Critical Fonts (Eliminates Font-Swap Reflow & Flattens Network Tree) -->
@@ -29,15 +30,15 @@ const envDefaultTheme = import.meta.env.PUBLIC_DEFAULT_THEME || 'obsidian';
       (function () {
         try {
           const stored = localStorage.getItem('theme-preference');
-          const activeTheme = stored || envDefaultTheme || 'obsidian';
+          const activeTheme = stored || envDefaultTheme || 'swiss';
           document.documentElement.setAttribute('data-theme', activeTheme);
-          if (activeTheme === 'cleanroom') {
+          if (activeTheme === 'cleanroom' || activeTheme === 'swiss') {
             document.documentElement.classList.remove('dark');
           } else {
             document.documentElement.classList.add('dark');
           }
         } catch (e) {
-          document.documentElement.setAttribute('data-theme', envDefaultTheme || 'obsidian');
+          document.documentElement.setAttribute('data-theme', envDefaultTheme || 'swiss');
         }
       })();
     </script>

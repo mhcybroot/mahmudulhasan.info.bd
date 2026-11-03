@@ -36,7 +36,8 @@
   <!-- Mobile Quick Theme Switcher Pills -->
   <div class="pt-4 pb-2 border-t border-theme-border space-y-2">
     <div class="font-mono text-[10px] text-theme-muted uppercase tracking-wider">Quick Visual Theme</div>
-    <div class="grid grid-cols-5 gap-1.5">
+    <div class="grid grid-cols-6 gap-1.5">
+      <button type="button" class="mobile-theme-pill h-7 rounded border border-theme-border bg-[#FD761A] hover:scale-105 transition-transform" data-theme="swiss" title="Swiss Editorial"></button>
       <button type="button" class="mobile-theme-pill h-7 rounded border border-theme-border bg-[#38BDF8] hover:scale-105 transition-transform" data-theme="obsidian" title="Obsidian Telemetry"></button>
       <button type="button" class="mobile-theme-pill h-7 rounded border border-theme-border bg-[#F59E0B] hover:scale-105 transition-transform" data-theme="amber" title="Amber Cockpit"></button>
       <button type="button" class="mobile-theme-pill h-7 rounded border border-theme-border bg-[#EC4899] hover:scale-105 transition-transform" data-theme="synthwave" title="Neon Synthwave"></button>
@@ -103,7 +104,7 @@
       const theme = pill.getAttribute('data-theme');
       if (theme) {
         document.documentElement.setAttribute('data-theme', theme);
-        if (theme === 'cleanroom') {
+        if (theme === 'cleanroom' || theme === 'swiss') {
           document.documentElement.classList.remove('dark');
         } else {
           document.documentElement.classList.add('dark');
