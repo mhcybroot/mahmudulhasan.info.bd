@@ -27,19 +27,23 @@ const isImageUpscale = slug === 'image-upscale-simd';
   <div class="flex flex-wrap items-center gap-3">
     {isImageUpscale ? (
       <>
-        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-emerald-950/90 text-emerald-300 border border-emerald-500/60 shadow-sm">
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-sm text-xs font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-300 dark:bg-emerald-950/90 dark:text-emerald-300 dark:border-emerald-500/60 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse"></span>
           100% OFFLINE // ZERO DATA COLLECTION GUARANTEE
         </span>
-        <span class="text-xs font-mono text-slate-300 bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">Works on Windows &amp; Linux</span>
+        <span class="text-xs font-mono text-theme-secondary bg-theme-surface px-2.5 py-1 rounded-sm border border-theme-border font-medium">
+          Works on Windows &amp; Linux
+        </span>
       </>
     ) : (
       <>
-        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-emerald-950/90 text-emerald-300 border border-emerald-500/60 shadow-sm">
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-sm text-xs font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-300 dark:bg-emerald-950/90 dark:text-emerald-300 dark:border-emerald-500/60 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse"></span>
           ZERO-FAULT // PRODUCTION HARDENED BENCHMARK
         </span>
-        <span class="text-xs font-mono text-slate-300 bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">Runtime: {primaryLanguage} • Edge &amp; Cloud</span>
+        <span class="text-xs font-mono text-theme-secondary bg-theme-surface px-2.5 py-1 rounded-sm border border-theme-border font-medium">
+          Runtime: {primaryLanguage} • Edge &amp; Cloud
+        </span>
       </>
     )}
   </div>
@@ -47,22 +51,22 @@ const isImageUpscale = slug === 'image-upscale-simd';
   <!-- 4 Human-Centric Value Cards in Grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" role="region" aria-label="Key Benefits & Performance Metrics">
     <!-- Card 1: Processing Speed / Throughput -->
-    <div class="relative overflow-hidden rounded-xl bg-slate-900 border border-slate-700/80 p-5 hover:border-cyan-400 transition-colors group shadow-lg">
+    <div class="relative overflow-hidden rounded-sm bg-theme-surface border border-theme-border p-5 hover:border-theme-accent transition-all group shadow-sm">
       <div class="flex items-center justify-between mb-3">
-        <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">
+        <span class="text-xs font-mono uppercase tracking-wider text-theme-muted font-semibold">
           {isImageUpscale ? 'Speed & Capacity' : 'Throughput & Capacity'}
         </span>
-        <span class="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" title="Verified Instant Speed"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 dark:bg-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.5)]" title="Verified Instant Speed"></span>
       </div>
-      <div class="text-3xl font-mono font-bold text-white group-hover:text-cyan-300 transition-colors">
+      <div class="text-3xl font-mono font-bold text-theme-primary group-hover:text-theme-accent transition-colors">
         {metrics.throughput}
       </div>
-      <p class="mt-2 text-xs font-sans text-slate-200 leading-snug">
+      <p class="mt-2 text-xs font-sans text-theme-secondary leading-snug">
         {isImageUpscale
           ? 'Enlarges and sharpens hundreds of photos in less than a second.'
           : 'Sustained deterministic transaction handling with non-blocking async concurrency.'}
       </p>
-      <div class="mt-3 pt-3 border-t border-slate-800 flex justify-between text-xs font-mono text-cyan-300">
+      <div class="mt-3 pt-3 border-t border-theme-border flex justify-between text-xs font-mono text-theme-accent font-semibold">
         {isImageUpscale ? (
           <>
             <span>7x Faster</span>
@@ -78,24 +82,24 @@ const isImageUpscale = slug === 'image-upscale-simd';
     </div>
 
     <!-- Card 2: Instant Response / Latency -->
-    <div class="relative overflow-hidden rounded-xl bg-slate-900 border border-slate-700/80 p-5 hover:border-cyan-400 transition-colors group shadow-lg">
+    <div class="relative overflow-hidden rounded-sm bg-theme-surface border border-theme-border p-5 hover:border-theme-accent transition-all group shadow-sm">
       <div class="flex items-center justify-between mb-3">
-        <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">
+        <span class="text-xs font-mono uppercase tracking-wider text-theme-muted font-semibold">
           {isImageUpscale ? 'Time Per Photo' : 'Execution Latency'}
         </span>
-        <span class="text-xs font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/50 font-bold">
+        <span class="text-xs font-mono px-2 py-0.5 rounded-sm bg-theme-lowest text-theme-accent border border-theme-border font-bold">
           {isImageUpscale ? 'Instant' : '< 1s Target'}
         </span>
       </div>
-      <div class="text-3xl font-mono font-bold text-white group-hover:text-cyan-300 transition-colors">
+      <div class="text-3xl font-mono font-bold text-theme-primary group-hover:text-theme-accent transition-colors">
         {metrics.latency}
       </div>
-      <p class="mt-2 text-xs font-sans text-slate-200 leading-snug">
+      <p class="mt-2 text-xs font-sans text-theme-secondary leading-snug">
         {isImageUpscale
           ? 'Faster than a human eye blink. Clean results appear immediately.'
           : 'Real-time responsive execution with predictable sub-second SLA.'}
       </p>
-      <div class="mt-3 pt-3 border-t border-slate-800 flex justify-between text-xs font-mono text-cyan-300">
+      <div class="mt-3 pt-3 border-t border-theme-border flex justify-between text-xs font-mono text-theme-accent font-semibold">
         {isImageUpscale ? (
           <>
             <span>Single-Click</span>
@@ -111,20 +115,20 @@ const isImageUpscale = slug === 'image-upscale-simd';
     </div>
 
     <!-- Card 3: PC Health & Memory -->
-    <div class="relative overflow-hidden rounded-xl bg-slate-900 border border-slate-700/80 p-5 hover:border-emerald-400 transition-colors group shadow-lg">
+    <div class="relative overflow-hidden rounded-sm bg-theme-surface border border-theme-border p-5 hover:border-theme-accent transition-all group shadow-sm">
       <div class="flex items-center justify-between mb-3">
-        <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">Memory Usage</span>
-        <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/50 font-bold">Ultralight</span>
+        <span class="text-xs font-mono uppercase tracking-wider text-theme-muted font-semibold">Memory Usage</span>
+        <span class="text-xs font-mono px-2 py-0.5 rounded-sm bg-theme-lowest text-theme-accent border border-theme-border font-bold">Ultralight</span>
       </div>
-      <div class="text-3xl font-mono font-bold text-emerald-300">
+      <div class="text-3xl font-mono font-bold text-theme-primary">
         {metrics.memoryUsage}
       </div>
-      <p class="mt-2 text-xs font-sans text-slate-200 leading-snug">
+      <p class="mt-2 text-xs font-sans text-theme-secondary leading-snug">
         {isImageUpscale
           ? 'Uses less RAM than a single browser tab. Never slows down your PC.'
           : 'Tight memory ceiling with zero leaks and stable resident set size.'}
       </p>
-      <div class="mt-3 pt-3 border-t border-slate-800 flex justify-between text-xs font-mono text-emerald-300">
+      <div class="mt-3 pt-3 border-t border-theme-border flex justify-between text-xs font-mono text-theme-accent font-semibold">
         {isImageUpscale ? (
           <>
             <span>Runs on Any PC</span>
@@ -140,24 +144,24 @@ const isImageUpscale = slug === 'image-upscale-simd';
     </div>
 
     <!-- Card 4: Complete Privacy / Reliability -->
-    <div class="relative overflow-hidden rounded-xl bg-slate-900 border border-slate-700/80 p-5 hover:border-emerald-400 transition-colors group shadow-lg">
+    <div class="relative overflow-hidden rounded-sm bg-theme-surface border border-theme-border p-5 hover:border-theme-accent transition-all group shadow-sm">
       <div class="flex items-center justify-between mb-3">
-        <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">
+        <span class="text-xs font-mono uppercase tracking-wider text-theme-muted font-semibold">
           {isImageUpscale ? 'Data Privacy' : 'Reliability &amp; Availability'}
         </span>
-        <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/50 font-bold">
+        <span class="text-xs font-mono px-2 py-0.5 rounded-sm bg-theme-lowest text-theme-accent border border-theme-border font-bold">
           {isImageUpscale ? '100% Offline' : 'Resilient'}
         </span>
       </div>
-      <div class="text-3xl font-mono font-bold text-emerald-300">
+      <div class="text-3xl font-mono font-bold text-theme-primary">
         {isImageUpscale ? '100% Safe' : (metrics.uptime || '99.99% Uptime')}
       </div>
-      <p class="mt-2 text-xs font-sans text-slate-200 leading-snug">
+      <p class="mt-2 text-xs font-sans text-theme-secondary leading-snug">
         {isImageUpscale
           ? 'Your family & customer photos never leave your device. Zero cloud risk.'
           : 'ACID-safe transactions with failover persistence and auto-recovery.'}
       </p>
-      <div class="mt-3 pt-3 border-t border-slate-800 flex justify-between text-xs font-mono text-emerald-300">
+      <div class="mt-3 pt-3 border-t border-theme-border flex justify-between text-xs font-mono text-theme-accent font-semibold">
         {isImageUpscale ? (
           <>
             <span>No Internet Needed</span>
@@ -176,9 +180,9 @@ const isImageUpscale = slug === 'image-upscale-simd';
   <!-- Key Assurance Badges -->
   {stack.length > 0 && (
     <div class="flex flex-wrap items-center gap-2 pt-2">
-      <span class="text-xs font-mono text-slate-300 font-bold mr-2 uppercase tracking-wide">GUARANTEES //</span>
+      <span class="text-xs font-mono text-theme-muted font-bold mr-2 uppercase tracking-wide">GUARANTEES //</span>
       {stack.map((item) => (
-        <span class="inline-flex items-center px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-xs font-mono text-slate-200 hover:border-cyan-400 transition-colors font-medium">
+        <span class="inline-flex items-center px-3 py-1 rounded-sm bg-theme-surface border border-theme-border text-xs font-mono text-theme-secondary hover:border-theme-accent transition-colors font-medium shadow-2xs">
           {item}
         </span>
       ))}

@@ -138,7 +138,7 @@
                 type="button"
                 id="gecko-btn-back"
                 disabled
-                class="p-2 rounded-lg bg-slate-800 text-slate-500 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-700 hover:text-white transition-all text-xs font-mono font-bold"
+                class="p-2 rounded-lg bg-slate-800 text-slate-400 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-700 hover:text-white transition-all text-xs font-mono font-bold"
                 title="Go Back"
               >
                 ◀
@@ -147,7 +147,7 @@
                 type="button"
                 id="gecko-btn-forward"
                 disabled
-                class="p-2 rounded-lg bg-slate-800 text-slate-500 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-700 hover:text-white transition-all text-xs font-mono font-bold"
+                class="p-2 rounded-lg bg-slate-800 text-slate-400 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-700 hover:text-white transition-all text-xs font-mono font-bold"
                 title="Go Forward"
               >
                 ▶
@@ -325,7 +325,7 @@
         id="gecko-terminal-logs"
         class="bg-slate-900 rounded-xl p-4 font-mono text-xs text-slate-200 border border-slate-800 h-64 overflow-y-auto space-y-1.5 scrollbar-thin scrollbar-thumb-slate-700"
       >
-        <div class="text-slate-500 font-semibold">// Initializing GeckoRuntime singleton across Android Application lifecycle...</div>
+        <div class="text-slate-400 font-semibold">// Initializing GeckoRuntime singleton across Android Application lifecycle...</div>
         <div class="text-emerald-400 font-semibold">[GeckoRuntime.create] Singleton initialized. Context: com.example.browser</div>
         <div class="text-cyan-300">[GeckoSession.open] Session attached to GeckoView container view.</div>
         <div class="text-amber-300">[ProgressDelegate.onPageStart] Target URL: https://mozilla.org</div>
@@ -401,20 +401,20 @@
       if (btnBack) {
         btnBack.disabled = historyIndex <= 0;
         if (historyIndex > 0) {
-          btnBack.classList.remove('text-slate-500', 'disabled:opacity-40');
+          btnBack.classList.remove('text-slate-400', 'disabled:opacity-40');
           btnBack.classList.add('text-slate-200');
         } else {
-          btnBack.classList.add('text-slate-500', 'disabled:opacity-40');
+          btnBack.classList.add('text-slate-400', 'disabled:opacity-40');
           btnBack.classList.remove('text-slate-200');
         }
       }
       if (btnForward) {
         btnForward.disabled = historyIndex >= historyStack.length - 1;
         if (historyIndex < historyStack.length - 1) {
-          btnForward.classList.remove('text-slate-500', 'disabled:opacity-40');
+          btnForward.classList.remove('text-slate-400', 'disabled:opacity-40');
           btnForward.classList.add('text-slate-200');
         } else {
-          btnForward.classList.add('text-slate-500', 'disabled:opacity-40');
+          btnForward.classList.add('text-slate-400', 'disabled:opacity-40');
           btnForward.classList.remove('text-slate-200');
         }
       }
@@ -567,7 +567,7 @@
     });
 
     btnClearLogs?.addEventListener('click', () => {
-      if (terminalLogs) terminalLogs.innerHTML = '<div class="text-slate-500 font-semibold">// Stream cleared. Waiting for session events...</div>';
+      if (terminalLogs) terminalLogs.innerHTML = '<div class="text-slate-400 font-semibold">// Stream cleared. Waiting for session events...</div>';
     });
   }
 

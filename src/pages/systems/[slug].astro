@@ -249,7 +249,7 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
           </span>
         </div>
 
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-mono font-extrabold text-theme-primary tracking-tight leading-tight">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-sans font-extrabold text-theme-primary tracking-tight leading-tight">
           {data.title}
         </h1>
         <p class="text-base sm:text-lg text-theme-secondary font-sans leading-relaxed">
@@ -358,380 +358,380 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
         </p>
 
         <!-- Quick Summary Bar for Regular Visitors -->
-        <div class="flex flex-wrap gap-4 pt-2 text-xs font-sans text-slate-200">
+        <div class="flex flex-wrap gap-4 pt-2 text-xs font-sans text-theme-secondary font-medium">
           {isPms ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Sub-Second Gate Opening (&lt; 0.84s)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Sub-Second Gate Opening (&lt; 0.84s)
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> 100% Leak-Proof Financial Ledger
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> 100% Leak-Proof Financial Ledger
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Anti-Passback Hardware Security
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Anti-Passback Hardware Security
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> 100% Offline-Capable Gate Lanes
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> 100% Offline-Capable Gate Lanes
               </div>
             </>
           ) : isHrms ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> 10,000+ Punches / Minute Ingestion
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> 10,000+ Punches / Minute Ingestion
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Zero Lost Punches Under Shift Rush
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Zero Lost Punches Under Shift Rush
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Direct ZKTeco ADMS Protocol Sync
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Direct ZKTeco ADMS Protocol Sync
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> 1-Click Automated Monthly Payroll
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> 1-Click Automated Monthly Payroll
               </div>
             </>
           ) : isMonitor ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> &lt; 14 MB Total RAM Footprint
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> &lt; 14 MB Total RAM Footprint
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> &lt; 0.01% CPU Overhead
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> &lt; 0.01% CPU Overhead
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Zero Keyloggers (Bank-Grade Privacy)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Zero Keyloggers (Bank-Grade Privacy)
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> 100% Offline Local Buffer Resilience
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> 100% Offline Local Buffer Resilience
               </div>
             </>
           ) : isSwift ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> 100% Permanent Blackout Redaction
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> 100% Permanent Blackout Redaction
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Leaves Zero Underlying Hidden Text
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Leaves Zero Underlying Hidden Text
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Arabic &amp; English Font Baseline Match
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Arabic &amp; English Font Baseline Match
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Sub-120ms Processing on Device
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Sub-120ms Processing on Device
               </div>
             </>
           ) : isHomesync ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Smooth 60 FPS in Any Browser
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Smooth 60 FPS in Any Browser
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Warm &amp; Cool Ambient Lighting Simulation
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Warm &amp; Cool Ambient Lighting Simulation
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Tests Smart Motion &amp; Security Radar Cones
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Tests Smart Motion &amp; Security Radar Cones
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> 100% Free of Cloud Subscriptions
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> 100% Free of Cloud Subscriptions
               </div>
             </>
           ) : isMarksheet ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Board-Compliant GPA 5.0 Engine
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Board-Compliant GPA 5.0 Engine
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Automatic 4th Subject Bonus (GP &gt; 2.0)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Automatic 4th Subject Bonus (GP &gt; 2.0)
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> 1,200+ PDF Marksheets / Min
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> 1,200+ PDF Marksheets / Min
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> 100% Offline (Zero Cloud Dependency)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> 100% Offline (Zero Cloud Dependency)
               </div>
             </>
           ) : isEdumeet ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Multi-Flavor APKs (Student/Teacher/Admin)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Multi-Flavor APKs (Student/Teacher/Admin)
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Sub-95ms WebRTC Peer-to-Peer Latency
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Sub-95ms WebRTC Peer-to-Peer Latency
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Adaptive Bitrate Downscaling (3G/4G)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Adaptive Bitrate Downscaling (3G/4G)
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Real-Time In-Call Attendance Logging
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Real-Time In-Call Attendance Logging
               </div>
             </>
           ) : isSmartAi ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> &lt; 350ms On-Device ML Kit Face Tracking
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> &lt; 350ms On-Device ML Kit Face Tracking
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Dual-Factor 50m GPS Geofence Stops Proxies
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Dual-Factor 50m GPS Geofence Stops Proxies
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Zero Cellular Data Cost (100% Local Inference)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Zero Cellular Data Cost (100% Local Inference)
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Offline Room SQLite DB with Firestore Sync
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Offline Room SQLite DB with Firestore Sync
               </div>
             </>
           ) : isNotes ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Sub-5ms Search Across Millions of Notes
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Sub-5ms Search Across Millions of Notes
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Role-Based Access: Team Members Only See Permitted Files
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Role-Based Access: Team Members Only See Permitted Files
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Zero-Leak Company Knowledge Base
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Zero-Leak Company Knowledge Base
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Bank-Grade Encryption at Rest and in Transit
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Bank-Grade Encryption at Rest and in Transit
               </div>
             </>
           ) : isSssms ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Multi-Leg Journey Auditing (Rickshaw, CNG, Bus, Fuel)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Multi-Leg Journey Auditing (Rickshaw, CNG, Bus, Fuel)
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> 1-Click bKash / Nagad / EFT Disbursal Settlement
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> 1-Click bKash / Nagad / EFT Disbursal Settlement
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Instant Vectorized PDF Conveyance Voucher Compilation
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Instant Vectorized PDF Conveyance Voucher Compilation
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Cloud Firestore Real-Time ACID Ledger (&lt; 18ms Sync)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Cloud Firestore Real-Time ACID Ledger (&lt; 18ms Sync)
               </div>
             </>
           ) : isCampus ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> All-in-One Dashboard for Students, Faculty &amp; Staff
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> All-in-One Dashboard for Students, Faculty &amp; Staff
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Handles 5,000+ Requests / Sec with Zero Server Lag
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Handles 5,000+ Requests / Sec with Zero Server Lag
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Automated UGC-Compliant GPA &amp; Grade Calculation
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Automated UGC-Compliant GPA &amp; Grade Calculation
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Runs Offline with Zero Monthly Cloud Fees
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Runs Offline with Zero Monthly Cloud Fees
               </div>
             </>
           ) : isLandtrust ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Historical Chain-of-Title Audit (CS 1910 → SA → RS → BS)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Historical Chain-of-Title Audit (CS 1910 → SA → RS → BS)
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Sub-28ms PostGIS Parcel Boundary Overlap Detection
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Sub-28ms PostGIS Parcel Boundary Overlap Detection
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Instant Land Unit Converter (Bigha, Katha, Decimal, Sqft)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Instant Land Unit Converter (Bigha, Katha, Decimal, Sqft)
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Mutation (নামজারি) Clearance &amp; DCR Fee Verification
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Mutation (নামজারি) Clearance &amp; DCR Fee Verification
               </div>
             </>
           ) : isModernOs ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Crash-Proof: Driver Crashes Cannot Freeze the Computer
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Crash-Proof: Driver Crashes Cannot Freeze the Computer
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Ultra-Compact Secure Core (&lt; 2,500 Lines of Code)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Ultra-Compact Secure Core (&lt; 2,500 Lines of Code)
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Sub-Microsecond Inter-Process Communication
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Sub-Microsecond Inter-Process Communication
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Zero Root Privilege Escalation Risks
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Zero Root Privilege Escalation Risks
               </div>
             </>
           ) : isYtStream ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> 16-Stream Multi-Socket Download Acceleration
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> 16-Stream Multi-Socket Download Acceleration
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Automatically Skips Annoying Promotional Ad Plugs
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Automatically Skips Annoying Promotional Ad Plugs
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Streams Smoothly on Home TVs via Plex &amp; Jellyfin
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Streams Smoothly on Home TVs via Plex &amp; Jellyfin
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Fast Multi-ISP Routing (Domestic Peering &amp; Starlink)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Fast Multi-ISP Routing (Domestic Peering &amp; Starlink)
               </div>
             </>
           ) : isSniper ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Sub-Second In-Memory Job Detection Before Rendering
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Sub-Second In-Memory Job Detection Before Rendering
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Instant 80ms Tab Cycling (Zero White-Screen Flashes)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Instant 80ms Tab Cycling (Zero White-Screen Flashes)
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Auto-Checks Terms and Claims Orders in &lt; 250ms
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Auto-Checks Terms and Claims Orders in &lt; 250ms
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Cooling Shield Prevents Account Lockouts
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Cooling Shield Prevents Account Lockouts
               </div>
             </>
           ) : isGecko ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> 100% Independent from Google Chrome Tracking
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> 100% Independent from Google Chrome Tracking
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Built-in Ad &amp; Privacy Tracker Protection
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Built-in Ad &amp; Privacy Tracker Protection
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Smooth Page Loading with Low Memory Usage
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Smooth Page Loading with Low Memory Usage
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Full WebExtension &amp; Desktop-Class Features
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Full WebExtension &amp; Desktop-Class Features
               </div>
             </>
           ) : isDoller ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Balanced Double-Entry Math: Debits Always Equal Credits
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Balanced Double-Entry Math: Debits Always Equal Credits
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Real-Time Multi-Currency Profit &amp; Loss Tracking
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Real-Time Multi-Currency Profit &amp; Loss Tracking
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Automated End-of-Day Ledger Freeze &amp; Audit Seals
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Automated End-of-Day Ledger Freeze &amp; Audit Seals
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Offline Mode Syncs Transactions When Back Online
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Offline Mode Syncs Transactions When Back Online
               </div>
             </>
           ) : isQuickbooks ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Smart Matching: Pairs Bank Deposits with Pending Invoices
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Smart Matching: Pairs Bank Deposits with Pending Invoices
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Syncs 1,200 Invoices per Minute with Zero Duplicates
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Syncs 1,200 Invoices per Minute with Zero Duplicates
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Bank-Grade AES-256 Encrypted QuickBooks OAuth Vault
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Bank-Grade AES-256 Encrypted QuickBooks OAuth Vault
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Live Status Dashboard with Zero Manual Entry
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Live Status Dashboard with Zero Manual Entry
               </div>
             </>
           ) : isEdugo ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> High-Speed Mobile App for Families + Web Portal for Staff
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> High-Speed Mobile App for Families + Web Portal for Staff
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Strict Data Separation Across Multiple School Branches
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Strict Data Separation Across Multiple School Branches
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Offline Mobile Queue with Automatic Sync
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Offline Mobile Queue with Automatic Sync
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Complete Student Records, Fees &amp; Attendance in One Place
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Complete Student Records, Fees &amp; Attendance in One Place
               </div>
             </>
           ) : isCrm ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Fuzzy Duplicate Detection Stops Reps Calling the Same Lead
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Fuzzy Duplicate Detection Stops Reps Calling the Same Lead
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Strict Multi-Company Privacy &amp; Data Isolation
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Strict Multi-Company Privacy &amp; Data Isolation
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Automated Follow-up Reminders Before Deals Go Cold
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Automated Follow-up Reminders Before Deals Go Cold
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Real-Time Drag-and-Drop Deal Board with Zero Lag
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Real-Time Drag-and-Drop Deal Board with Zero Lag
               </div>
             </>
           ) : isEmailVerifier ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Direct Mailbox Handshake: Confirms Inbox Without Sending Spam
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Direct Mailbox Handshake: Confirms Inbox Without Sending Spam
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Detects Fake Catch-All Domains via Smart Probing
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Detects Fake Catch-All Domains via Smart Probing
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Protects Company Email Domains from Spam Blacklists
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Protects Company Email Domains from Spam Blacklists
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Saves Thousands in Third-Party API Subscription Fees
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Saves Thousands in Third-Party API Subscription Fees
               </div>
             </>
           ) : isCameraman ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Reads Vehicle License Plates Across All 64 Districts of BD
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Reads Vehicle License Plates Across All 64 Districts of BD
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Sub-25ms Real-Time Camera Event Processing
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Sub-25ms Real-Time Camera Event Processing
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Audits Worker Helmets &amp; Safety Vests Automatically
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Audits Worker Helmets &amp; Safety Vests Automatically
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Triggers Physical Access Barrier Gates with Zero Delay
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Triggers Physical Access Barrier Gates with Zero Delay
               </div>
             </>
           ) : isClassroom ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Smooth, Crystal-Clear Video for 500+ Students per Lecture
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Smooth, Crystal-Clear Video for 500+ Students per Lecture
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Downscales Video Automatically on Weak Mobile Connections
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Downscales Video Automatically on Weak Mobile Connections
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Sub-35ms One-Click Teacher Mute-All and Camera Controls
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Sub-35ms One-Click Teacher Mute-All and Camera Controls
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Works Securely with PIN or Mobile Login Without Complicated Setup
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Works Securely with PIN or Mobile Login Without Complicated Setup
               </div>
             </>
           ) : isSelfMt ? (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Digital Envelope Budgeting: Assigns Every Dollar a Purpose
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Digital Envelope Budgeting: Assigns Every Dollar a Purpose
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Zero-Discrepancy Math: Balances Reconcile Perfectly
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Zero-Discrepancy Math: Balances Reconcile Perfectly
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Tracks Loan Payoffs and Interest Amortization Automatically
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Tracks Loan Payoffs and Interest Amortization Automatically
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> 100% Private &amp; Offline: Creates PDF Statements on Phone
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> 100% Private &amp; Offline: Creates PDF Statements on Phone
               </div>
             </>
           ) : (
             <>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Free &amp; Open Source
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Free &amp; Open Source
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Works Offline (No Wi-Fi needed)
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Works Offline (No Wi-Fi needed)
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> Runs on Windows &amp; Linux
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> Runs on Windows &amp; Linux
               </div>
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400 font-bold">✓</span> No Account or Sign-up
+                <span class="text-emerald-700 dark:text-emerald-400 font-bold">✓</span> No Account or Sign-up
               </div>
             </>
           )}
@@ -807,11 +807,11 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
     <!-- Real-World Business & Personal Applications (Who Benefits) -->
     <section class="space-y-6">
       <div class="border-b border-theme-border pb-4">
-        <h2 class="text-2xl font-mono font-bold text-white flex items-center gap-2">
-          <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+        <h2 class="text-2xl font-sans font-bold text-theme-primary flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-theme-accent"></span>
           Real-World Applications: Who Benefits Most?
         </h2>
-        <p class="text-sm text-slate-300 mt-1 font-sans">
+        <p class="text-sm text-theme-secondary mt-1 font-sans">
           {isPms 
             ? "Built to stop revenue theft and eliminate vehicle entry queues across commercial properties."
             : isHrms
@@ -3252,17 +3252,17 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
     </section>
 
     <!-- Dedicated Technical Blueprint Section (Under The Hood for Engineers & CTOs) -->
-    <section id="technical-deepdive" class="space-y-10 pt-8 border-t border-slate-800 scroll-mt-20">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+    <section id="technical-deepdive" class="space-y-10 pt-8 border-t border-theme-border scroll-mt-20">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-theme-border pb-4">
         <div>
-          <div class="flex items-center gap-2 text-cyan-300 font-mono text-xs uppercase tracking-wider mb-1 font-bold">
-            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+          <div class="flex items-center gap-2 text-theme-accent font-mono text-xs uppercase tracking-wider mb-1 font-bold">
+            <span class="w-2.5 h-2.5 rounded-full bg-theme-accent"></span>
             Technical Deep-Dive
           </div>
-          <h2 class="text-2xl font-mono font-bold text-white">
+          <h2 class="text-2xl font-sans font-bold text-theme-primary">
             Under The Hood: Architecture, Concurrency &amp; Algorithms
           </h2>
-          <p class="text-xs text-slate-300 mt-1 font-sans">
+          <p class="text-xs text-theme-secondary mt-1 font-sans">
             {isPms
               ? "Engineered in pure Rust 2024 (Axum & Tokio) with SeaORM dynamic pools, ZKTeco ADMS daemons, and Flutter BLoC."
               : isHrms
@@ -3314,17 +3314,17 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
               : "Engineered in pure Rust 2021 with zero-allocation memory buffers and hardware SIMD intrinsics."}
           </p>
         </div>
-        <span class="text-xs font-mono px-3 py-1 rounded bg-slate-800 text-cyan-300 border border-slate-700 font-semibold">
+        <span class="text-xs font-mono px-3 py-1 rounded bg-theme-surface text-theme-accent border border-theme-border font-semibold">
           FOR ENGINEERS &amp; ARCHITECTS
         </span>
       </div>
 
       <!-- Interactive Node Pipeline Cards -->
       <div class="space-y-4">
-        <h3 class="text-lg font-mono font-bold text-white">
+        <h3 class="text-lg font-sans font-bold text-theme-primary">
           System Concurrency &amp; Data Pipeline
         </h3>
-        <p class="text-xs text-slate-300 font-sans">
+        <p class="text-xs text-theme-secondary font-sans">
           Click any step below to inspect how data moves through memory without lock contention.
         </p>
 
@@ -6409,10 +6409,10 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
 
       <!-- The Core Algorithm Terminal -->
       <div class="space-y-4">
-        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="flex items-center justify-between border-b border-theme-border pb-3">
           <div>
-            <h3 class="text-lg font-mono font-bold text-white flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+            <h3 class="text-lg font-sans font-bold text-theme-primary flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-theme-accent"></span>
               {isPms 
                 ? "Hardware Protocol Engine: ZKTeco ADMS & Barrier Relay Latch" 
                 : isHrms
@@ -6463,62 +6463,62 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
                 ? "Two-Phase Transactional Side-Effect Engine & Debt Amortization Clamp"
                 : "The Core Algorithm: Contrast-Adaptive Sharpening (CAS)"}
             </h3>
-            <p class="text-xs text-slate-300 font-sans mt-0.5">
+            <p class="text-xs text-theme-secondary font-sans mt-0.5">
               {isPms
-                ? <span>Directly from <code class="text-cyan-300 font-mono">backend/src/service/zk_adms_service.rs</code> handling raw push packets with zero middleware.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">backend/src/service/zk_adms_service.rs</code> handling raw push packets with zero middleware.</span>
                 : isHrms
-                ? <span>Directly from <code class="text-cyan-300 font-mono">src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java</code> handling Project Loom push ingestion.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">src/main/java/root/cyb/mh/attendancesystem/controller/AdmsController.java</code> handling Project Loom push ingestion.</span>
                 : isMonitor
-                ? <span>Directly from <code class="text-cyan-300 font-mono">skylink-monitor/src/network.rs</code> showing non-blocking xcap frame capture &amp; atomic quality throttling.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">skylink-monitor/src/network.rs</code> showing non-blocking xcap frame capture &amp; atomic quality throttling.</span>
                 : isSwift
-                ? <span>Directly from <code class="text-cyan-300 font-mono">backend/app/pdf_service.py</code> showing Pillow 4x antialiasing &amp; PyMuPDF baseline positioning.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">backend/app/pdf_service.py</code> showing Pillow 4x antialiasing &amp; PyMuPDF baseline positioning.</span>
                 : isHomesync
-                ? <span>Directly from <code class="text-cyan-300 font-mono">src/components/ThreeCanvas/FloorplanLightingShader.ts</code> calculating Kelvin to linear RGB for WebGL shaders.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">src/components/ThreeCanvas/FloorplanLightingShader.ts</code> calculating Kelvin to linear RGB for WebGL shaders.</span>
                 : isMarksheet
-                ? <span>Directly from <code class="text-cyan-300 font-mono">backend/seed.js</code> showing in-memory tie-breaking sort and fail-gate filtering.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">backend/seed.js</code> showing in-memory tie-breaking sort and fail-gate filtering.</span>
                 : isEdumeet
-                ? <span>Directly from <code class="text-cyan-300 font-mono">lib/config/jitsi_config.dart</code> showing federated signaling routing to bypass public 5-minute timeout disconnects.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">lib/config/jitsi_config.dart</code> showing federated signaling routing to bypass public 5-minute timeout disconnects.</span>
                 : isSmartAi
-                ? <span>Directly from <code class="text-cyan-300 font-mono">app/src/main/java/.../FaceDetectorHelper.kt</code> and <code class="text-cyan-300 font-mono">LocationUtils.kt</code> showing ML Kit landmark analysis and WGS-84 radius checking.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">app/src/main/java/.../FaceDetectorHelper.kt</code> and <code class="text-theme-accent font-semibold font-mono">LocationUtils.kt</code> showing ML Kit landmark analysis and WGS-84 radius checking.</span>
                 : isNotes
-                ? <span>Directly from <code class="text-cyan-300 font-mono">src/notes/repositories/notes.repository.ts</code> showing compound index lookups and tenant ownership isolation.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">src/notes/repositories/notes.repository.ts</code> showing compound index lookups and tenant ownership isolation.</span>
                 : isSssms
-                ? <span>Directly from <code class="text-cyan-300 font-mono">lib/models/conveyance_claim_model.dart</code> showing multi-leg transit calculation and Firestore serialization.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">lib/models/conveyance_claim_model.dart</code> showing multi-leg transit calculation and Firestore serialization.</span>
                 : isCampus
-                ? <span>Directly from <code class="text-cyan-300 font-mono">smart-academic-portal/src/App.vue</code> showing reactive iframe messaging and dynamic stylesheet injection.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">smart-academic-portal/src/App.vue</code> showing reactive iframe messaging and dynamic stylesheet injection.</span>
                 : isLandtrust
-                ? <span>Directly from <code class="text-cyan-300 font-mono">backend/src/main/java/.../LandRecordService.java</code> showing survey record chain traversal and unit conversion math.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">backend/src/main/java/.../LandRecordService.java</code> showing survey record chain traversal and unit conversion math.</span>
                 : isModernOs
-                ? <span>Directly from <code class="text-cyan-300 font-mono">kernel/src/proofs/capability_proofs.rs</code> proving non-escalation invariants.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">kernel/src/proofs/capability_proofs.rs</code> proving non-escalation invariants.</span>
                 : isYtStream
-                ? <span>Directly from <code class="text-cyan-300 font-mono">downloader.py</code> showing external downloader flags and hook dispatch.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">downloader.py</code> showing external downloader flags and hook dispatch.</span>
                 : isSniper
-                ? <span>Directly from <code class="text-cyan-300 font-mono">extension/content.js</code> showing MAIN-world fetch interception &amp; exponential 429 backoff.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">extension/content.js</code> showing MAIN-world fetch interception &amp; exponential 429 backoff.</span>
                 : isGecko
-                ? <span>Directly from <code class="text-cyan-300 font-mono">app/src/main/java/com/example/browser/MainActivity.kt</code> showing singleton runtime &amp; session delegates.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">app/src/main/java/com/example/browser/MainActivity.kt</code> showing singleton runtime &amp; session delegates.</span>
                 : isDoller
-                ? <span>Directly from <code class="text-cyan-300 font-mono">backend/src/main/java/.../TradingService.java</code> showing ACID deal creation &amp; balanced ledger posts.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">backend/src/main/java/.../TradingService.java</code> showing ACID deal creation &amp; balanced ledger posts.</span>
                 : isQuickbooks
-                ? <span>Directly from <code class="text-cyan-300 font-mono">QuickBooksInvoicePayloadFactory.java</code> and <code class="text-cyan-300 font-mono">ReconciliationService.java</code> showing Intuit REST serialization and multi-tier matching.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">QuickBooksInvoicePayloadFactory.java</code> and <code class="text-theme-accent font-semibold font-mono">ReconciliationService.java</code> showing Intuit REST serialization and multi-tier matching.</span>
                 : isEdugo
-                ? <span>Directly from <code class="text-cyan-300 font-mono">com/edugo/config/SecurityConfig.java</code> showing simultaneous @Order(0) API filter chain and VaadinWebSecurity.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">com/edugo/config/SecurityConfig.java</code> showing simultaneous @Order(0) API filter chain and VaadinWebSecurity.</span>
                 : isCrm
-                ? <span>Directly from <code class="text-cyan-300 font-mono">com/bdcrm/duplicate/DuplicateService.java</code> showing Levenshtein string distance and candidate pair scoring.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">com/bdcrm/duplicate/DuplicateService.java</code> showing Levenshtein string distance and candidate pair scoring.</span>
                 : isEmailVerifier
-                ? <span>Directly from <code class="text-cyan-300 font-mono">verifier.py</code> showing raw Port 25 SMTP socket connection, IPv4 resolution, and randomized UUID catch-all probing.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">verifier.py</code> showing raw Port 25 SMTP socket connection, IPv4 resolution, and randomized UUID catch-all probing.</span>
                 : isCameraman
-                ? <span>Directly from <code class="text-cyan-300 font-mono">cameraman/src/validation.rs</code> showing 64-district Levenshtein fuzzy matching and Western-to-Bengali numeral normalization.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">cameraman/src/validation.rs</code> showing 64-district Levenshtein fuzzy matching and Western-to-Bengali numeral normalization.</span>
                 : isClassroom
-                ? <span>Directly from <code class="text-cyan-300 font-mono">src/main/java/com/classroom/app/service/LiveKitService.java</code> showing scoped HMAC-SHA256 token minting and RoomServiceClient bulk participant muting.</span>
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">src/main/java/com/classroom/app/service/LiveKitService.java</code> showing scoped HMAC-SHA256 token minting and RoomServiceClient bulk participant muting.</span>
                 : isSelfMt
-                ? <span>Directly from <code class="text-cyan-300 font-mono">lib/features/finance/domain/services/finance_service.dart</code> showing atomic rollback/reapplication and principal clamping.</span>
-                : <span>Directly from <code class="text-cyan-300 font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
+                ? <span>Directly from <code class="text-theme-accent font-semibold font-mono">lib/features/finance/domain/services/finance_service.dart</code> showing atomic rollback/reapplication and principal clamping.</span>
+                : <span>Directly from <code class="text-theme-accent font-semibold font-mono">src/engine/enhancer.rs</code> showing parallel row chunking and dynamic contrast clamping.</span>}
             </p>
           </div>
           <button
             type="button"
             id="copy-code-btn"
-            class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 hover:border-cyan-400 text-xs font-mono text-slate-100 transition-colors font-medium"
+            class="px-3 py-1.5 rounded-lg bg-theme-surface border border-theme-border hover:border-theme-accent text-xs font-mono text-theme-primary transition-colors font-medium"
           >
             Copy Snippet
           </button>
@@ -7536,8 +7536,8 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
       <div class="rounded-2xl bg-slate-950 border border-slate-800 p-6 sm:p-8 space-y-4">
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
           <div>
-            <h3 class="font-mono font-bold text-white text-lg flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+            <h3 class="font-sans font-bold text-white text-lg flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-theme-accent"></span>
               Local Verification &amp; Benchmark Reproduction
             </h3>
             <p class="text-xs text-slate-300 font-sans mt-0.5">

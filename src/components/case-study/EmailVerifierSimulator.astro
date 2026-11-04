@@ -72,7 +72,7 @@
                 class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white font-mono text-xs focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
                 placeholder="name@company.com"
               />
-              <span class="absolute right-3 top-2.5 text-slate-500 text-[10px]">Port 25</span>
+              <span class="absolute right-3 top-2.5 text-slate-400 text-[10px]">Port 25</span>
             </div>
           </div>
 
@@ -254,12 +254,12 @@
             id="ev-terminal-stream"
             class="h-56 overflow-y-auto p-3 rounded-xl bg-slate-900 border border-slate-800/80 font-mono text-[11px] leading-relaxed space-y-1 text-slate-300 selection:bg-cyan-500/30"
           >
-            <div class="text-slate-500">[00.000s] Initiating RFC 5322 normalization for: alex.smith@enterprise-corp.com</div>
+            <div class="text-slate-400">[00.000s] Initiating RFC 5322 normalization for: alex.smith@enterprise-corp.com</div>
             <div class="text-emerald-400">[00.002s] Syntax valid. Extracted User: alex.smith | Domain: enterprise-corp.com</div>
             <div class="text-slate-400">[00.003s] Checking disposable domain hash set (3,400+ entries)... PASS</div>
             <div class="text-cyan-300">[00.045s] DNS Query: enterprise-corp.com IN MX =&gt; mx1.enterprise-corp.com (pref: 10)</div>
             <div class="text-slate-400">[00.052s] Enforcing IPv4 resolution on mx1.enterprise-corp.com =&gt; 198.51.100.42:25</div>
-            <div class="text-slate-500">[00.120s] Socket connecting to 198.51.100.42:25 (timeout: 5.0s)... CONNECTED</div>
+            <div class="text-slate-400">[00.120s] Socket connecting to 198.51.100.42:25 (timeout: 5.0s)... CONNECTED</div>
             <div class="text-purple-300">&lt;&lt;&lt; 220 mx1.enterprise-corp.com ESMTP Postfix Service Ready</div>
             <div class="text-amber-300">&gt;&gt;&gt; EHLO mail.verifier.io</div>
             <div class="text-purple-300">&lt;&lt;&lt; 250-mx1.enterprise-corp.com Hello mail.verifier.io</div>
@@ -377,7 +377,7 @@
               <div class="bg-rose-500 h-full" style="width: 10.4%"></div>
               <div class="bg-amber-500 h-full" style="width: 4.0%"></div>
             </div>
-            <div class="flex justify-between text-[10px] text-slate-500 font-mono">
+            <div class="flex justify-between text-[10px] text-slate-400 font-mono">
               <span>🟩 Valid Deliverable (214)</span>
               <span>🟥 Hard Bounces (26)</span>
               <span>🟨 Catch-All &amp; Disposable (10)</span>
@@ -556,7 +556,7 @@
       } else if (state === 'fail') {
         node.className += 'bg-rose-950/40 border border-rose-500/50 text-rose-300';
       } else {
-        node.className += 'bg-slate-900 border border-slate-800 text-slate-500';
+        node.className += 'bg-slate-900 border border-slate-800 text-slate-400';
       }
     }
 
@@ -589,12 +589,12 @@
       if (currentType === 'valid') {
         if (latencyBadge) latencyBadge.textContent = '⏱️ Latency: 1,180ms';
         terminalStream.innerHTML = `
-          <div class="text-slate-500">[00.000s] Normalizing RFC 5322 syntax for: ${email}</div>
+          <div class="text-slate-400">[00.000s] Normalizing RFC 5322 syntax for: ${email}</div>
           <div class="text-emerald-400">[00.002s] Syntax valid. User: alex.smith | Domain: enterprise-corp.com</div>
           <div class="text-slate-400">[00.003s] Disposable domain hash verification... PASS (Clean)</div>
           <div class="text-cyan-300">[00.045s] DNS Query: enterprise-corp.com IN MX =&gt; mx1.enterprise-corp.com (Priority: 10)</div>
           <div class="text-slate-400">[00.052s] Enforcing strict IPv4 A-record: mx1.enterprise-corp.com =&gt; 198.51.100.42:25</div>
-          <div class="text-slate-500">[00.120s] Socket connecting to 198.51.100.42:25 (timeout: 5.0s)... CONNECTED</div>
+          <div class="text-slate-400">[00.120s] Socket connecting to 198.51.100.42:25 (timeout: 5.0s)... CONNECTED</div>
           <div class="text-purple-300">&lt;&lt;&lt; 220 mx1.enterprise-corp.com ESMTP Postfix Service Ready</div>
           <div class="text-amber-300">&gt;&gt;&gt; EHLO mail.verifier.io</div>
           <div class="text-purple-300">&lt;&lt;&lt; 250-mx1.enterprise-corp.com Hello mail.verifier.io</div>
@@ -621,12 +621,12 @@
       } else if (currentType === 'nonexistent') {
         if (latencyBadge) latencyBadge.textContent = '⏱️ Latency: 740ms';
         terminalStream.innerHTML = `
-          <div class="text-slate-500">[00.000s] Normalizing RFC 5322 syntax for: ${email}</div>
+          <div class="text-slate-400">[00.000s] Normalizing RFC 5322 syntax for: ${email}</div>
           <div class="text-emerald-400">[00.002s] Syntax valid. Extracted domain: gmail.com</div>
           <div class="text-slate-400">[00.003s] Disposable domain check... PASS</div>
           <div class="text-cyan-300">[00.035s] DNS Query: gmail.com IN MX =&gt; gmail-smtp-in.l.google.com (Priority: 5)</div>
           <div class="text-slate-400">[00.040s] Enforcing IPv4 socket target: 142.251.163.26:25</div>
-          <div class="text-slate-500">[00.110s] Socket connecting to 142.251.163.26:25... CONNECTED</div>
+          <div class="text-slate-400">[00.110s] Socket connecting to 142.251.163.26:25... CONNECTED</div>
           <div class="text-purple-300">&lt;&lt;&lt; 220 mx.google.com ESMTP o15si2843914wms.42 - gsmtp</div>
           <div class="text-amber-300">&gt;&gt;&gt; EHLO mail.verifier.io</div>
           <div class="text-purple-300">&lt;&lt;&lt; 250-mx.google.com at your service</div>
@@ -655,11 +655,11 @@
       } else if (currentType === 'disposable') {
         if (latencyBadge) latencyBadge.textContent = '⏱️ Latency: 2.1ms';
         terminalStream.innerHTML = `
-          <div class="text-slate-500">[00.000s] Normalizing RFC 5322 syntax for: ${email}</div>
+          <div class="text-slate-400">[00.000s] Normalizing RFC 5322 syntax for: ${email}</div>
           <div class="text-emerald-400">[00.001s] Syntax valid. Extracted domain: 10minutemail.com</div>
           <div class="text-amber-400 font-bold">[00.002s] STAGE 2 MATCH: 10minutemail.com found in in-memory disposable hash set!</div>
           <div class="text-rose-400 font-bold">[00.002s] PIPELINE ABORT: Burner/disposable email address rejected immediately.</div>
-          <div class="text-slate-500">[00.002s] Zero network queries dispatched. Port 25 connection skipped.</div>
+          <div class="text-slate-400">[00.002s] Zero network queries dispatched. Port 25 connection skipped.</div>
         `;
         if (verdictTitle) {
           verdictTitle.textContent = 'DISPOSABLE (BLOCKED)';
@@ -678,12 +678,12 @@
       } else if (currentType === 'catchall') {
         if (latencyBadge) latencyBadge.textContent = '⏱️ Latency: 1,320ms';
         terminalStream.innerHTML = `
-          <div class="text-slate-500">[00.000s] Normalizing RFC 5322 syntax for: ${email}</div>
+          <div class="text-slate-400">[00.000s] Normalizing RFC 5322 syntax for: ${email}</div>
           <div class="text-emerald-400">[00.002s] Syntax valid. Domain: catchall-cloud.io</div>
           <div class="text-slate-400">[00.003s] Disposable check... PASS</div>
           <div class="text-cyan-300">[00.038s] DNS Query: catchall-cloud.io IN MX =&gt; mail.catchall-cloud.io (pref: 10)</div>
           <div class="text-slate-400">[00.045s] IPv4 target resolved: 198.51.100.99:25</div>
-          <div class="text-slate-500">[00.115s] Socket connect =&gt; CONNECTED</div>
+          <div class="text-slate-400">[00.115s] Socket connect =&gt; CONNECTED</div>
           <div class="text-purple-300">&lt;&lt;&lt; 220 mail.catchall-cloud.io ESMTP Ready</div>
           <div class="text-amber-300">&gt;&gt;&gt; EHLO mail.verifier.io</div>
           <div class="text-purple-300">&lt;&lt;&lt; 250 OK</div>
@@ -710,10 +710,10 @@
       } else if (currentType === 'greylist') {
         if (latencyBadge) latencyBadge.textContent = '⏱️ Latency: 890ms';
         terminalStream.innerHTML = `
-          <div class="text-slate-500">[00.000s] Normalizing RFC 5322 syntax for: ${email}</div>
+          <div class="text-slate-400">[00.000s] Normalizing RFC 5322 syntax for: ${email}</div>
           <div class="text-emerald-400">[00.002s] Syntax valid. Domain: greylist-exchange.net</div>
           <div class="text-cyan-300">[00.040s] DNS Query: greylist-exchange.net IN MX =&gt; mx.greylist-exchange.net</div>
-          <div class="text-slate-500">[00.120s] Socket connect to 203.0.113.88:25... CONNECTED</div>
+          <div class="text-slate-400">[00.120s] Socket connect to 203.0.113.88:25... CONNECTED</div>
           <div class="text-purple-300">&lt;&lt;&lt; 220 mx.greylist-exchange.net ESMTP Service</div>
           <div class="text-amber-300">&gt;&gt;&gt; EHLO mail.verifier.io</div>
           <div class="text-purple-300">&lt;&lt;&lt; 250 OK</div>

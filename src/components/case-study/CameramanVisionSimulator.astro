@@ -235,7 +235,7 @@ CONTEXT: Blue commuter motorcycle"
             id="cm-terminal-log"
             class="h-44 overflow-y-auto p-3 rounded-xl bg-slate-900 border border-slate-800/80 font-mono text-[11px] leading-relaxed space-y-1 text-slate-300"
           >
-            <div class="text-slate-500">[00.000s] Ingesting POST /api/webhook from Dahua NVR (192.168.1.120)</div>
+            <div class="text-slate-400">[00.000s] Ingesting POST /api/webhook from Dahua NVR (192.168.1.120)</div>
             <div class="text-emerald-400 font-bold">[00.021s] Axum returned HTTP 202 ACCEPTED in 21ms. Background task spawned.</div>
             <div class="text-cyan-300">[00.035s] AI Module [anpr] parsed raw OCR output stream:</div>
             <div class="text-slate-400">&gt;&gt;&gt; Top: "ঢাকা মেট্রো ঘ" | Bottom: "১২-৩৪৫৬"</div>
@@ -345,7 +345,7 @@ CONTEXT: Blue commuter motorcycle"
           </div>
 
           <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-300 space-y-1">
-            <div class="text-slate-500">// Industrial Safety Telemetry Event:</div>
+            <div class="text-slate-400">// Industrial Safety Telemetry Event:</div>
             <div id="cm-ppe-json">
               &#123; "event": "ppe_audit", "violations_found": false, "turnstile_action": "PERMIT_INGRESS" &#125;
             </div>
@@ -468,7 +468,7 @@ CONTEXT: Blue commuter motorcycle"
         if (tokenNumber) tokenNumber.textContent = '১২-৩৪৫৬';
 
         terminalLog.innerHTML = `
-          <div class="text-slate-500">[00.000s] Ingesting POST /api/webhook from Dahua NVR (192.168.1.120)</div>
+          <div class="text-slate-400">[00.000s] Ingesting POST /api/webhook from Dahua NVR (192.168.1.120)</div>
           <div class="text-emerald-400 font-bold">[00.021s] Axum returned HTTP 202 ACCEPTED in 21ms. Background task spawned.</div>
           <div class="text-cyan-300">[00.035s] AI Module [anpr] parsed raw OCR output stream:</div>
           <div class="text-slate-400">&gt;&gt;&gt; Top: "ঢাকা মেট্রো ঘ" | Bottom: "১২-৩৪৫৬"</div>
@@ -485,7 +485,7 @@ CONTEXT: Blue commuter motorcycle"
         if (tokenNumber) tokenNumber.textContent = '১১-৯৮৭২';
 
         terminalLog.innerHTML = `
-          <div class="text-slate-500">[00.000s] Ingesting POST /api/webhook (JSON Base64) from Hikvision IP Cam</div>
+          <div class="text-slate-400">[00.000s] Ingesting POST /api/webhook (JSON Base64) from Hikvision IP Cam</div>
           <div class="text-emerald-400 font-bold">[00.019s] HTTP 202 ACCEPTED in 19ms. Decoded 3.4MB image in memory.</div>
           <div class="text-amber-400 font-bold">[00.036s] OCR Typo Detected: "ডাকা মেট্রো গ"</div>
           <div class="text-cyan-300">[00.037s] Levenshtein match: "ডাকা" =&gt; "ঢাকা" (Edit distance: 1 &lt;= tolerance 1). Autocorrected!</div>
@@ -501,7 +501,7 @@ CONTEXT: Blue commuter motorcycle"
         if (tokenNumber) tokenNumber.textContent = '৫৪-৩২১০';
 
         terminalLog.innerHTML = `
-          <div class="text-slate-500">[00.000s] Ingesting multipart/form-data from Uniview Toll Camera</div>
+          <div class="text-slate-400">[00.000s] Ingesting multipart/form-data from Uniview Toll Camera</div>
           <div class="text-emerald-400 font-bold">[00.024s] HTTP 202 ACCEPTED in 24ms. Snapshot saved to /uploads.</div>
           <div class="text-cyan-300">[00.038s] Detected full string: "চট্টগ্রাম মেট্রো চ"</div>
           <div class="text-emerald-300">[00.039s] Applied abbreviation rule: "চট্টগ্রাম" normalized to official BRTA prefix "চট্ট".</div>
@@ -516,7 +516,7 @@ CONTEXT: Blue commuter motorcycle"
         if (tokenNumber) tokenNumber.textContent = '৩৩-৪৪৫৫';
 
         terminalLog.innerHTML = `
-          <div class="text-slate-500">[00.000s] Ingesting rural highway checkpoint webhook from camera #04</div>
+          <div class="text-slate-400">[00.000s] Ingesting rural highway checkpoint webhook from camera #04</div>
           <div class="text-emerald-400 font-bold">[00.022s] HTTP 202 ACCEPTED in 22ms.</div>
           <div class="text-cyan-300">[00.036s] Non-Metro Plate detected. District: "সিলেট", Class: 'হ' (Two-Wheeler).</div>
           <div class="text-emerald-400 font-bold">[00.040s] Validated successfully without metropolitan token. Stored in DB.</div>

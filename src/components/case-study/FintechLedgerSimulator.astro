@@ -166,21 +166,21 @@
             <div id="fintech-pnl-realized" class="text-lg font-mono font-bold text-emerald-400">
               +$1,450.00
             </div>
-            <div class="text-[10px] font-mono text-slate-500">Spread: +0.42% net</div>
+            <div class="text-[10px] font-mono text-slate-400">Spread: +0.42% net</div>
           </div>
           <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
             <div class="text-[10px] font-mono text-slate-400 uppercase">ACTIVE EXPOSURE</div>
             <div id="fintech-exposure-active" class="text-lg font-mono font-bold text-cyan-300">
               $45,000.00
             </div>
-            <div class="text-[10px] font-mono text-slate-500">Unhedged: 8.4% cap</div>
+            <div class="text-[10px] font-mono text-slate-400">Unhedged: 8.4% cap</div>
           </div>
           <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
             <div class="text-[10px] font-mono text-slate-400 uppercase">OUTSTANDING DUES</div>
             <div id="fintech-dues-active" class="text-lg font-mono font-bold text-amber-300">
               BDT 4,820,000
             </div>
-            <div class="text-[10px] font-mono text-slate-500">Aging: 0–30 Days</div>
+            <div class="text-[10px] font-mono text-slate-400">Aging: 0–30 Days</div>
           </div>
         </div>
 
@@ -212,7 +212,7 @@
               </div>
               <div class="text-right">
                 <div class="text-emerald-400 font-bold">BDT 3,035,000</div>
-                <div class="text-[10px] text-slate-500">14ms Commit</div>
+                <div class="text-[10px] text-slate-400">14ms Commit</div>
               </div>
             </div>
 
@@ -228,7 +228,7 @@
               </div>
               <div class="text-right">
                 <div class="text-rose-400 font-bold">BDT 1,328,500</div>
-                <div class="text-[10px] text-slate-500">11ms Commit</div>
+                <div class="text-[10px] text-slate-400">11ms Commit</div>
               </div>
             </div>
           </div>
@@ -354,7 +354,7 @@
               type="button"
               id="fintech-btn-reopen-day"
               disabled
-              class="flex-1 py-2.5 rounded-xl bg-slate-800 text-slate-500 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-700 hover:text-white transition-all text-xs font-bold"
+              class="flex-1 py-2.5 rounded-xl bg-slate-800 text-slate-400 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-700 hover:text-white transition-all text-xs font-bold"
             >
               ⚠️ Audited reopenDay()
             </button>
@@ -513,7 +513,7 @@
           </div>
           <div class="text-right">
             <div class="${isBuy ? 'text-emerald-400' : 'text-rose-400'} font-bold">${quote} ${total.toLocaleString('en-US', { minimumFractionDigits: 2 })}</div>
-            <div class="text-[10px] text-slate-500">12ms Commit</div>
+            <div class="text-[10px] text-slate-400">12ms Commit</div>
           </div>
         `;
         dealTape.insertBefore(item, dealTape.firstChild);
@@ -565,7 +565,7 @@
       if (checksumVal) checksumVal.textContent = 'SHA-256 e48f9a2c...b184';
       if (btnReopenDay) {
         btnReopenDay.disabled = false;
-        btnReopenDay.classList.remove('text-slate-500', 'disabled:opacity-40');
+        btnReopenDay.classList.remove('text-slate-400', 'disabled:opacity-40');
         btnReopenDay.classList.add('text-amber-300', 'hover:bg-amber-950/40', 'border', 'border-amber-500/40');
       }
       if (archivedDeals) archivedDeals.textContent = `${dealCounter - 9820} Deals Frozen`;
@@ -581,7 +581,7 @@
         }
         if (btnReopenDay) {
           btnReopenDay.disabled = true;
-          btnReopenDay.classList.add('text-slate-500', 'disabled:opacity-40');
+          btnReopenDay.classList.add('text-slate-400', 'disabled:opacity-40');
           btnReopenDay.classList.remove('text-amber-300', 'hover:bg-amber-950/40', 'border', 'border-amber-500/40');
         }
         alert(`Audit log recorded! Day reopened for administrative correction. Reason logged: "${reason}"`);

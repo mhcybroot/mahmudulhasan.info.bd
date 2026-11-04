@@ -171,22 +171,22 @@ Body: &#123; "email": "admin@edugo.local", "password": "••••••••
 
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
             <div class="p-2 rounded-xl bg-slate-900 border border-slate-800">
-              <div class="text-[9px] text-slate-500 uppercase">Matcher Rule</div>
+              <div class="text-[9px] text-slate-400 uppercase">Matcher Rule</div>
               <div class="font-bold text-sky-300 font-mono text-xs" id="edugo-step-match">/api/**</div>
               <div class="text-[9px] text-slate-400">Order: 0</div>
             </div>
             <div class="p-2 rounded-xl bg-slate-900 border border-slate-800">
-              <div class="text-[9px] text-slate-500 uppercase">CSRF Guard</div>
+              <div class="text-[9px] text-slate-400 uppercase">CSRF Guard</div>
               <div class="font-bold text-amber-300 font-mono text-xs" id="edugo-step-csrf">DISABLED</div>
               <div class="text-[9px] text-slate-400">Mobile REST Safe</div>
             </div>
             <div class="p-2 rounded-xl bg-slate-900 border border-slate-800">
-              <div class="text-[9px] text-slate-500 uppercase">Session Policy</div>
+              <div class="text-[9px] text-slate-400 uppercase">Session Policy</div>
               <div class="font-bold text-purple-300 font-mono text-xs" id="edugo-step-session">STATELESS</div>
               <div class="text-[9px] text-slate-400">Zero Memory Bloat</div>
             </div>
             <div class="p-2 rounded-xl bg-slate-900 border border-slate-800">
-              <div class="text-[9px] text-slate-500 uppercase">Auth Provider</div>
+              <div class="text-[9px] text-slate-400 uppercase">Auth Provider</div>
               <div class="font-bold text-emerald-300 font-mono text-xs" id="edugo-step-provider">JWT Filter</div>
               <div class="text-[9px] text-slate-400">HMAC-SHA256</div>
             </div>
@@ -306,7 +306,7 @@ Body: &#123; "email": "admin@edugo.local", "password": "••••••••
 
           <!-- Parameterized SQL Query View -->
           <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1">
-            <div class="text-[9px] text-slate-500 uppercase">Parameterized SQL Query with Automated Tenant Barrier:</div>
+            <div class="text-[9px] text-slate-400 uppercase">Parameterized SQL Query with Automated Tenant Barrier:</div>
             <pre id="edugo-sql-query" class="text-[11px] text-sky-300 font-mono whitespace-pre overflow-x-auto leading-relaxed">SELECT s.id, s.roll_no, s.full_name, d.name AS division
 FROM students s
 INNER JOIN divisions d ON s.division_id = d.id

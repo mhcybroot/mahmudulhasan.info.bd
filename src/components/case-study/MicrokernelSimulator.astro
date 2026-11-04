@@ -81,7 +81,7 @@
                 class="p-2.5 rounded-xl border border-slate-800 bg-slate-900 text-slate-400 font-bold text-left transition-all hover:border-slate-700 hover:text-slate-200"
               >
                 <div class="text-xs">🐧 Monolithic</div>
-                <div class="text-[10px] text-slate-500 font-normal">Legacy Linux / BSD</div>
+                <div class="text-[10px] text-slate-400 font-normal">Legacy Linux / BSD</div>
               </button>
             </div>
           </div>
@@ -143,7 +143,7 @@
               <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
               Hardware Ring Privilege Hierarchy
             </span>
-            <span class="text-slate-500 text-[10px]">x86_64 / AArch64 Priv Levels</span>
+            <span class="text-slate-400 text-[10px]">x86_64 / AArch64 Priv Levels</span>
           </div>
 
           <!-- Dynamic CPU Ring Representation -->
@@ -221,7 +221,7 @@
 
           <!-- Live Diagnostic UART Terminal -->
           <div class="p-3 rounded-xl bg-black border border-slate-800 font-mono text-[11px] space-y-1">
-            <div class="text-slate-500 text-[9px] flex items-center justify-between border-b border-slate-900 pb-1">
+            <div class="text-slate-400 text-[9px] flex items-center justify-between border-b border-slate-900 pb-1">
               <span>SERIAL UART 16550 DIAGNOSTIC CONSOLE</span>
               <span class="text-amber-400">115200 8N1</span>
             </div>
@@ -260,7 +260,7 @@
             <div class="text-[11px] text-slate-400">
               Assigned Rights Bitmask:
               <span class="text-amber-400 font-bold">READ | WRITE | DELEGATE</span>
-              <span class="text-slate-500">(Bit 0, 1, 3 - No EXECUTE)</span>
+              <span class="text-slate-400">(Bit 0, 1, 3 - No EXECUTE)</span>
             </div>
           </div>
 
@@ -328,7 +328,7 @@
               <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
               Capability Delegation DAG &amp; Rights Attenuation
             </span>
-            <span class="text-slate-500 text-[10px]">Zero Ambient Authority Proof</span>
+            <span class="text-slate-400 text-[10px]">Zero Ambient Authority Proof</span>
           </div>
 
           <!-- Visual Tree Hierarchy -->
@@ -352,7 +352,7 @@
 
             <!-- Downward Connector Arrow -->
             <div class="flex justify-center text-slate-600 font-bold">
-              <svg class="w-5 h-5 text-slate-500 animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg class="w-5 h-5 text-slate-400 animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="12" y1="5" x2="12" y2="19"/>
                 <polyline points="19 12 12 19 5 12"/>
               </svg>
@@ -369,7 +369,7 @@
               </div>
               <div id="child-token-rights" class="text-[11px] text-slate-300 flex items-center gap-2 flex-wrap">
                 <span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">READ (0x01)</span>
-                <span class="text-slate-500 text-[10px] italic">Strict subset attenuation preserved.</span>
+                <span class="text-slate-400 text-[10px] italic">Strict subset attenuation preserved.</span>
               </div>
             </div>
           </div>
@@ -456,7 +456,7 @@
 
           <!-- Microkernel Benchmark Results -->
           <div class="p-3 rounded-xl bg-black border border-slate-800 font-mono text-[11px] space-y-1">
-            <div class="text-slate-500 text-[9px] uppercase border-b border-slate-900 pb-1 flex justify-between">
+            <div class="text-slate-400 text-[9px] uppercase border-b border-slate-900 pb-1 flex justify-between">
               <span>benches/mod.rs Benchmark Telemetry</span>
               <span class="text-emerald-400">OPTIMAL</span>
             </div>
@@ -484,7 +484,7 @@
               <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
               64-Byte Cache-Line Aligned Circular Ring
             </span>
-            <span class="text-slate-500 text-[10px]">8-Slot SpscRingBuffer</span>
+            <span class="text-slate-400 text-[10px]">8-Slot SpscRingBuffer</span>
           </div>
 
           <!-- 8 Visual Queue Slots -->
@@ -824,10 +824,10 @@
       let badgesHtml = '';
       if (wantsRead) badgesHtml += '<span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">READ (0x01)</span> ';
       if (wantsWrite) badgesHtml += '<span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px]">WRITE (0x02)</span> ';
-      if (!wantsRead && !wantsWrite) badgesHtml += '<span class="text-slate-500 text-[10px]">NONE (0x00)</span>';
+      if (!wantsRead && !wantsWrite) badgesHtml += '<span class="text-slate-400 text-[10px]">NONE (0x00)</span>';
 
       if (childTokenRights) {
-        childTokenRights.innerHTML = badgesHtml + '<span class="text-slate-500 text-[10px] italic">Strict subset attenuation preserved.</span>';
+        childTokenRights.innerHTML = badgesHtml + '<span class="text-slate-400 text-[10px] italic">Strict subset attenuation preserved.</span>';
       }
     }
   });
