@@ -19,13 +19,25 @@ metrics:
   binarySize: "18.2 MB Static"
   uptime: "99.99% Offline-Ready"
 seo:
-  focusKeyword: "Autonomous smart parking barrier gate automation rust flutter"
+  focusKeyword: "pms v2 autonomous smart parking barrier gate automation rust flutter"
   secondaryKeywords:
+    - "pms v2"
     - "smart parking management system bangladesh"
     - "high-concurrency rust axum parking system"
     - "zkteco adms barrier gate controller"
     - "flutter bloc parking cashier pos"
   schemaType: "SoftwareSourceCode"
+  metaTitle: "PMS V2: Smart Parking & Barrier Gate Automation [Live Demo] | Mahmudul Hasan"
+  metaDescription: "PMS V2 is an autonomous smart parking management system with <0.84s barrier gate opening, Rust Axum backend, Flutter POS, and zero revenue leakage. Explore live demo."
+faq:
+  - question: "What is PMS V2 and how does it automate parking barrier gates?"
+    answer: "PMS V2 is an autonomous smart parking management platform built with Rust Axum and Flutter. It identifies vehicle license plates and triggers physical barrier gates in under 0.84 seconds, preventing revenue loss and traffic queues."
+  - question: "Can PMS V2 operate offline during internet outages?"
+    answer: "Yes. PMS V2 features local edge autonomy with SQLite and SeaORM/PostgreSQL replication. Lanes process vehicles and open barrier gates locally without cloud dependency, syncing all logs once connectivity is restored."
+  - question: "What hardware barrier gates and protocols does PMS V2 support?"
+    answer: "PMS V2 integrates directly with ZKTeco ADMS push protocol, Weigand controllers, relay GPIO barrier gates, and Frigate AI RTSP CCTV video streams."
+  - question: "How does PMS V2 prevent parking fee cash theft?"
+    answer: "It uses anti-passback verification, automated optical character recognition (OCR) snapshots on entry and exit, and ACID-compliant digital ledger accounting to ensure operators cannot pocket parking fees."
 ---
 
 # PMS-V2: Autonomous Smart Parking & Barrier Gate Automation Engine

@@ -20,13 +20,25 @@ metrics:
   memoryUsage: "< 38 MB Daemon RAM Footprint"
   binarySize: "100% Sponsor-Free Clean Media"
 seo:
-  focusKeyword: "python yt-dlp aria2c media stream caching pipeline sponsorblock jellyfin"
+  focusKeyword: "aria2c yt-dlp media stream caching pipeline sponsorblock jellyfin"
   secondaryKeywords:
+    - "aria2c"
     - "aria2c 16 connection segmented download accelerator"
     - "sponsorblock api automated video sponsor removal python"
     - "h265 hevc hardware transcoding pipeline ffmpeg"
     - "multi isp network routing bdix starlink python daemon"
   schemaType: "SoftwareSourceCode"
+  metaTitle: "YT-Stream: 16-Socket aria2c Video Ingestion Engine [Live Demo] | Mahmudul Hasan"
+  metaDescription: "High-concurrency video downloader using 16-socket segmented TCP acceleration via aria2c, SponsorBlock ad stripping, and multi-ISP routing. Live simulator."
+faq:
+  - question: "How does YT-Stream use aria2c to accelerate video downloads?"
+    answer: "YT-Stream splits media streams across 16 concurrent TCP sockets via aria2c, bypassing single-stream ISP bandwidth throttling and accelerating downloads by up to 400%."
+  - question: "Does YT-Stream automatically remove YouTube ads and sponsor segments?"
+    answer: "Yes. It queries the SponsorBlock API to retrieve community-verified timestamps and uses ffmpeg lossless stream cutting to remove non-music and sponsor segments before saving to disk."
+  - question: "How does the multi-ISP traffic routing work?"
+    answer: "The daemon checks route latencies and redirects bandwidth requests through local domestic peering (BDIX) or high-speed uplinks to reduce satellite/metered international bandwidth costs."
+  - question: "How does downloaded content appear on Jellyfin or Plex?"
+    answer: "Once a video is processed and transcoded to H.265, YT-Stream triggers automated library webhooks that immediately update private media libraries with clean metadata, subtitles, and cover artwork."
 ---
 
 # YT-Stream: High-Concurrency Media Ingestion & Multi-ISP Caching Engine

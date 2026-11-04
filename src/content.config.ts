@@ -23,7 +23,17 @@ const projects = defineCollection({
       focusKeyword: z.string(),
       secondaryKeywords: z.array(z.string()),
       schemaType: z.string(),
+      metaTitle: z.string().optional(),
+      metaDescription: z.string().optional(),
     }),
+    faq: z
+      .array(
+        z.object({
+          question: z.string(),
+          answer: z.string(),
+        })
+      )
+      .optional(),
   }),
 });
 

@@ -23,13 +23,26 @@ metrics:
   binarySize: "44MB Spring Boot Executable JAR"
   uptime: "99.98% tenant isolation availability"
 seo:
-  focusKeyword: "Multi-Tenant CRM Pipeline Architecture Spring Boot"
+  focusKeyword: "bdcrm multi tenant sales pipeline architecture spring boot react"
   secondaryKeywords:
+    - "bdcrm"
+    - "bd crm"
     - "Fuzzy Duplicate Rescan Levenshtein Java"
     - "React TypeScript CRM Kanban Board"
     - "Flyway Multi-Company Schema Isolation"
     - "SLA Followup Escalation Daemon"
   schemaType: "SoftwareApplication"
+  metaTitle: "BDCRM: Multi-Tenant Sales Pipeline & Fuzzy Lead Rescan [Live Demo] | Mahmudul Hasan"
+  metaDescription: "BDCRM is an enterprise multi-tenant B2B sales pipeline engineered in Java 21, Spring Boot 3.3, and React 18 with 1.8ms Levenshtein fuzzy duplicate rescan and automated SLA escalation."
+faq:
+  - question: "What is BDCRM and what business problems does it solve?"
+    answer: "BDCRM is an enterprise multi-tenant B2B sales pipeline engineered in Java 21, Spring Boot 3.3, and React 18. It centralizes fragmented lead ingestion from WhatsApp and web forms, resolves duplicate contacts with fuzzy matching, and enforces manager SLA follow-up alerts."
+  - question: "How does the Levenshtein Fuzzy Duplicate Rescan work in BDCRM?"
+    answer: "The engine scans phone numbers, email domains, and company names using Levenshtein distance algorithms within 1.8ms to instantly identify typos and duplicate leads before sales reps contact the same client twice."
+  - question: "How does BDCRM enforce multi-company data isolation?"
+    answer: "Using Flyway migrations and company_id tenant filters at the database and repository layers, each client entity has complete relational and cryptographic isolation, preventing sales reps or agencies from viewing each other's deals."
+  - question: "How does the automated SLA Follow-up Escalation Daemon operate?"
+    answer: "A background scheduler checks lead timestamps against defined service-level agreements. If a lead remains untouched past the grace period, it automatically alerts sales managers via real-time notifications."
 ---
 
 # Executive Summary

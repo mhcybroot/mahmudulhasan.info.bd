@@ -7,6 +7,7 @@ interface Props {
   date: string;
   primaryLanguage: string;
   keywords: string[];
+  faq?: Array<{ question: string; answer: string }>;
 }
 
 const {
@@ -17,79 +18,97 @@ const {
   date,
   primaryLanguage,
   keywords,
+  faq,
 } = Astro.props;
 
 const url = `https://mahmudulhasan.info.bd/systems/${slug}`;
 
+const graphElements: any[] = [
+  {
+    "@type": "SoftwareSourceCode",
+    "@id": `${url}#software`,
+    "name": title,
+    "programmingLanguage": primaryLanguage,
+    "runtimePlatform": "Linux x86_64, Windows x86_64",
+    "codeRepository": githubUrl,
+    "author": {
+      "@type": "Person",
+      "@id": "https://mahmudulhasan.info.bd/#person",
+      "name": "Mahmudul Hasan",
+      "alternateName": "mhcybroot",
+      "url": "https://mahmudulhasan.info.bd"
+    },
+    "description": description,
+    "url": url,
+    "datePublished": date
+  },
+  {
+    "@type": "TechArticle",
+    "@id": `${url}#article`,
+    "headline": `${title} — Systems Architecture & Telemetry Deep-Dive`,
+    "description": description,
+    "image": "https://mahmudulhasan.info.bd/og-image.png",
+    "author": {
+      "@type": "Person",
+      "@id": "https://mahmudulhasan.info.bd/#person",
+      "name": "Mahmudul Hasan",
+      "url": "https://mahmudulhasan.info.bd"
+    },
+    "publisher": {
+      "@type": "Person",
+      "@id": "https://mahmudulhasan.info.bd/#person",
+      "name": "Mahmudul Hasan",
+      "url": "https://mahmudulhasan.info.bd"
+    },
+    "datePublished": date,
+    "dateModified": date,
+    "mainEntityOfPage": url,
+    "keywords": keywords.join(', ')
+  },
+  {
+    "@type": "BreadcrumbList",
+    "@id": `${url}#breadcrumb`,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://mahmudulhasan.info.bd"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Flagship Systems",
+        "item": "https://mahmudulhasan.info.bd/#systems"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": title,
+        "item": url
+      }
+    ]
+  }
+];
+
+if (faq && faq.length > 0) {
+  graphElements.push({
+    "@type": "FAQPage",
+    "@id": `${url}#faq`,
+    "mainEntity": faq.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer,
+      },
+    })),
+  });
+}
+
 const caseStudySchema = {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "SoftwareSourceCode",
-      "@id": `${url}#software`,
-      "name": title,
-      "programmingLanguage": primaryLanguage,
-      "runtimePlatform": "Linux x86_64, Windows x86_64",
-      "codeRepository": githubUrl,
-      "author": {
-        "@type": "Person",
-        "@id": "https://mahmudulhasan.info.bd/#person",
-        "name": "Mahmudul Hasan",
-        "alternateName": "mhcybroot",
-        "url": "https://mahmudulhasan.info.bd"
-      },
-      "description": description,
-      "url": url,
-      "datePublished": date
-    },
-    {
-      "@type": "TechArticle",
-      "@id": `${url}#article`,
-      "headline": `${title} — Systems Architecture & Telemetry Deep-Dive`,
-      "description": description,
-      "image": "https://mahmudulhasan.info.bd/og-image.png",
-      "author": {
-        "@type": "Person",
-        "@id": "https://mahmudulhasan.info.bd/#person",
-        "name": "Mahmudul Hasan",
-        "url": "https://mahmudulhasan.info.bd"
-      },
-      "publisher": {
-        "@type": "Person",
-        "@id": "https://mahmudulhasan.info.bd/#person",
-        "name": "Mahmudul Hasan",
-        "url": "https://mahmudulhasan.info.bd"
-      },
-      "datePublished": date,
-      "dateModified": date,
-      "mainEntityOfPage": url,
-      "keywords": keywords.join(', ')
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${url}#breadcrumb`,
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://mahmudulhasan.info.bd"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Flagship Systems",
-          "item": "https://mahmudulhasan.info.bd/#systems"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": title,
-          "item": url
-        }
-      ]
-    }
-  ]
+  "@graph": graphElements,
 };
 ---
 

@@ -18,13 +18,26 @@ metrics:
   memoryUsage: "< 1 MiB Kernel Heap Footprint"
   binarySize: "< 2,500 LOC Ring 0 TCB Core"
 seo:
-  focusKeyword: "rust microkernel no_std capability security lock-free spsc mordern os"
+  focusKeyword: "microkernel rust microkernel no_std capability security lock-free spsc mordern os"
   secondaryKeywords:
+    - "microkernel"
+    - "rust microkernel"
     - "rust bare metal operating system ring 0 ring 3"
     - "lock free single producer single consumer ipc queue rust"
     - "capability token access control formal proof rust"
     - "async executor raw waker vtable no_std rust"
   schemaType: "SoftwareSourceCode"
+  metaTitle: "Rust Microkernel OS: Capability Security & Lock-Free IPC [Live Demo] | Mahmudul Hasan"
+  metaDescription: "Crash-proof #![no_std] Rust microkernel with Ring 0 isolation, lock-free SPSC IPC (<38ns), formal capability security, and zero ambient authority. Interactive simulator."
+faq:
+  - question: "What is a Rust microkernel operating system?"
+    answer: "A Rust microkernel is an operating system core written in bare-metal pure #![no_std] Rust that isolates hardware device drivers and user applications into unprivileged Ring 3 memory, keeping only minimal IPC, thread scheduling, and capability management inside Ring 0."
+  - question: "How does the Mordern OS microkernel achieve lock-free IPC?"
+    answer: "It uses a lock-free Single Producer Single Consumer (SPSC) ring buffer with atomic Acquire-Release memory ordering fences, achieving sub-38ns roundtrip latency between user daemons without kernel mutex locks."
+  - question: "How does capability-based security prevent privilege escalation?"
+    answer: "Instead of ambient root or superuser authority, Mordern OS grants unforgeable 128-bit cryptographic capability tokens per resource. Processes cannot access files or hardware unless explicitly holding a validated capability."
+  - question: "What happens when a device driver crashes in Mordern OS?"
+    answer: "Because device drivers execute as unprivileged user-space daemons in Ring 3, a driver crash or panic does not cause a kernel panic or Blue Screen of Death. The microkernel isolates the failed process and restarts it in microseconds."
 ---
 
 # Mordern OS: Capability-Secure #![no_std] Rust Microkernel

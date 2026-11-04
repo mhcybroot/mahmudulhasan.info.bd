@@ -131,11 +131,25 @@ if (isPms) {
 
 const specWords = entry.body ? entry.body.trim().split(/\s+/).length : 850;
 const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
+const pageTitle = data.seo.metaTitle || (
+  isPms
+    ? "PMS V2: Smart Parking & Barrier Gate Automation [Live Demo] | Mahmudul Hasan"
+    : isModernOs
+    ? "Rust Microkernel OS: Capability Security & Lock-Free IPC [Live Demo] | Mahmudul Hasan"
+    : isCrm
+    ? "BDCRM: Multi-Tenant Sales Pipeline & Fuzzy Lead Rescan [Live Demo] | Mahmudul Hasan"
+    : isYtStream
+    ? "YT-Stream: 16-Socket aria2c Video Ingestion Engine [Live Demo] | Mahmudul Hasan"
+    : isNotes
+    ? "SecureNotes: Enterprise Encrypted RBAC Knowledge Base [Live Demo] | Mahmudul Hasan"
+    : `${data.title} | Mahmudul Hasan`
+);
+const finalDescription = data.seo.metaDescription || pageDescription;
 ---
 
 <Layout
-  title={`${data.title} | Mahmudul Hasan`}
-  description={pageDescription}
+  title={pageTitle}
+  description={finalDescription}
   canonicalURL={`https://mahmudulhasan.info.bd/systems/${data.slug}`}
   type="article"
   date={data.date}
@@ -146,13 +160,14 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
     <link rel="next" href={`https://mahmudulhasan.info.bd/systems/${nextProject.slug}`} />
   </Fragment>
   <CaseStudyJsonLd
-    title={data.title}
-    description={pageDescription}
+    title={pageTitle}
+    description={finalDescription}
     slug={data.slug}
     githubUrl={data.githubUrl}
     date={data.date}
     primaryLanguage={data.primaryLanguage}
     keywords={[data.seo.focusKeyword, ...data.seo.secondaryKeywords]}
+    faq={data.faq}
   />
 
   <!-- Sticky Top Navigation Bar -->
@@ -7873,6 +7888,36 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
         </div>
       </div>
     </section>
+
+    {data.faq && data.faq.length > 0 && (
+      <section class="mt-12 sm:mt-16 pt-10 border-t border-theme-border" aria-labelledby="systems-faq-heading">
+        <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <span class="font-mono text-xs uppercase tracking-wider text-theme-accent font-bold">[ENGINEERING KNOWLEDGE BASE]</span>
+            <h2 id="systems-faq-heading" class="text-xl sm:text-2xl font-bold text-theme-primary mt-1">Frequently Asked Technical Questions</h2>
+          </div>
+          <span class="font-mono text-xs text-theme-muted border border-theme-border px-2.5 py-1 bg-theme-surface">
+            {data.faq.length} VERIFIED ANSWERS
+          </span>
+        </div>
+        <div class="space-y-3">
+          {data.faq.map((item) => (
+            <details class="group border border-theme-border bg-theme-surface rounded-sm transition-colors open:bg-theme-lowest">
+              <summary class="font-mono text-xs sm:text-sm font-semibold text-theme-primary cursor-pointer list-none p-4 flex items-center justify-between gap-4 select-none hover:text-theme-accent transition-colors">
+                <span class="flex items-center gap-2">
+                  <span class="text-theme-accent font-bold">Q:</span>
+                  <span>{item.question}</span>
+                </span>
+                <span class="text-theme-muted group-open:rotate-180 transition-transform font-mono text-xs">▼</span>
+              </summary>
+              <div class="px-4 pb-4 pt-1 border-t border-theme-border/40 text-xs sm:text-sm text-theme-secondary leading-relaxed font-sans">
+                {item.answer}
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+    )}
 
     <!-- Sequential System Navigation -->
     <nav aria-label="Sequential System Navigation" class="border-t border-theme-border pt-10">
