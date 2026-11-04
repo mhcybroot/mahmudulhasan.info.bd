@@ -75,6 +75,7 @@
             min="0"
             max="100"
             value="85"
+            aria-label="1. Quran / Bangla Marks"
             class="flex-1 accent-cyan-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer subject-range"
             data-subject="bangla"
           />
@@ -95,6 +96,7 @@
             min="0"
             max="100"
             value="78"
+            aria-label="2. English Marks"
             class="flex-1 accent-cyan-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer subject-range"
             data-subject="english"
           />
@@ -115,6 +117,7 @@
             min="0"
             max="100"
             value="92"
+            aria-label="3. Mathematics Marks"
             class="flex-1 accent-cyan-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer subject-range"
             data-subject="math"
           />
@@ -135,6 +138,7 @@
             min="0"
             max="100"
             value="88"
+            aria-label="4. Arabic / Islam Marks"
             class="flex-1 accent-cyan-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer subject-range"
             data-subject="arabic"
           />
@@ -155,6 +159,7 @@
             min="0"
             max="100"
             value="82"
+            aria-label="5. Science / BGS Marks"
             class="flex-1 accent-cyan-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer subject-range"
             data-subject="science"
           />
@@ -175,6 +180,7 @@
             min="0"
             max="100"
             value="90"
+            aria-label="6. ICT Computer Marks"
             class="flex-1 accent-cyan-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer subject-range"
             data-subject="ict"
           />
@@ -195,6 +201,7 @@
             min="0"
             max="100"
             value="89"
+            aria-label="7. Agriculture (4th Subject) Marks"
             class="flex-1 accent-amber-400 h-1.5 bg-slate-800 rounded-lg cursor-pointer subject-range"
             data-subject="fourth"
           />
@@ -250,9 +257,7 @@
       <!-- Certificate Sheet Mockup -->
       <div class="rounded-2xl bg-white text-slate-900 p-5 shadow-2xl border-4 border-amber-600/30 relative overflow-hidden font-serif">
         <!-- Watermark -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.04]">
-          <span class="text-8xl font-black text-slate-900 tracking-widest font-mono">DAKHIL</span>
-        </div>
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.04] text-8xl font-black text-slate-900 tracking-widest font-mono after:content-['DAKHIL'] select-none" aria-hidden="true"></div>
 
         <!-- Madrasha Header -->
         <div class="text-center border-b-2 border-slate-900 pb-3">

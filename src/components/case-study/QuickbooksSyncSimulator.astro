@@ -121,7 +121,7 @@
               <span class="font-semibold">Raw Unstructured CSV Buffer:</span>
               <span class="text-indigo-400 font-mono text-[10px]" id="qb-csv-lines-count">2 data rows</span>
             </div>
-            <pre id="qb-raw-csv" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[10px] text-slate-300 font-mono overflow-x-auto whitespace-pre leading-relaxed max-h-36">Invoice_No,Client_Name,Date_Issued,Payment_Due,Service_Desc,Qty,Unit_Rate,Taxable,Tax_Rate
+            <pre id="qb-raw-csv" role="region" tabindex="0" aria-label="Raw Unstructured CSV Buffer" class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[10px] text-slate-300 font-mono overflow-x-auto whitespace-pre leading-relaxed max-h-36">Invoice_No,Client_Name,Date_Issued,Payment_Due,Service_Desc,Qty,Unit_Rate,Taxable,Tax_Rate
 INV-2025-001,Acme Corporation,2025-05-18,2025-06-18,Backend Architecture Audit,1,2800.00,N,0.00
 INV-2025-001,Acme Corporation,2025-05-18,2025-06-18,High-Concurrency Tuning,1,1450.00,N,0.00</pre>
           </div>
@@ -130,7 +130,7 @@ INV-2025-001,Acme Corporation,2025-05-18,2025-06-18,High-Concurrency Tuning,1,14
           <button
             type="button"
             id="qb-btn-execute-ingest"
-            class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-indigo-500 to-sky-600 hover:from-indigo-400 hover:to-sky-500 text-white font-mono font-bold text-xs shadow-lg shadow-indigo-500/20 transition-all flex items-center justify-center gap-2"
+            class="w-full py-2.5 px-4 rounded-xl bg-indigo-700 hover:bg-indigo-600 text-white font-mono font-bold text-xs shadow-lg shadow-indigo-950/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>⚡ Parse, Normalize &amp; Validate</span>
           </button>
@@ -200,7 +200,7 @@ INV-2025-001,Acme Corporation,2025-05-18,2025-06-18,High-Concurrency Tuning,1,14
             <span class="text-[10px] text-slate-400">QuickBooksInvoicePayloadFactory.java</span>
           </div>
 
-          <pre id="qb-json-output" class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-emerald-300 font-mono overflow-x-auto max-h-56 leading-relaxed">&#123;
+          <pre id="qb-json-output" role="region" tabindex="0" aria-label="Validated QuickBooks REST API JSON Payload" class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-emerald-300 font-mono overflow-x-auto max-h-56 leading-relaxed">&#123;
   "DocNumber": "INV-2025-001",
   "TxnDate": "2025-05-18",
   "DueDate": "2025-06-18",

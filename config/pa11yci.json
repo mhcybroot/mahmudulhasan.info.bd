@@ -1,0 +1,21 @@
+{
+  "defaults": {
+    "chromeLaunchConfig": {
+      "executablePath": "/usr/bin/chromium",
+      "args": [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--headless",
+        "--disable-dev-shm-usage"
+      ]
+    },
+    "runners": ["axe"],
+    "standard": "WCAG2AA",
+    "includeWarnings": false,
+    "includeNotices": false,
+    "levelCapWhenNeedsReview": "warning",
+    "timeout": 30000,
+    "wait": 300,
+    "threshold": 0
+  }
+}

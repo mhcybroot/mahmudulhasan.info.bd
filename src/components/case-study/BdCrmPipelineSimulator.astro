@@ -77,8 +77,8 @@
 
           <!-- Interactive Advance Deal Action -->
           <div class="space-y-2">
-            <label class="text-[11px] text-slate-300 font-sans font-semibold">Select Deal to Advance:</label>
-            <select id="crm-deal-select" class="w-full p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white focus:outline-none focus:border-rose-400">
+            <label for="crm-deal-select" class="text-[11px] text-slate-300 font-sans font-semibold">Select Deal to Advance:</label>
+            <select id="crm-deal-select" aria-label="Select Deal to Advance" class="w-full p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-white focus:outline-none focus:border-rose-400">
               <option value="deal-1">Apex Logistics ERP ($12,000)</option>
               <option value="deal-2">Dhaka Garments CRM ($8,500)</option>
               <option value="deal-3">Chittagong Shipping API ($15,000)</option>
@@ -88,7 +88,7 @@
             <button
               type="button"
               id="crm-btn-advance-deal"
-              class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-rose-500 to-violet-600 hover:from-rose-400 hover:to-violet-500 text-white font-mono font-bold text-xs shadow-lg shadow-rose-500/20 transition-all flex items-center justify-center gap-2"
+              class="w-full py-2.5 px-4 rounded-xl bg-rose-700 hover:bg-rose-600 text-white font-mono font-bold text-xs shadow-lg shadow-rose-950/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>⚡ Advance Deal to Next Stage</span>
             </button>
@@ -97,7 +97,7 @@
           <!-- Real-Time Activity Audit Feed -->
           <div class="space-y-1.5 pt-2 border-t border-slate-800">
             <div class="text-[10px] text-slate-400 uppercase font-bold">Stage History Audit Trail:</div>
-            <div id="crm-stage-audit-feed" class="p-3 rounded-xl bg-slate-900 border border-slate-800 font-mono text-[10px] text-slate-300 space-y-1.5 max-h-32 overflow-y-auto">
+            <div id="crm-stage-audit-feed" role="region" tabindex="0" aria-label="Stage History Audit Trail" class="p-3 rounded-xl bg-slate-900 border border-slate-800 font-mono text-[10px] text-slate-300 space-y-1.5 max-h-32 overflow-y-auto">
               <div class="text-rose-300">[03:45:01] Deal #3 moved: PROPOSAL_SENT &rarr; NEGOTIATION</div>
               <div class="text-slate-400">[03:40:12] Deal #1 moved: QUALIFIED &rarr; PROPOSAL_SENT</div>
               <div class="text-slate-400">[03:32:00] Deal #2 created: QUALIFIED ($8,500)</div>

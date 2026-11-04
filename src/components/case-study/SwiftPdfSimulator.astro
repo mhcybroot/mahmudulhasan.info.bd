@@ -28,7 +28,7 @@
 
     <!-- Mode Badge -->
     <div class="flex items-center gap-2 self-start sm:self-auto">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
         PyMuPDF VECTOR ENGINE ACTIVE
       </span>
@@ -39,35 +39,35 @@
   <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
     <button
       id="btn-toggle-redact"
-      class="px-3 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all border text-left bg-slate-800 text-slate-300 border-slate-700 hover:border-slate-500"
+      class="px-3 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all border text-left bg-slate-800 text-slate-200 border-slate-700 hover:border-slate-500"
     >
       <div class="font-bold flex items-center justify-between">
         <span>🔒 Cryptographic Redaction</span>
-        <span class="text-[10px] text-slate-400" id="redact-state-badge">OFF</span>
+        <span class="text-[10px] text-white font-bold" id="redact-state-badge">OFF</span>
       </div>
-      <div class="text-[10px] text-slate-400 mt-0.5">Wipe secret IBAN &amp; amount from PDF bytes</div>
+      <div class="text-[10px] text-slate-200 mt-0.5">Wipe secret IBAN &amp; amount from PDF bytes</div>
     </button>
 
     <button
       id="btn-toggle-bidi"
-      class="px-3 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all border text-left bg-cyan-500/20 text-cyan-200 border-cyan-500/40 shadow-sm"
+      class="px-3 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all border text-left bg-cyan-950 text-cyan-200 border-cyan-500/40 shadow-sm"
     >
       <div class="font-bold flex items-center justify-between">
         <span>🌐 Arabic BiDi Reshaper</span>
-        <span class="text-[10px] text-cyan-300" id="bidi-state-badge">ACTIVE</span>
+        <span class="text-[10px] text-cyan-200 font-bold" id="bidi-state-badge">ACTIVE</span>
       </div>
-      <div class="text-[10px] text-slate-400 mt-0.5">Fixes reverse &amp; disconnected Arabic glyphs</div>
+      <div class="text-[10px] text-slate-200 mt-0.5">Fixes reverse &amp; disconnected Arabic glyphs</div>
     </button>
 
     <button
       id="btn-toggle-bbox"
-      class="px-3 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all border text-left bg-slate-800 text-slate-300 border-slate-700 hover:border-slate-500"
+      class="px-3 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all border text-left bg-slate-800 text-slate-200 border-slate-700 hover:border-slate-500"
     >
       <div class="font-bold flex items-center justify-between">
         <span>📐 Sub-Pixel Bounding Boxes</span>
-        <span class="text-[10px] text-slate-400" id="bbox-state-badge">OFF</span>
+        <span class="text-[10px] text-white font-bold" id="bbox-state-badge">OFF</span>
       </div>
-      <div class="text-[10px] text-slate-400 mt-0.5">Show exact fitz.Rect() vector bounds</div>
+      <div class="text-[10px] text-slate-200 mt-0.5">Show exact fitz.Rect() vector bounds</div>
     </button>
   </div>
 
@@ -150,7 +150,7 @@
       </span>
       <span class="text-emerald-400 text-[10px]" id="log-status">STATUS: IDLE • READY FOR VECTOR CALL</span>
     </div>
-    <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 text-[11px] leading-relaxed text-slate-300 font-mono overflow-x-auto space-y-1" id="vector-console">
+    <div role="region" tabindex="0" aria-label="Vector Engine Log Console" class="p-3 rounded-xl bg-slate-900/80 border border-slate-800/80 text-[11px] leading-relaxed text-slate-300 font-mono overflow-x-auto space-y-1" id="vector-console">
       <div class="text-cyan-400">[PyMuPDF Core] Document loaded: HK TIANHAO INDUSTRIAL LIMITED = 30000 USD.PDF (Pages: 1)</div>
       <div class="text-slate-400">[Typography Scan] Sampled font 'Helvetica-Bold' at baseline y1 - 2.2pt (Font size: 11.0pt)</div>
       <div class="text-emerald-400">[BiDi Engine] Arabic glyph sequence detected in span :59: -> applied arabic_reshaper + bidi display layout</div>

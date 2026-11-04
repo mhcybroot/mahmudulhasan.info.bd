@@ -65,9 +65,10 @@
 
           <!-- Currency Pair Selector -->
           <div class="space-y-1.5">
-            <label class="text-[11px] text-slate-400 uppercase font-semibold">Instrument Currency Pair:</label>
+            <label for="fintech-pair-select" class="text-[11px] text-slate-400 uppercase font-semibold">Instrument Currency Pair:</label>
             <select
               id="fintech-pair-select"
+              aria-label="Instrument Currency Pair"
               class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-100 font-mono text-xs focus:outline-none focus:border-emerald-400"
             >
               <option value="USD_BDT" data-rate="121.50" data-base="USD" data-quote="BDT">USD / BDT (US Dollar / Taka)</option>
@@ -84,14 +85,14 @@
               <button
                 type="button"
                 id="fintech-btn-buy"
-                class="py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs transition-all border border-emerald-500 shadow-sm"
+                class="py-2 rounded-xl bg-emerald-700 text-white font-bold text-xs transition-all border border-emerald-600 shadow-sm cursor-pointer"
               >
                 BUY (Ingress)
               </button>
               <button
                 type="button"
                 id="fintech-btn-sell"
-                class="py-2 rounded-xl bg-slate-900 text-slate-400 hover:text-white font-bold text-xs transition-all border border-slate-700"
+                class="py-2 rounded-xl bg-slate-900 text-slate-400 hover:text-white font-bold text-xs transition-all border border-slate-700 cursor-pointer"
               >
                 SELL (Egress)
               </button>
@@ -101,20 +102,22 @@
           <!-- Volume & Execution Rate -->
           <div class="grid grid-cols-2 gap-3">
             <div class="space-y-1.5">
-              <label class="text-[11px] text-slate-400 uppercase font-semibold">Base Volume:</label>
+              <label for="fintech-volume-input" class="text-[11px] text-slate-400 uppercase font-semibold">Base Volume:</label>
               <input
                 type="number"
                 id="fintech-volume-input"
+                aria-label="Base Volume"
                 value="10000"
                 step="500"
                 class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-100 font-mono text-xs focus:outline-none focus:border-emerald-400"
               />
             </div>
             <div class="space-y-1.5">
-              <label class="text-[11px] text-slate-400 uppercase font-semibold">Deal Rate:</label>
+              <label for="fintech-rate-input" class="text-[11px] text-slate-400 uppercase font-semibold">Deal Rate:</label>
               <input
                 type="number"
                 id="fintech-rate-input"
+                aria-label="Deal Rate"
                 value="121.50"
                 step="0.05"
                 class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-100 font-mono text-xs focus:outline-none focus:border-emerald-400"
@@ -124,9 +127,10 @@
 
           <!-- Counterparty & Settlement Basis -->
           <div class="space-y-1.5">
-            <label class="text-[11px] text-slate-400 uppercase font-semibold">Counterparty Account:</label>
+            <label for="fintech-party-select" class="text-[11px] text-slate-400 uppercase font-semibold">Counterparty Account:</label>
             <select
               id="fintech-party-select"
+              aria-label="Counterparty Account"
               class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-slate-100 font-mono text-xs focus:outline-none focus:border-emerald-400"
             >
               <option value="Apex Commercial Global">Apex Commercial Global (ID: #1042)</option>
@@ -150,7 +154,7 @@
           <button
             type="button"
             id="fintech-btn-execute"
-            class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-lg hover:shadow-emerald-500/20 active:scale-[0.98]"
+            class="w-full py-3 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-lg active:scale-[0.98] cursor-pointer"
           >
             Commit Deal to Ledger (<span id="fintech-btn-latency">12ms</span>)
           </button>

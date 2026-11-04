@@ -63,8 +63,8 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="block text-slate-400 mb-1">Select Jurisdiction</label>
-              <select id="land-select-mouza" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-xs focus:border-cyan-400 outline-none">
+              <label for="land-select-mouza" class="block text-slate-400 mb-1">Select Jurisdiction</label>
+              <select id="land-select-mouza" aria-label="Select Jurisdiction" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-xs focus:border-cyan-400 outline-none">
                 <option value="dhanmondi" data-cs="142" data-sa="88" data-rs="204" data-bs="412" data-status="clean">Dhaka • Dhanmondi (Mouza: Dhanmondi-5)</option>
                 <option value="gazipur" data-cs="310" data-sa="190" data-rs="524" data-bs="802" data-status="broken">Gazipur • Joydebpur (Mouza: Bhawal-12)</option>
                 <option value="chattogram" data-cs="45" data-sa="28" data-rs="94" data-bs="180" data-status="clean">Chattogram • Panchlaish (Mouza: Nasirabad)</option>
@@ -73,10 +73,11 @@
             </div>
 
             <div>
-              <label class="block text-slate-400 mb-1">Target Dag (Plot) Number</label>
+              <label for="land-input-dag" class="block text-slate-400 mb-1">Target Dag (Plot) Number</label>
               <input
                 type="text"
                 id="land-input-dag"
+                aria-label="Target Dag (Plot) Number"
                 value="Dag No: 412"
                 class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white text-xs focus:border-cyan-400 outline-none"
               />
@@ -87,7 +88,7 @@
             <button
               type="button"
               id="land-btn-run-audit"
-              class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 font-bold hover:scale-[1.02] transition-transform shadow-lg cursor-pointer flex items-center gap-2"
+              class="px-4 py-2 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold transition-all shadow-lg cursor-pointer flex items-center gap-2"
             >
               <span>🔍 Traverse Historical Survey Chain</span>
             </button>

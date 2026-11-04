@@ -44,7 +44,8 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
     <script is:inline define:vars={{ envDefaultTheme }}>
       (function () {
         try {
-          const stored = localStorage.getItem('theme-preference');
+          const urlTheme = new URLSearchParams(window.location.search).get('theme');
+          const stored = urlTheme || localStorage.getItem('theme-preference');
           const activeTheme = stored || envDefaultTheme || 'swiss';
           document.documentElement.setAttribute('data-theme', activeTheme);
           if (activeTheme === 'cleanroom' || activeTheme === 'swiss') {
@@ -79,13 +80,6 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
     >
       Skip to main content
     </a>
-
-    <!-- Ambient Radial Mesh Glows -->
-    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      <div class="theme-glow-sphere absolute -top-40 -left-40 w-96 h-96 bg-theme-accent/10 rounded-full blur-[128px]"></div>
-      <div class="theme-glow-sphere absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-theme-secondaryAccent/10 rounded-full blur-[140px]"></div>
-      <div class="theme-glow-sphere absolute bottom-10 left-1/4 w-[32rem] h-[32rem] bg-theme-accent/5 rounded-full blur-[160px]"></div>
-    </div>
 
     <!-- Main App Container -->
     <div class="relative z-10 flex flex-col min-h-screen">

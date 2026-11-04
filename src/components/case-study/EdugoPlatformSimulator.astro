@@ -133,7 +133,7 @@ Body: &#123; "email": "admin@edugo.local", "password": "••••••••
           <button
             type="button"
             id="edugo-btn-dispatch"
-            class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-mono font-bold text-xs shadow-lg shadow-sky-500/20 transition-all flex items-center justify-center gap-2"
+            class="w-full py-2.5 px-4 rounded-xl bg-indigo-700 hover:bg-indigo-600 text-white font-mono font-bold text-xs shadow-lg shadow-indigo-950/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>⚡ Evaluate Security Filter Chain</span>
           </button>
@@ -203,7 +203,7 @@ Body: &#123; "email": "admin@edugo.local", "password": "••••••••
             <span class="text-[10px] text-slate-400">SecurityContextHolder.getContext()</span>
           </div>
 
-          <pre id="edugo-json-output" class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-emerald-300 font-mono overflow-x-auto max-h-56 leading-relaxed">&#123;
+          <pre id="edugo-json-output" role="region" tabindex="0" aria-label="Spring Security Diagnostic JSON Output" class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-emerald-300 font-mono overflow-x-auto max-h-56 leading-relaxed">&#123;
   "httpStatus": 200,
   "authenticated": true,
   "principal": "admin@edugo.local",

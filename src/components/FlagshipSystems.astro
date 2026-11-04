@@ -244,7 +244,7 @@ const modularSystems = [
     data-search="mod-00 mod-01 pms-v2 pms autonomous smart parking barrier gate automation engine rust 2024 flutter zkteco adms frigate rtsp modbus postgresql embedded relay"
     class="rounded-sm border-2 border-theme-secondary bg-theme-lowest relative p-5 sm:p-8"
   >
-    <div class="absolute top-0 right-0 bg-theme-accent text-white px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider">
+    <div class="absolute top-0 right-0 bg-theme-accent text-white dark:text-obsidian-950 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider">
       DEPLOYED &amp; OPERATIONAL // MOD_ID: PMS-V2.84
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-3 sm:mt-0">
@@ -262,7 +262,7 @@ const modularSystems = [
             <span class="font-mono text-xs px-2.5 py-1 bg-theme-surface border border-theme-border text-theme-primary">● Stops Fee Leakage 100%</span>
             <span class="font-mono text-xs px-2.5 py-1 bg-theme-surface border border-theme-border text-theme-primary">● Anti-Tailgating RFID Relays</span>
             <span class="font-mono text-xs px-2.5 py-1 bg-theme-surface border border-theme-border text-theme-primary">● Zero Cloud Dependency (Dual Local DB)</span>
-            <span class="font-mono text-xs px-2.5 py-1 bg-theme-accent text-white font-bold border border-theme-accent">● &lt;0.84s Barrier Response</span>
+            <span class="font-mono text-xs px-2.5 py-1 bg-theme-accent text-white dark:text-obsidian-950 font-bold border border-theme-accent">● &lt;0.84s Barrier Response</span>
           </div>
         </div>
 
@@ -279,7 +279,7 @@ const modularSystems = [
           </div>
           <a
             href="/systems/pms-v2"
-            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-theme-secondary text-white border border-theme-secondary text-xs font-mono font-semibold transition-all hover:brightness-110 shadow-sm"
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-theme-primary text-theme-base border border-theme-primary text-xs font-mono font-bold transition-all hover:opacity-90 shadow-sm"
           >
             <span>Read Case Study</span>
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -370,7 +370,7 @@ const modularSystems = [
     <!-- Category Pills -->
     <div class="flex flex-wrap items-center gap-2 font-mono text-xs pt-2.5 border-t border-theme-border">
       <span class="text-theme-muted text-[10px] uppercase mr-1">Filter Domain:</span>
-      <button type="button" class="sys-filter-pill active px-3 py-1 bg-theme-accent text-white font-semibold rounded-sm transition-all cursor-pointer" data-filter="all">ALL [25]</button>
+      <button type="button" class="sys-filter-pill active px-3 py-1 bg-theme-accent text-white dark:text-obsidian-950 font-bold rounded-sm transition-all cursor-pointer" data-filter="all">ALL [25]</button>
       <button type="button" class="sys-filter-pill px-3 py-1 bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme-border rounded-sm transition-all cursor-pointer" data-filter="hardware">HARDWARE &amp; IOT [6]</button>
       <button type="button" class="sys-filter-pill px-3 py-1 bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme-border rounded-sm transition-all cursor-pointer" data-filter="backend">BACKEND &amp; RUST/JAVA [7]</button>
       <button type="button" class="sys-filter-pill px-3 py-1 bg-theme-surface text-theme-secondary hover:text-theme-primary border border-theme-border rounded-sm transition-all cursor-pointer" data-filter="fintech">FINTECH &amp; COMPLIANCE [7]</button>
@@ -512,11 +512,11 @@ const modularSystems = [
   filterPills.forEach(pill => {
     pill.addEventListener('click', () => {
       filterPills.forEach(p => {
-        p.classList.remove('bg-theme-accent', 'text-white', 'font-semibold');
+        p.classList.remove('bg-theme-accent', 'text-white', 'dark:text-obsidian-950', 'font-bold');
         p.classList.add('bg-theme-surface', 'text-theme-secondary', 'border', 'border-theme-border');
       });
       pill.classList.remove('bg-theme-surface', 'text-theme-secondary', 'border', 'border-theme-border');
-      pill.classList.add('bg-theme-accent', 'text-white', 'font-semibold');
+      pill.classList.add('bg-theme-accent', 'text-white', 'dark:text-obsidian-950', 'font-bold');
       activeDomain = pill.getAttribute('data-filter') || 'all';
       applyFilters();
     });
@@ -577,11 +577,11 @@ const modularSystems = [
       const targetPill = document.querySelector(`.sys-filter-pill[data-filter="${filterParam}"]`) as HTMLElement;
       if (targetPill) {
         filterPills.forEach(p => {
-          p.classList.remove('bg-theme-accent', 'text-white', 'font-semibold');
+          p.classList.remove('bg-theme-accent', 'text-white', 'dark:text-obsidian-950', 'font-bold');
           p.classList.add('bg-theme-surface', 'text-theme-secondary', 'border', 'border-theme-border');
         });
         targetPill.classList.remove('bg-theme-surface', 'text-theme-secondary', 'border', 'border-theme-border');
-        targetPill.classList.add('bg-theme-accent', 'text-white', 'font-semibold');
+        targetPill.classList.add('bg-theme-accent', 'text-white', 'dark:text-obsidian-950', 'font-bold');
         activeDomain = filterParam;
       }
     }
