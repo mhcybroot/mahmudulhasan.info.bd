@@ -8031,8 +8031,10 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
         }
       }, { passive: true });
 
-      // Calculate initial progress on mount / deep-link restore
-      updateReadingProgress();
+      // Calculate initial progress on mount only if already scrolled, deferred to next frame
+      if (typeof window !== 'undefined' && window.scrollY > 0) {
+        window.requestAnimationFrame(updateReadingProgress);
+      }
     }
 
     initCaseStudyInteractions();
