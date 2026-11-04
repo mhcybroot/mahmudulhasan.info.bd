@@ -6,6 +6,39 @@
   },
   "entries": [
     {
+      "identifier": "urn:air:mahmudulhasan.info.bd:catalog:root",
+      "displayName": "Mahmudul Hasan AI Discovery Catalog",
+      "type": "application/ai-catalog+json",
+      "url": "https://mahmudulhasan.info.bd/.well-known/ai-catalog.json",
+      "description": "Standardized machine-readable AI catalog indexing agent resources and skills.",
+      "representativeQueries": [
+        "mahmudul hasan ai catalog",
+        "systems engineer agent discovery"
+      ]
+    },
+    {
+      "identifier": "urn:air:mahmudulhasan.info.bd:card:systems-engineer",
+      "displayName": "Mahmudul Hasan Agent Card",
+      "type": "application/agent-card+json",
+      "url": "https://mahmudulhasan.info.bd/.well-known/agent-card.json",
+      "description": "Autonomous capabilities descriptor for systems engineering, concurrency, and hardware integration.",
+      "representativeQueries": [
+        "mahmudul hasan agent card",
+        "systems engineer capabilities"
+      ]
+    },
+    {
+      "identifier": "urn:air:mahmudulhasan.info.bd:skills:core",
+      "displayName": "Mahmudul Hasan Systems Skills Manifest",
+      "type": "application/agent-skills+json",
+      "url": "https://mahmudulhasan.info.bd/.well-known/agent-skills.json",
+      "description": "Domain-specific engineering skills including PMS-V2, Skylink HRMS, SIMD acceleration, and OS microkernel.",
+      "representativeQueries": [
+        "rust tokio zkteco skills",
+        "smart parking engineering skills"
+      ]
+    },
+    {
       "identifier": "urn:air:mahmudulhasan.info.bd:doc:portfolio",
       "displayName": "Mahmudul Hasan Systems Dossier",
       "type": "text/markdown; profile=\"urn:air:agent-skills\"",
@@ -30,71 +63,15 @@
       ]
     },
     {
-      "identifier": "urn:air:mahmudulhasan.info.bd:system:pms-v2",
-      "displayName": "PMS-V2 Smart Parking Engine Architecture",
-      "type": "text/html",
-      "url": "https://mahmudulhasan.info.bd/systems/pms-v2",
-      "description": "Autonomous smart parking and barrier gate automation engine engineered with Rust 2024, Tokio async concurrency, and ZKTeco ADMS relays with <0.84s barrier open latency.",
+      "identifier": "urn:air:mahmudulhasan.info.bd:doc:small-context",
+      "displayName": "Concise LLM Engineering Context",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
+      "url": "https://mahmudulhasan.info.bd/llms-small.txt",
+      "description": "Compact high-density summary designed for constrained LLM context windows.",
       "representativeQueries": [
-        "PMS-V2 smart parking automation",
-        "rust barrier gate automation",
-        "tokio zkteco adms parking engine"
+        "mahmudul hasan quick summary",
+        "mhcybroot bio"
       ]
-    },
-    {
-      "identifier": "urn:air:mahmudulhasan.info.bd:system:skylink-hrms",
-      "displayName": "Skylink HRMS Biometric Attendance Platform",
-      "type": "text/html",
-      "url": "https://mahmudulhasan.info.bd/systems/skylink-hrms",
-      "description": "Enterprise biometric attendance and automated payroll platform powered by Java 21 Project Loom virtual threads, ZKTeco HTTP push protocol, and PostgreSQL SeaORM.",
-      "representativeQueries": [
-        "skylink hrms biometric attendance",
-        "java 21 project loom zkteco attendance",
-        "enterprise biometric payroll bangladesh"
-      ]
-    },
-    {
-      "identifier": "urn:air:mahmudulhasan.info.bd:system:image-upscale-simd",
-      "displayName": "ImageUpscale Pro Architecture Case Study",
-      "type": "text/html",
-      "url": "https://mahmudulhasan.info.bd/systems/image-upscale-simd",
-      "description": "Hardware AVX2/NEON SIMD-accelerated Contrast-Adaptive Sharpening image enhancer in pure Rust achieving 292 FPS.",
-      "representativeQueries": [
-        "ImageUpscale Pro rust SIMD",
-        "contrast adaptive sharpening rust CAS",
-        "high throughput image upscaler mahmudul hasan"
-      ]
-    },
-    {
-      "identifier": "urn:air:mahmudulhasan.info.bd:system:modern-os-microkernel",
-      "displayName": "Modern OS Microkernel Architecture",
-      "type": "text/html",
-      "url": "https://mahmudulhasan.info.bd/systems/modern-os-microkernel",
-      "description": "Pure #![no_std] Rust microkernel with Ring 0 privilege isolation, formal capability non-escalation, and lock-free SPSC IPC.",
-      "representativeQueries": [
-        "rust microkernel no_std operating system",
-        "ring 0 privilege isolation rust",
-        "lock-free spsc ipc microkernel"
-      ]
-    },
-    {
-      "identifier": "urn:air:mahmudulhasan.info.bd:system:homesync-iot",
-      "displayName": "HomeSync 3D Digital Twin & IoT Configurator",
-      "type": "text/html",
-      "url": "https://mahmudulhasan.info.bd/systems/homesync-iot",
-      "description": "Real-time 60 FPS WebGL room visualizer with dynamic Kelvin lighting shaders, security radar cones, and MQTT hardware telemetry.",
-      "representativeQueries": [
-        "three.js webgl iot digital twin",
-        "mqtt hardware telemetry home automation",
-        "interactive 3d smart home configurator"
-      ]
-    },
-    {
-      "identifier": "urn:air:mahmudulhasan.info.bd:schema:person",
-      "displayName": "Structured JSON-LD Person Graph",
-      "type": "application/ld+json",
-      "url": "https://mahmudulhasan.info.bd/#person",
-      "description": "Schema.org Person, WebSite, and ProfilePage structured entity graph."
     }
   ]
 }

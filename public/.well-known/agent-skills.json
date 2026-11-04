@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json.schemastore.org/agent-skills-1.0.0.json",
+  "specVersion": "1.0",
+  "skills": [
+    {
+      "identifier": "urn:air:mahmudulhasan.info.bd:skill:pms-v2",
+      "name": "PMS-V2 Smart Parking Engine",
+      "description": "Autonomous smart parking and barrier gate automation with Rust Tokio and ZKTeco ADMS relays (<0.84s latency).",
+      "tags": ["rust", "tokio", "zkteco", "adms", "hardware-automation"]
+    },
+    {
+      "identifier": "urn:air:mahmudulhasan.info.bd:skill:skylink-hrms",
+      "name": "Skylink HRMS Biometric Attendance Platform",
+      "description": "Enterprise biometric attendance and payroll platform powered by Java 21 Loom virtual threads and ZKTeco HTTP push protocol.",
+      "tags": ["java21", "loom", "zkteco", "spring-boot", "biometrics"]
+    },
+    {
+      "identifier": "urn:air:mahmudulhasan.info.bd:skill:image-upscale-simd",
+      "name": "ImageUpscale Pro SIMD Engine",
+      "description": "Hardware AVX2/NEON SIMD-accelerated Contrast-Adaptive Sharpening in pure Rust at 292 FPS.",
+      "tags": ["rust", "simd", "avx2", "neon", "computer-vision"]
+    },
+    {
+      "identifier": "urn:air:mahmudulhasan.info.bd:skill:modern-os-microkernel",
+      "name": "Modern OS Microkernel",
+      "description": "Pure #![no_std] Rust microkernel with Ring 0 privilege isolation and lock-free SPSC IPC.",
+      "tags": ["rust", "no_std", "osdev", "microkernel", "bare-metal"]
+    },
+    {
+      "identifier": "urn:air:mahmudulhasan.info.bd:skill:homesync-iot",
+      "name": "HomeSync 3D Digital Twin & IoT Configurator",
+      "description": "Real-time 60 FPS WebGL room visualizer with dynamic Kelvin lighting shaders and MQTT hardware telemetry.",
+      "tags": ["threejs", "webgl", "iot", "mqtt", "telemetry"]
+    }
+  ]
+}

@@ -26,14 +26,7 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
 <html lang="en" class={`scroll-smooth ${isInitialDark ? 'dark' : ''}`} data-theme={envDefaultTheme}>
   <head>
     <meta charset="UTF-8" />
-    <!-- Preload Critical Fonts (Eliminates Font-Swap Reflow & Flattens Network Tree) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
-    </noscript>
+    <!-- Preload Self-Hosted Critical Fonts (Eliminates Font-Swap Reflow & Zero External Chains) -->
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
 
@@ -42,6 +35,8 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
     <link rel="alternate" type="application/rss+xml" title="Mahmudul Hasan Projects RSS Feed" href="/rss.xml" />
     <link rel="ai-catalog" type="application/json" href="/.well-known/ai-catalog.json" />
     <link rel="ard" type="application/json" href="/.well-known/ard.json" />
+    <link rel="agent-card" type="application/json" href="/.well-known/agent-card.json" />
+    <link rel="agent-skills" type="application/json" href="/.well-known/agent-skills.json" />
     <link rel="pgpkey" type="application/pgp-keys" href="/mhcybroot-key.asc" />
     <link rel="author" href="https://mahmudulhasan.info.bd/#contact" />
 

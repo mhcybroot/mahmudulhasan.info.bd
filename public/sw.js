@@ -1,5 +1,5 @@
 // Ultra-Lightweight Service Worker — Stale-While-Revalidate & Offline Resilience
-const CACHE_NAME = 'mhcybroot-telemetry-v5';
+const CACHE_NAME = 'mhcybroot-telemetry-v6';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -16,7 +16,10 @@ const PRECACHE_ASSETS = [
   '/.well-known/security.txt',
   '/.well-known/ai-catalog.json',
   '/.well-known/ard.json',
+  '/.well-known/agent-card.json',
+  '/.well-known/agent-skills.json',
   '/llms.txt',
+  '/llms-small.txt',
 ];
 
 self.addEventListener('install', (event) => {

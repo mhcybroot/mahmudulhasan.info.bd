@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/agent-card-1.0.0.json",
+  "name": "Mahmudul Hasan Systems Agent",
+  "description": "Autonomous systems architecture and engineering capabilities descriptor for Mahmudul Hasan (@mhcybroot).",
+  "version": "1.0.0",
+  "author": {
+    "name": "Mahmudul Hasan",
+    "url": "https://mahmudulhasan.info.bd",
+    "email": "info@mahmudulhasan.info.bd"
+  },
+  "capabilities": [
+    "autonomous-parking-automation",
+    "biometric-attendance-adms",
+    "simd-hardware-acceleration",
+    "microkernel-systems-architecture",
+    "iot-realtime-telemetry"
+  ],
+  "endpoints": {
+    "catalog": "https://mahmudulhasan.info.bd/.well-known/ai-catalog.json",
+    "skills": "https://mahmudulhasan.info.bd/.well-known/agent-skills.json",
+    "llms": "https://mahmudulhasan.info.bd/llms.txt",
+    "fullContext": "https://mahmudulhasan.info.bd/llms-full.txt"
+  }
+}
