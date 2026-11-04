@@ -155,8 +155,6 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
     keywords={[data.seo.focusKeyword, ...data.seo.secondaryKeywords]}
   />
 
-  <ArchitectureModal />
-
   <!-- Sticky Top Navigation Bar -->
   <header class="sticky top-0 z-40 w-full border-b border-theme-border bg-theme-surface/95 backdrop-blur-md transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -246,115 +244,115 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
           <span class="px-2.5 py-1 bg-theme-lowest border border-theme-border rounded-sm text-theme-secondary font-medium">
             ⏱ ~{readingMinutes} MIN SPEC READ
           </span>
-          <span class="px-2.5 py-1 bg-theme-lowest border border-theme-border rounded-sm text-emerald-400 font-semibold">
+          <span class="px-2.5 py-1 bg-theme-lowest border border-theme-border rounded-sm text-emerald-700 dark:text-emerald-400 font-semibold">
             ● ZERO FAULT VERIFIED
           </span>
         </div>
 
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-mono font-extrabold text-white tracking-tight leading-tight">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-mono font-extrabold text-theme-primary tracking-tight leading-tight">
           {data.title}
         </h1>
-        <p class="text-base sm:text-lg text-slate-200 font-sans leading-relaxed">
+        <p class="text-base sm:text-lg text-theme-secondary font-sans leading-relaxed">
           {isPms ? (
             <>
-              Automates commercial parking gates and stops ticket revenue theft. Opens barrier gates in under <strong class="text-emerald-300 font-semibold">&lt; 0.84 seconds</strong> using instant license plate recognition, engineered in <strong class="text-white font-semibold">Rust (Axum &amp; Tokio)</strong> and <strong class="text-white font-semibold">Flutter POS</strong> for 100% crash-proof uptime.
+              Automates commercial parking gates and stops ticket revenue theft. Opens barrier gates in under <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">&lt; 0.84 seconds</strong> using instant license plate recognition, engineered in <strong class="text-theme-primary font-semibold">Rust (Axum &amp; Tokio)</strong> and <strong class="text-theme-primary font-semibold">Flutter POS</strong> for 100% crash-proof uptime.
             </>
           ) : isHrms ? (
             <>
-              Automates employee attendance and cuts month-end payroll processing from days to minutes. Ingests rush-hour biometric punches from factory and office terminals with <strong class="text-emerald-300 font-semibold">zero missed records</strong>, engineered in <strong class="text-white font-semibold">Java 21 (Project Loom)</strong> and <strong class="text-white font-semibold">Spring Boot 3.4</strong>.
+              Automates employee attendance and cuts month-end payroll processing from days to minutes. Ingests rush-hour biometric punches from factory and office terminals with <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">zero missed records</strong>, engineered in <strong class="text-theme-primary font-semibold">Java 21 (Project Loom)</strong> and <strong class="text-theme-primary font-semibold">Spring Boot 3.4</strong>.
             </>
           ) : isMonitor ? (
             <>
-              Tracks team focus, productive hours, and security compliance without slowing down their computers. Replaces heavy commercial surveillance software with an ultra-lightweight client consuming <strong class="text-emerald-300 font-semibold">&lt; 14 MB RAM</strong> and <strong class="text-emerald-300 font-semibold">&lt; 0.01% CPU</strong>, built in <strong class="text-white font-semibold">Rust 2024 (Tokio)</strong> and <strong class="text-white font-semibold">Spring Boot 3.4</strong>.
+              Tracks team focus, productive hours, and security compliance without slowing down their computers. Replaces heavy commercial surveillance software with an ultra-lightweight client consuming <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">&lt; 14 MB RAM</strong> and <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">&lt; 0.01% CPU</strong>, built in <strong class="text-theme-primary font-semibold">Rust 2024 (Tokio)</strong> and <strong class="text-theme-primary font-semibold">Spring Boot 3.4</strong>.
             </>
           ) : isSwift ? (
             <>
-              Permanently blacks out confidential bank account numbers, passwords, and sensitive client details from financial PDF statements before sharing. Guarantees <strong class="text-emerald-300 font-semibold">zero data leaks</strong> and zero recoverable text, engineered with <strong class="text-white font-semibold">Python (PyMuPDF)</strong> and <strong class="text-white font-semibold">Flutter</strong> with native Arabic and English typography.
+              Permanently blacks out confidential bank account numbers, passwords, and sensitive client details from financial PDF statements before sharing. Guarantees <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">zero data leaks</strong> and zero recoverable text, engineered with <strong class="text-theme-primary font-semibold">Python (PyMuPDF)</strong> and <strong class="text-theme-primary font-semibold">Flutter</strong> with native Arabic and English typography.
             </>
           ) : isHomesync ? (
             <>
-              Turns architectural floorplans into interactive 3D virtual models where homeowners and electricians test smart lighting and security sensors in real time. Runs at a smooth <strong class="text-emerald-300 font-semibold">60 FPS</strong> in any browser, built with <strong class="text-white font-semibold">React 19, Three.js &amp; React Three Fiber</strong>.
+              Turns architectural floorplans into interactive 3D virtual models where homeowners and electricians test smart lighting and security sensors in real time. Runs at a smooth <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">60 FPS</strong> in any browser, built with <strong class="text-theme-primary font-semibold">React 19, Three.js &amp; React Three Fiber</strong>.
             </>
           ) : isMarksheet ? (
             <>
-              Eliminates teacher grading mistakes and compresses weeks of exam tabulation into minutes. Ingests multi-subject Excel rosters, applies official <strong class="text-emerald-300 font-semibold">GPA 5.0 and 4th-subject bonus rules</strong>, and batch-generates 1,200+ print-ready PDF marksheets, built with <strong class="text-white font-semibold">Node.js 22 &amp; Prisma ORM</strong>.
+              Eliminates teacher grading mistakes and compresses weeks of exam tabulation into minutes. Ingests multi-subject Excel rosters, applies official <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">GPA 5.0 and 4th-subject bonus rules</strong>, and batch-generates 1,200+ print-ready PDF marksheets, built with <strong class="text-theme-primary font-semibold">Node.js 22 &amp; Prisma ORM</strong>.
             </>
           ) : isEdumeet ? (
             <>
-              A live video classroom built for students and teachers with slow internet connections. Automatically downscales video to prevent buffering on spotty mobile data, logs attendance automatically, and maintains <strong class="text-emerald-300 font-semibold">under 95ms delay</strong>, engineered in <strong class="text-white font-semibold">Flutter 3.29 &amp; WebRTC</strong>.
+              A live video classroom built for students and teachers with slow internet connections. Automatically downscales video to prevent buffering on spotty mobile data, logs attendance automatically, and maintains <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">under 95ms delay</strong>, engineered in <strong class="text-theme-primary font-semibold">Flutter 3.29 &amp; WebRTC</strong>.
             </>
           ) : isSmartAi ? (
             <>
-              Stops students or staff from faking attendance for friends. Uses on-device facial recognition and a <strong class="text-emerald-300 font-semibold">50-meter GPS geofence</strong> to verify presence in under a second with zero cellular data cost and offline sync, engineered in <strong class="text-white font-semibold">Kotlin 2.0 &amp; Jetpack Compose</strong>.
+              Stops students or staff from faking attendance for friends. Uses on-device facial recognition and a <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">50-meter GPS geofence</strong> to verify presence in under a second with zero cellular data cost and offline sync, engineered in <strong class="text-theme-primary font-semibold">Kotlin 2.0 &amp; Jetpack Compose</strong>.
             </>
           ) : isNotes ? (
             <>
-              A private, bank-grade encrypted documentation workspace for corporate teams to store confidential wikis and credentials. Enforces strict permission controls and sub-5ms search across millions of records with <strong class="text-emerald-300 font-semibold">zero data leaks</strong>, engineered in <strong class="text-white font-semibold">NestJS 10, TypeScript &amp; MongoDB</strong>.
+              A private, bank-grade encrypted documentation workspace for corporate teams to store confidential wikis and credentials. Enforces strict permission controls and sub-5ms search across millions of records with <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">zero data leaks</strong>, engineered in <strong class="text-theme-primary font-semibold">NestJS 10, TypeScript &amp; MongoDB</strong>.
             </>
           ) : isSssms ? (
             <>
-              Replaces chaotic paper travel slips with an auditable mobile expense tracker for employee visits (Rickshaw, CNG, Bus, Fuel). Verifies standard transit rates, generates accounting vouchers, and disburses reimbursements in seconds via <strong class="text-emerald-300 font-semibold">bKash, Nagad &amp; bank transfer</strong>, built in <strong class="text-white font-semibold">Flutter 3.29 &amp; Firestore</strong>.
+              Replaces chaotic paper travel slips with an auditable mobile expense tracker for employee visits (Rickshaw, CNG, Bus, Fuel). Verifies standard transit rates, generates accounting vouchers, and disburses reimbursements in seconds via <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">bKash, Nagad &amp; bank transfer</strong>, built in <strong class="text-theme-primary font-semibold">Flutter 3.29 &amp; Firestore</strong>.
             </>
           ) : isCampus ? (
             <>
-              Consolidates student attendance, teacher payroll, GPA grade cards, and fee tracking into a single easy administrative dashboard. Replaces 5 disconnected school software systems with <strong class="text-emerald-300 font-semibold">zero monthly cloud subscription fees</strong>, built in <strong class="text-white font-semibold">Spring Boot 3.4 (Java 21 Loom) &amp; Vue.js 3</strong>.
+              Consolidates student attendance, teacher payroll, GPA grade cards, and fee tracking into a single easy administrative dashboard. Replaces 5 disconnected school software systems with <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">zero monthly cloud subscription fees</strong>, built in <strong class="text-theme-primary font-semibold">Spring Boot 3.4 (Java 21 Loom) &amp; Vue.js 3</strong>.
             </>
           ) : isLandtrust ? (
             <>
-              Protects property buyers from land fraud and double-selling by verifying historical Bangladesh ownership chains (CS, SA, RS, BS). Automatically checks boundary disputes in <strong class="text-emerald-300 font-semibold">sub-28ms</strong> and converts traditional units (Katha, Bigha, Decimal), engineered in <strong class="text-white font-semibold">Flutter 3.29, Spring Boot 3.4 &amp; PostGIS</strong>.
+              Protects property buyers from land fraud and double-selling by verifying historical Bangladesh ownership chains (CS, SA, RS, BS). Automatically checks boundary disputes in <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">sub-28ms</strong> and converts traditional units (Katha, Bigha, Decimal), engineered in <strong class="text-theme-primary font-semibold">Flutter 3.29, Spring Boot 3.4 &amp; PostGIS</strong>.
             </>
           ) : isModernOs ? (
             <>
-              A computer operating system engineered from scratch in Rust where device driver crashes (like Wi-Fi or disk errors) can never crash the whole computer. Strips core supervisor privileges down to an audited <strong class="text-emerald-300 font-semibold">&lt; 2,500 lines of code</strong>, built in pure <strong class="text-white font-semibold">#![no_std] Rust</strong>.
+              A computer operating system engineered from scratch in Rust where device driver crashes (like Wi-Fi or disk errors) can never crash the whole computer. Strips core supervisor privileges down to an audited <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">&lt; 2,500 lines of code</strong>, built in pure <strong class="text-theme-primary font-semibold">#![no_std] Rust</strong>.
             </>
           ) : isYtStream ? (
             <>
-              Downloads and archives video playlists and educational lectures at full internet speed via 16 simultaneous network streams. Automatically skips promotional sponsor plugs and streams smoothly on home TVs with <strong class="text-emerald-300 font-semibold">zero buffering</strong>, built in <strong class="text-white font-semibold">Python 3.12, yt-dlp &amp; aria2c</strong>.
+              Downloads and archives video playlists and educational lectures at full internet speed via 16 simultaneous network streams. Automatically skips promotional sponsor plugs and streams smoothly on home TVs with <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">zero buffering</strong>, built in <strong class="text-theme-primary font-semibold">Python 3.12, yt-dlp &amp; aria2c</strong>.
             </>
           ) : isSniper ? (
             <>
-              A lightning-fast browser automation assistant that monitors contractor job portals and claims high-value work orders in <strong class="text-emerald-300 font-semibold">under 250 milliseconds</strong> before competitors can even refresh the page, engineered as a <strong class="text-white font-semibold">Chrome Extension MV3</strong> with in-memory API interception.
+              A lightning-fast browser automation assistant that monitors contractor job portals and claims high-value work orders in <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">under 250 milliseconds</strong> before competitors can even refresh the page, engineered as a <strong class="text-theme-primary font-semibold">Chrome Extension MV3</strong> with in-memory API interception.
             </>
           ) : isGecko ? (
             <>
-              An independent, privacy-first mobile web browser built on Mozilla's Gecko engine instead of Google Chrome. Protects user search history, blocks invasive trackers, and loads pages smoothly with <strong class="text-emerald-300 font-semibold">zero Google Play dependencies</strong>, engineered in native <strong class="text-white font-semibold">Android Kotlin &amp; GeckoView 134</strong>.
+              An independent, privacy-first mobile web browser built on Mozilla's Gecko engine instead of Google Chrome. Protects user search history, blocks invasive trackers, and loads pages smoothly with <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">zero Google Play dependencies</strong>, engineered in native <strong class="text-theme-primary font-semibold">Android Kotlin &amp; GeckoView 134</strong>.
             </>
           ) : isDoller ? (
             <>
-              A foreign currency exchange platform that records every trade, dollar exchange, and profit calculation with zero mathematical discrepancies. Enforces balanced <strong class="text-emerald-300 font-semibold">double-entry accounting</strong> and works reliably even during sudden internet dropouts, engineered in <strong class="text-white font-semibold">Java 21, Spring Boot 3.5 &amp; Flutter 3.29</strong>.
+              A foreign currency exchange platform that records every trade, dollar exchange, and profit calculation with zero mathematical discrepancies. Enforces balanced <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">double-entry accounting</strong> and works reliably even during sudden internet dropouts, engineered in <strong class="text-theme-primary font-semibold">Java 21, Spring Boot 3.5 &amp; Flutter 3.29</strong>.
             </>
           ) : isQuickbooks ? (
             <>
-              Automates monthly corporate accounting by matching messy bank statements and expense spreadsheets directly into QuickBooks Online in seconds. Eliminates manual data entry and prevents duplicate billing with an <strong class="text-emerald-300 font-semibold">AES-256 encrypted vault</strong>, built in <strong class="text-white font-semibold">Java 21, Spring Boot 4 &amp; Vaadin 25 Flow</strong>.
+              Automates monthly corporate accounting by matching messy bank statements and expense spreadsheets directly into QuickBooks Online in seconds. Eliminates manual data entry and prevents duplicate billing with an <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">AES-256 encrypted vault</strong>, built in <strong class="text-theme-primary font-semibold">Java 21, Spring Boot 4 &amp; Vaadin 25 Flow</strong>.
             </>
           ) : isEdugo ? (
             <>
-              An all-in-one school and college management system that handles student enrollment, fee payments, class schedules, and parent mobile notifications seamlessly in one secure place, built with <strong class="text-white font-semibold">Java 21, Spring Boot 3.3, Vaadin &amp; Flutter 3.29</strong>.
+              An all-in-one school and college management system that handles student enrollment, fee payments, class schedules, and parent mobile notifications seamlessly in one secure place, built with <strong class="text-theme-primary font-semibold">Java 21, Spring Boot 3.3, Vaadin &amp; Flutter 3.29</strong>.
             </>
           ) : isCrm ? (
             <>
-              A corporate sales CRM that prevents salespeople from fighting over the same client, automatically reminds teams before customer deals go cold, and visualizes company revenue growth on interactive deal boards, built in <strong class="text-white font-semibold">Java 21, Spring Boot 3.3, PostgreSQL 16 &amp; React 18</strong>.
+              A corporate sales CRM that prevents salespeople from fighting over the same client, automatically reminds teams before customer deals go cold, and visualizes company revenue growth on interactive deal boards, built in <strong class="text-theme-primary font-semibold">Java 21, Spring Boot 3.3, PostgreSQL 16 &amp; React 18</strong>.
             </>
           ) : isEmailVerifier ? (
             <>
-              Checks whether customer email addresses actually exist before you hit send—stopping bounced emails, protecting your company domain from spam blacklists, and saving thousands in third-party API subscriptions, engineered in <strong class="text-white font-semibold">Python 3.12, FastAPI, Asyncio &amp; Docker</strong>.
+              Checks whether customer email addresses actually exist before you hit send—stopping bounced emails, protecting your company domain from spam blacklists, and saving thousands in third-party API subscriptions, engineered in <strong class="text-theme-primary font-semibold">Python 3.12, FastAPI, Asyncio &amp; Docker</strong>.
             </>
           ) : isCameraman ? (
             <>
-              Connects directly to CCTV security cameras to instantly read Bangladeshi vehicle license plates in Bengali script, verify worker safety gear (helmets, vests), and alert facility managers in real time, built in pure <strong class="text-white font-semibold">Rust 2021, Axum 0.7 &amp; PostgreSQL</strong>.
+              Connects directly to CCTV security cameras to instantly read Bangladeshi vehicle license plates in Bengali script, verify worker safety gear (helmets, vests), and alert facility managers in real time, built in pure <strong class="text-theme-primary font-semibold">Rust 2021, Axum 0.7 &amp; PostgreSQL</strong>.
             </>
           ) : isClassroom ? (
             <>
-              A crystal-clear online lecture and virtual classroom platform that keeps audio and video smooth even on weak mobile data connections, giving teachers instant one-click control to mute rooms and manage hundreds of students, built in <strong class="text-white font-semibold">Java 21, Spring Boot 3.4 &amp; LiveKit WebRTC</strong>.
+              A crystal-clear online lecture and virtual classroom platform that keeps audio and video smooth even on weak mobile data connections, giving teachers instant one-click control to mute rooms and manage hundreds of students, built in <strong class="text-theme-primary font-semibold">Java 21, Spring Boot 3.4 &amp; LiveKit WebRTC</strong>.
             </>
           ) : isSelfMt ? (
             <>
-              An offline-first personal budgeting app that divides your income into digital cash envelopes so you never overspend, calculates loan payoffs automatically, and creates bank-ready PDF financial statements right from your phone, built in <strong class="text-white font-semibold">Flutter 3.29 &amp; Dart BLoC</strong>.
+              An offline-first personal budgeting app that divides your income into digital cash envelopes so you never overspend, calculates loan payoffs automatically, and creates bank-ready PDF financial statements right from your phone, built in <strong class="text-theme-primary font-semibold">Flutter 3.29 &amp; Dart BLoC</strong>.
             </>
           ) : (
             <>
-              Turn blurry, low-resolution photos into <strong class="text-white font-semibold">crystal-clear HD and 4K visuals</strong> in milliseconds. 
-              Enjoy <strong class="text-emerald-300 font-semibold">100% offline privacy</strong>: your personal photos never leave your computer, with zero monthly cloud subscriptions.
+              Turn blurry, low-resolution photos into <strong class="text-theme-primary font-semibold">crystal-clear HD and 4K visuals</strong> in milliseconds. 
+              Enjoy <strong class="text-emerald-700 dark:text-emerald-400 font-semibold">100% offline privacy</strong>: your personal photos never leave your computer, with zero monthly cloud subscriptions.
             </>
           )}
         </p>
@@ -745,7 +743,14 @@ const readingMinutes = Math.max(2, Math.ceil(specWords / 200));
     </section>
 
     <!-- Interactive Viewport -->
-    <section class="space-y-4">
+    <section class="space-y-4" aria-labelledby="interactive-simulator-heading">
+      <div class="flex items-center justify-between border-b border-theme-border pb-2 mb-2">
+        <h2 id="interactive-simulator-heading" class="text-sm font-mono font-bold text-theme-primary uppercase tracking-wider flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-theme-accent animate-pulse"></span>
+          Interactive System Telemetry &amp; Live Simulator
+        </h2>
+        <span class="font-mono text-[10px] text-theme-muted uppercase">REALTIME INTERACTIVE STAGE</span>
+      </div>
       {isPms ? (
         <ParkingGateSimulator />
       ) : isHrms ? (
@@ -8069,4 +8074,6 @@ window.<span class="text-cyan-300">fetch</span> = <span class="text-rose-400">as
       }
     }
   </style>
+
+  <ArchitectureModal />
 </Layout>
