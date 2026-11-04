@@ -23,7 +23,7 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
 ---
 
 <!doctype html>
-<html lang="en" class={`scroll-smooth ${isInitialDark ? 'dark' : ''}`} data-theme={envDefaultTheme}>
+<html lang="en" class={`scroll-smooth overflow-x-clip ${isInitialDark ? 'dark' : ''}`} data-theme={envDefaultTheme}>
   <head>
     <meta charset="UTF-8" />
     <!-- Preload Self-Hosted Critical Fonts (Eliminates Font-Swap Reflow & Zero External Chains) -->
@@ -72,7 +72,7 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
     </script>
     <slot name="head" />
   </head>
-  <body class="bg-theme-base text-theme-secondary font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-theme-accent selection:text-white">
+  <body class="bg-theme-base text-theme-secondary font-sans antialiased min-h-screen relative overflow-x-clip selection:bg-theme-accent selection:text-white">
     <!-- Accessible Skip to Content Link -->
     <a
       href="#main-content"
@@ -91,7 +91,7 @@ const isInitialDark = envDefaultTheme === 'obsidian' || envDefaultTheme === 'amb
     </div>
 
     <!-- Main App Container -->
-    <div class="relative z-10 flex flex-col min-h-screen">
+    <div class="relative z-10 flex flex-col min-h-screen w-full max-w-full overflow-x-clip min-w-0">
       <slot />
     </div>
 
