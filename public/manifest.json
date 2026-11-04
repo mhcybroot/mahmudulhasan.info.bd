@@ -6,7 +6,7 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#F8F9FF",
-  "theme_color": "#FD761A",
+  "theme_color": "#BA3C00",
   "orientation": "portrait-primary",
   "categories": [
     "portfolio",
