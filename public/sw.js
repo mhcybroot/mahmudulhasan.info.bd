@@ -15,6 +15,7 @@ const PRECACHE_ASSETS = [
   '/mhcybroot-key.asc',
   '/.well-known/security.txt',
   '/.well-known/ai-catalog.json',
+  '/.well-known/ard.json',
   '/llms.txt',
 ];
 

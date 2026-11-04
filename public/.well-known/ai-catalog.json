@@ -8,7 +8,7 @@
     {
       "identifier": "urn:air:mahmudulhasan.info.bd:doc:portfolio",
       "displayName": "Mahmudul Hasan Systems Dossier",
-      "type": "text/markdown",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
       "url": "https://mahmudulhasan.info.bd/llms.txt",
       "description": "Structured engineering portfolio and systems architecture summary for Mahmudul Hasan (@mhcybroot).",
       "representativeQueries": [
@@ -20,7 +20,7 @@
     {
       "identifier": "urn:air:mahmudulhasan.info.bd:doc:full-context",
       "displayName": "Full LLM Engineering Context",
-      "type": "text/markdown",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
       "url": "https://mahmudulhasan.info.bd/llms-full.txt",
       "description": "Complete uncompressed textual specification, career chronicle, and technical architecture.",
       "representativeQueries": [

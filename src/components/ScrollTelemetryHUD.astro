@@ -76,8 +76,16 @@
     ticking = false;
   }
 
-  // Initialize altitude and visibility state immediately on mount
-  updateScroll();
+  // Initialize altitude and visibility state deferred after load to eliminate forced layout reflow
+  if (typeof window !== 'undefined') {
+    if (document.readyState === 'complete') {
+      window.requestAnimationFrame(updateScroll);
+    } else {
+      window.addEventListener('load', () => {
+        window.requestAnimationFrame(updateScroll);
+      }, { once: true });
+    }
+  }
 
   window.addEventListener('scroll', () => {
     if (!ticking) {
